@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQNavigationViewController.h"
 #import "StartViewController.h"
 #import "UserViewController.h"
 #import "MoreViewController.h"
@@ -31,12 +32,16 @@
     return self;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addViewControllers:@[
-                               [[StartViewController alloc] init],
-                               [[UserViewController alloc] init],
-                               [[MoreViewController alloc] init]
+                               [[ZQNavigationViewController alloc] initWithRootViewController:[[StartViewController alloc] init]],
+                               [[ZQNavigationViewController alloc] initWithRootViewController:[[UserViewController alloc] init]],
+                               [[ZQNavigationViewController alloc] initWithRootViewController:[[MoreViewController alloc] init]]
                                ]];
     return ;
 }
