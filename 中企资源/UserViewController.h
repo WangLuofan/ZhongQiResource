@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UserViewController.h
 //  中企资源
 //
 //  Created by 王落凡 on 15/5/26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface UserViewController : UIViewController
 
 @end
-
