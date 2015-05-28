@@ -10,6 +10,9 @@
 #import "ZQCollectionContentView.h"
 #import "StartViewController.h"
 #import "ZQRecommendTableViewCell.h"
+#import "ZQServiceAgencyViewController.h"
+#import "ZQEnterpriseResourceViewController.h"
+#import "ZQNavigationViewController.h"
 
 #define kTopScrollViewHeight 180
 #define kFunctionModuleHeight 200
@@ -227,6 +230,29 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.row) {
+        case 0:
+        {
+            ZQNavigationViewController* navController = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQEnterpriseResourceViewController alloc] init]];
+            [self presentViewController:navController animated:YES completion:^{
+                return ;
+            }];
+        }
+            break;
+        case 3:
+        {
+            ZQNavigationViewController* navController = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQServiceAgencyViewController alloc] init]];
+            [self presentViewController:navController animated:YES completion:^{
+                return ;
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return ;
 }
 
 //返回这个UICollectionView是否可以被选择

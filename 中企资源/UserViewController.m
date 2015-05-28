@@ -13,6 +13,8 @@
 
 #define kBgImageHeight 150
 #define kCollectionViewItemCount 3
+#define kCollectionViewHeight 240
+#define kCollectionViewGapWithImage 30
 #define kCollectionCellMargin 5
 #define kLoginCompleteViewGap 10
 
@@ -48,7 +50,7 @@
 #pragma mark -模块集合视图
 -(void)initContentCollection {
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    _contentCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _contentImageView.frame.origin.y + _contentImageView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - _contentImageView.frame.origin.y - _contentImageView.bounds.size.height - self.navigationController.tabBarController.tabBar.frame.size.height - ((ZQTabBarViewController*)self.tabBarViewController).tabBarView.frame.size.height) collectionViewLayout:flowLayout];
+    _contentCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _contentImageView.frame.origin.y + _contentImageView.bounds.size.height + kCollectionViewGapWithImage, self.view.bounds.size.width, kCollectionViewHeight) collectionViewLayout:flowLayout];
     [_contentCollectionView setBackgroundColor:[UIColor whiteColor]];
     [_contentCollectionView setDelegate:self];
     [_contentCollectionView setDataSource:self];
@@ -152,7 +154,7 @@
 #pragma mark - 集合视图布局代理
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 6*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 6*kCollectionCellMargin);
+    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 2*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 2*kCollectionCellMargin);
 }
 
 - (void)didReceiveMemoryWarning {

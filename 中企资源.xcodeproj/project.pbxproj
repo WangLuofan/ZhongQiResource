@@ -11,6 +11,9 @@
 		B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B34105581B16E70500C3A079 /* YuppySC-Regular.otf */; };
 		B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */; };
 		B34105611B16F97300C3A079 /* LoginCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105601B16F97300C3A079 /* LoginCompleteView.m */; };
+		B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105661B171CD500C3A079 /* ZQServiceAgencyViewController.m */; };
+		B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341056C1B17206100C3A079 /* ZQEnterpriseResourceViewController.m */; };
+		B34105711B17208F00C3A079 /* ZQBaseExitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105701B17208F00C3A079 /* ZQBaseExitViewController.m */; };
 		B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */; };
 		B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B34165931B15A39700F9A8ED /* ZQPageControl.m */; };
 		B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */; };
@@ -45,6 +48,12 @@
 		B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
 		B341055F1B16F97300C3A079 /* LoginCompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCompleteView.h; sourceTree = "<group>"; };
 		B34105601B16F97300C3A079 /* LoginCompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCompleteView.m; sourceTree = "<group>"; };
+		B34105651B171CD500C3A079 /* ZQServiceAgencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQServiceAgencyViewController.h; sourceTree = "<group>"; };
+		B34105661B171CD500C3A079 /* ZQServiceAgencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQServiceAgencyViewController.m; sourceTree = "<group>"; };
+		B341056B1B17206100C3A079 /* ZQEnterpriseResourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseResourceViewController.h; sourceTree = "<group>"; };
+		B341056C1B17206100C3A079 /* ZQEnterpriseResourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseResourceViewController.m; sourceTree = "<group>"; };
+		B341056F1B17208F00C3A079 /* ZQBaseExitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseExitViewController.h; sourceTree = "<group>"; };
+		B34105701B17208F00C3A079 /* ZQBaseExitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseExitViewController.m; sourceTree = "<group>"; };
 		B341658E1B15971400F9A8ED /* ZQNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNavigationViewController.h; sourceTree = "<group>"; };
 		B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNavigationViewController.m; sourceTree = "<group>"; };
 		B34165921B15A39700F9A8ED /* ZQPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPageControl.h; sourceTree = "<group>"; };
@@ -120,6 +129,65 @@
 				B34105601B16F97300C3A079 /* LoginCompleteView.m */,
 			);
 			name = "登陆完成面板";
+			sourceTree = "<group>";
+		};
+		B34105621B171C9800C3A079 /* 服务机构 */ = {
+			isa = PBXGroup;
+			children = (
+				B34105641B171CA800C3A079 /* Controllers */,
+				B34105631B171CA400C3A079 /* Views */,
+			);
+			name = "服务机构";
+			sourceTree = "<group>";
+		};
+		B34105631B171CA400C3A079 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B34105641B171CA800C3A079 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B34105651B171CD500C3A079 /* ZQServiceAgencyViewController.h */,
+				B34105661B171CD500C3A079 /* ZQServiceAgencyViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B34105681B17202400C3A079 /* 企业资源 */ = {
+			isa = PBXGroup;
+			children = (
+				B341056A1B17203300C3A079 /* Views */,
+				B34105691B17202B00C3A079 /* Controllers */,
+			);
+			name = "企业资源";
+			sourceTree = "<group>";
+		};
+		B34105691B17202B00C3A079 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B341056B1B17206100C3A079 /* ZQEnterpriseResourceViewController.h */,
+				B341056C1B17206100C3A079 /* ZQEnterpriseResourceViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B341056A1B17203300C3A079 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B341056E1B17207C00C3A079 /* 基本返回界面 */ = {
+			isa = PBXGroup;
+			children = (
+				B341056F1B17208F00C3A079 /* ZQBaseExitViewController.h */,
+				B34105701B17208F00C3A079 /* ZQBaseExitViewController.m */,
+			);
+			name = "基本返回界面";
 			sourceTree = "<group>";
 		};
 		B341658B1B15969400F9A8ED /* 公共文件 */ = {
@@ -247,6 +315,9 @@
 		B380DCDC1B146CDF003B0D53 /* 界面相关 */ = {
 			isa = PBXGroup;
 			children = (
+				B341056E1B17207C00C3A079 /* 基本返回界面 */,
+				B34105681B17202400C3A079 /* 企业资源 */,
+				B34105621B171C9800C3A079 /* 服务机构 */,
 				B380DCDD1B146CEB003B0D53 /* 主界面 */,
 			);
 			name = "界面相关";
@@ -421,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34105711B17208F00C3A079 /* ZQBaseExitViewController.m in Sources */,
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
 				B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */,
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
@@ -432,7 +504,9 @@
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
+				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
+				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
 				B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */,
 				B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */,

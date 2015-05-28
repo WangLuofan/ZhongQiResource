@@ -8,7 +8,7 @@
 
 #import "ZQCollectionContentView.h"
 
-#define kTitleLabelRatio 0.3
+#define kTitleLabelRatio 0.2
 @implementation ZQCollectionContentView
 
 -(instancetype)initWithFrame:(CGRect)frame {
