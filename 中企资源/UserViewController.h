@@ -6,8 +6,9 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface UserViewController : UIViewController
+@interface UserViewController : ZQBaseViewController
 
 @end

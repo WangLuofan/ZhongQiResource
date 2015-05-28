@@ -21,6 +21,7 @@
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height*(1-kTitleLabelRatio), self.frame.size.width, self.frame.size.height*kTitleLabelRatio)];
         [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [self addSubview:self.titleLabel];
     }
     

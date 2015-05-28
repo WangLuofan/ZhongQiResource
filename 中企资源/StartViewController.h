@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface StartViewController : UIViewController
+@interface StartViewController : ZQBaseViewController
 
 -(void)addNavigationImageWithName:(NSArray*)imageNameArray;
 

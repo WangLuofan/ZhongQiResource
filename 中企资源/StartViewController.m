@@ -76,7 +76,7 @@
     [_collectionView setBackgroundColor:[UIColor whiteColor]];
     [_collectionView setDataSource:self];
     [_collectionView setDelegate:self];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ZQCollectionViewCellIdentifier"];
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ZQCollectionViewIndexCellIdentifier"];
     [_contentScrollView addSubview:_collectionView];
     
     return ;
@@ -147,7 +147,6 @@
     [_contentScrollView addSubview:bottomView];
     
     _imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopScrollViewHeight)];
-    [_imageScrollView setBackgroundColor:[UIColor blackColor]];
     [_imageScrollView setPagingEnabled:YES];    //设置分页
     [_imageScrollView setShowsHorizontalScrollIndicator:NO];    //设置不显示水平滚动条
     [_imageScrollView setShowsVerticalScrollIndicator:NO];      //设置不显示垂直滚动条
@@ -206,7 +205,7 @@
 
 #pragma mark - 集合视图代理方法
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZQCollectionViewCellIdentifier" forIndexPath:indexPath];
+    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZQCollectionViewIndexCellIdentifier" forIndexPath:indexPath];
     ZQCollectionContentView* view = [[ZQCollectionContentView alloc] initWithFrame:cell.bounds];
     [view.imageView setImage:[UIImage imageNamed:collectionViewContentArray[indexPath.row][1]]];
     [view.titleLabel setText:collectionViewContentArray[indexPath.row][0]];

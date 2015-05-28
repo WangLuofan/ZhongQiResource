@@ -38,9 +38,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addViewControllers:@[
-                               [[ZQNavigationViewController alloc] initWithRootViewController:[[StartViewController alloc] init]],
-                               [[ZQNavigationViewController alloc] initWithRootViewController:[[UserViewController alloc] init]],
-                               [[ZQNavigationViewController alloc] initWithRootViewController:[[MoreViewController alloc] init]]
+                               [[ZQNavigationViewController alloc] initWithRootViewController:[[StartViewController alloc] initWithTabBarController:self]],
+                               [[UserViewController alloc] initWithTabBarController:self],
+                               [[ZQNavigationViewController alloc] initWithRootViewController:[[MoreViewController alloc] initWithTabBarController:self]]
                                ]];
     return ;
 }

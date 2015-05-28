@@ -71,7 +71,7 @@
         [oldVC.view removeFromSuperview];
     }
     
-    ZQNavigationViewController* newVC = (ZQNavigationViewController*)subViewControllers[sender.tag];
+    UIViewController* newVC = (UIViewController*)subViewControllers[sender.tag];
     [newVC.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarView.bounds.size.height)];
     [self.view addSubview:newVC.view];
     

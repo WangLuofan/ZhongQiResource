@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */; };
+		B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B34105581B16E70500C3A079 /* YuppySC-Regular.otf */; };
+		B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */; };
 		B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */; };
 		B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B34165931B15A39700F9A8ED /* ZQPageControl.m */; };
 		B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */; };
@@ -37,6 +39,9 @@
 /* Begin PBXFileReference section */
 		B34105501B16A32900C3A079 /* ZQRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQRecommendTableViewCell.h; sourceTree = "<group>"; };
 		B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQRecommendTableViewCell.m; sourceTree = "<group>"; };
+		B34105581B16E70500C3A079 /* YuppySC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YuppySC-Regular.otf"; sourceTree = "<group>"; };
+		B341055B1B16F35D00C3A079 /* ZQBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseViewController.h; sourceTree = "<group>"; };
+		B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
 		B341658E1B15971400F9A8ED /* ZQNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNavigationViewController.h; sourceTree = "<group>"; };
 		B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNavigationViewController.m; sourceTree = "<group>"; };
 		B34165921B15A39700F9A8ED /* ZQPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPageControl.h; sourceTree = "<group>"; };
@@ -94,6 +99,15 @@
 				B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */,
 			);
 			name = "智能推荐表项";
+			sourceTree = "<group>";
+		};
+		B341055A1B16F33800C3A079 /* 基本控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				B341055B1B16F35D00C3A079 /* ZQBaseViewController.h */,
+				B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */,
+			);
+			name = "基本控制器";
 			sourceTree = "<group>";
 		};
 		B341658B1B15969400F9A8ED /* 公共文件 */ = {
@@ -184,6 +198,7 @@
 		B380DCB51B146C97003B0D53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B34105581B16E70500C3A079 /* YuppySC-Regular.otf */,
 				B380DCED1B146E4C003B0D53 /* 中企资源-prefix.pch */,
 				B380DCB61B146C97003B0D53 /* Info.plist */,
 				B380DCB71B146C97003B0D53 /* main.m */,
@@ -247,6 +262,7 @@
 		B380DCDF1B146D55003B0D53 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B341055A1B16F33800C3A079 /* 基本控制器 */,
 				B3D1E7151B14759B005C14D9 /* 更多 */,
 				B3D1E7141B147594005C14D9 /* 用户中心 */,
 				B3D1E7131B147578005C14D9 /* 首页 */,
@@ -374,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */,
+				B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +416,7 @@
 				B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */,
 				B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
+				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
