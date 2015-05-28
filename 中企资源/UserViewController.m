@@ -9,15 +9,20 @@
 #import "UserViewController.h"
 #import "ZQTabBarViewController.h"
 #import "ZQCollectionContentView.h"
+#import "LoginCompleteView.h"
 
 #define kBgImageHeight 150
 #define kCollectionViewItemCount 3
 #define kCollectionCellMargin 5
+#define kLoginCompleteViewGap 10
 
 @interface UserViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     UIImageView* _contentImageView;
     UICollectionView* _contentCollectionView;
     NSArray* collectionViewContentArray;
+    LoginCompleteView* loginCompleteView;
+    UILabel* welcomeLabel;
+    UIButton* loginButton;
 }
 
 @end
@@ -60,19 +65,30 @@
     [_contentImageView setUserInteractionEnabled:YES];
     [self.view addSubview:_contentImageView];
     
-    UILabel* welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _contentImageView.bounds.size.height / 4, _contentImageView.bounds.size.width, 30)];
+    welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _contentImageView.bounds.size.height / 4, _contentImageView.bounds.size.width, 30)];
     [welcomeLabel setTextAlignment:NSTextAlignmentCenter];
     [welcomeLabel setTextColor:[UIColor whiteColor]];
     [welcomeLabel setFont:[UIFont fontWithName:@"YuppySC-Regular" size:20.0f]];
     [welcomeLabel setText:@"欢迎来到中企资源"];
     [_contentImageView addSubview:welcomeLabel];
     
-    UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginButton setImage:[UIImage imageNamed:@"dianjidenglu"] forState:UIControlStateNormal];
     [loginButton setFrame:CGRectMake(0, _contentImageView.bounds.size.height / 2, loginButton.imageView.image.size.width / 2, loginButton.imageView.image.size.height / 2)];
+    [loginButton addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [loginButton setCenter:CGPointMake(_contentImageView.center.x, loginButton.center.y)];
     [_contentImageView addSubview:loginButton];
     
+    loginCompleteView = [[LoginCompleteView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, _contentImageView.frame.size.height - 2*kLoginCompleteViewGap)];
+    [loginCompleteView setCenter:CGPointMake(loginCompleteView.center.x, _contentImageView.center.y)];
+    [_contentImageView addSubview:loginCompleteView];
+    return ;
+}
+
+-(void)loginButtonPressed:(UIButton*)sender {
+    [welcomeLabel setHidden:YES];
+    [loginButton setHidden:YES];
+    [loginCompleteView showLoginCompleteViewWithImageName:@"touxiang" userName:@"帅帅" companyName:@"萍乡电子商务创业园圈"];
     return ;
 }
 
@@ -136,7 +152,7 @@
 #pragma mark - 集合视图布局代理
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 4*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 4*kCollectionCellMargin);
+    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 6*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 6*kCollectionCellMargin);
 }
 
 - (void)didReceiveMemoryWarning {
