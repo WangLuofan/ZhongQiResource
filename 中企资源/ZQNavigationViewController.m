@@ -43,6 +43,9 @@
 -(void) setNavigationBarAppearance {
     UINavigationBar* navigationBar=[UINavigationBar appearance];
     [navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_top_bg"] forBarMetrics:UIBarMetricsDefault];
+    [navigationBar setTitleTextAttributes:@{
+                                            NSForegroundColorAttributeName:[UIColor whiteColor]
+                                            }];
     return ;
 }
 

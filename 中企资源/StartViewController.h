@@ -10,4 +10,6 @@
 
 @interface StartViewController : UIViewController
 
+-(void)addNavigationImageWithName:(NSArray*)imageNameArray;
+
 @end
