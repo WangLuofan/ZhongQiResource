@@ -8,6 +8,7 @@
 
 #import "ZQTabBarItem.h"
 #import "ZQTabBarViewController.h"
+#import "ZQNavigationViewController.h"
 
 @interface ZQTabBarViewController () {
     NSArray* subViewControllers;
@@ -70,7 +71,7 @@
         [oldVC.view removeFromSuperview];
     }
     
-    UIViewController* newVC = (UIViewController*)subViewControllers[sender.tag];
+    ZQNavigationViewController* newVC = (ZQNavigationViewController*)subViewControllers[sender.tag];
     [newVC.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarView.bounds.size.height)];
     [self.view addSubview:newVC.view];
     

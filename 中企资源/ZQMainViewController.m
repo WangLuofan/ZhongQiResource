@@ -20,7 +20,6 @@
 
 -(instancetype)init {
     self = [super init];
-    
     if(self) {
         [self addItemsWithTitle:@[@"首页",@"用户中心",@"更多"] images:@[
                                                                 [UIImage imageNamed:@"shouy"],

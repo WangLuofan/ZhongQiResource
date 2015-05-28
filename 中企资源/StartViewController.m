@@ -17,7 +17,7 @@
 #define kCollectionViewItemCount 3
 #define kCollectionCellMargin 5
 #define kTableViewCellHeight 70
-#define kRecommendTableViewHeigh kTableViewCellHeight * 3 + kLoginButtonHeight
+#define kRecommendTableViewHeight kTableViewCellHeight * 3 + kLoginButtonHeight
 
 @interface StartViewController ()<UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate> {
     UIScrollView* _contentScrollView;
@@ -36,7 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"中企资源管理平台"];
-    _contentScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    
+    _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.navigationController.view.frame.size.height)];
     [_contentScrollView setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
     [_contentScrollView setShowsHorizontalScrollIndicator:NO];
     [_contentScrollView setShowsVerticalScrollIndicator:NO];
@@ -62,7 +63,7 @@
     [self initFunctionModule];
     [self initRecommendModule];
     
-    [_contentScrollView setContentSize:CGSizeMake(_contentScrollView.bounds.size.width, _contentScrollView.frame.size.height + kRecommendTableViewHeigh )];
+    [_contentScrollView setContentSize:CGSizeMake(_contentScrollView.bounds.size.width, _recommendTableView.frame.origin.y + kRecommendTableViewHeight + self.navigationController.navigationBar.bounds.size.height + [UIApplication sharedApplication].statusBarFrame.size.height)];
 }
 
 #pragma mark - 添加功能模块
@@ -83,7 +84,7 @@
 
 #pragma mark - 添加智能推荐列表
 -(void)initRecommendModule {
-    _recommendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _collectionView.frame.origin.y + _collectionView.frame.size.height, self.view.bounds.size.width, kRecommendTableViewHeigh) style:UITableViewStylePlain];
+    _recommendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _collectionView.frame.origin.y + _collectionView.frame.size.height, self.view.bounds.size.width, kRecommendTableViewHeight) style:UITableViewStylePlain];
     [_recommendTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 //    [_recommendTableView setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
     [_recommendTableView setBackgroundColor:[UIColor clearColor]];
