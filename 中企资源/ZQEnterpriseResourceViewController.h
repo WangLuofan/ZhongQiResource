@@ -11,4 +11,6 @@
 
 @interface ZQEnterpriseResourceViewController : ZQBaseExitViewController
 
+@property(nonatomic,strong) UITableView* tableView;
+
 @end

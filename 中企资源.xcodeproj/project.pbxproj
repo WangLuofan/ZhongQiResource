@@ -37,6 +37,8 @@
 		B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */; };
 		B3CC25781B1807A9008693E5 /* ZQVersionUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25771B1807A9008693E5 /* ZQVersionUpdateViewController.m */; };
 		B3CC25801B183C43008693E5 /* ZQToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC257F1B183C43008693E5 /* ZQToolBar.m */; };
+		B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC258A1B185B12008693E5 /* ZQEnterpriseTableViewCell.m */; };
+		B3CC258E1B185DB7008693E5 /* ZQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC258D1B185DB7008693E5 /* ZQCheckBox.m */; };
 		B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7171B1475AD005C14D9 /* StartViewController.m */; };
 		B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71A1B14761C005C14D9 /* UserViewController.m */; };
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
@@ -118,6 +120,10 @@
 		B3CC25771B1807A9008693E5 /* ZQVersionUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVersionUpdateViewController.m; sourceTree = "<group>"; };
 		B3CC257E1B183C43008693E5 /* ZQToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBar.h; sourceTree = "<group>"; };
 		B3CC257F1B183C43008693E5 /* ZQToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolBar.m; sourceTree = "<group>"; };
+		B3CC25891B185B12008693E5 /* ZQEnterpriseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseTableViewCell.h; sourceTree = "<group>"; };
+		B3CC258A1B185B12008693E5 /* ZQEnterpriseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseTableViewCell.m; sourceTree = "<group>"; };
+		B3CC258C1B185DB7008693E5 /* ZQCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCheckBox.h; sourceTree = "<group>"; };
+		B3CC258D1B185DB7008693E5 /* ZQCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCheckBox.m; sourceTree = "<group>"; };
 		B3D1E7161B1475AD005C14D9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		B3D1E7171B1475AD005C14D9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		B3D1E7191B14761C005C14D9 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3CC25891B185B12008693E5 /* ZQEnterpriseTableViewCell.h */,
+				B3CC258A1B185B12008693E5 /* ZQEnterpriseTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,6 +249,7 @@
 		B341658B1B15969400F9A8ED /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				B3CC25851B185511008693E5 /* 复选框按钮 */,
 				B3CC257D1B183B92008693E5 /* 顶部工具栏 */,
 				B34165911B15A36900F9A8ED /* 分页控件 */,
 				B341658D1B1596CF00F9A8ED /* 导航栏 */,
@@ -827,6 +836,15 @@
 			name = "顶部工具栏";
 			sourceTree = "<group>";
 		};
+		B3CC25851B185511008693E5 /* 复选框按钮 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC258C1B185DB7008693E5 /* ZQCheckBox.h */,
+				B3CC258D1B185DB7008693E5 /* ZQCheckBox.m */,
+			);
+			name = "复选框按钮";
+			sourceTree = "<group>";
+		};
 		B3D1E7121B14756E005C14D9 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,10 +991,12 @@
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
 				B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */,
 				B34105611B16F97300C3A079 /* LoginCompleteView.m in Sources */,
+				B3CC258E1B185DB7008693E5 /* ZQCheckBox.m in Sources */,
 				B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */,
 				B3CC254F1B17FDDB008693E5 /* ZQMyDistributionViewController.m in Sources */,
 				B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */,
 				B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */,
+				B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
 				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
