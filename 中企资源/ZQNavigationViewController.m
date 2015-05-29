@@ -46,6 +46,8 @@
     [navigationBar setTitleTextAttributes:@{
                                             NSForegroundColorAttributeName:[UIColor whiteColor]
                                             }];
+    UIBarButtonItem* barButtonItem = [UIBarButtonItem appearance];
+    [barButtonItem setTintColor:[UIColor whiteColor]];
     return ;
 }
 

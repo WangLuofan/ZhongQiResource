@@ -31,6 +31,12 @@
 		B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25511B17FDE9008693E5 /* ZQMyNotificationViewController.m */; };
 		B3CC25551B17FDFB008693E5 /* ZQResourceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25541B17FDFB008693E5 /* ZQResourceInfoViewController.m */; };
 		B3CC25581B17FE07008693E5 /* ZQPlatformGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25571B17FE07008693E5 /* ZQPlatformGuideViewController.m */; };
+		B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25681B18069D008693E5 /* ZQUserFeedbackViewController.m */; };
+		B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC256B1B1806AA008693E5 /* ZQAboutViewController.m */; };
+		B3CC256F1B1806D8008693E5 /* ZQDistrictAwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC256E1B1806D8008693E5 /* ZQDistrictAwardViewController.m */; };
+		B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */; };
+		B3CC25781B1807A9008693E5 /* ZQVersionUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25771B1807A9008693E5 /* ZQVersionUpdateViewController.m */; };
+		B3CC25801B183C43008693E5 /* ZQToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC257F1B183C43008693E5 /* ZQToolBar.m */; };
 		B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7171B1475AD005C14D9 /* StartViewController.m */; };
 		B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71A1B14761C005C14D9 /* UserViewController.m */; };
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
@@ -100,6 +106,18 @@
 		B3CC25541B17FDFB008693E5 /* ZQResourceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQResourceInfoViewController.m; sourceTree = "<group>"; };
 		B3CC25561B17FE07008693E5 /* ZQPlatformGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlatformGuideViewController.h; sourceTree = "<group>"; };
 		B3CC25571B17FE07008693E5 /* ZQPlatformGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlatformGuideViewController.m; sourceTree = "<group>"; };
+		B3CC25671B18069D008693E5 /* ZQUserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQUserFeedbackViewController.h; sourceTree = "<group>"; };
+		B3CC25681B18069D008693E5 /* ZQUserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQUserFeedbackViewController.m; sourceTree = "<group>"; };
+		B3CC256A1B1806AA008693E5 /* ZQAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAboutViewController.h; sourceTree = "<group>"; };
+		B3CC256B1B1806AA008693E5 /* ZQAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAboutViewController.m; sourceTree = "<group>"; };
+		B3CC256D1B1806D8008693E5 /* ZQDistrictAwardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQDistrictAwardViewController.h; sourceTree = "<group>"; };
+		B3CC256E1B1806D8008693E5 /* ZQDistrictAwardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQDistrictAwardViewController.m; sourceTree = "<group>"; };
+		B3CC25711B1806E9008693E5 /* ZQPlatformNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlatformNotificationViewController.h; sourceTree = "<group>"; };
+		B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlatformNotificationViewController.m; sourceTree = "<group>"; };
+		B3CC25761B1807A9008693E5 /* ZQVersionUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQVersionUpdateViewController.h; sourceTree = "<group>"; };
+		B3CC25771B1807A9008693E5 /* ZQVersionUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVersionUpdateViewController.m; sourceTree = "<group>"; };
+		B3CC257E1B183C43008693E5 /* ZQToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBar.h; sourceTree = "<group>"; };
+		B3CC257F1B183C43008693E5 /* ZQToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolBar.m; sourceTree = "<group>"; };
 		B3D1E7161B1475AD005C14D9 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		B3D1E7171B1475AD005C14D9 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		B3D1E7191B14761C005C14D9 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
@@ -220,14 +238,15 @@
 			name = "基本返回界面";
 			sourceTree = "<group>";
 		};
-		B341658B1B15969400F9A8ED /* 公共文件 */ = {
+		B341658B1B15969400F9A8ED /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				B3CC257D1B183B92008693E5 /* 顶部工具栏 */,
 				B34165911B15A36900F9A8ED /* 分页控件 */,
 				B341658D1B1596CF00F9A8ED /* 导航栏 */,
 				B341658C1B1596AC00F9A8ED /* 相关算法 */,
 			);
-			name = "公共文件";
+			name = "公共";
 			sourceTree = "<group>";
 		};
 		B341658C1B1596AC00F9A8ED /* 相关算法 */ = {
@@ -296,7 +315,7 @@
 		B380DCB41B146C97003B0D53 /* 中企资源 */ = {
 			isa = PBXGroup;
 			children = (
-				B341658B1B15969400F9A8ED /* 公共文件 */,
+				B341658B1B15969400F9A8ED /* 公共 */,
 				B380DCDC1B146CDF003B0D53 /* 界面相关 */,
 				B380DCDB1B146CAB003B0D53 /* App代理 */,
 				B380DCC21B146C97003B0D53 /* Images.xcassets */,
@@ -345,6 +364,7 @@
 		B380DCDC1B146CDF003B0D53 /* 界面相关 */ = {
 			isa = PBXGroup;
 			children = (
+				B3CC25591B18061E008693E5 /* 更多子页面 */,
 				B3CC25331B17FC8F008693E5 /* 用户中心子页面 */,
 				B3CC25321B17FC7C008693E5 /* 首页子页面 */,
 				B341056E1B17207C00C3A079 /* 基本返回界面 */,
@@ -661,6 +681,152 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		B3CC25591B18061E008693E5 /* 更多子页面 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC255E1B180652008693E5 /* 用户反馈 */,
+				B3CC255D1B180649008693E5 /* 关于中企资源 */,
+				B3CC255C1B180642008693E5 /* 版本更新 */,
+				B3CC255B1B180639008693E5 /* 申请商圈奖励 */,
+				B3CC255A1B18062F008693E5 /* 平台通告 */,
+			);
+			name = "更多子页面";
+			sourceTree = "<group>";
+		};
+		B3CC255A1B18062F008693E5 /* 平台通告 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25601B180663008693E5 /* Controllers */,
+				B3CC255F1B18065F008693E5 /* Views */,
+			);
+			name = "平台通告";
+			sourceTree = "<group>";
+		};
+		B3CC255B1B180639008693E5 /* 申请商圈奖励 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25621B18066B008693E5 /* Controllers */,
+				B3CC25611B180667008693E5 /* Views */,
+			);
+			name = "申请商圈奖励";
+			sourceTree = "<group>";
+		};
+		B3CC255C1B180642008693E5 /* 版本更新 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25751B180785008693E5 /* Controllers */,
+				B3CC25741B180780008693E5 /* Views */,
+			);
+			name = "版本更新";
+			sourceTree = "<group>";
+		};
+		B3CC255D1B180649008693E5 /* 关于中企资源 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25641B180674008693E5 /* Controllers */,
+				B3CC25631B180670008693E5 /* Views */,
+			);
+			name = "关于中企资源";
+			sourceTree = "<group>";
+		};
+		B3CC255E1B180652008693E5 /* 用户反馈 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25661B18067B008693E5 /* Controllers */,
+				B3CC25651B180677008693E5 /* Views */,
+			);
+			name = "用户反馈";
+			sourceTree = "<group>";
+		};
+		B3CC255F1B18065F008693E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3CC25601B180663008693E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25711B1806E9008693E5 /* ZQPlatformNotificationViewController.h */,
+				B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3CC25611B180667008693E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3CC25621B18066B008693E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC256D1B1806D8008693E5 /* ZQDistrictAwardViewController.h */,
+				B3CC256E1B1806D8008693E5 /* ZQDistrictAwardViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3CC25631B180670008693E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3CC25641B180674008693E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC256A1B1806AA008693E5 /* ZQAboutViewController.h */,
+				B3CC256B1B1806AA008693E5 /* ZQAboutViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3CC25651B180677008693E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3CC25661B18067B008693E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25671B18069D008693E5 /* ZQUserFeedbackViewController.h */,
+				B3CC25681B18069D008693E5 /* ZQUserFeedbackViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3CC25741B180780008693E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3CC25751B180785008693E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25761B1807A9008693E5 /* ZQVersionUpdateViewController.h */,
+				B3CC25771B1807A9008693E5 /* ZQVersionUpdateViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3CC257D1B183B92008693E5 /* 顶部工具栏 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC257E1B183C43008693E5 /* ZQToolBar.h */,
+				B3CC257F1B183C43008693E5 /* ZQToolBar.m */,
+			);
+			name = "顶部工具栏";
+			sourceTree = "<group>";
+		};
 		B3D1E7121B14756E005C14D9 /* 主页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +964,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3CC25801B183C43008693E5 /* ZQToolBar.m in Sources */,
 				B3CC25491B17FDAC008693E5 /* ZQMyChatViewController.m in Sources */,
 				B34105711B17208F00C3A079 /* ZQBaseExitViewController.m in Sources */,
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
@@ -811,7 +978,9 @@
 				B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */,
 				B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
+				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
+				B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
@@ -819,13 +988,16 @@
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
 				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B3CC25311B17F5A4008693E5 /* ZQExpertPulpitViewController.m in Sources */,
+				B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
 				B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */,
 				B3CC25581B17FE07008693E5 /* ZQPlatformGuideViewController.m in Sources */,
 				B3CC252B1B17F53F008693E5 /* ZQSpecialSupportViewController.m in Sources */,
+				B3CC25781B1807A9008693E5 /* ZQVersionUpdateViewController.m in Sources */,
 				B3CC254C1B17FDB6008693E5 /* ZQMyAttentionViewController.m in Sources */,
 				B3CC25551B17FDFB008693E5 /* ZQResourceInfoViewController.m in Sources */,
 				B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */,
+				B3CC256F1B1806D8008693E5 /* ZQDistrictAwardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

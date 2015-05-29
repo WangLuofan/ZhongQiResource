@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQToolBar.h"
 #import "ZQSpecialSupportViewController.h"
 
+#define kFilterViewHeight 40
 @interface ZQSpecialSupportViewController ()
 
 @end
@@ -17,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"专项扶持"];
+    
+    ZQToolBar* filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
+    [self.view addSubview:filterView];
     
     return ;
 }

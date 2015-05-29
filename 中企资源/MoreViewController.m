@@ -10,6 +10,14 @@
 #import "MoreViewController.h"
 #import "ZQCollectionContentView.h"
 
+#import "ZQUserFeedbackViewController.h"
+#import "ZQAboutViewController.h"
+#import "ZQVersionUpdateViewController.h"
+#import "ZQDistrictAwardViewController.h"
+#import "ZQPlatformNotificationViewController.h"
+
+#import "ZQNavigationViewController.h"
+
 #define kCollectionViewItemCount 3
 #define kCollectionCellMargin 10
 #define kLoginCompleteViewGap 10
@@ -32,6 +40,15 @@
                                 @[@"关于中企资源",@"gyzqzy"],
                                 @[@"用户反馈",@"yhfg"],
                                 ]];
+}
+
+-(void)addAllChildViewControllers {
+    ZQNavigationViewController* nav1 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQPlatformNotificationViewController alloc] init]];
+    ZQNavigationViewController* nav2 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQDistrictAwardViewController alloc] init]];
+    ZQNavigationViewController* nav3 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQVersionUpdateViewController alloc] init]];
+    ZQNavigationViewController* nav4 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQAboutViewController alloc] init]];
+    ZQNavigationViewController* nav5 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQUserFeedbackViewController alloc] init]];
+    [self addChildViewControllersWithArray:@[nav1,nav2,nav3,nav4,nav5]];
 }
 
 - (void)didReceiveMemoryWarning {
