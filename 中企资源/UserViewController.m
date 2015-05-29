@@ -11,6 +11,15 @@
 #import "ZQCollectionContentView.h"
 #import "LoginCompleteView.h"
 
+#import "ZQPlatformGuideViewController.h"
+#import "ZQResourceInfoViewController.h"
+#import "ZQMyNotificationViewController.h"
+#import "ZQMyDistributionViewController.h"
+#import "ZQMyAttentionViewController.h"
+#import "ZQMyChatViewController.h"
+
+#import "ZQNavigationViewController.h"
+
 #define kBgImageHeight 150
 #define kCollectionViewItemCount 3
 #define kCollectionViewHeight 240
@@ -18,10 +27,9 @@
 #define kCollectionCellMargin 5
 #define kLoginCompleteViewGap 10
 
-@interface UserViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
+@interface UserViewController () {
     UIImageView* _contentImageView;
     UICollectionView* _contentCollectionView;
-    NSArray* collectionViewContentArray;
     LoginCompleteView* loginCompleteView;
     UILabel* welcomeLabel;
     UIButton* loginButton;
@@ -34,28 +42,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    collectionViewContentArray = @[
-                      @[@"ptrz",@"平台入驻引导"],
-                      @[@"fbzy",@"发布资源信息"],
-                      @[@"wdtz",@"我的通知"],
-                      @[@"wdfb",@"我的发布"],
-                      @[@"wdgz",@"我的关注"],
-                      @[@"wdlt",@"我的聊天"]
-                      ];
+    [self initCollectionContent:@[
+                      @[@"平台入驻引导",@"ptrz"],
+                      @[@"发布资源信息",@"fbzy"],
+                      @[@"我的通知",@"wdtz"],
+                      @[@"我的发布",@"wdfb"],
+                      @[@"我的关注",@"wdgz"],
+                      @[@"我的聊天",@"wdlt"]
+                      ]];
     
     [self initHeaderView];
-    [self initContentCollection];
+    [self initCollectionViewWithFrame:CGRectMake(0, _contentImageView.frame.origin.y + _contentImageView.bounds.size.height + kCollectionViewGapWithImage, self.view.bounds.size.width, kCollectionViewHeight) cellIdentifier:@"ZQCollectionViewUserCellIdentifier" superView:self.view];
 }
 
-#pragma mark -模块集合视图
--(void)initContentCollection {
-    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    _contentCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _contentImageView.frame.origin.y + _contentImageView.bounds.size.height + kCollectionViewGapWithImage, self.view.bounds.size.width, kCollectionViewHeight) collectionViewLayout:flowLayout];
-    [_contentCollectionView setBackgroundColor:[UIColor whiteColor]];
-    [_contentCollectionView setDelegate:self];
-    [_contentCollectionView setDataSource:self];
-    [_contentCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ZQCollectionViewUserCellIdentifier"];
-    [self.view addSubview:_contentCollectionView];
+-(void)addAllChildViewControllers {
+    
+    ZQNavigationViewController* nav1 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQPlatformGuideViewController alloc] init]];
+    ZQNavigationViewController* nav2 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQResourceInfoViewController alloc] init]];
+    ZQNavigationViewController* nav3 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyNotificationViewController alloc] init]];
+    ZQNavigationViewController* nav4 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyDistributionViewController alloc] init]];
+    ZQNavigationViewController* nav5 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyAttentionViewController alloc] init]];
+    ZQNavigationViewController* nav6 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyChatViewController alloc] init]];
+    
+    [self addChildViewControllersWithArray:@[nav1,nav2,nav3,nav4,nav5,nav6]];
+    
     return ;
 }
 
@@ -113,48 +123,6 @@
             NSLog(@"\tFont name:%@",[fontNames objectAtIndex:indFont]);
         }
     }
-}
-
-#pragma mark - 集合视图数据源方法
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return collectionViewContentArray.count;
-}
-
-#pragma mark - 集合视图代理方法
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZQCollectionViewUserCellIdentifier" forIndexPath:indexPath];
-    ZQCollectionContentView* view = [[ZQCollectionContentView alloc] initWithFrame:cell.bounds];
-    [view.imageView setImage:[UIImage imageNamed:collectionViewContentArray[indexPath.row][0]]];
-    [view.titleLabel setText:collectionViewContentArray[indexPath.row][1]];
-    [cell.contentView addSubview:view];
-    
-    return cell;
-}
-
-//UICollectionView被选中时调用的方法
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-}
-
-//返回这个UICollectionView是否可以被选择
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(kCollectionCellMargin, kCollectionCellMargin, kCollectionCellMargin, kCollectionCellMargin);
-}
-
-#pragma mark - 集合视图布局代理
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 2*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 2*kCollectionCellMargin);
 }
 
 - (void)didReceiveMemoryWarning {

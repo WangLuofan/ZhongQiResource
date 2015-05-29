@@ -1,22 +1,22 @@
 //
-//  ZQEnterpriseResourceViewController.m
+//  ZQPolicyInterpretViewController.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/28.
+//  Created by 王落凡 on 15/5/29.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQEnterpriseResourceViewController.h"
+#import "ZQPolicyInterpretViewController.h"
 
-@interface ZQEnterpriseResourceViewController ()
+@interface ZQPolicyInterpretViewController ()
 
 @end
 
-@implementation ZQEnterpriseResourceViewController
+@implementation ZQPolicyInterpretViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"企业资源"];
+    [self setTitle:@"政策解读"];
     
     return ;
 }

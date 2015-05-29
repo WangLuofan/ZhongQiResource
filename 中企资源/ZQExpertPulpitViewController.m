@@ -1,22 +1,22 @@
 //
-//  ZQEnterpriseResourceViewController.m
+//  ZQExpertPulpitViewController.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/28.
+//  Created by 王落凡 on 15/5/29.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQEnterpriseResourceViewController.h"
+#import "ZQExpertPulpitViewController.h"
 
-@interface ZQEnterpriseResourceViewController ()
+@interface ZQExpertPulpitViewController ()
 
 @end
 
-@implementation ZQEnterpriseResourceViewController
+@implementation ZQExpertPulpitViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"企业资源"];
+    [self setTitle:@"专家解读"];
     
     return ;
 }

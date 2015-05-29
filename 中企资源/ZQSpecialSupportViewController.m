@@ -1,22 +1,22 @@
 //
-//  ZQEnterpriseResourceViewController.m
+//  ZQSpecialSupportViewController.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/28.
+//  Created by 王落凡 on 15/5/29.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQEnterpriseResourceViewController.h"
+#import "ZQSpecialSupportViewController.h"
 
-@interface ZQEnterpriseResourceViewController ()
+@interface ZQSpecialSupportViewController ()
 
 @end
 
-@implementation ZQEnterpriseResourceViewController
+@implementation ZQSpecialSupportViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"企业资源"];
+    [self setTitle:@"专项扶持"];
     
     return ;
 }

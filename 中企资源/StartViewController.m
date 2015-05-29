@@ -12,23 +12,23 @@
 #import "ZQRecommendTableViewCell.h"
 #import "ZQServiceAgencyViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
+#import "ZQDistrictResourceViewController.h"
+#import "ZQExpertPulpitViewController.h"
+#import "ZQSpecialSupportViewController.h"
+#import "ZQPolicyInterpretViewController.h"
 #import "ZQNavigationViewController.h"
 
 #define kTopScrollViewHeight 180
 #define kFunctionModuleHeight 200
 #define kLoginButtonHeight 30
-#define kCollectionViewItemCount 3
-#define kCollectionCellMargin 5
 #define kTableViewCellHeight 70
 #define kRecommendTableViewHeight kTableViewCellHeight * 3 + kLoginButtonHeight
 
-@interface StartViewController ()<UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate> {
+@interface StartViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate> {
     UIScrollView* _contentScrollView;
     UIScrollView* _imageScrollView;
     ZQPageControl* _imagePageControl;
-    UICollectionView* _collectionView;
     UITableView* _recommendTableView;
-    NSArray* collectionViewContentArray;
     NSArray* tableViewContentArray;
 }
 
@@ -46,50 +46,64 @@
     [_contentScrollView setShowsVerticalScrollIndicator:NO];
     [self.view addSubview:_contentScrollView];
     
-    collectionViewContentArray = @[
+    [self initCollectionContent:@[
                      @[@"企业资源",@"qyzy"],
                      @[@"商圈资源",@"sqzy"],
                      @[@"专项扶持",@"zxfc"],
                      @[@"服务机构",@"fwjg"],
                      @[@"政策解读",@"zcjd"],
                      @[@"专家讲坛",@"zjjt"]
-                     ];
+                     ]];
     
     tableViewContentArray = @[
                               @[@"img01",@"供求资源:整合联盟网",@"整合联盟网是中国资源整合第一官网,是资源整合嵘老师话茬下盛世纵横面向中国民营企业开展的资源整合五大平台之一。"],
                               @[@"img02",@"重工业行业商圈:中联重科",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"],
                               @[@"img03",@"高新技术成果转化财政专项资金扶持",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"]
                               ];
-    
     [self initScrollViews];
+    
+    [self initCollectionViewWithFrame:CGRectMake(0, _imageScrollView.frame.origin.y +kTopScrollViewHeight + kLoginButtonHeight, self.view.bounds.size.width, kFunctionModuleHeight) cellIdentifier:@"ZQCollectionViewIndexCellIdentifier" superView:_contentScrollView];
+    
     [self initLoginButton];
-    [self initFunctionModule];
     [self initRecommendModule];
     
     [_contentScrollView setContentSize:CGSizeMake(_contentScrollView.bounds.size.width, _recommendTableView.frame.origin.y + kRecommendTableViewHeight + self.navigationController.navigationBar.bounds.size.height + [UIApplication sharedApplication].statusBarFrame.size.height)];
 }
 
+#pragma mark - 添加全部的子控制器
+-(void)addAllChildViewControllers {
+    
+    ZQNavigationViewController* nav1 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQEnterpriseResourceViewController alloc] init]];
+    ZQNavigationViewController* nav2 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQDistrictResourceViewController alloc] init]];
+    ZQNavigationViewController* nav3 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQSpecialSupportViewController alloc] init]];
+    ZQNavigationViewController* nav4 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQServiceAgencyViewController alloc] init]];
+    ZQNavigationViewController* nav5 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQPolicyInterpretViewController alloc] init]];
+    ZQNavigationViewController* nav6 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQExpertPulpitViewController alloc] init]];
+    [self addChildViewControllersWithArray:@[nav1,nav2,nav3,nav4,nav5,nav6]];
+    
+    return ;
+}
+
 #pragma mark - 添加功能模块
 -(void)initFunctionModule {
     
-    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _imageScrollView.frame.origin.y +kTopScrollViewHeight + kLoginButtonHeight, self.view.bounds.size.width, kFunctionModuleHeight) collectionViewLayout:flowLayout];
-    [_collectionView setBackgroundColor:[UIColor whiteColor]];
-    [_collectionView setDataSource:self];
-    [_collectionView setDelegate:self];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ZQCollectionViewIndexCellIdentifier"];
-    [_contentScrollView addSubview:_collectionView];
+//    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//    
+//    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _imageScrollView.frame.origin.y +kTopScrollViewHeight + kLoginButtonHeight, self.view.bounds.size.width, kFunctionModuleHeight) collectionViewLayout:flowLayout];
+//    [_collectionView setBackgroundColor:[UIColor whiteColor]];
+//    [_collectionView setDataSource:self];
+//    [_collectionView setDelegate:self];
+//    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ZQCollectionViewIndexCellIdentifier"];
+//    [_contentScrollView addSubview:_collectionView];
     
     return ;
 }
 
 #pragma mark - 添加智能推荐列表
 -(void)initRecommendModule {
-    _recommendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _collectionView.frame.origin.y + _collectionView.frame.size.height, self.view.bounds.size.width, kRecommendTableViewHeight) style:UITableViewStylePlain];
+    _recommendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self._collectionView.frame.origin.y + self._collectionView.frame.size.height, self.view.bounds.size.width, kRecommendTableViewHeight) style:UITableViewStylePlain];
     [_recommendTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//    [_recommendTableView setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
     [_recommendTableView setBackgroundColor:[UIColor clearColor]];
     [_recommendTableView setDelegate:self];
     [_recommendTableView setDataSource:self];
@@ -195,70 +209,6 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_imagePageControl setCurrentPage:((int)scrollView.contentOffset.x/kScreenWidth+0.5)];
     return ;
-}
-
-#pragma mark - 集合视图数据代理
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return collectionViewContentArray.count;
-}
-
-#pragma mark - 集合视图代理方法
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZQCollectionViewIndexCellIdentifier" forIndexPath:indexPath];
-    ZQCollectionContentView* view = [[ZQCollectionContentView alloc] initWithFrame:cell.bounds];
-    [view.imageView setImage:[UIImage imageNamed:collectionViewContentArray[indexPath.row][1]]];
-    [view.titleLabel setText:collectionViewContentArray[indexPath.row][0]];
-    [cell.contentView addSubview:view];
-    return cell;
-}
-
-#pragma mark - 集合视图布局代理
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(collectionView.bounds.size.width / kCollectionViewItemCount - 2*kCollectionCellMargin, collectionView.bounds.size.height / 2 - 2*kCollectionCellMargin);
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(kCollectionCellMargin, kCollectionCellMargin, kCollectionCellMargin, kCollectionCellMargin);
-}
-
-//UICollectionView被选中时调用的方法
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    switch (indexPath.row) {
-        case 0:
-        {
-            ZQNavigationViewController* navController = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQEnterpriseResourceViewController alloc] init]];
-            [self presentViewController:navController animated:YES completion:^{
-                return ;
-            }];
-        }
-            break;
-        case 3:
-        {
-            ZQNavigationViewController* navController = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQServiceAgencyViewController alloc] init]];
-            [self presentViewController:navController animated:YES completion:^{
-                return ;
-            }];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-    return ;
-}
-
-//返回这个UICollectionView是否可以被选择
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
 }
 
 #pragma mark - 列表项相关代理方法

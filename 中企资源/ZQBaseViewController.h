@@ -11,6 +11,15 @@
 @interface ZQBaseViewController : UIViewController
 
 @property(nonatomic,strong) UITabBarController* tabBarViewController;
+
+@property(nonatomic,copy) NSString* collectionViewCellIdentifier;
+@property(nonatomic,strong) UICollectionView* _collectionView;
+
 -(instancetype)initWithTabBarController:(UITabBarController*)tabBarController;
+-(void)addChildViewControllersWithArray:(NSArray*)viewControllers;
+-(UIViewController*)getChildViewController:(NSInteger)index;
+-(void)initCollectionViewWithFrame:(CGRect)frame cellIdentifier:(NSString*)cellIdentifier superView:(UIView*)superView;
+-(void)initCollectionContent:(NSArray*)contentArray;
+-(void)addAllChildViewControllers;
 
 @end

@@ -1,22 +1,22 @@
 //
-//  ZQEnterpriseResourceViewController.m
+//  ZQPlatformGuideViewController.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/28.
+//  Created by 王落凡 on 15/5/29.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQEnterpriseResourceViewController.h"
+#import "ZQPlatformGuideViewController.h"
 
-@interface ZQEnterpriseResourceViewController ()
+@interface ZQPlatformGuideViewController ()
 
 @end
 
-@implementation ZQEnterpriseResourceViewController
+@implementation ZQPlatformGuideViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"企业资源"];
+    [self setTitle:@"平台入驻指引"];
     
     return ;
 }
