@@ -9,6 +9,7 @@
 #ifndef __PREFIX__H__
 #define __PREFIX__H__
 
+#define kNavStatusHeight 60
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 

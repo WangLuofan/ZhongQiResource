@@ -12,5 +12,6 @@
 @interface ZQEnterpriseResourceViewController : ZQBaseExitViewController
 
 @property(nonatomic,strong) UITableView* tableView;
+@property(nonatomic,strong) UIButton* allCheckButton;
 
 @end

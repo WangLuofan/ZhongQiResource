@@ -15,5 +15,7 @@
 @property(nonatomic,strong) UILabel* companyNameLabel;
 
 -(void)setsubInfoLabelTextWithDiscription:(NSString*)discription ContentText:(NSString*)contentText;
+-(void)setChecked:(BOOL)checked;
+-(BOOL)checked;
 
 @end

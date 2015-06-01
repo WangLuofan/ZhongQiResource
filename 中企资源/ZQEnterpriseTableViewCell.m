@@ -65,6 +65,15 @@
     return self;
 }
 
+-(void)setChecked:(BOOL)checked {
+    [self.checkButton setSelected:checked];
+    return ;
+}
+
+-(BOOL)checked {
+    return self.checkButton.isSelected;
+}
+
 -(void)setsubInfoLabelTextWithDiscription:(NSString *)discription ContentText:(NSString *)contentText {
     NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:%@",discription,contentText]];
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(discription.length + 1, contentText.length)];

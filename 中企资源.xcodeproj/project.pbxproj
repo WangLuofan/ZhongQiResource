@@ -17,6 +17,7 @@
 		B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */; };
 		B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B34165931B15A39700F9A8ED /* ZQPageControl.m */; };
 		B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */; };
+		B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */; };
 		B380DCB81B146C97003B0D53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCB71B146C97003B0D53 /* main.m */; };
 		B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCBA1B146C97003B0D53 /* AppDelegate.m */; };
 		B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B380DCC21B146C97003B0D53 /* Images.xcassets */; };
@@ -43,6 +44,7 @@
 		B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71A1B14761C005C14D9 /* UserViewController.m */; };
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
 		B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */; };
+		B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */; };
 		B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D11B155285000313C7 /* ZQTabBarViewController.m */; };
 		B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D41B155357000313C7 /* ZQTabBarItem.m */; };
 		B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D71B155670000313C7 /* ZQMainViewController.m */; };
@@ -78,6 +80,8 @@
 		B34165931B15A39700F9A8ED /* ZQPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPageControl.m; sourceTree = "<group>"; };
 		B341659A1B15C44D00F9A8ED /* ZQCollectionContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCollectionContentView.h; sourceTree = "<group>"; };
 		B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCollectionContentView.m; sourceTree = "<group>"; };
+		B367407A1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBatchSndReqInfoViewController.h; sourceTree = "<group>"; };
+		B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBatchSndReqInfoViewController.m; sourceTree = "<group>"; };
 		B380DCB21B146C97003B0D53 /* 中企资源.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "中企资源.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B380DCB61B146C97003B0D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B380DCB71B146C97003B0D53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		B3D1E71D1B147623005C14D9 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		B3D1E7311B147DE9005C14D9 /* CommAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommAlgorithm.h; sourceTree = "<group>"; };
 		B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommAlgorithm.m; sourceTree = "<group>"; };
+		B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseAlertViewController.h; sourceTree = "<group>"; };
+		B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTypeChooseAlertViewController.m; sourceTree = "<group>"; };
 		B3F6C3D01B155285000313C7 /* ZQTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTabBarViewController.h; sourceTree = "<group>"; };
 		B3F6C3D11B155285000313C7 /* ZQTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTabBarViewController.m; sourceTree = "<group>"; };
 		B3F6C3D31B155357000313C7 /* ZQTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTabBarItem.h; sourceTree = "<group>"; };
@@ -222,8 +228,9 @@
 		B34105691B17202B00C3A079 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B341056B1B17206100C3A079 /* ZQEnterpriseResourceViewController.h */,
-				B341056C1B17206100C3A079 /* ZQEnterpriseResourceViewController.m */,
+				B3E67E151B1C0D2100CBF447 /* 类型选择视图 */,
+				B36740791B1BE6C800E74338 /* 批量发送需求信息 */,
+				B36740781B1BE6BD00E74338 /* 企业资源主页面 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -231,8 +238,7 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC25891B185B12008693E5 /* ZQEnterpriseTableViewCell.h */,
-				B3CC258A1B185B12008693E5 /* ZQEnterpriseTableViewCell.m */,
+				B3E67E141B1BF6C000CBF447 /* 企业资源列表 */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -301,6 +307,24 @@
 				B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */,
 			);
 			name = "集合视图项";
+			sourceTree = "<group>";
+		};
+		B36740781B1BE6BD00E74338 /* 企业资源主页面 */ = {
+			isa = PBXGroup;
+			children = (
+				B341056B1B17206100C3A079 /* ZQEnterpriseResourceViewController.h */,
+				B341056C1B17206100C3A079 /* ZQEnterpriseResourceViewController.m */,
+			);
+			name = "企业资源主页面";
+			sourceTree = "<group>";
+		};
+		B36740791B1BE6C800E74338 /* 批量发送需求信息 */ = {
+			isa = PBXGroup;
+			children = (
+				B367407A1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.h */,
+				B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */,
+			);
+			name = "批量发送需求信息";
 			sourceTree = "<group>";
 		};
 		B380DCA91B146C97003B0D53 = {
@@ -883,6 +907,24 @@
 			name = "更多";
 			sourceTree = "<group>";
 		};
+		B3E67E141B1BF6C000CBF447 /* 企业资源列表 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25891B185B12008693E5 /* ZQEnterpriseTableViewCell.h */,
+				B3CC258A1B185B12008693E5 /* ZQEnterpriseTableViewCell.m */,
+			);
+			name = "企业资源列表";
+			sourceTree = "<group>";
+		};
+		B3E67E151B1C0D2100CBF447 /* 类型选择视图 */ = {
+			isa = PBXGroup;
+			children = (
+				B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */,
+				B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */,
+			);
+			name = "类型选择视图";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -985,6 +1027,7 @@
 				B3CC25801B183C43008693E5 /* ZQToolBar.m in Sources */,
 				B3CC25491B17FDAC008693E5 /* ZQMyChatViewController.m in Sources */,
 				B34105711B17208F00C3A079 /* ZQBaseExitViewController.m in Sources */,
+				B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */,
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
 				B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */,
 				B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */,
@@ -997,6 +1040,7 @@
 				B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */,
 				B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */,
 				B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */,
+				B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
 				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
@@ -1129,6 +1173,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1143,6 +1188,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

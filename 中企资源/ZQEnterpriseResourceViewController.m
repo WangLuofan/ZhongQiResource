@@ -9,15 +9,18 @@
 #import "ZQToolBar.h"
 #import "ZQCheckBox.h"
 #import "ZQEnterpriseTableViewCell.h"
+#import "ZQNavigationViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
+#import "ZQBatchSndReqInfoViewController.h"
 
 #define kFilterViewHeight 40
 #define kBottomViewHeight 60
 #define kBottomControlMargin 10
 #define kTableViewCellHeight 90
 
-@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate> {
+@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate> {
     NSArray* _tableContentArray;
+    ZQToolBar* filterView;
 }
 
 @end
@@ -29,7 +32,7 @@
     [self setTitle:@"企业资源"];
     
     //顶部工具栏
-    ZQToolBar* filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
+    filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
     [self.view addSubview:filterView];
     CGRect bottomViewFrame = [self addBottomToolBar];
     
@@ -70,22 +73,38 @@
 ////    [selectedAll setCenter:CGPointMake(selectedAll.center.x, bottomView.center.y)];
 //    [bottomView addSubview:selectedAll];
     
-    ZQCheckBox* checkBox = [[ZQCheckBox alloc] initWithFrame:CGRectMake(kBottomControlMargin, kBottomControlMargin, 2*kFilterViewHeight, kFilterViewHeight) shouldFixFrame:NO];
-    [checkBox setTitle:@"全选" forState:UIControlStateNormal];
-    [checkBox.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
-    [checkBox setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [checkBox setImageEdgeInsets:UIEdgeInsetsMake(0, -kBottomControlMargin, 0, 0)];
-    [bottomView addSubview:checkBox];
+    self.allCheckButton = [[ZQCheckBox alloc] initWithFrame:CGRectMake(kBottomControlMargin, kBottomControlMargin, 2*kFilterViewHeight, kFilterViewHeight) shouldFixFrame:NO];
+    [self.allCheckButton setTitle:@"全选" forState:UIControlStateNormal];
+    [self.allCheckButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    [self.allCheckButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.allCheckButton setImageEdgeInsets:UIEdgeInsetsMake(0, -kBottomControlMargin, 0, 0)];
+    [self.allCheckButton addTarget:self action:@selector(checkBoxChecked:) forControlEvents:UIControlEventTouchDown];
+    [bottomView addSubview:self.allCheckButton];
     
 //    //批量发送需求信息
     UIImage* btnImage = [UIImage imageNamed:@"plfsxqxx"];
     UIButton* sendOfferBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [sendOfferBtn setImage:btnImage forState:UIControlStateNormal];
     [sendOfferBtn setFrame:CGRectMake(bottomView.frame.size.width - kBottomControlMargin - btnImage.size.width / 2, (bottomView.bounds.size.height - btnImage.size.height / 2) / 2, btnImage.size.width / 2, btnImage.size.height / 2)];
-//    [sendOfferBtn setCenter:CGPointMake(sendOfferBtn.center.x, bottomView.center.y)];
+    [sendOfferBtn addTarget:self action:@selector(sendOfferBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:sendOfferBtn];
     
     return bottomView.frame;
+}
+
+-(void)sendOfferBtnPressed:(UIButton*)sender {
+    ZQBatchSndReqInfoViewController* batchViewController = [[ZQBatchSndReqInfoViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:batchViewController] animated:YES completion:^{
+    }];
+    return ;
+}
+
+-(void)checkBoxChecked:(ZQCheckBox*)sender {
+    for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
+        ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+        [cell setChecked:sender.isSelected];
+    }
+    return ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,12 +128,38 @@
     [cell.logoImageView setImage:[UIImage imageNamed:_tableContentArray[indexPath.row][0]]];
     [cell.companyNameLabel setText:_tableContentArray[indexPath.row][1]];
     [cell setsubInfoLabelTextWithDiscription:_tableContentArray[indexPath.row][2] ContentText:_tableContentArray[indexPath.row][3]];
+    [((ZQCheckBox*)cell.checkButton) setDelegate:self];
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kTableViewCellHeight;
+}
+
+-(void)checkBox:(ZQCheckBox *)checkBox isSelected:(BOOL)isSelected {
+    BOOL bAllChecked = YES;
+    
+    if(isSelected) {
+        for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
+            ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+            if(![cell checked])
+                bAllChecked = NO;
+        }
+        
+        [self.allCheckButton setSelected:bAllChecked];
+    }else {
+        for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
+            ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+            if([cell checked])
+                bAllChecked = NO;
+        }
+        
+        [self.allCheckButton setSelected:bAllChecked];
+    }
+    
+
+        return ;
 }
 
 @end
