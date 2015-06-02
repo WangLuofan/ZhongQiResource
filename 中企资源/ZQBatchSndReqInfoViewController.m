@@ -90,6 +90,7 @@
     [commitButton setImage:[UIImage imageNamed:@"submit"] forState:UIControlStateNormal];
     [commitButton setFrame:CGRectMake(0, 8*kControlHeight, commitButton.imageView.image.size.width / 2, commitButton.imageView.image.size.height / 2)];
     [commitButton setCenter:CGPointMake(self.view.bounds.size.width / 4, commitButton.center.y)];
+    [commitButton addTarget:self action:@selector(commitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:commitButton];
     
     UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -202,6 +203,14 @@
 -(void)cancelButtonPressed:(UIButton*)sender {
     [self dismissViewControllerAnimated:YES completion:^{
     }];
+    return ;
+}
+
+-(void)commitButtonPressed:(UIButton*)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        //发布资源信息
+    }];
+    
     return ;
 }
 

@@ -15,6 +15,7 @@
 
 @interface ZQEnterpriseTableViewCell () {
     UILabel* subInfoLabel;
+    UIView* contentView;
 }
 
 @end
@@ -34,7 +35,7 @@
         [self addSubview:shadowView];
         
         //内容View
-        UIView* contentView = [[UIView alloc] initWithFrame:CGRectMake(kShadowRadius, kShadowRadius, shadowView.bounds.size.width ,shadowView.bounds.size.height - 2*kShadowRadius)];
+        contentView = [[UIView alloc] initWithFrame:CGRectMake(kShadowRadius, kShadowRadius, shadowView.bounds.size.width ,shadowView.bounds.size.height - 2*kShadowRadius)];
         [contentView setBackgroundColor:[UIColor whiteColor]];
         [shadowView addSubview:contentView];
         
@@ -63,6 +64,14 @@
     }
     
     return self;
+}
+
+-(void)setSelectedColor:(BOOL)bSelected {
+    if(bSelected)
+        [contentView setBackgroundColor:[UIColor lightGrayColor]];
+    else
+        [contentView setBackgroundColor:[UIColor whiteColor]];
+    return ;
 }
 
 -(void)setChecked:(BOOL)checked {

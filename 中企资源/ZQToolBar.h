@@ -11,8 +11,22 @@
 #define ZQToolBarStyleButton @"ZQToolBarStyleButton"
 #define ZQToolBarStyleSearchBar @"ZQToolBarStylesearchBar"
 
+@class ZQToolBar;
+@protocol ZQToolBarDelegate <NSObject>
+
+@optional
+-(void)toolBar:(ZQToolBar*)toolBar Style:(NSString*)style index:(NSInteger)index;
+
+@end
+
 @interface ZQToolBar : UIView
 
+@property(nonatomic,assign) id<ZQToolBarDelegate> delegate;
+@property(nonatomic,assign) BOOL bFilterContentViewShown;
+
 -(instancetype)initWithSuperView:(UIView*)superView Styles:(NSArray*)styles Text:(NSArray*)text;
+-(void)setFilterCategory:(NSString*)filterCategory index:(NSInteger)index;
+-(void)showFilterContentViewInView:(UIView*)view leftSource:(NSArray*)leftSource rightSource:(NSArray*)rightSource;
+-(void)hideFilterContentView;
 
 @end

@@ -7,12 +7,19 @@
 //
 
 #import "ZQToolBar.h"
+#import "ZQToolBarContentView.h"
 
 #define kCenterItemRatio 0.5
 #define kButtonImageRightBottomMargin 5
 #define kButtonImageWidthHeight 10
 #define kSeperatorLineWidth 0.5
 #define kFilterViewHeight 40
+
+@interface ZQToolBar () {
+    ZQToolBarContentView* contentView;
+}
+
+@end
 
 @implementation ZQToolBar
 
@@ -21,6 +28,7 @@
     
     if(self) {
         NSAssert(styles.count == text.count, @"Styles count must be equal to Text count");
+        [self setBFilterContentViewShown:NO];
         
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
@@ -49,6 +57,8 @@
                 [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
                 [btn setImageEdgeInsets:UIEdgeInsetsMake(btn.frame.size.height - kButtonImageRightBottomMargin - kButtonImageWidthHeight, btn.frame.size.width - kButtonImageWidthHeight - kButtonImageRightBottomMargin, kButtonImageRightBottomMargin, kButtonImageRightBottomMargin)];
                 [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -kButtonImageRightBottomMargin*kButtonImageRightBottomMargin, 0, 0)];
+                [btn addTarget:self action:@selector(filterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                [btn setTag:i];
                 xPosition += btn.frame.size.width ;
                 
                 [self addSubview:btn];
@@ -62,6 +72,7 @@
                     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(xPosition, 0, kItemsWidth, self.bounds.size.height)];
                 [searchBar setPlaceholder:(NSString *)text[i]];
                 [searchBar setTranslucent:YES];
+                [searchBar setTag:i];
                 xPosition += searchBar.frame.size.width;
                 [self addSubview:searchBar];
                 
@@ -82,6 +93,36 @@
     }
     
     return self;
+}
+
+-(void)setFilterCategory:(NSString *)filterCategory index:(NSInteger)index {
+    if([filterCategory isEqualToString:ZQToolBarStyleButton]) {
+        UIButton* filterButton = (UIButton*)[self.subviews objectAtIndex:index];
+        [filterButton setTitle:filterCategory forState:UIControlStateNormal];
+    }
+    return ;
+}
+
+-(void)filterButtonPressed:(UIButton*)sender {
+    if([self.delegate respondsToSelector:@selector(toolBar:Style:index:)])
+        [self.delegate toolBar:self Style:ZQToolBarStyleButton index:sender.tag];
+    return ;
+}
+
+-(void)showFilterContentViewInView:(UIView *)view leftSource:(NSArray *)leftSource rightSource:(NSArray *)rightSource {
+    if(contentView == nil) {
+       contentView = [[ZQToolBarContentView alloc] initWithStyle:ZQToolBarContentViewStyleSigle toolBar:self superView:view];
+    }
+    [view addSubview:contentView];
+    [contentView setDataSourceArray:leftSource rightSource:rightSource];
+    [self setBFilterContentViewShown:YES];
+    return ;
+}
+
+-(void)hideFilterContentView {
+    [contentView removeFromSuperview];
+    [self setBFilterContentViewShown:NO];
+    return ;
 }
 
 @end

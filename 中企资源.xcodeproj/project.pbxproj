@@ -45,9 +45,13 @@
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
 		B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */; };
 		B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */; };
+		B3E67E201B1C3A8B00CBF447 /* ZQToolBarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */; };
+		B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */; };
+		B3E67E281B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E271B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m */; };
 		B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D11B155285000313C7 /* ZQTabBarViewController.m */; };
 		B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D41B155357000313C7 /* ZQTabBarItem.m */; };
 		B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D71B155670000313C7 /* ZQMainViewController.m */; };
+		B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F9B8671B1D7C8900E1B215 /* ZQStarRatingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,12 +142,20 @@
 		B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommAlgorithm.m; sourceTree = "<group>"; };
 		B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseAlertViewController.h; sourceTree = "<group>"; };
 		B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTypeChooseAlertViewController.m; sourceTree = "<group>"; };
+		B3E67E1E1B1C3A8B00CBF447 /* ZQToolBarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBarContentView.h; sourceTree = "<group>"; };
+		B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolBarContentView.m; sourceTree = "<group>"; };
+		B3E67E221B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseIntroductionViewController.h; sourceTree = "<group>"; };
+		B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseIntroductionViewController.m; sourceTree = "<group>"; };
+		B3E67E261B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseIntroductionTableViewCell.h; sourceTree = "<group>"; };
+		B3E67E271B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseIntroductionTableViewCell.m; sourceTree = "<group>"; };
 		B3F6C3D01B155285000313C7 /* ZQTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTabBarViewController.h; sourceTree = "<group>"; };
 		B3F6C3D11B155285000313C7 /* ZQTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTabBarViewController.m; sourceTree = "<group>"; };
 		B3F6C3D31B155357000313C7 /* ZQTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTabBarItem.h; sourceTree = "<group>"; };
 		B3F6C3D41B155357000313C7 /* ZQTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTabBarItem.m; sourceTree = "<group>"; };
 		B3F6C3D61B155670000313C7 /* ZQMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMainViewController.h; sourceTree = "<group>"; };
 		B3F6C3D71B155670000313C7 /* ZQMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQMainViewController.m; sourceTree = "<group>"; };
+		B3F9B8661B1D7C8900E1B215 /* ZQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQStarRatingView.h; sourceTree = "<group>"; };
+		B3F9B8671B1D7C8900E1B215 /* ZQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQStarRatingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +240,7 @@
 		B34105691B17202B00C3A079 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3E67E211B1C542400CBF447 /* 公司介绍 */,
 				B3E67E151B1C0D2100CBF447 /* 类型选择视图 */,
 				B36740791B1BE6C800E74338 /* 批量发送需求信息 */,
 				B36740781B1BE6BD00E74338 /* 企业资源主页面 */,
@@ -238,6 +251,7 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3E67E251B1C56F200CBF447 /* 企业简介 */,
 				B3E67E141B1BF6C000CBF447 /* 企业资源列表 */,
 			);
 			name = Views;
@@ -255,6 +269,7 @@
 		B341658B1B15969400F9A8ED /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				B3F9B8651B1D7C7900E1B215 /* 星级评分控件 */,
 				B3CC25851B185511008693E5 /* 复选框按钮 */,
 				B3CC257D1B183B92008693E5 /* 顶部工具栏 */,
 				B34165911B15A36900F9A8ED /* 分页控件 */,
@@ -854,8 +869,8 @@
 		B3CC257D1B183B92008693E5 /* 顶部工具栏 */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC257E1B183C43008693E5 /* ZQToolBar.h */,
-				B3CC257F1B183C43008693E5 /* ZQToolBar.m */,
+				B3E67E1D1B1C36B000CBF447 /* 内容选择 */,
+				B3E67E1C1B1C36A400CBF447 /* 工具条 */,
 			);
 			name = "顶部工具栏";
 			sourceTree = "<group>";
@@ -923,6 +938,51 @@
 				B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */,
 			);
 			name = "类型选择视图";
+			sourceTree = "<group>";
+		};
+		B3E67E1C1B1C36A400CBF447 /* 工具条 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC257E1B183C43008693E5 /* ZQToolBar.h */,
+				B3CC257F1B183C43008693E5 /* ZQToolBar.m */,
+			);
+			name = "工具条";
+			sourceTree = "<group>";
+		};
+		B3E67E1D1B1C36B000CBF447 /* 内容选择 */ = {
+			isa = PBXGroup;
+			children = (
+				B3E67E1E1B1C3A8B00CBF447 /* ZQToolBarContentView.h */,
+				B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */,
+			);
+			name = "内容选择";
+			sourceTree = "<group>";
+		};
+		B3E67E211B1C542400CBF447 /* 公司介绍 */ = {
+			isa = PBXGroup;
+			children = (
+				B3E67E221B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.h */,
+				B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */,
+			);
+			name = "公司介绍";
+			sourceTree = "<group>";
+		};
+		B3E67E251B1C56F200CBF447 /* 企业简介 */ = {
+			isa = PBXGroup;
+			children = (
+				B3E67E261B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.h */,
+				B3E67E271B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m */,
+			);
+			name = "企业简介";
+			sourceTree = "<group>";
+		};
+		B3F9B8651B1D7C7900E1B215 /* 星级评分控件 */ = {
+			isa = PBXGroup;
+			children = (
+				B3F9B8661B1D7C8900E1B215 /* ZQStarRatingView.h */,
+				B3F9B8671B1D7C8900E1B215 /* ZQStarRatingView.m */,
+			);
+			name = "星级评分控件";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1033,6 +1093,8 @@
 				B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */,
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
 				B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */,
+				B3E67E281B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m in Sources */,
+				B3E67E201B1C3A8B00CBF447 /* ZQToolBarContentView.m in Sources */,
 				B34105611B16F97300C3A079 /* LoginCompleteView.m in Sources */,
 				B3CC258E1B185DB7008693E5 /* ZQCheckBox.m in Sources */,
 				B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */,
@@ -1046,7 +1108,9 @@
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
 				B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
+				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,
 				B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */,
+				B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
@@ -1169,7 +1233,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Yuxiang (N9825STN63)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
@@ -1184,7 +1248,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Yuxiang (N9825STN63)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";

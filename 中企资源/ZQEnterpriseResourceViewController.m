@@ -12,13 +12,14 @@
 #import "ZQNavigationViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
 #import "ZQBatchSndReqInfoViewController.h"
+#import "ZQEnterpriseIntroductionViewController.h"
 
 #define kFilterViewHeight 40
 #define kBottomViewHeight 60
 #define kBottomControlMargin 10
 #define kTableViewCellHeight 90
 
-@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate> {
+@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate,ZQToolBarDelegate> {
     NSArray* _tableContentArray;
     ZQToolBar* filterView;
 }
@@ -33,6 +34,7 @@
     
     //顶部工具栏
     filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
+    [filterView setDelegate:self];
     [self.view addSubview:filterView];
     CGRect bottomViewFrame = [self addBottomToolBar];
     
@@ -49,7 +51,6 @@
                            @[@"img",@"湖南长沙卡X电子商务有限公司",@"供求资源",@"诚招各区域代理"],
                            @[@"img",@"湖南长沙卡X电子商务有限公司",@"供求资源",@"诚招各区域代理"],
                            ];
-    
     return ;
 }
 
@@ -133,6 +134,21 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectedColor:YES];
+    ZQEnterpriseIntroductionViewController* introductionController = [[ZQEnterpriseIntroductionViewController alloc] init];
+    [introductionController setTitle:cell.companyNameLabel.text];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:introductionController] animated:YES completion:^{
+    }];
+    return ;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectedColor:NO];
+    return ;}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kTableViewCellHeight;
 }
@@ -158,8 +174,30 @@
         [self.allCheckButton setSelected:bAllChecked];
     }
     
+    return ;
+}
 
-        return ;
+-(void)toolBar:(ZQToolBar *)toolBar Style:(NSString *)style index:(NSInteger)index {
+    switch (index) {
+        case 0:
+        {
+            NSArray* array = @[
+                               @"女装/男装/内衣",@"鞋靴/箱包/配饰",@"运动户外",@"母婴用品/童装/玩具",
+                               @"工艺品/百货/宠物",@"汽车用品",@"食品",@"家纺家饰/家装建材",@"美妆日化",
+                               @"数码家电",@"电工电气/安防",@"包装/行政办公",@"照明/电子",@"机械/五金/仪表",
+                               @"橡塑/化工/钢材",@"纺织/皮革",@"其他",@"按行业搜索"
+                               ];
+            if([filterView bFilterContentViewShown] == NO)
+                [filterView showFilterContentViewInView:self.view leftSource:array rightSource:nil];
+            else
+                [filterView hideFilterContentView];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return ;
 }
 
 @end
