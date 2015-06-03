@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQToolBar.h"
 #import "ZQBaseExitViewController.h"
 
 @interface ZQBaseTableViewController : ZQBaseExitViewController
@@ -13,5 +14,6 @@
 @property(nonatomic,strong) UITableView* tableView;
 
 -(void)setTableViewNeedLoadMore:(BOOL)bNeeds;
+-(void)setFilterViewStyles:(NSArray*)styles Text:(NSArray*)text;
 
 @end

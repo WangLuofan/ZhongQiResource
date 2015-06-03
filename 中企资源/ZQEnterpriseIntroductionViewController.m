@@ -7,6 +7,8 @@
 //
 
 #import "ZQLoadMoreView.h"
+#import "ZQNavigationViewController.h"
+#import "ZQEnterpriseCommentViewController.h"
 #import "ZQEnterpriseIntroductionViewController.h"
 #import "ZQEnterpriseIntroductionTableViewCell.h"
 #import "ZQEntRscDistributeTableViewCell.h"
@@ -14,7 +16,7 @@
 #define kControlMargin 10
 #define kEntRscDistributeTableViewCellHeight 150
 
-@interface ZQEnterpriseIntroductionViewController () <UITableViewDataSource,UITableViewDelegate> {
+@interface ZQEnterpriseIntroductionViewController () <UITableViewDataSource,UITableViewDelegate,ZQEnterpriseIntroductionTableViewCellDelegate> {
 }
 
 @end
@@ -64,8 +66,10 @@
     UITableViewCell* cell = nil;
     if(indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseIntroductionCellIdentifier"];
-        if(cell == nil)
+        if(cell == nil) {
             cell = [[ZQEnterpriseIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseIntroductionCellIdentifier"];
+            [((ZQEnterpriseIntroductionTableViewCell*)cell) setDelegate:self];
+        }
         [((ZQEnterpriseIntroductionTableViewCell*)cell) setIntroductionLabelText:@"湖南卡X电子商务有限公司成立于2008年8月，公司秉持为客户创造价值这一核心理念，为各行业企业提供专业的移动整合营销方案。公司拥有全球领先的企业APP和微信APP的开发、推广、运营、发布、管理、统计技术，汇聚行业最丰富、最优秀且最具性价比的产品，同时兼有专业的移动营销运营团队，让客房以最低的成本切入移动互联网营销，以达到最佳的宣传、推评选、促销、快速提升品牌知名度效果，为企业构建全新的营销渠道与方式。"];
         [((ZQEnterpriseIntroductionTableViewCell*)cell).logoImageView setImage:[UIImage imageNamed:@"img"]];
         [((ZQEnterpriseIntroductionTableViewCell*)cell) setEnterpriseInfoWithPhone:@"0731-88888889" Address:@"湖南省长沙市中电科技园" Score:4.8];
@@ -127,6 +131,25 @@
 -(void)loadMoreButtonPressed:(UIButton*)sender {
     ZQLoadMoreView* loadMore = [[ZQLoadMoreView alloc] initWithFrame:sender.bounds];
     [self.tableView setTableFooterView:loadMore];
+    return ;
+}
+
+-(void)ZQEnterpriseIntroductionButtonPressed:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+        {
+            ZQEnterpriseCommentViewController* commentViewController = [[ZQEnterpriseCommentViewController alloc] init];
+            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentViewController] animated:YES completion:^{
+            }];
+        }
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
     return ;
 }
 

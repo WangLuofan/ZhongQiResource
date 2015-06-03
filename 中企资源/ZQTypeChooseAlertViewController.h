@@ -20,6 +20,7 @@
 
 @property(nonatomic,assign) id<ZQTypeChooseAlertViewDelegate> delegate;
 
+-(void)setResourceType:(NSString*)resourceType ResourceCategory:(NSString*)resourceCategory;
 -(void)showInView:(UIView*)superView;
 -(void)dismissAlertView;
 

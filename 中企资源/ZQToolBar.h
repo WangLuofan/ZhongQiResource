@@ -28,5 +28,6 @@
 -(void)setFilterCategory:(NSString*)filterCategory index:(NSInteger)index;
 -(void)showFilterContentViewInView:(UIView*)view leftSource:(NSArray*)leftSource rightSource:(NSArray*)rightSource;
 -(void)hideFilterContentView;
+-(void)setStyles:(NSArray*)styles Text:(NSArray*)text;
 
 @end

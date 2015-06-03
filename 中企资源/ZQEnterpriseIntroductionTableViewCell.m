@@ -92,6 +92,7 @@ static CGFloat textContentHeight;
         
         //评论按钮
         UIButton* commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [commentButton setTag:0];
         [commentButton setTitle:@"评论" forState:UIControlStateNormal];
         [commentButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -101,10 +102,12 @@ static CGFloat textContentHeight;
         [commentButton setFrame:CGRectMake(self.contractLabel.frame.origin.x, otherControlView.bounds.size.height - kButtonHeight - kControlMargin, self.contractLabel.bounds.size.width / 3, commentButton.imageView.image.size.height / 2)];
         [commentButton setImageEdgeInsets:UIEdgeInsetsMake(0, -commentButton.imageView.image.size.width, 0, 0)];
         [commentButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -commentButton.imageView.image.size.width, 0, 0)];
+        [commentButton addTarget:self action:@selector(commentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [otherControlView addSubview:commentButton];
         
         //关注
         UIButton* attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [attentionButton setTag:1];
         [attentionButton setTitle:@"关注" forState:UIControlStateNormal];
         [attentionButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [attentionButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -119,6 +122,7 @@ static CGFloat textContentHeight;
         
         //私聊
         UIButton* chatButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [chatButton setTag:2];
         [chatButton setTitle:@"私聊" forState:UIControlStateNormal];
         [chatButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [chatButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -137,6 +141,7 @@ static CGFloat textContentHeight;
         
         //电话按钮
         UIButton* telephoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [telephoneButton setTag:3];
         [telephoneButton setImage:[UIImage imageNamed:@"telphone"] forState:UIControlStateNormal];
         [telephoneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [telephoneButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -200,6 +205,12 @@ static CGFloat textContentHeight;
         [sender setTitle:@"关注" forState:UIControlStateNormal];
         bAttentioned = NO;
     }
+    return ;
+}
+
+-(void)commentButtonPressed:(UIButton*)sender {
+    if([self.delegate respondsToSelector:@selector(ZQEnterpriseIntroductionButtonPressed:)])
+        [self.delegate ZQEnterpriseIntroductionButtonPressed:sender.tag];
     return ;
 }
 

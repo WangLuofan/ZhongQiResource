@@ -171,6 +171,7 @@
 
 -(void)typeSelectButtonPressed {
     typeChooseAlertView = [[ZQTypeChooseAlertViewController alloc] init];
+    [typeChooseAlertView setResourceType:resourceTypeLabel.text ResourceCategory:resourceCategoryLabel.text];
     [typeChooseAlertView setDelegate:self];
     [typeChooseAlertView showInView:self.view];
     return ;
@@ -185,12 +186,8 @@
     switch (buttonIndex) {
         case 0:
         {
-            NSLog(@"资源类型:%@",ResourceType);
-            NSLog(@"资源类别:%@",ResourceCategory);
-        }
-            break;
-        case 1:
-        {
+            [resourceTypeLabel setText:ResourceType];
+            [resourceCategoryLabel setText:ResourceCategory];
         }
             break;
         default:

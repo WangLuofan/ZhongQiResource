@@ -10,6 +10,8 @@
 		B31E663B1B1E96EE00E70720 /* ZQBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E663A1B1E96EE00E70720 /* ZQBaseTableViewCell.m */; };
 		B31E663F1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E663E1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m */; };
 		B31E66431B1E99E400E70720 /* ZQBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E66421B1E99E400E70720 /* ZQBaseTableViewController.m */; };
+		B31E66481B1EA13200E70720 /* ZQEnterpriseCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E66471B1EA13200E70720 /* ZQEnterpriseCommentViewController.m */; };
+		B31E664C1B1EAD8500E70720 /* ZQTypeChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E664B1B1EAD8500E70720 /* ZQTypeChooseView.m */; };
 		B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */; };
 		B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B34105581B16E70500C3A079 /* YuppySC-Regular.otf */; };
 		B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */; };
@@ -77,6 +79,10 @@
 		B31E663E1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQServiceAgencyTableViewCell.m; sourceTree = "<group>"; };
 		B31E66411B1E99E400E70720 /* ZQBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseTableViewController.h; sourceTree = "<group>"; };
 		B31E66421B1E99E400E70720 /* ZQBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseTableViewController.m; sourceTree = "<group>"; };
+		B31E66461B1EA13200E70720 /* ZQEnterpriseCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseCommentViewController.h; sourceTree = "<group>"; };
+		B31E66471B1EA13200E70720 /* ZQEnterpriseCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseCommentViewController.m; sourceTree = "<group>"; };
+		B31E664A1B1EAD8500E70720 /* ZQTypeChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseView.h; sourceTree = "<group>"; };
+		B31E664B1B1EAD8500E70720 /* ZQTypeChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTypeChooseView.m; sourceTree = "<group>"; };
 		B34105501B16A32900C3A079 /* ZQRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQRecommendTableViewCell.h; sourceTree = "<group>"; };
 		B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQRecommendTableViewCell.m; sourceTree = "<group>"; };
 		B34105581B16E70500C3A079 /* YuppySC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YuppySC-Regular.otf"; sourceTree = "<group>"; };
@@ -221,6 +227,31 @@
 			name = "基本表格页面";
 			sourceTree = "<group>";
 		};
+		B31E66441B1EA0BD00E70720 /* 企业评论 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "企业评论";
+			sourceTree = "<group>";
+		};
+		B31E66451B1EA0E000E70720 /* 企业评价 */ = {
+			isa = PBXGroup;
+			children = (
+				B31E66461B1EA13200E70720 /* ZQEnterpriseCommentViewController.h */,
+				B31E66471B1EA13200E70720 /* ZQEnterpriseCommentViewController.m */,
+			);
+			name = "企业评价";
+			sourceTree = "<group>";
+		};
+		B31E66491B1EAD6500E70720 /* 类型选择 */ = {
+			isa = PBXGroup;
+			children = (
+				B31E664A1B1EAD8500E70720 /* ZQTypeChooseView.h */,
+				B31E664B1B1EAD8500E70720 /* ZQTypeChooseView.m */,
+			);
+			name = "类型选择";
+			sourceTree = "<group>";
+		};
 		B341054F1B16A2C200C3A079 /* 智能推荐表项 */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +317,9 @@
 		B34105691B17202B00C3A079 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3E67E211B1C542400CBF447 /* 公司介绍 */,
+				B31E66451B1EA0E000E70720 /* 企业评价 */,
+				B31E66441B1EA0BD00E70720 /* 企业评论 */,
+				B3E67E211B1C542400CBF447 /* 企业介绍 */,
 				B3E67E151B1C0D2100CBF447 /* 类型选择视图 */,
 				B36740791B1BE6C800E74338 /* 批量发送需求信息 */,
 				B36740781B1BE6BD00E74338 /* 企业资源主页面 */,
@@ -297,6 +330,7 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B31E66491B1EAD6500E70720 /* 类型选择 */,
 				B3F9B8701B1DAA3800E1B215 /* 加载更多 */,
 				B3F9B8691B1D93BF00E1B215 /* 企业资源信息发布表格 */,
 				B3E67E251B1C56F200CBF447 /* 企业简介表格 */,
@@ -1008,13 +1042,13 @@
 			name = "内容选择";
 			sourceTree = "<group>";
 		};
-		B3E67E211B1C542400CBF447 /* 公司介绍 */ = {
+		B3E67E211B1C542400CBF447 /* 企业介绍 */ = {
 			isa = PBXGroup;
 			children = (
 				B3E67E221B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.h */,
 				B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */,
 			);
-			name = "公司介绍";
+			name = "企业介绍";
 			sourceTree = "<group>";
 		};
 		B3E67E251B1C56F200CBF447 /* 企业简介表格 */ = {
@@ -1176,6 +1210,7 @@
 				B31E66431B1E99E400E70720 /* ZQBaseTableViewController.m in Sources */,
 				B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */,
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
+				B31E664C1B1EAD8500E70720 /* ZQTypeChooseView.m in Sources */,
 				B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */,
 				B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */,
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
@@ -1199,6 +1234,7 @@
 				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,
 				B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */,
 				B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */,
+				B31E66481B1EA13200E70720 /* ZQEnterpriseCommentViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B3F9B86C1B1D944900E1B215 /* ZQEntRscDistributeTableViewCell.m in Sources */,
 				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,

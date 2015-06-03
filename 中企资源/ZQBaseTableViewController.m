@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQToolBar.h"
 #import "ZQLoadMoreView.h"
 #import "ZQBaseTableViewController.h"
 
@@ -17,6 +16,7 @@
 
 @interface ZQBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource> {
     UIImageView* adImageView;
+    ZQToolBar* filterView;
 }
 
 @end
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ZQToolBar* filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
+    filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
     [self.view addSubview:filterView];
     
     //广告图
@@ -57,6 +57,11 @@
         [self.tableView setTableFooterView:loadMore];
     }
     
+    return ;
+}
+
+-(void)setFilterViewStyles:(NSArray *)styles Text:(NSArray *)text {
+    [filterView setStyles:styles Text:text];
     return ;
 }
 
