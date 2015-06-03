@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"专家解读"];
+    [self setTitle:@"专家讲坛"];
     
     return ;
 }

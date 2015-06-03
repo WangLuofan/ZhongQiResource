@@ -68,7 +68,7 @@
 }
 
 -(void)setRating:(CGFloat)rating {
-    CGFloat xPosition = (backgroundView.bounds.size.width + kControlMargin) * rating / numberOfStars;
+    CGFloat xPosition = (backgroundView.bounds.size.width ) * rating / numberOfStars;
     [foregroundView setFrame:CGRectMake(0, 0, xPosition, foregroundView.bounds.size.height)];
     return ;
 }

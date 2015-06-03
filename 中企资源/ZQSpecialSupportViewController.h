@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseTableViewController.h"
 
-@interface ZQSpecialSupportViewController : ZQBaseExitViewController
+@interface ZQSpecialSupportViewController : ZQBaseTableViewController
 
 @end

@@ -15,6 +15,7 @@
 #define kLogoImageWidth 75
 #define kLogoImageHeight 45
 #define kButtonHeight 20
+#define kShadowRadius 0.5f
 
 
 static CGFloat textContentHeight;
@@ -24,6 +25,7 @@ static CGFloat textContentHeight;
     NSString* telephoneNumber;
     BOOL bAttentioned;
     ZQStarRatingView* starRatingView;
+    UIView* contentView;
 }
 
 @end
@@ -36,6 +38,10 @@ static CGFloat textContentHeight;
     if(self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         bAttentioned = NO;
+        
+        contentView = [[UIView alloc] initWithFrame:CGRectZero];
+        [contentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)242)/255 green:((CGFloat)242)/255 blue:((CGFloat)244)/255 alpha:1.0f]];
+        [self addSubview:contentView];
         
         self.introductionLabel = [[UILabel alloc] initWithFrame:CGRectMake(kControlMargin, 0, self.bounds.size.width - 2*kControlMargin, 0)];
         [self.introductionLabel setNumberOfLines:0];
@@ -89,6 +95,7 @@ static CGFloat textContentHeight;
         [commentButton setTitle:@"评论" forState:UIControlStateNormal];
         [commentButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [commentButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [commentButton setImage:[UIImage imageNamed:@"pl"] forState:UIControlStateNormal];
         [commentButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [commentButton setFrame:CGRectMake(self.contractLabel.frame.origin.x, otherControlView.bounds.size.height - kButtonHeight - kControlMargin, self.contractLabel.bounds.size.width / 3, commentButton.imageView.image.size.height / 2)];
@@ -101,6 +108,7 @@ static CGFloat textContentHeight;
         [attentionButton setTitle:@"关注" forState:UIControlStateNormal];
         [attentionButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [attentionButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [attentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [attentionButton setImage:[UIImage imageNamed:@"gz"] forState:UIControlStateNormal];
         [attentionButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [attentionButton setFrame:CGRectMake(commentButton.frame.origin.x + commentButton.frame.size.width, commentButton.frame.origin.y, commentButton.frame.size.width, commentButton.frame.size.height    )];
@@ -114,6 +122,7 @@ static CGFloat textContentHeight;
         [chatButton setTitle:@"私聊" forState:UIControlStateNormal];
         [chatButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [chatButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [chatButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [chatButton setImage:[UIImage imageNamed:@"sl"] forState:UIControlStateNormal];
         [chatButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [chatButton setFrame:CGRectMake(attentionButton.frame.origin.x + attentionButton.frame.size.width, commentButton.frame.origin.y, commentButton.frame.size.width, commentButton.frame.size.height    )];
@@ -129,6 +138,8 @@ static CGFloat textContentHeight;
         //电话按钮
         UIButton* telephoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [telephoneButton setImage:[UIImage imageNamed:@"telphone"] forState:UIControlStateNormal];
+        [telephoneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [telephoneButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [telephoneButton setFrame:CGRectMake(seperator.frame.origin.x + seperator.frame.size.width + 2*kControlMargin, 0, telephoneButton.imageView.image.size.width / 2, telephoneButton.imageView.image.size.height / 2)];
         [telephoneButton setCenter:CGPointMake(otherControlView.bounds.size.width - kRightMarginWidth / 6, seperator.center.y)];
         [telephoneButton addTarget:self action:@selector(telephoneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -165,6 +176,7 @@ static CGFloat textContentHeight;
 }
 
 -(void)adjustOtherControlViewPosition:(CGFloat)textHeight {
+    [contentView setFrame:CGRectMake(0, kShadowRadius, self.bounds.size.width, [ZQEnterpriseIntroductionTableViewCell cellHeight] - 2*kShadowRadius)];
     [otherControlView setFrame:CGRectMake(0, textHeight, self.bounds.size.width, kOtherControlViewHeight)];
     return ;
 }
