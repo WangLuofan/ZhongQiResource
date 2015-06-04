@@ -14,4 +14,6 @@
 @property (nonatomic,strong) UILabel* textLabel;
 @property (nonatomic,strong) UILabel* detailTextLabel;
 
+-(void)setCellBackgroundColor:(UIColor*)backgroundColor;
+
 @end

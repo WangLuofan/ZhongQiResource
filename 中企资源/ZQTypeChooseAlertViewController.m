@@ -12,7 +12,7 @@
 #define kControlViewMargin 20
 #define kButtonImageEdge 10
 #define kTitleHeight 40
-#define kControlViewFrameWidth self.view.bounds.size.width - 2*kControlViewMargin
+#define kControlViewFrameWidth (self.view.bounds.size.width - 2*kControlViewMargin)
 #define kControlViewFrameHeight 200
 
 @interface ZQTypeChooseAlertViewController ()<ZQTypeChooseViewDelegate> {
@@ -76,7 +76,7 @@
     [typeButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [typeButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [typeButton setBackgroundColor:[UIColor colorWithRed:((CGFloat)229)/255 green:((CGFloat)230)/255 blue:((CGFloat)231)/255 alpha:1.0f]];
-    [typeButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -kControlViewMargin, 0, 0)];
+    [typeButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -kControlViewMargin-kButtonImageEdge, 0, 0)];
     [typeButton setImage:[UIImage imageNamed:@"arrow_d_h"] forState:UIControlStateNormal];
     [typeButton setImageEdgeInsets:UIEdgeInsetsMake(0, typeButton.bounds.size.width - kButtonImageEdge - typeButton.imageView.image.size.width / 2, 0, 0)];
     [typeButton.layer setCornerRadius:1.0f];
@@ -94,9 +94,9 @@
     [categoryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [categoryButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [categoryButton setBackgroundColor:[UIColor colorWithRed:((CGFloat)229)/255 green:((CGFloat)230)/255 blue:((CGFloat)231)/255 alpha:1.0f]];
-    [categoryButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -kControlViewMargin, 0, 0)];
+    [categoryButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -kControlViewMargin-kButtonImageEdge, 0, 0)];
     [categoryButton setImage:[UIImage imageNamed:@"arrow_d_h"] forState:UIControlStateNormal];
-    [categoryButton setImageEdgeInsets:UIEdgeInsetsMake(0, typeButton.bounds.size.width - kButtonImageEdge - typeButton.imageView.image.size.width / 2, 0, 0)];
+    [categoryButton setImageEdgeInsets:UIEdgeInsetsMake(0, categoryButton.bounds.size.width - kButtonImageEdge - categoryButton.imageView.image.size.width / 2, 0, 0)];
     [categoryButton addTarget:self action:@selector(categoryButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [categoryButton.layer setCornerRadius:1.0f];
     [categoryButton.layer setMasksToBounds:YES];

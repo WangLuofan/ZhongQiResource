@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQNavigationViewController.h"
+#import "ZQDistrictPostViewController.h"
 #import "ZQDistrictResourceViewController.h"
 #import "ZQRecommendTableViewCell.h"
 #import "ZQToolBar.h"
@@ -34,14 +36,14 @@
     [self.view addSubview:filterView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + kFilterViewHeight + kTableViewGapWithFilterView, self.view.frame.size.width, self.view.bounds.size.height - kFilterViewHeight) style:UITableViewStylePlain];
-    [self.tableView setBackgroundColor:self.view.backgroundColor];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
     
     tableViewContentArray = @[
-                              @[@"img01",@"供求资源:整合联盟网",@"整合联盟网是中国资源整合第一官网,是资源整合嵘老师话茬下盛世纵横面向中国民营企业开展的资源整合五大平台之一。"],
+                              @[@"img",@"萍乡电子商务创业园圈",@"萍乡电子商务创业园，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"],
                               @[@"img02",@"重工业行业商圈:中联重科",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"],
                               @[@"img03",@"高新技术成果转化财政专项资金扶持",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"]
                               ];
@@ -76,6 +78,21 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kTableViewCellHeight ;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQRecommendTableViewCell* cell = (ZQRecommendTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setCellBackgroundColor:[UIColor lightGrayColor]];
+    
+    ZQDistrictPostViewController* postController = [[ZQDistrictPostViewController alloc] initWithTitle:tableViewContentArray[indexPath.row][1]];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
+    }];
+    return ;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQRecommendTableViewCell* cell = (ZQRecommendTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setCellBackgroundColor:[UIColor whiteColor]];
 }
 
 @end

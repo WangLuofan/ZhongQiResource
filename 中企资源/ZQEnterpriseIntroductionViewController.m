@@ -8,7 +8,7 @@
 
 #import "ZQLoadMoreView.h"
 #import "ZQNavigationViewController.h"
-#import "ZQEnterpriseCommentViewController.h"
+#import "ZQEnterpriseEvaluateViewController.h"
 #import "ZQEnterpriseIntroductionViewController.h"
 #import "ZQEnterpriseIntroductionTableViewCell.h"
 #import "ZQEntRscDistributeTableViewCell.h"
@@ -138,7 +138,7 @@
     switch (buttonIndex) {
         case 0:
         {
-            ZQEnterpriseCommentViewController* commentViewController = [[ZQEnterpriseCommentViewController alloc] init];
+            ZQEnterpriseEvaluateViewController* commentViewController = [[ZQEnterpriseEvaluateViewController alloc] init];
             [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentViewController] animated:YES completion:^{
             }];
         }

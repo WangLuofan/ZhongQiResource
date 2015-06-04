@@ -16,6 +16,7 @@
 #import "ZQExpertPulpitViewController.h"
 #import "ZQSpecialSupportViewController.h"
 #import "ZQPolicyInterpretViewController.h"
+#import "ZQDistrictPostViewController.h"
 #import "ZQNavigationViewController.h"
 
 #define kTopScrollViewHeight 180
@@ -235,6 +236,21 @@
     [cell.detailTextLabel setText:tableViewContentArray[indexPath.row][2]];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQRecommendTableViewCell* cell = (ZQRecommendTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setCellBackgroundColor:[UIColor lightGrayColor]];
+    
+    ZQDistrictPostViewController* postController = [[ZQDistrictPostViewController alloc] initWithTitle:tableViewContentArray[indexPath.row][1]];
+    [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
+    }];
+    return ;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQRecommendTableViewCell* cell = (ZQRecommendTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setCellBackgroundColor:[UIColor whiteColor]];
 }
 
 @end

@@ -62,7 +62,7 @@
         [replyButton setTitle:@"回复" forState:UIControlStateNormal];
         [replyButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [replyButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [replyButton setImage:[UIImage imageNamed:@"hf"] forState:UIControlStateNormal];
+        [replyButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
         [replyButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [replyButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [replyButton setFrame:CGRectMake(attentionButton.frame.origin.x + attentionButton.frame.size.width, attentionButton.frame.origin.y, attentionButton.frame.size.width,attentionButton.frame.size.height)];

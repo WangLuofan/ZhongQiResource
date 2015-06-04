@@ -127,7 +127,7 @@ static CGFloat textContentHeight;
         [chatButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [chatButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [chatButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [chatButton setImage:[UIImage imageNamed:@"sl"] forState:UIControlStateNormal];
+        [chatButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
         [chatButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [chatButton setFrame:CGRectMake(attentionButton.frame.origin.x + attentionButton.frame.size.width, commentButton.frame.origin.y, commentButton.frame.size.width, commentButton.frame.size.height    )];
         [chatButton setImageEdgeInsets:UIEdgeInsetsMake(0, -commentButton.imageView.image.size.width, 0, 0)];

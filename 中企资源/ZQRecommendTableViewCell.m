@@ -13,6 +13,12 @@
 #define kContentGapSize 5
 #define kTableViewCellHeight 60
 
+@interface ZQRecommendTableViewCell () {
+    UIView* whiteShadowView;
+}
+
+@end
+
 @implementation ZQRecommendTableViewCell
 
 @synthesize imageView;
@@ -32,7 +38,7 @@
         [self addSubview:grayShadowView];
         
         //白色阴影
-        UIView* whiteShadowView = [[UIView alloc] initWithFrame:CGRectMake(kContentGapSize - 0.5, kContentGapSize - 0.5, kScreenWidth - 2* kContentGapSize + 1, kTableViewCellHeight + 1)];
+        whiteShadowView = [[UIView alloc] initWithFrame:CGRectMake(kContentGapSize - 0.5, kContentGapSize - 0.5, kScreenWidth - 2* kContentGapSize + 1, kTableViewCellHeight + 1)];
         [whiteShadowView setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:whiteShadowView];
         
@@ -67,6 +73,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setCellBackgroundColor:(UIColor*)backgroundColor {
+    [whiteShadowView setBackgroundColor:backgroundColor];
+    return ;
 }
 
 @end
