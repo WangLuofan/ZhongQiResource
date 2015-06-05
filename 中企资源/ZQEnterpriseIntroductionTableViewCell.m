@@ -93,7 +93,7 @@ static CGFloat textContentHeight;
         //评论按钮
         UIButton* commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [commentButton setTag:0];
-        [commentButton setTitle:@"评论" forState:UIControlStateNormal];
+        [commentButton setTitle:@"评价" forState:UIControlStateNormal];
         [commentButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [commentButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];

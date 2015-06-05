@@ -22,11 +22,11 @@
 @interface ZQToolBar : UIView
 
 @property(nonatomic,assign) id<ZQToolBarDelegate> delegate;
-@property(nonatomic,assign) BOOL bFilterContentViewShown;
+@property(nonatomic,assign) BOOL isFilterContentViewShown;
 
 -(instancetype)initWithSuperView:(UIView*)superView Styles:(NSArray*)styles Text:(NSArray*)text;
 -(void)setFilterCategory:(NSString*)filterCategory index:(NSInteger)index;
--(void)showFilterContentViewInView:(UIView*)view leftSource:(NSArray*)leftSource rightSource:(NSArray*)rightSource;
+-(void)showFilterContentViewInView:(UIView*)view leftSrcArray:(NSArray*)leftSrcArray rightSrcArray:(NSArray*)rightSrcArray;
 -(void)hideFilterContentView;
 -(void)setStyles:(NSArray*)styles Text:(NSArray*)text;
 

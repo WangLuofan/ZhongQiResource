@@ -26,7 +26,9 @@
 		B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */; };
 		B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B34165931B15A39700F9A8ED /* ZQPageControl.m */; };
 		B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */; };
+		B35AD50A1B2043B000AFC6BB /* ZQFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35AD5091B2043B000AFC6BB /* ZQFilterView.m */; };
 		B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */; };
+		B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B37235081B212B2400B42AA6 /* ZQFilterButton.m */; };
 		B380DCB81B146C97003B0D53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCB71B146C97003B0D53 /* main.m */; };
 		B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCBA1B146C97003B0D53 /* AppDelegate.m */; };
 		B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B380DCC21B146C97003B0D53 /* Images.xcassets */; };
@@ -55,7 +57,6 @@
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
 		B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */; };
 		B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */; };
-		B3E67E201B1C3A8B00CBF447 /* ZQToolBarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */; };
 		B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */; };
 		B3E67E281B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E271B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m */; };
 		B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F6C3D11B155285000313C7 /* ZQTabBarViewController.m */; };
@@ -115,8 +116,12 @@
 		B34165931B15A39700F9A8ED /* ZQPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPageControl.m; sourceTree = "<group>"; };
 		B341659A1B15C44D00F9A8ED /* ZQCollectionContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCollectionContentView.h; sourceTree = "<group>"; };
 		B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCollectionContentView.m; sourceTree = "<group>"; };
+		B35AD5081B2043B000AFC6BB /* ZQFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFilterView.h; sourceTree = "<group>"; };
+		B35AD5091B2043B000AFC6BB /* ZQFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFilterView.m; sourceTree = "<group>"; };
 		B367407A1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBatchSndReqInfoViewController.h; sourceTree = "<group>"; };
 		B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBatchSndReqInfoViewController.m; sourceTree = "<group>"; };
+		B37235071B212B2400B42AA6 /* ZQFilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFilterButton.h; sourceTree = "<group>"; };
+		B37235081B212B2400B42AA6 /* ZQFilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFilterButton.m; sourceTree = "<group>"; };
 		B380DCB21B146C97003B0D53 /* 中企资源.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "中企资源.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B380DCB61B146C97003B0D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B380DCB71B146C97003B0D53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,8 +180,6 @@
 		B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommAlgorithm.m; sourceTree = "<group>"; };
 		B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseAlertViewController.h; sourceTree = "<group>"; };
 		B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTypeChooseAlertViewController.m; sourceTree = "<group>"; };
-		B3E67E1E1B1C3A8B00CBF447 /* ZQToolBarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBarContentView.h; sourceTree = "<group>"; };
-		B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolBarContentView.m; sourceTree = "<group>"; };
 		B3E67E221B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseIntroductionViewController.h; sourceTree = "<group>"; };
 		B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseIntroductionViewController.m; sourceTree = "<group>"; };
 		B3E67E261B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseIntroductionTableViewCell.h; sourceTree = "<group>"; };
@@ -477,6 +480,15 @@
 				B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */,
 			);
 			name = "批量发送需求信息";
+			sourceTree = "<group>";
+		};
+		B37235061B212B0800B42AA6 /* 内容项 */ = {
+			isa = PBXGroup;
+			children = (
+				B37235071B212B2400B42AA6 /* ZQFilterButton.h */,
+				B37235081B212B2400B42AA6 /* ZQFilterButton.m */,
+			);
+			name = "内容项";
 			sourceTree = "<group>";
 		};
 		B380DCA91B146C97003B0D53 = {
@@ -1018,6 +1030,7 @@
 		B3CC257D1B183B92008693E5 /* 顶部工具栏 */ = {
 			isa = PBXGroup;
 			children = (
+				B37235061B212B0800B42AA6 /* 内容项 */,
 				B3E67E1D1B1C36B000CBF447 /* 内容选择 */,
 				B3E67E1C1B1C36A400CBF447 /* 工具条 */,
 			);
@@ -1101,8 +1114,8 @@
 		B3E67E1D1B1C36B000CBF447 /* 内容选择 */ = {
 			isa = PBXGroup;
 			children = (
-				B3E67E1E1B1C3A8B00CBF447 /* ZQToolBarContentView.h */,
-				B3E67E1F1B1C3A8B00CBF447 /* ZQToolBarContentView.m */,
+				B35AD5081B2043B000AFC6BB /* ZQFilterView.h */,
+				B35AD5091B2043B000AFC6BB /* ZQFilterView.m */,
 			);
 			name = "内容选择";
 			sourceTree = "<group>";
@@ -1286,7 +1299,6 @@
 				B31E66551B1EDEB700E70720 /* ZQDistrictPostViewController.m in Sources */,
 				B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */,
 				B3E67E281B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m in Sources */,
-				B3E67E201B1C3A8B00CBF447 /* ZQToolBarContentView.m in Sources */,
 				B34105611B16F97300C3A079 /* LoginCompleteView.m in Sources */,
 				B3CC258E1B185DB7008693E5 /* ZQCheckBox.m in Sources */,
 				B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */,
@@ -1302,12 +1314,14 @@
 				B31E663F1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,
+				B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */,
 				B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */,
 				B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */,
 				B31E66481B1EA13200E70720 /* ZQEnterpriseCommentViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B3F9B86C1B1D944900E1B215 /* ZQEntRscDistributeTableViewCell.m in Sources */,
 				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,
+				B35AD50A1B2043B000AFC6BB /* ZQFilterView.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
 				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B3F9B86F1B1DA57A00E1B215 /* ZQLoadMoreView.m in Sources */,

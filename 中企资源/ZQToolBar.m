@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQFilterView.h"
 #import "ZQToolBar.h"
-#import "ZQToolBarContentView.h"
 
 #define kCenterItemRatio 0.5
 #define kButtonImageRightBottomMargin 5
@@ -16,7 +16,7 @@
 #define kFilterViewHeight 40
 
 @interface ZQToolBar () {
-    ZQToolBarContentView* contentView;
+    ZQFilterView* filterView;
 }
 
 @end
@@ -27,7 +27,6 @@
     self = [super init];
     
     if(self) {
-        [self setBFilterContentViewShown:NO];
         
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
@@ -45,7 +44,6 @@
     self = [super init];
     
     if(self) {
-        [self setBFilterContentViewShown:NO];
         
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
@@ -75,13 +73,25 @@
     return ;
 }
 
--(void)showFilterContentViewInView:(UIView *)view leftSource:(NSArray *)leftSource rightSource:(NSArray *)rightSource {
-    if(contentView == nil) {
-       contentView = [[ZQToolBarContentView alloc] initWithStyle:ZQToolBarContentViewStyleSigle toolBar:self superView:view];
+-(void)showFilterContentViewInView:(UIView *)view leftSrcDict:(NSDictionary *)leftSrcDict rightSrcDict:(NSDictionary *)rightSrcDict {
+    
+    return ;
+}
+
+-(void)showFilterContentViewInView:(UIView *)view leftSrcArray:(NSArray *)leftSrcArray rightSrcArray:(NSArray *)rightSrcArray {
+    
+    if(filterView == nil) {
+        filterView = [[ZQFilterView alloc] initWithFrame:CGRectMake(0, kFilterViewHeight, view.bounds.size.width, view.bounds.size.height)];
     }
-    [view addSubview:contentView];
-    [contentView setDataSourceArray:leftSource rightSource:rightSource];
-    [self setBFilterContentViewShown:YES];
+    [view addSubview:filterView];
+    [view bringSubviewToFront:self];
+    
+    if(leftSrcArray != nil)
+        [filterView addLeftSrouceWithArray:leftSrcArray RightSourceArray:rightSrcArray];
+    
+    [filterView showFilterContentView];
+    [self setIsFilterContentViewShown:YES];
+    
     return ;
 }
 
@@ -147,8 +157,8 @@
 }
 
 -(void)hideFilterContentView {
-    [contentView removeFromSuperview];
-    [self setBFilterContentViewShown:NO];
+    [filterView dismissFilterContentView];
+    [self setIsFilterContentViewShown:NO];
     return ;
 }
 

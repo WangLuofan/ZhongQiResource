@@ -181,16 +181,16 @@
     switch (index) {
         case 0:
         {
-            NSArray* array = @[
-                               @"女装/男装/内衣",@"鞋靴/箱包/配饰",@"运动户外",@"母婴用品/童装/玩具",
-                               @"工艺品/百货/宠物",@"汽车用品",@"食品",@"家纺家饰/家装建材",@"美妆日化",
-                               @"数码家电",@"电工电气/安防",@"包装/行政办公",@"照明/电子",@"机械/五金/仪表",
-                               @"橡塑/化工/钢材",@"纺织/皮革",@"其他",@"按行业搜索"
-                               ];
-            if([filterView bFilterContentViewShown] == NO)
-                [filterView showFilterContentViewInView:self.view leftSource:array rightSource:nil];
+            NSArray* leftSrc = @[@"全部",@"湖南",@"广东",@"深圳"];
+            NSArray* rightSrcArray = @[
+                                       @[@"全部",@"长沙",@"衡阳",@"广州",@"深圳"],
+                                       @[@"全部",@"长沙",@"衡阳"],@[@"全部",@"广州",@"深圳"],@[]
+                                       ];
+            
+            if(![filterView isFilterContentViewShown])
+                [toolBar showFilterContentViewInView:self.view leftSrcArray:leftSrc rightSrcArray:rightSrcArray];
             else
-                [filterView hideFilterContentView];
+                [toolBar hideFilterContentView];
         }
             break;
             
