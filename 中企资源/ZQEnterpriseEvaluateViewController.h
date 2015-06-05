@@ -10,4 +10,6 @@
 
 @interface ZQEnterpriseEvaluateViewController : ZQBaseExitViewController
 
+@property(nonatomic,strong) UITableView* tableView;
+
 @end

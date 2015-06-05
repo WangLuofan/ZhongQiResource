@@ -29,6 +29,7 @@
 		B35AD50A1B2043B000AFC6BB /* ZQFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35AD5091B2043B000AFC6BB /* ZQFilterView.m */; };
 		B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */; };
 		B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B37235081B212B2400B42AA6 /* ZQFilterButton.m */; };
+		B372350F1B214E7600B42AA6 /* ZQCommentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B372350E1B214E7600B42AA6 /* ZQCommentBar.m */; };
 		B380DCB81B146C97003B0D53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCB71B146C97003B0D53 /* main.m */; };
 		B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCBA1B146C97003B0D53 /* AppDelegate.m */; };
 		B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B380DCC21B146C97003B0D53 /* Images.xcassets */; };
@@ -122,6 +123,8 @@
 		B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBatchSndReqInfoViewController.m; sourceTree = "<group>"; };
 		B37235071B212B2400B42AA6 /* ZQFilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFilterButton.h; sourceTree = "<group>"; };
 		B37235081B212B2400B42AA6 /* ZQFilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFilterButton.m; sourceTree = "<group>"; };
+		B372350D1B214E7600B42AA6 /* ZQCommentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCommentBar.h; sourceTree = "<group>"; };
+		B372350E1B214E7600B42AA6 /* ZQCommentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCommentBar.m; sourceTree = "<group>"; };
 		B380DCB21B146C97003B0D53 /* 中企资源.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "中企资源.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B380DCB61B146C97003B0D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B380DCB71B146C97003B0D53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -386,6 +389,7 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B372350C1B214D9300B42AA6 /* 发表评论底部栏 */,
 				B31E66591B1EF01E00E70720 /* 企业评价概要视图 */,
 				B31E66491B1EAD6500E70720 /* 类型选择 */,
 				B3F9B8701B1DAA3800E1B215 /* 加载更多 */,
@@ -489,6 +493,15 @@
 				B37235081B212B2400B42AA6 /* ZQFilterButton.m */,
 			);
 			name = "内容项";
+			sourceTree = "<group>";
+		};
+		B372350C1B214D9300B42AA6 /* 发表评论底部栏 */ = {
+			isa = PBXGroup;
+			children = (
+				B372350D1B214E7600B42AA6 /* ZQCommentBar.h */,
+				B372350E1B214E7600B42AA6 /* ZQCommentBar.m */,
+			);
+			name = "发表评论底部栏";
 			sourceTree = "<group>";
 		};
 		B380DCA91B146C97003B0D53 = {
@@ -1311,6 +1324,7 @@
 				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
 				B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */,
+				B372350F1B214E7600B42AA6 /* ZQCommentBar.m in Sources */,
 				B31E663F1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,

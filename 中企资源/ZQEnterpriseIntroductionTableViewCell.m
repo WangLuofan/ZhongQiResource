@@ -79,15 +79,17 @@ static CGFloat textContentHeight;
         [otherControlView addSubview:ratingLabel];
         
         //评分控件
-        starRatingView = [[ZQStarRatingView alloc] initWithFrame:CGRectMake(ratingLabel.frame.origin.x + ratingLabel.frame.size.width, ratingLabel.frame.origin.y, self.addressLabel.frame.size.width / 3, ratingLabel.bounds.size.height) numberOfStars:5];
+        starRatingView = [[ZQStarRatingView alloc] initWithFrame:CGRectMake(ratingLabel.frame.origin.x + ratingLabel.frame.size.width, ratingLabel.frame.origin.y, self.addressLabel.frame.size.width / 2, ratingLabel.bounds.size.height + kControlMargin) numberOfStars:5];
+        [starRatingView setCenter:CGPointMake(starRatingView.center.x, ratingLabel.center.y)];
         [starRatingView setUserInteractionEnabled:NO];
-        [starRatingView sizeToFit];
+//        [starRatingView sizeToFit];
         [otherControlView addSubview:starRatingView];
         
         //分数
-        self.scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(starRatingView.frame.origin.x + starRatingView.frame.size.width + kControlMargin, starRatingView.frame.origin.y, self.contractLabel.bounds.size.width / 6, starRatingView.frame.size.height)];
+        self.scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(starRatingView.frame.origin.x + starRatingView.frame.size.width + kControlMargin, ratingLabel.frame.origin.y, self.contractLabel.bounds.size.width / 6, ratingLabel.frame.size.height)];
         [self.scoreLabel setTextColor:[UIColor lightGrayColor]];
         [self.scoreLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [self.scoreLabel setCenter:CGPointMake(self.scoreLabel.center.x, ratingLabel.center.y)];
         [otherControlView addSubview:self.scoreLabel];
         
         //评论按钮

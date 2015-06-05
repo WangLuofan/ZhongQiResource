@@ -57,13 +57,17 @@
     UIView* view = [[UIView alloc] init];
     [view setClipsToBounds:YES];
     
+    //宽self.frame.size.width - numberOfStars*kControlMargin
     UIImage* image = [UIImage imageNamed:(bTopStar?@"star_h":@"star")];
     for (int i = 0; i != numberOfStars; ++i) {
         UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
-        [imageView setFrame:CGRectMake(i*image.size.width / 2 + kControlMargin, 0, image.size.width / 2, image.size.height / 2)];
+//        [imageView setFrame:CGRectMake(i*image.size.width / 2 + kControlMargin, 0, image.size.width / 2, image.size.height / 2)];
+        [imageView setFrame:CGRectMake(i*self.frame.size.width / numberOfStars, 0, (self.frame.size.width - numberOfStars*kControlMargin) / kControlMargin, self.frame.size.height)];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
         [view addSubview:imageView];
     }
-    [view setFrame:CGRectMake(0, 0, numberOfStars*image.size.width / 2 + 2*kControlMargin, image.size.height / 2)];
+//    [view setFrame:CGRectMake(0, 0, numberOfStars*image.size.width / 2 + 2*kControlMargin, image.size.height / 2)];
+    [view setFrame:self.bounds];
     return view;
 }
 

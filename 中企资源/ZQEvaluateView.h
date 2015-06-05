@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZQEvaluateView;
+@protocol ZQEvaluateViewDelegate <NSObject>
+
+@optional
+-(void)evaluateView:(ZQEvaluateView*)evaluateView commentButtonPressed:(UIButton*)commentButton;
+
+@end
+
 @interface ZQEvaluateView : UIView
+
+@property(nonatomic,assign) id<ZQEvaluateViewDelegate> delegate;
+
+-(void)setScore:(CGFloat)score commentCount:(NSInteger)commentCount;
 
 @end
