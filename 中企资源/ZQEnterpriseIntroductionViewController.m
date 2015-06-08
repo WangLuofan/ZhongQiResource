@@ -140,6 +140,13 @@
         {
             ZQEnterpriseEvaluateViewController* commentViewController = [[ZQEnterpriseEvaluateViewController alloc] init];
             [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentViewController] animated:YES completion:^{
+                [commentViewController commentWithUserInfoDict:@{
+                                                                @"header":[UIImage imageNamed:@"tx2"],
+                                                                @"enterprise":@"湖南讯德彩利科技有限公司",
+                                                                @"userName":@"帅帅",
+                                                                @"commentContent":@"不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!",
+                                                                @"dateTime":@"2015-05-25    18:03:29"
+                                                                 }];
             }];
         }
             break;

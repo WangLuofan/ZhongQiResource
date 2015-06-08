@@ -16,6 +16,8 @@
 		B31E66551B1EDEB700E70720 /* ZQDistrictPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E66541B1EDEB700E70720 /* ZQDistrictPostViewController.m */; };
 		B31E66581B1EE8E300E70720 /* ZQEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E66571B1EE8E300E70720 /* ZQEvaluateView.m */; };
 		B31E665D1B1EF13400E70720 /* ZQEnterpriseDetailInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31E665C1B1EF13400E70720 /* ZQEnterpriseDetailInfoTableViewCell.m */; };
+		B32603531B21761E001142D5 /* ZQNewestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B32603521B21761E001142D5 /* ZQNewestTableViewCell.m */; };
+		B32603571B217A92001142D5 /* ZQResponseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B32603561B217A92001142D5 /* ZQResponseLabel.m */; };
 		B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */; };
 		B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B34105581B16E70500C3A079 /* YuppySC-Regular.otf */; };
 		B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341055C1B16F35D00C3A079 /* ZQBaseViewController.m */; };
@@ -98,6 +100,10 @@
 		B31E66571B1EE8E300E70720 /* ZQEvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEvaluateView.m; sourceTree = "<group>"; };
 		B31E665B1B1EF13400E70720 /* ZQEnterpriseDetailInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseDetailInfoTableViewCell.h; sourceTree = "<group>"; };
 		B31E665C1B1EF13400E70720 /* ZQEnterpriseDetailInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseDetailInfoTableViewCell.m; sourceTree = "<group>"; };
+		B32603511B21761E001142D5 /* ZQNewestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNewestTableViewCell.h; sourceTree = "<group>"; };
+		B32603521B21761E001142D5 /* ZQNewestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNewestTableViewCell.m; sourceTree = "<group>"; };
+		B32603551B217A92001142D5 /* ZQResponseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQResponseLabel.h; sourceTree = "<group>"; };
+		B32603561B217A92001142D5 /* ZQResponseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQResponseLabel.m; sourceTree = "<group>"; };
 		B34105501B16A32900C3A079 /* ZQRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQRecommendTableViewCell.h; sourceTree = "<group>"; };
 		B34105511B16A32900C3A079 /* ZQRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQRecommendTableViewCell.m; sourceTree = "<group>"; };
 		B34105581B16E70500C3A079 /* YuppySC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YuppySC-Regular.otf"; sourceTree = "<group>"; };
@@ -311,6 +317,24 @@
 			name = "企业详细信息列表";
 			sourceTree = "<group>";
 		};
+		B32603501B2175FA001142D5 /* 最新动态表格 */ = {
+			isa = PBXGroup;
+			children = (
+				B32603511B21761E001142D5 /* ZQNewestTableViewCell.h */,
+				B32603521B21761E001142D5 /* ZQNewestTableViewCell.m */,
+			);
+			name = "最新动态表格";
+			sourceTree = "<group>";
+		};
+		B32603541B217A7A001142D5 /* 回复标签 */ = {
+			isa = PBXGroup;
+			children = (
+				B32603551B217A92001142D5 /* ZQResponseLabel.h */,
+				B32603561B217A92001142D5 /* ZQResponseLabel.m */,
+			);
+			name = "回复标签";
+			sourceTree = "<group>";
+		};
 		B341054F1B16A2C200C3A079 /* 智能推荐表项 */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +413,8 @@
 		B341056A1B17203300C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B32603541B217A7A001142D5 /* 回复标签 */,
+				B32603501B2175FA001142D5 /* 最新动态表格 */,
 				B372350C1B214D9300B42AA6 /* 发表评论底部栏 */,
 				B31E66591B1EF01E00E70720 /* 企业评价概要视图 */,
 				B31E66491B1EAD6500E70720 /* 类型选择 */,
@@ -1321,6 +1347,7 @@
 				B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */,
 				B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
+				B32603571B217A92001142D5 /* ZQResponseLabel.m in Sources */,
 				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
 				B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */,
@@ -1339,6 +1366,7 @@
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
 				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B3F9B86F1B1DA57A00E1B215 /* ZQLoadMoreView.m in Sources */,
+				B32603531B21761E001142D5 /* ZQNewestTableViewCell.m in Sources */,
 				B3CC25311B17F5A4008693E5 /* ZQExpertPulpitViewController.m in Sources */,
 				B3F9B8751B1DB57C00E1B215 /* ZQSpecialSupportTableViewCell.m in Sources */,
 				B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */,

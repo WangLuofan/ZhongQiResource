@@ -10,4 +10,6 @@
 
 @interface ZQEnterpriseCommentViewController : ZQBaseExitViewController
 
+-(void)setPushViewController:(UIViewController*)viewController;
+
 @end

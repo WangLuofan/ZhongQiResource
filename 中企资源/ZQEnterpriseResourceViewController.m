@@ -155,25 +155,14 @@
 
 -(void)checkBox:(ZQCheckBox *)checkBox isSelected:(BOOL)isSelected {
     BOOL bAllChecked = YES;
-    
-    if(isSelected) {
-        for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
-            ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-            if(![cell checked])
-                bAllChecked = NO;
+    for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
+        ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+        if(![cell checked]) {
+            bAllChecked = NO;
+            break;
         }
-        
-        [self.allCheckButton setSelected:bAllChecked];
-    }else {
-        for (NSIndexPath* indexPath in self.tableView.indexPathsForVisibleRows) {
-            ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-            if([cell checked])
-                bAllChecked = NO;
-        }
-        
-        [self.allCheckButton setSelected:bAllChecked];
     }
-    
+    [self.allCheckButton setSelected:bAllChecked];
     return ;
 }
 

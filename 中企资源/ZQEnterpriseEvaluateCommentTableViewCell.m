@@ -44,21 +44,19 @@ static CGFloat commentHeight = 0;
         [self setBackgroundColor:[UIColor clearColor]];
         
         //灰色阴影
-        grayShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5*kControlMargin - 2*kShadowRadius, self.frame.size.width, kTableViewCellHeight + 4*kShadowRadius)];
+        grayShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, kControlMargin, self.frame.size.width, self.bounds.size.height - kControlMargin)];
         [grayShadowView setBackgroundColor:[UIColor colorWithRed:((CGFloat)193)/255 green:((CGFloat)194)/255 blue:((CGFloat)195)/255 alpha:1.0f]];
         [self addSubview:grayShadowView];
         
         //白色阴影
-        whiteShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, grayShadowView.frame.origin.y + kShadowRadius, grayShadowView.frame.size.width, grayShadowView.frame.size.height - 2*kShadowRadius)];
+        whiteShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, kShadowRadius, grayShadowView.frame.size.width, grayShadowView.frame.size.height - 2*kShadowRadius)];
         [whiteShadowView setBackgroundColor:[UIColor whiteColor]];
-        [whiteShadowView setCenter:grayShadowView.center];
-        [self addSubview:whiteShadowView];
+        [grayShadowView addSubview:whiteShadowView];
         
         //内容视图
-        contentView = [[UIView alloc] initWithFrame:CGRectMake(0, whiteShadowView.frame.origin.y + kShadowRadius, whiteShadowView.frame.size.width, whiteShadowView.frame.size.height - 2*kShadowRadius)];
+        contentView = [[UIView alloc] initWithFrame:CGRectMake(0, kShadowRadius, whiteShadowView.frame.size.width, whiteShadowView.frame.size.height - 2*kShadowRadius)];
         [contentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)242)/255 green:((CGFloat)242)/255 blue:((CGFloat)244)/255 alpha:1.0f]];
-        [contentView setCenter:whiteShadowView.center];
-        [self addSubview:contentView];
+        [whiteShadowView addSubview:contentView];
         
         //头像
         self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kControlMargin, kControlMargin, kHeaderImageSize, kHeaderImageSize)];

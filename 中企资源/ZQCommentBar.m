@@ -11,9 +11,8 @@
 #define kControlMargin 20
 
 @interface ZQCommentBar () {
-    UITextView* commentTextView;
+    UITextField* commentTextField;
     UIButton* sendButton;
-    
     CGRect commentBarFrame;
 }
 
@@ -31,14 +30,14 @@
         [sendButton setImage:[UIImage imageNamed:@"fasong"] forState:UIControlStateNormal];
         [sendButton setFrame:CGRectMake(self.bounds.size.width - kControlMargin / 2 - sendButton.imageView.image.size.width / 2, 0, sendButton.imageView.image.size.width / 2, sendButton.imageView.image.size.height / 2)];
         [sendButton setCenter:CGPointMake(sendButton.center.x, self.bounds.size.height / 2)];
+        [sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:sendButton];
         
-        commentTextView = [[UITextView alloc] initWithFrame:CGRectMake(kControlMargin, 0, self.bounds.size.width - sendButton.frame.size.width - 2*kControlMargin, self.bounds.size.height - kControlMargin / 2)];
-        [commentTextView setCenter:CGPointMake(commentTextView.center.x, self.bounds.size.height / 2)];
-        [commentTextView.layer setCornerRadius:5.0f];
-        [self addSubview:commentTextView];
-        
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
+        commentTextField = [[UITextField alloc] initWithFrame:CGRectMake(kControlMargin, 0, self.bounds.size.width - sendButton.frame.size.width - 2*kControlMargin, self.bounds.size.height - kControlMargin / 2)];
+        [commentTextField setCenter:CGPointMake(commentTextField.center.x, self.bounds.size.height / 2)];
+        [commentTextField setBackgroundColor:[UIColor whiteColor]];
+        [commentTextField.layer setCornerRadius:5.0f];
+        [self addSubview:commentTextField];
         
         commentBarFrame = self.frame;
         
@@ -57,7 +56,19 @@
     for (UIView* subView in self.subviews) {
         [subView resignFirstResponder];
     }
+    [commentTextField setText:@""];
+    
+    [self removeFromSuperview];
     return YES;
+}
+
+-(void)setTextViewPlaceHolder:(NSString *)placeHolderText {
+    [commentTextField setPlaceholder:placeHolderText];
+    return ;
+}
+
+-(BOOL)becomeFirstResponder {
+    return [commentTextField becomeFirstResponder];
 }
 
 -(void)keyboardWillShowNotification:(NSNotification*)notification {
@@ -66,13 +77,20 @@
     return ;
 }
 
+-(void)sendButtonPressed:(UIButton*)sender {
+    if(commentTextField.text.length == 0)
+        return ;
+    
+    if([self.delegate respondsToSelector:@selector(commentBar:sendCommentContent:)])
+        [self.delegate commentBar:self sendCommentContent:commentTextField.text];
+    
+    [self resignFirstResponder];
+    return ;
+}
+
 -(void)keyboardWillHideNotification:(NSNotification*)notification {
     [self setFrame:commentBarFrame];
     return;
-}
-
--(void)backgroundTapped:(UIGestureRecognizer*)sender {
-    [commentTextView resignFirstResponder];
 }
 
 @end
