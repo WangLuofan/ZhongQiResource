@@ -10,7 +10,7 @@
 
 @interface ZQFilterButton () {
     UIColor* oldColor;
-    
+    UIImageView* rightSelectedImage;
     BOOL isLeftFilterItemStyle;
 }
 
@@ -36,6 +36,10 @@
         [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         [self setTitleEdgeInsets:UIEdgeInsetsMake(0, 2*frame.size.height, 0, 0)];
         oldColor = self.backgroundColor;
+        
+        rightSelectedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"connrect"]];
+        [rightSelectedImage setFrame:CGRectMake(rightSelectedImage.image.size.width / 2, 0, rightSelectedImage.image.size.width / 2, rightSelectedImage.image.size.height / 2)];
+        [rightSelectedImage setCenter:CGPointMake(rightSelectedImage.center.x, self.bounds.size.height / 2)];
     }
     
     return self;
@@ -44,12 +48,32 @@
 -(void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     
-    if(selected) {
-        [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
+    if(isLeftFilterItemStyle) {
+        if(selected) {
+            [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)  234)/255 alpha:1.0f]];
+            for (UIView* subView in self.subviews) {
+                if([subView isKindOfClass:[UIImageView class]]) {
+                    [((UIImageView*)subView) setImage:[UIImage imageNamed:@"closure_h"]];
+                    break ;
+                }
+            }
+        }else {
+            [self setBackgroundColor:oldColor];
+            for (UIView* subView in self.subviews) {
+                if([subView isKindOfClass:[UIImageView class]]) {
+                    [((UIImageView*)subView) setImage:[UIImage imageNamed:@"closure"]];
+                    break ;
+                }
+            }
+        }
     }else {
-        [self setBackgroundColor:oldColor];
+        if(selected) {
+            [self addSubview:rightSelectedImage];
+        }else {
+            [rightSelectedImage removeFromSuperview];
+        }
     }
-        
+    
     return ;
 }
 

@@ -8,15 +8,14 @@
 
 #import "ZQFilterView.h"
 #import "ZQToolBar.h"
+#import "ZQToolItem.h"
 
 #define kCenterItemRatio 0.5
-#define kButtonImageRightBottomMargin 5
-#define kButtonImageWidthHeight 10
 #define kSeperatorLineWidth 0.5
 #define kFilterViewHeight 40
 
-@interface ZQToolBar () {
-    ZQFilterView* filterView;
+@interface ZQToolBar ()<ZQFilterViewDelegate> {
+    ZQToolItem* selectedToolItem;
 }
 
 @end
@@ -27,7 +26,7 @@
     self = [super init];
     
     if(self) {
-        
+        self.superView = superView;
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
         [self.layer setShadowOffset:CGSizeMake(0.5, 0.5)];
@@ -44,7 +43,7 @@
     self = [super init];
     
     if(self) {
-        
+        self.superView = superView;
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
         [self.layer setShadowOffset:CGSizeMake(0.5, 0.5)];
@@ -67,33 +66,6 @@
     return ;
 }
 
--(void)filterButtonPressed:(UIButton*)sender {
-    if([self.delegate respondsToSelector:@selector(toolBar:Style:index:)])
-        [self.delegate toolBar:self Style:ZQToolBarStyleButton index:sender.tag];
-    return ;
-}
-
--(void)showFilterContentViewInView:(UIView *)view leftSrcDict:(NSDictionary *)leftSrcDict rightSrcDict:(NSDictionary *)rightSrcDict {
-    
-    return ;
-}
-
--(void)showFilterContentViewInView:(UIView *)view leftSrcArray:(NSArray *)leftSrcArray rightSrcArray:(NSArray *)rightSrcArray {
-    
-    if(filterView == nil) {
-        filterView = [[ZQFilterView alloc] initWithFrame:CGRectMake(0, kFilterViewHeight, view.bounds.size.width, view.bounds.size.height)];
-    }
-    [view addSubview:filterView];
-    [view bringSubviewToFront:self];
-    
-    if(leftSrcArray != nil)
-        [filterView addLeftSrouceWithArray:leftSrcArray RightSourceArray:rightSrcArray];
-    
-    [filterView showFilterContentView];
-    [self setIsFilterContentViewShown:YES];
-    
-    return ;
-}
 
 -(void)setStyles:(NSArray*)styles Text:(NSArray*)text {
     
@@ -105,27 +77,20 @@
     NSInteger itemCount = styles.count;
     CGFloat xPosition = 0.0f;
     CGFloat kItemsWidth = self.frame.size.width*(1-kCenterItemRatio) / (itemCount - 1);
+    
     for (int i = 0; i != itemCount; ++i) {
         if([((NSString*)styles[i]) isEqualToString:ZQToolBarStyleButton]) {
             
-            UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            ZQToolItem* toolItem = nil;
             if(i == itemCount / 2)
-                [btn setFrame:CGRectMake(xPosition, 0, self.frame.size.width*kCenterItemRatio, self.frame.size.height)];
+                toolItem = [[ZQToolItem alloc] initWithFrame:CGRectMake(xPosition, 0, self.frame.size.width*kCenterItemRatio, self.frame.size.height) Title:(NSString*)text[i] superView:self.superView];
             else
-                [btn setFrame:CGRectMake(xPosition, 0, kItemsWidth, self.frame.size.height)];
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-            [btn setTitle:(NSString*)text[i] forState:UIControlStateNormal];
-            [btn.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-            [btn setImage:[UIImage imageNamed:@"xz"] forState:UIControlStateNormal];
-            [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(btn.frame.size.height - kButtonImageRightBottomMargin - kButtonImageWidthHeight, btn.frame.size.width - kButtonImageWidthHeight - kButtonImageRightBottomMargin, kButtonImageRightBottomMargin, kButtonImageRightBottomMargin)];
-            [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -kButtonImageRightBottomMargin*kButtonImageRightBottomMargin, 0, 0)];
-            [btn addTarget:self action:@selector(filterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [btn setTag:i];
-            xPosition += btn.frame.size.width ;
-            
-            [self addSubview:btn];
+                toolItem = [[ZQToolItem alloc] initWithFrame:CGRectMake(xPosition, 0, kItemsWidth, self.frame.size.height) Title:(NSString*)text[i] superView:self.superView];
+            [toolItem setTag:i];
+            [toolItem.filterView setDelegate:self];
+            [toolItem addTarget:self action:@selector(toolItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+            xPosition += toolItem.frame.size.width ;
+            [self addSubview:toolItem];
             
         }else {
             
@@ -156,9 +121,34 @@
     }
 }
 
--(void)hideFilterContentView {
-    [filterView dismissFilterContentView];
-    [self setIsFilterContentViewShown:NO];
+-(void)showFilterView:(ZQFilterView*)filterView {
+    [self.superView addSubview:filterView];
+    [self.superView bringSubviewToFront:self];
+    [filterView showFilterContentView];
+    
+    return ;
+}
+
+-(void)filterView:(ZQFilterView *)filterView itemTextSelected:(NSString *)itemText {
+    [selectedToolItem setTitle:itemText forState:UIControlStateNormal];
+    return ;
+}
+
+-(void)toolItemPressed:(ZQToolItem*)sender {
+    if(![sender isEqual:selectedToolItem]) {
+        [selectedToolItem.filterView dismissFilterContentView];
+        selectedToolItem = sender;
+        if([selectedToolItem.filterView needsUpdateDataSource])
+            if([self.delegate respondsToSelector:@selector(toolBar:dataSourceForItem:itemIndex:)])
+                [self.delegate toolBar:self dataSourceForItem:selectedToolItem itemIndex:selectedToolItem.tag];
+        [self showFilterView:selectedToolItem.filterView];
+    }else {
+        if([selectedToolItem.filterView filterViewShown])
+           [selectedToolItem.filterView dismissFilterContentView];
+        else
+            [self showFilterView:selectedToolItem.filterView];
+    }
+    
     return ;
 }
 

@@ -7,7 +7,9 @@
 //
 
 #import "ZQToolBar.h"
+#import "ZQToolItem.h"
 #import "ZQCheckBox.h"
+#import "ZQFilterView.h"
 #import "ZQEnterpriseTableViewCell.h"
 #import "ZQNavigationViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
@@ -21,7 +23,7 @@
 
 @interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate,ZQToolBarDelegate> {
     NSArray* _tableContentArray;
-    ZQToolBar* filterView;
+    ZQToolBar* toolBar;
 }
 
 @end
@@ -33,9 +35,9 @@
     [self setTitle:@"企业资源"];
     
     //顶部工具栏
-    filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
-    [filterView setDelegate:self];
-    [self.view addSubview:filterView];
+    toolBar = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
+    [toolBar setDelegate:self];
+    [self.view addSubview:toolBar];
     CGRect bottomViewFrame = [self addBottomToolBar];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kFilterViewHeight, self.view.frame.size.width, bottomViewFrame.origin.y - kFilterViewHeight) style:UITableViewStylePlain];
@@ -166,26 +168,38 @@
     return ;
 }
 
--(void)toolBar:(ZQToolBar *)toolBar Style:(NSString *)style index:(NSInteger)index {
-    switch (index) {
+-(void)toolBar:(ZQToolBar *)toolBar dataSourceForItem:(ZQToolItem *)toolItem itemIndex:(NSInteger)itemIndex {
+    NSArray* leftSrc,*rightSrc;
+    switch (itemIndex) {
         case 0:
         {
-            NSArray* leftSrc = @[@"全部",@"湖南",@"广东",@"深圳"];
-            NSArray* rightSrcArray = @[
-                                       @[@"全部",@"长沙",@"衡阳",@"广州",@"深圳"],
-                                       @[@"全部",@"长沙",@"衡阳"],@[@"全部",@"广州",@"深圳"],@[]
-                                       ];
+            leftSrc = @[@"全部",@"女装/男装/内衣"];
+            rightSrc = @[
+                         @[@"全部",@"春季流行",@"潮流外套"],
+                         @[@"全部",@"春季流行",@"潮流外套"]
+                         ];
+        }
+            break;
+        case 1:
+        {
             
-            if(![filterView isFilterContentViewShown])
-                [toolBar showFilterContentViewInView:self.view leftSrcArray:leftSrc rightSrcArray:rightSrcArray];
-            else
-                [toolBar hideFilterContentView];
+        }
+            break;
+            
+        case 2:
+        {
+            leftSrc = @[@"全部",@"湖南",@"广东",@"深圳"];
+            rightSrc = @[
+                         @[@"全部",@"长沙",@"衡阳",@"广州",@"深圳"],
+                         @[@"全部",@"长沙",@"衡阳"],@[@"全部",@"广州",@"深圳"],@[]
+                         ];
         }
             break;
             
         default:
             break;
     }
+    [toolItem.filterView addLeftSrouceWithArray:leftSrc RightSourceArray:rightSrc];
     return ;
 }
 

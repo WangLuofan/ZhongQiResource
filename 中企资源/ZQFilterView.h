@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZQFilterView;
+@protocol ZQFilterViewDelegate <NSObject>
+
+@optional
+-(void)filterView:(ZQFilterView*)filterView itemTextSelected:(NSString*)itemText;
+
+@end
+
 @interface ZQFilterView : UIView
 
+@property(nonatomic,assign) id<ZQFilterViewDelegate> delegate;
+@property(nonatomic,assign) BOOL filterViewShown;
+
+-(BOOL)needsUpdateDataSource;
 -(void)showFilterContentView;
 -(void)dismissFilterContentView;
 -(void)addLeftSrouceWithArray:(NSArray*)leftSrcArray RightSourceArray:(NSArray*)rightSrcArray;;
