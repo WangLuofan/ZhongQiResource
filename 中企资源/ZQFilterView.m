@@ -154,6 +154,11 @@
     if([rightSourceArray[sender.tag] count] != 0)
         [self addRightSrcContentWithIndex:sender.tag];
     else {
+        
+        for (UIView* subView in rightSrcContentView.subviews) {
+            [subView removeFromSuperview];
+        }
+        
         [self dismissFilterContentView];
         if([self.delegate respondsToSelector:@selector(filterView:itemTextSelected:)])
             [self.delegate filterView:self itemTextSelected:sender.titleLabel.text];
