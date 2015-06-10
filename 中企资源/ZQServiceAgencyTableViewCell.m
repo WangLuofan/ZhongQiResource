@@ -8,6 +8,10 @@
 
 #import "ZQServiceAgencyTableViewCell.h"
 
+@interface ZQServiceAgencyTableViewCell ()
+
+@end
+
 @implementation ZQServiceAgencyTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

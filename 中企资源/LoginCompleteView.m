@@ -18,7 +18,7 @@
 
 @implementation LoginCompleteView
 
--(instancetype)initWithFrame:(CGRect)frame {
+-(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
     if(self) {
@@ -71,6 +71,7 @@
     [self setHidden:NO];
     [self.headerImageView setImage:[UIImage imageNamed:imageName]];
     [self.companyLabel setText:companyName];
+    self.userName = userName;
     
     NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@,您好",userName]];
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, userName.length)];

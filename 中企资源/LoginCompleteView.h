@@ -14,6 +14,7 @@
 @property(nonatomic,strong) UILabel* userNameLabel;
 @property(nonatomic,strong) UILabel* companyLabel;
 @property(nonatomic,strong) UIButton* closureButton;
+@property(nonatomic,copy) NSString* userName;
 
 -(void)showLoginCompleteViewWithImageName:(NSString*)imageName userName:(NSString*)userName companyName:(NSString*)companyName;
 

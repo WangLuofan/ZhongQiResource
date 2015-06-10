@@ -10,12 +10,10 @@
 #import "ZQBaseTableViewController.h"
 
 #define kFilterViewHeight 40
-#define kAdImageViewHeight 80
 #define kLoadMoreHeight 30
 #define kTableViewCellHeight 100
 
 @interface ZQBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource> {
-    UIImageView* adImageView;
     ZQToolBar* filterView;
 }
 
@@ -29,12 +27,7 @@
     filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
     [self.view addSubview:filterView];
     
-    //广告图
-    adImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height + 0.5, self.view.bounds.size.width, kAdImageViewHeight)];
-    [adImageView setImage:[UIImage imageNamed:@"banner01"]];
-    [self.view addSubview:adImageView];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, adImageView.frame.origin.y + adImageView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight - kAdImageViewHeight - kNavStatusHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight -kNavStatusHeight) style:UITableViewStylePlain];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setDelegate:self];

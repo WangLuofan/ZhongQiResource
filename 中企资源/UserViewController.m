@@ -18,6 +18,8 @@
 #import "ZQMyAttentionViewController.h"
 #import "ZQMyChatViewController.h"
 
+#import "ZQUserInfoModifyViewController.h"
+
 #import "ZQNavigationViewController.h"
 
 #define kBgImageHeight 150
@@ -92,6 +94,7 @@
     [_contentImageView addSubview:loginButton];
     
     loginCompleteView = [[LoginCompleteView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, _contentImageView.frame.size.height - 2*kLoginCompleteViewGap)];
+    [loginCompleteView.closureButton addTarget:self action:@selector(closureButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [loginCompleteView setCenter:CGPointMake(loginCompleteView.center.x, _contentImageView.center.y)];
     [_contentImageView addSubview:loginCompleteView];
     return ;
@@ -102,6 +105,12 @@
     [loginButton setHidden:YES];
     [loginCompleteView showLoginCompleteViewWithImageName:@"touxiang" userName:@"帅帅" companyName:@"萍乡电子商务创业园圈"];
     return ;
+}
+
+-(void)closureButtonPressed:(UIButton*)sender {
+    ZQUserInfoModifyViewController* userViewController = [[ZQUserInfoModifyViewController alloc] initWithHeaderImage:loginCompleteView.headerImageView.image userName:loginCompleteView.userName];
+    [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:userViewController] animated:YES completion:^{
+    }];
 }
 
 #pragma mark - 打印系统所有字体(辅助方法)

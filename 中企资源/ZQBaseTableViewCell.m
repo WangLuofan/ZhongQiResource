@@ -33,10 +33,9 @@
         [shadowView setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:shadowView];
         
-        contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, shadowView.bounds.size.width - 2*kShadowRadius, shadowView.bounds.size.height - 2*kShadowRadius)];
-        [contentView setCenter:shadowView.center];
+        contentView = [[UIView alloc] initWithFrame:CGRectMake(kShadowRadius, kShadowRadius, shadowView.bounds.size.width - 2*kShadowRadius, shadowView.bounds.size.height - 2*kShadowRadius)];
         [contentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)242)/255 green:((CGFloat)242)/255 blue:((CGFloat)244)/255 alpha:1.0f]];
-        [self addSubview:contentView];
+        [shadowView addSubview:contentView];
         
         self.logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kControlMargin, kControlMargin, kLogoImageWidth, kLogoImageHeight)];
         [self.logoImageView setContentMode:UIViewContentModeScaleAspectFit];

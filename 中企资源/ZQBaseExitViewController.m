@@ -20,12 +20,13 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
     
     //返回按钮
-    UIImage* btnImage = [UIImage imageNamed:@"exit"];
-    UIButton* exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [exitBtn setFrame:CGRectMake(0, 0, btnImage.size.width / 2, btnImage.size.height / 2)];
-    [exitBtn setImage:btnImage forState:UIControlStateNormal];
-    [exitBtn addTarget:self action:@selector(exitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:exitBtn];
+//    UIImage* btnImage = [UIImage imageNamed:@"exit"];
+//    UIButton* exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [exitBtn setFrame:CGRectMake(0, 0, btnImage.size.width / 2, btnImage.size.height / 2)];
+//    [exitBtn setImage:btnImage forState:UIControlStateNormal];
+//    [exitBtn addTarget:self action:@selector(exitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:exitBtn];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(exitButtonPressed:)];
 }
 
 - (void)didReceiveMemoryWarning {
