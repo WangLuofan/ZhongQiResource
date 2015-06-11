@@ -81,7 +81,7 @@
     
     //密码设置成功
     [[NSUserDefaults standardUserDefaults] setValue:newCellFiled.text forKey:@"password"];
-    [self popoverPresentationController];
+    [self.navigationController popViewControllerAnimated:YES];
     return ;
 }
 

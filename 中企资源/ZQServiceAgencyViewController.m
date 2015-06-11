@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQWantEnrollViewController.h"
 #import "ZQServiceAgencyTableViewCell.h"
 #import "ZQServiceAgencyViewController.h"
+#import "ZQNavigationViewController.h"
 
 #define kControlMargin 5
 #define kShadowRadius 0.5f
@@ -88,7 +90,9 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Select");
+    ZQWantEnrollViewController* enrollController = [[ZQWantEnrollViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:enrollController] animated:YES completion:^{
+    }];
     return ;
 }
 

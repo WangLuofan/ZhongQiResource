@@ -19,6 +19,7 @@
     
     [self.view setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"PhoneVerifyTableViewCellIdentifier"];
+    [self.tableView setScrollEnabled:NO];
     
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 40)];
     ZQPhoneVerifyButton* sendSMSBtn = [[ZQPhoneVerifyButton alloc] initWithFrame:CGRectMake(10, 0, headerView.bounds.size.width - 20, 40)];

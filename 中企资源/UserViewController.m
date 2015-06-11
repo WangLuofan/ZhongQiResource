@@ -88,7 +88,7 @@
     
     loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginButton setImage:[UIImage imageNamed:@"dianjidenglu"] forState:UIControlStateNormal];
-    [loginButton setFrame:CGRectMake(0, _contentImageView.bounds.size.height / 2, loginButton.imageView.image.size.width / 2, loginButton.imageView.image.size.height / 2)];
+    [loginButton setFrame:CGRectMake(0, _contentImageView.bounds.size.height / 2 , loginButton.imageView.image.size.width / 2, loginButton.imageView.image.size.height / 2)];
     [loginButton addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [loginButton setCenter:CGPointMake(_contentImageView.center.x, loginButton.center.y)];
     [_contentImageView addSubview:loginButton];

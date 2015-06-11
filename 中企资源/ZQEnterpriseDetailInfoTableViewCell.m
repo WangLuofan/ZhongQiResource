@@ -74,56 +74,60 @@
         [contentView addSubview:self.detailLabel];
         
         //关注商圈
-        UIButton* attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [attentionButton setImage:[UIImage imageNamed:@"gzsq"] forState:UIControlStateNormal];
-        [attentionButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [attentionButton setFrame:CGRectMake(self.detailLabel.frame.origin.x, self.detailLabel.frame.origin.y + self.detailLabel.frame.size.height, (contentView.bounds.size.width - self.detailLabel.frame.origin.x) / 4, kLabelHeight)];
-        [attentionButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -attentionButton.imageView.frame.origin.x / 2, 0, 0)];
-        [attentionButton setImageEdgeInsets:UIEdgeInsetsMake(0, -attentionButton.imageView.frame.origin.x / 2, 0, 0)];
-        [attentionButton setTitle:@"关注商圈" forState:UIControlStateNormal];
-        [attentionButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [attentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [attentionButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
-        [contentView addSubview:attentionButton];
+        self.attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.attentionButton setTag:0];
+        [self.attentionButton setImage:[UIImage imageNamed:@"gzsq"] forState:UIControlStateNormal];
+        [self.attentionButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [self.attentionButton setFrame:CGRectMake(self.detailLabel.frame.origin.x, self.detailLabel.frame.origin.y + self.detailLabel.frame.size.height, (contentView.bounds.size.width - self.detailLabel.frame.origin.x) / 4, kLabelHeight)];
+        [self.attentionButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.attentionButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.attentionButton setImageEdgeInsets:UIEdgeInsetsMake(0, -self.attentionButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.attentionButton setTitle:@"关注商圈" forState:UIControlStateNormal];
+        [self.attentionButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.attentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self.attentionButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
+        [contentView addSubview:self.attentionButton];
         
         //我要发帖
-        UIButton* postButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [postButton setImage:[UIImage imageNamed:@"wyft"] forState:UIControlStateNormal];
-        [postButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [postButton setFrame:CGRectMake(attentionButton.frame.origin.x + attentionButton.frame.size.width + kButtonMargin, attentionButton.frame.origin.y, attentionButton.frame.size.width, attentionButton.frame.size.height)];
-        [postButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -postButton.imageView.frame.origin.x / 2, 0, 0)];
-        [postButton setImageEdgeInsets:UIEdgeInsetsMake(0, -postButton.imageView.frame.origin.x / 2, 0, 0)];
-        [postButton setTitle:@"我要发帖" forState:UIControlStateNormal];
-        [postButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [postButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [postButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
-        [contentView addSubview:postButton];
+        self.postButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.postButton setTag:1];
+        [self.postButton setImage:[UIImage imageNamed:@"wyft"] forState:UIControlStateNormal];
+        [self.postButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [self.postButton setFrame:CGRectMake(self.attentionButton.frame.origin.x + self.attentionButton.frame.size.width + kButtonMargin, self.attentionButton.frame.origin.y, self.attentionButton.frame.size.width, self.attentionButton.frame.size.height)];
+        [self.postButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.postButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.postButton setImageEdgeInsets:UIEdgeInsetsMake(0, -self.postButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.postButton setTitle:@"我要发帖" forState:UIControlStateNormal];
+        [self.postButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.postButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self.postButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
+        [contentView addSubview:self.postButton];
         
         //分享商圈
-        UIButton* shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [shareButton setImage:[UIImage imageNamed:@"fxsq"] forState:UIControlStateNormal];
-        [shareButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [shareButton setFrame:CGRectMake(postButton.frame.origin.x + postButton.frame.size.width + kButtonMargin, attentionButton.frame.origin.y, attentionButton.frame.size.width, attentionButton.frame.size.height)];
-        [shareButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -shareButton.imageView.frame.origin.x / 2, 0, 0)];
-        [shareButton setImageEdgeInsets:UIEdgeInsetsMake(0, -shareButton.imageView.frame.origin.x / 2, 0, 0)];
-        [shareButton setTitle:@"分享商圈" forState:UIControlStateNormal];
-        [shareButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [shareButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
-        [contentView addSubview:shareButton];
+        self.shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.shareButton setTag:2];
+        [self.shareButton setImage:[UIImage imageNamed:@"fxsq"] forState:UIControlStateNormal];
+        [self.shareButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [self.shareButton setFrame:CGRectMake(self.postButton.frame.origin.x + self.postButton.frame.size.width + kButtonMargin, self.attentionButton.frame.origin.y, self.attentionButton.frame.size.width, self.attentionButton.frame.size.height)];
+        [self.shareButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.shareButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.shareButton setImageEdgeInsets:UIEdgeInsetsMake(0, -self.shareButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.shareButton setTitle:@"分享商圈" forState:UIControlStateNormal];
+        [self.shareButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self.shareButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
+        [contentView addSubview:self.shareButton];
         
         //商圈企业名单
-        UIButton* nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [nameButton setImage:[UIImage imageNamed:@"sjqymd"] forState:UIControlStateNormal];
-        [nameButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [nameButton setFrame:CGRectMake(shareButton.frame.origin.x + shareButton.frame.size.width + kButtonMargin, attentionButton.frame.origin.y, attentionButton.frame.size.width, attentionButton.frame.size.height)];
-        [nameButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -nameButton.imageView.frame.origin.x / 2, 0, 0)];
-        [nameButton setImageEdgeInsets:UIEdgeInsetsMake(0, -nameButton.imageView.frame.origin.x / 2, 0, 0)];
-        [nameButton setTitle:@"商圈企业名单" forState:UIControlStateNormal];
-        [nameButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [nameButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [nameButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
-        [contentView addSubview:nameButton];
+        self.nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.nameButton setTag:3];
+        [self.nameButton setImage:[UIImage imageNamed:@"sjqymd"] forState:UIControlStateNormal];
+        [self.nameButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [self.nameButton setFrame:CGRectMake(self.shareButton.frame.origin.x + self.shareButton.frame.size.width + kButtonMargin, self.attentionButton.frame.origin.y, self.attentionButton.frame.size.width, self.attentionButton.frame.size.height)];
+        [self.nameButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.nameButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.nameButton setImageEdgeInsets:UIEdgeInsetsMake(0, -self.nameButton.imageView.frame.origin.x / 2, 0, 0)];
+        [self.nameButton setTitle:@"商圈企业名单" forState:UIControlStateNormal];
+        [self.nameButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.nameButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self.nameButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
+        [contentView addSubview:self.nameButton];
     }
     
     return self;

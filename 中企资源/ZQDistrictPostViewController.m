@@ -9,6 +9,8 @@
 #import "ZQEnterpriseDetailInfoTableViewCell.h"
 #import "ZQEnterpriseEvaluateCommentTableViewCell.h"
 #import "ZQDistrictPostViewController.h"
+#import "ZQWantPostViewController.h"
+#import "ZQNavigationViewController.h"
 
 #define kTableViewCellHeight 105
 
@@ -58,20 +60,45 @@
     return [ZQEnterpriseEvaluateCommentTableViewCell cellHeight];
 }
 
+-(void)cellButtonPressed:(UIButton*)sender {
+    switch (sender.tag) {
+        case 0:
+            break;
+        case 1:
+        {
+            ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] initWithTitle:self.title];
+            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
+            }];
+        }
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
+    return ;
+}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = nil;
     
     if(indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseDetailInfoTableViewCellIdentifier"];
-        if(cell == nil)
+        if(cell == nil) {
             cell = [[ZQEnterpriseDetailInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseDetailInfoTableViewCellIdentifier"];
+            [((ZQEnterpriseDetailInfoTableViewCell*)cell).attentionButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [((ZQEnterpriseDetailInfoTableViewCell*)cell).shareButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [((ZQEnterpriseDetailInfoTableViewCell*)cell).postButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [((ZQEnterpriseDetailInfoTableViewCell*)cell).nameButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        }
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).logoImageView setImage:[UIImage imageNamed:@"tx"]];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).founderLabel setText:@"创建人:帅帅"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).postLabel setText:@"帖子:289"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).receiveLabel setText:@"回复:4890"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).districtLabel setText:@"萍乡电子商务创业园圈"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).detailLabel setText:@"萍乡电子商务创业园，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"];
-        
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];
         if(cell == nil) {

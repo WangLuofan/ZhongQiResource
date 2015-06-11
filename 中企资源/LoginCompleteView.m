@@ -12,7 +12,7 @@
 #define kImageViewGap 3
 #define kHeaderViewGap 20
 #define kInfoLabelWidthGap 20
-#define kClosureButtonWidth 15
+#define kClosureButtonWidth 30
 #define kClosureButtonHeight 20
 #define kInfoLabelHeightGap 5
 
@@ -57,7 +57,7 @@
         
         //按钮
         self.closureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.closureButton setFrame:CGRectMake(self.frame.size.width - kInfoLabelWidthGap, self.userNameLabel.frame.origin.y + self.userNameLabel.frame.size.height - kClosureButtonHeight / 2, kClosureButtonWidth, kClosureButtonHeight)];
+        [self.closureButton setFrame:CGRectMake(self.frame.size.width - 2*kInfoLabelWidthGap, self.userNameLabel.frame.origin.y + self.userNameLabel.frame.size.height - kClosureButtonHeight / 2, kClosureButtonWidth, kClosureButtonHeight)];
         [self.closureButton setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
         [self addSubview:self.closureButton];
         

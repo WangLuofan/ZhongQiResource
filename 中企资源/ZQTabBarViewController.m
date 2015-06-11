@@ -10,6 +10,8 @@
 #import "ZQTabBarViewController.h"
 #import "ZQNavigationViewController.h"
 
+#define kTabbarHeight 49
+
 @interface ZQTabBarViewController () {
     NSArray* subViewControllers;
     ZQTabBarItem* selectedItem;
@@ -23,8 +25,7 @@
     self = [super init];
     
     if(self) {
-        self.tabBarView = [[UIView alloc] initWithFrame:self.tabBar.frame];
-        [self.tabBar setHidden:YES];
+        self.tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kTabbarHeight, self.view.bounds.size.width, kTabbarHeight)];
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:self.tabBarView.bounds];
         [imageView setImage:[UIImage imageNamed:@"nav_bottom_bg"]];
         [self.tabBarView insertSubview:imageView atIndex:0];

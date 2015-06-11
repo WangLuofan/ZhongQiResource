@@ -22,7 +22,7 @@
 
 @implementation ZQBaseViewController
 
--(instancetype)initWithTabBarController:(UITabBarController *)tabBarController {
+-(instancetype)initWithTabBarController:(UIViewController*)tabBarController {
     self = [super init];
     
     if(self) {

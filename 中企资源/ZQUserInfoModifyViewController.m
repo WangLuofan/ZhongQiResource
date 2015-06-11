@@ -178,6 +178,12 @@
     return @"密码修改";
 }
 
+-(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if(section == 0)
+        return @"进入编辑模式后，点击头像可更改用户头像，用户名称可直接修改";
+    return @"";
+}
+
 -(void)changeImageForImageView:(UIImageView *)imageView {
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"修改用户头像\n请选择头像图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"照相",@"图库", nil];
     [actionSheet showInView:self.view];

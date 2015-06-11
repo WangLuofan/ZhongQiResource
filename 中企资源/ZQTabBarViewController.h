@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZQTabBarViewController : UITabBarController
+@interface ZQTabBarViewController : UIViewController
 
 @property (nonatomic,strong) UIView* tabBarView;
 

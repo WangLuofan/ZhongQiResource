@@ -11,7 +11,7 @@
 
 #define kTimerCount 59
 
-@interface CodeVerifyTableViewController () {
+@interface CodeVerifyTableViewController ()<UIAlertViewDelegate> {
     NSString* cellPhoneNumber;
     ZQPhoneVerifyButton* codeButton;
     NSTimer* timer;
@@ -86,8 +86,8 @@
 }
 
 -(void)leftButtonClicked:(UIBarButtonItem*)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-    }];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"验证码发送到手机上会有一定的延迟，是否要取消验证过程?" delegate:self cancelButtonTitle:@"等待" otherButtonTitles:@"取消", nil];
+    [alertView show];
     return ;
 }
 
@@ -126,6 +126,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1)
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    return ;
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface ZQUserFeedbackViewController : ZQBaseExitViewController
 
+@property(nonatomic,strong) UITextView* commentTextView;
+
 @end

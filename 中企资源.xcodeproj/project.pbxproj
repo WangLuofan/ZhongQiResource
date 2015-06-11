@@ -28,6 +28,11 @@
 		B34165901B15971400F9A8ED /* ZQNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B341658F1B15971400F9A8ED /* ZQNavigationViewController.m */; };
 		B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B34165931B15A39700F9A8ED /* ZQPageControl.m */; };
 		B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */; };
+		B34470B91B291A7E00352D46 /* ZQTenderResViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470B81B291A7E00352D46 /* ZQTenderResViewController.m */; };
+		B34470BD1B291D2700352D46 /* ZQWantPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470BC1B291D2700352D46 /* ZQWantPostViewController.m */; };
+		B34470C21B295E1400352D46 /* ZQWantEnrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470C11B295E1400352D46 /* ZQWantEnrollViewController.m */; };
+		B34470C71B296AD800352D46 /* ZQWantEnrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470C61B296AD800352D46 /* ZQWantEnrollModel.m */; };
+		B34470CC1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470CB1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m */; };
 		B35AD50A1B2043B000AFC6BB /* ZQFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35AD5091B2043B000AFC6BB /* ZQFilterView.m */; };
 		B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B367407B1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m */; };
 		B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B37235081B212B2400B42AA6 /* ZQFilterButton.m */; };
@@ -47,7 +52,6 @@
 		B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC251E1B17F2E8008693E5 /* ZQDistrictResourceViewController.m */; };
 		B3CC252B1B17F53F008693E5 /* ZQSpecialSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC252A1B17F53F008693E5 /* ZQSpecialSupportViewController.m */; };
 		B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC252D1B17F578008693E5 /* ZQPolicyInterpretViewController.m */; };
-		B3CC25311B17F5A4008693E5 /* ZQExpertPulpitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25301B17F5A4008693E5 /* ZQExpertPulpitViewController.m */; };
 		B3CC25491B17FDAC008693E5 /* ZQMyChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25481B17FDAC008693E5 /* ZQMyChatViewController.m */; };
 		B3CC254C1B17FDB6008693E5 /* ZQMyAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC254B1B17FDB6008693E5 /* ZQMyAttentionViewController.m */; };
 		B3CC254F1B17FDDB008693E5 /* ZQMyDistributionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC254E1B17FDDB008693E5 /* ZQMyDistributionViewController.m */; };
@@ -130,6 +134,16 @@
 		B34165931B15A39700F9A8ED /* ZQPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPageControl.m; sourceTree = "<group>"; };
 		B341659A1B15C44D00F9A8ED /* ZQCollectionContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCollectionContentView.h; sourceTree = "<group>"; };
 		B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCollectionContentView.m; sourceTree = "<group>"; };
+		B34470B71B291A7E00352D46 /* ZQTenderResViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTenderResViewController.h; sourceTree = "<group>"; };
+		B34470B81B291A7E00352D46 /* ZQTenderResViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTenderResViewController.m; sourceTree = "<group>"; };
+		B34470BB1B291D2700352D46 /* ZQWantPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQWantPostViewController.h; sourceTree = "<group>"; };
+		B34470BC1B291D2700352D46 /* ZQWantPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQWantPostViewController.m; sourceTree = "<group>"; };
+		B34470C01B295E1400352D46 /* ZQWantEnrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQWantEnrollViewController.h; sourceTree = "<group>"; };
+		B34470C11B295E1400352D46 /* ZQWantEnrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQWantEnrollViewController.m; sourceTree = "<group>"; };
+		B34470C51B296AD800352D46 /* ZQWantEnrollModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQWantEnrollModel.h; sourceTree = "<group>"; };
+		B34470C61B296AD800352D46 /* ZQWantEnrollModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQWantEnrollModel.m; sourceTree = "<group>"; };
+		B34470CA1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlatformNotificationTableViewCell.h; sourceTree = "<group>"; };
+		B34470CB1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlatformNotificationTableViewCell.m; sourceTree = "<group>"; };
 		B35AD5081B2043B000AFC6BB /* ZQFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFilterView.h; sourceTree = "<group>"; };
 		B35AD5091B2043B000AFC6BB /* ZQFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFilterView.m; sourceTree = "<group>"; };
 		B367407A1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBatchSndReqInfoViewController.h; sourceTree = "<group>"; };
@@ -170,8 +184,6 @@
 		B3CC252A1B17F53F008693E5 /* ZQSpecialSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSpecialSupportViewController.m; sourceTree = "<group>"; };
 		B3CC252C1B17F578008693E5 /* ZQPolicyInterpretViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPolicyInterpretViewController.h; sourceTree = "<group>"; };
 		B3CC252D1B17F578008693E5 /* ZQPolicyInterpretViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPolicyInterpretViewController.m; sourceTree = "<group>"; };
-		B3CC252F1B17F5A4008693E5 /* ZQExpertPulpitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQExpertPulpitViewController.h; sourceTree = "<group>"; };
-		B3CC25301B17F5A4008693E5 /* ZQExpertPulpitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQExpertPulpitViewController.m; sourceTree = "<group>"; };
 		B3CC25471B17FDAC008693E5 /* ZQMyChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMyChatViewController.h; sourceTree = "<group>"; };
 		B3CC25481B17FDAC008693E5 /* ZQMyChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQMyChatViewController.m; sourceTree = "<group>"; };
 		B3CC254A1B17FDB6008693E5 /* ZQMyAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMyAttentionViewController.h; sourceTree = "<group>"; };
@@ -386,6 +398,7 @@
 		B34105621B171C9800C3A079 /* 服务机构 */ = {
 			isa = PBXGroup;
 			children = (
+				B34470C31B296AC300352D46 /* Models */,
 				B34105641B171CA800C3A079 /* Controllers */,
 				B34105631B171CA400C3A079 /* Views */,
 			);
@@ -403,8 +416,8 @@
 		B34105641B171CA800C3A079 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B34105651B171CD500C3A079 /* ZQServiceAgencyViewController.h */,
-				B34105661B171CD500C3A079 /* ZQServiceAgencyViewController.m */,
+				B34470BF1B295DF200352D46 /* 我要报名 */,
+				B34470BE1B295DE600352D46 /* 服务机构主页面 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -513,6 +526,68 @@
 				B341659B1B15C44D00F9A8ED /* ZQCollectionContentView.m */,
 			);
 			name = "集合视图项";
+			sourceTree = "<group>";
+		};
+		B34470BA1B291C0C00352D46 /* 我要发帖 */ = {
+			isa = PBXGroup;
+			children = (
+				B34470BB1B291D2700352D46 /* ZQWantPostViewController.h */,
+				B34470BC1B291D2700352D46 /* ZQWantPostViewController.m */,
+			);
+			name = "我要发帖";
+			sourceTree = "<group>";
+		};
+		B34470BE1B295DE600352D46 /* 服务机构主页面 */ = {
+			isa = PBXGroup;
+			children = (
+				B34105651B171CD500C3A079 /* ZQServiceAgencyViewController.h */,
+				B34105661B171CD500C3A079 /* ZQServiceAgencyViewController.m */,
+			);
+			name = "服务机构主页面";
+			sourceTree = "<group>";
+		};
+		B34470BF1B295DF200352D46 /* 我要报名 */ = {
+			isa = PBXGroup;
+			children = (
+				B34470C01B295E1400352D46 /* ZQWantEnrollViewController.h */,
+				B34470C11B295E1400352D46 /* ZQWantEnrollViewController.m */,
+			);
+			name = "我要报名";
+			sourceTree = "<group>";
+		};
+		B34470C31B296AC300352D46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B34470C41B296AC800352D46 /* 我要报名 */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B34470C41B296AC800352D46 /* 我要报名 */ = {
+			isa = PBXGroup;
+			children = (
+				B34470C51B296AD800352D46 /* ZQWantEnrollModel.h */,
+				B34470C61B296AD800352D46 /* ZQWantEnrollModel.m */,
+			);
+			name = "我要报名";
+			sourceTree = "<group>";
+		};
+		B34470C81B296FBC00352D46 /* 平台通告主页面 */ = {
+			isa = PBXGroup;
+			children = (
+				B3CC25711B1806E9008693E5 /* ZQPlatformNotificationViewController.h */,
+				B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */,
+			);
+			name = "平台通告主页面";
+			sourceTree = "<group>";
+		};
+		B34470C91B29702700352D46 /* 平台通告列表项 */ = {
+			isa = PBXGroup;
+			children = (
+				B34470CA1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.h */,
+				B34470CB1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m */,
+			);
+			name = "平台通告列表项";
 			sourceTree = "<group>";
 		};
 		B36740781B1BE6BD00E74338 /* 企业资源主页面 */ = {
@@ -776,6 +851,7 @@
 		B3CC251B1B17F2BC008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B34470BA1B291C0C00352D46 /* 我要发帖 */,
 				B31E66521B1EDE7C00E70720 /* 商圈资源信息发帖 */,
 				B31E66511B1EDE7100E70720 /* 主控制器 */,
 			);
@@ -809,13 +885,13 @@
 			name = "政策解读";
 			sourceTree = "<group>";
 		};
-		B3CC25221B17F4C6008693E5 /* 专家讲坛 */ = {
+		B3CC25221B17F4C6008693E5 /* 招投标资源 */ = {
 			isa = PBXGroup;
 			children = (
 				B3CC25241B17F4DF008693E5 /* Controllers */,
 				B3CC25231B17F4D5008693E5 /* Views */,
 			);
-			name = "专家讲坛";
+			name = "招投标资源";
 			sourceTree = "<group>";
 		};
 		B3CC25231B17F4D5008693E5 /* Views */ = {
@@ -828,8 +904,8 @@
 		B3CC25241B17F4DF008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC252F1B17F5A4008693E5 /* ZQExpertPulpitViewController.h */,
-				B3CC25301B17F5A4008693E5 /* ZQExpertPulpitViewController.m */,
+				B34470B71B291A7E00352D46 /* ZQTenderResViewController.h */,
+				B34470B81B291A7E00352D46 /* ZQTenderResViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -869,7 +945,7 @@
 		B3CC25321B17FC7C008693E5 /* 首页子页面 */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC25221B17F4C6008693E5 /* 专家讲坛 */,
+				B3CC25221B17F4C6008693E5 /* 招投标资源 */,
 				B3CC25211B17F4BE008693E5 /* 政策解读 */,
 				B3CC25201B17F4B3008693E5 /* 专项扶持 */,
 				B3CC251A1B17F2B3008693E5 /* 商圈资源 */,
@@ -1103,6 +1179,7 @@
 		B3CC255F1B18065F008693E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B34470C91B29702700352D46 /* 平台通告列表项 */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1110,8 +1187,7 @@
 		B3CC25601B180663008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC25711B1806E9008693E5 /* ZQPlatformNotificationViewController.h */,
-				B3CC25721B1806E9008693E5 /* ZQPlatformNotificationViewController.m */,
+				B34470C81B296FBC00352D46 /* 平台通告主页面 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1447,10 +1523,12 @@
 				B31E665D1B1EF13400E70720 /* ZQEnterpriseDetailInfoTableViewCell.m in Sources */,
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
 				B31E664C1B1EAD8500E70720 /* ZQTypeChooseView.m in Sources */,
+				B34470C21B295E1400352D46 /* ZQWantEnrollViewController.m in Sources */,
 				B31E66581B1EE8E300E70720 /* ZQEvaluateView.m in Sources */,
 				B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */,
 				B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */,
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
+				B34470CC1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m in Sources */,
 				B31E66551B1EDEB700E70720 /* ZQDistrictPostViewController.m in Sources */,
 				B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */,
 				B399F5ED1B2810ED00B763CB /* ZQPhoneVerifyViewController.m in Sources */,
@@ -1466,12 +1544,14 @@
 				B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
 				B399F5F61B28208E00B763CB /* CodeVerifyTableViewController.m in Sources */,
+				B34470BD1B291D2700352D46 /* ZQWantPostViewController.m in Sources */,
 				B32603571B217A92001142D5 /* ZQResponseLabel.m in Sources */,
 				B3CC256C1B1806AA008693E5 /* ZQAboutViewController.m in Sources */,
 				B3D1E7181B1475AD005C14D9 /* StartViewController.m in Sources */,
 				B3CC25691B18069D008693E5 /* ZQUserFeedbackViewController.m in Sources */,
 				B372350F1B214E7600B42AA6 /* ZQCommentBar.m in Sources */,
 				B31E663F1B1E987D00E70720 /* ZQServiceAgencyTableViewCell.m in Sources */,
+				B34470C71B296AD800352D46 /* ZQWantEnrollModel.m in Sources */,
 				B341055D1B16F35D00C3A079 /* ZQBaseViewController.m in Sources */,
 				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,
 				B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */,
@@ -1487,7 +1567,6 @@
 				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B3F9B86F1B1DA57A00E1B215 /* ZQLoadMoreView.m in Sources */,
 				B32603531B21761E001142D5 /* ZQNewestTableViewCell.m in Sources */,
-				B3CC25311B17F5A4008693E5 /* ZQExpertPulpitViewController.m in Sources */,
 				B3F9B8751B1DB57C00E1B215 /* ZQSpecialSupportTableViewCell.m in Sources */,
 				B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
@@ -1499,6 +1578,7 @@
 				B31E663B1B1E96EE00E70720 /* ZQBaseTableViewCell.m in Sources */,
 				B399F5E91B27CE8300B763CB /* ZQPasswordViewController.m in Sources */,
 				B3CC254C1B17FDB6008693E5 /* ZQMyAttentionViewController.m in Sources */,
+				B34470B91B291A7E00352D46 /* ZQTenderResViewController.m in Sources */,
 				B3CC25551B17FDFB008693E5 /* ZQResourceInfoViewController.m in Sources */,
 				B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */,
 				B3CC256F1B1806D8008693E5 /* ZQDistrictAwardViewController.m in Sources */,

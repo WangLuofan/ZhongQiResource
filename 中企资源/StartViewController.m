@@ -13,7 +13,7 @@
 #import "ZQServiceAgencyViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
 #import "ZQDistrictResourceViewController.h"
-#import "ZQExpertPulpitViewController.h"
+#import "ZQTenderResViewController.h"
 #import "ZQSpecialSupportViewController.h"
 #import "ZQPolicyInterpretViewController.h"
 #import "ZQDistrictPostViewController.h"
@@ -53,7 +53,7 @@
                      @[@"专项扶持",@"zxfc"],
                      @[@"服务机构",@"fwjg"],
                      @[@"政策解读",@"zcjd"],
-                     @[@"专家讲坛",@"zjjt"]
+                     @[@"招投标资源",@"ztbzy"]
                      ]];
     
     tableViewContentArray = @[
@@ -79,7 +79,7 @@
     ZQNavigationViewController* nav3 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQSpecialSupportViewController alloc] init]];
     ZQNavigationViewController* nav4 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQServiceAgencyViewController alloc] init]];
     ZQNavigationViewController* nav5 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQPolicyInterpretViewController alloc] init]];
-    ZQNavigationViewController* nav6 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQExpertPulpitViewController alloc] init]];
+    ZQNavigationViewController* nav6 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQTenderResViewController alloc] init]];
     [self addChildViewControllersWithArray:@[nav1,nav2,nav3,nav4,nav5,nav6]];
     
     return ;

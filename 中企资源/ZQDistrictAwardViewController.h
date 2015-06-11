@@ -10,4 +10,6 @@
 
 @interface ZQDistrictAwardViewController : ZQBaseExitViewController
 
+@property(nonatomic,strong) UITableView* tableView;
+
 @end

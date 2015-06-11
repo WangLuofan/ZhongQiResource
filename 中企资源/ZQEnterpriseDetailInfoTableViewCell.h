@@ -17,4 +17,9 @@
 @property(nonatomic,strong) UILabel* districtLabel;
 @property(nonatomic,strong) UILabel* detailLabel;
 
+@property(nonatomic,strong) UIButton* postButton;
+@property(nonatomic,strong) UIButton* shareButton;
+@property(nonatomic,strong) UIButton* nameButton;
+@property(nonatomic,strong) UIButton* attentionButton;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface ZQPlatformNotificationViewController : ZQBaseExitViewController
 
+@property(nonatomic,strong) UITableView* tableView;
+
 @end
