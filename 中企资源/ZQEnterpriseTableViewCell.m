@@ -37,6 +37,7 @@
         //内容View
         contentView = [[UIView alloc] initWithFrame:CGRectMake(kShadowRadius, kShadowRadius, shadowView.bounds.size.width ,shadowView.bounds.size.height - 2*kShadowRadius)];
         [contentView setBackgroundColor:[UIColor whiteColor]];
+        [contentView setCenter:CGPointMake(contentView.center.x, shadowView.bounds.size.height / 2)];
         [shadowView addSubview:contentView];
         
         //单选框
@@ -66,11 +67,14 @@
     return self;
 }
 
--(void)setSelectedColor:(BOOL)bSelected {
-    if(bSelected)
-        [contentView setBackgroundColor:[UIColor lightGrayColor]];
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    if(selected)
+        [contentView setBackgroundColor:[UIColor grayColor]];
     else
         [contentView setBackgroundColor:[UIColor whiteColor]];
+    
     return ;
 }
 

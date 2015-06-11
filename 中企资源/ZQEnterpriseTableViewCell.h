@@ -17,6 +17,5 @@
 -(void)setsubInfoLabelTextWithDiscription:(NSString*)discription ContentText:(NSString*)contentText;
 -(void)setChecked:(BOOL)checked;
 -(BOOL)checked;
--(void)setSelectedColor:(BOOL)bSelected;
 
 @end

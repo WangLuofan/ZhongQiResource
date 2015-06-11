@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQNavigationViewController.h"
+#import "ZQNotificationEvaluateViewController.h"
 #import "ZQPlatformNotificationTableViewCell.h"
 #import "ZQPlatformNotificationViewController.h"
 
@@ -51,6 +53,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQNotificationEvaluateViewController* notificationController = [[ZQNotificationEvaluateViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:notificationController] animated:YES completion:^{
+    }];
     return ;
 }
 

@@ -138,18 +138,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelectedColor:YES];
     ZQEnterpriseIntroductionViewController* introductionController = [[ZQEnterpriseIntroductionViewController alloc] init];
     [introductionController setTitle:cell.companyNameLabel.text];
     [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:introductionController] animated:YES completion:^{
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }];
     return ;
 }
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelectedColor:NO];
-    return ;}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kTableViewCellHeight;

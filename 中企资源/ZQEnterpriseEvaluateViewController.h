@@ -6,12 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseEvaluateViewController.h"
 
-@interface ZQEnterpriseEvaluateViewController : ZQBaseExitViewController
-
-@property(nonatomic,strong) UITableView* tableView;
-
--(void)commentWithUserInfoDict:(NSDictionary*)infoDict;
+@interface ZQEnterpriseEvaluateViewController : ZQBaseEvaluateViewController
 
 @end
