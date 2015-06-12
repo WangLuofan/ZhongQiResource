@@ -9,15 +9,12 @@
 #import "ZQResponseLabel.h"
 #import "ZQEvaluateView.h"
 #import "ZQCommentBar.h"
-#import "ZQNavigationViewController.h"
 #import "ZQNewestTableViewCell.h"
-#import "ZQEnterpriseCommentViewController.h"
 #import "ZQEnterpriseEvaluateViewController.h"
 
-#define kTopEvaluateViewHeight 80
-#define kHeaderLabelHeight 30
+#define kHeaderLabelHeight 20
 
-@interface ZQEnterpriseEvaluateViewController ()<ZQEvaluateViewDelegate>  {
+@interface ZQEnterpriseEvaluateViewController () {
     ZQEvaluateView* evaluateView;
 }
 
@@ -29,14 +26,14 @@
     [super viewDidLoad];
     [self setTitle:@"企业评价"];
     
-    evaluateView = [[ZQEvaluateView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopEvaluateViewHeight)];
+    evaluateView = [[ZQEvaluateView alloc] initWithFrame:CGRectMake(0, 0, [self topViewBounds].size.width, [self topViewBounds].size.height - kHeaderLabelHeight)];
     [evaluateView setDelegate:self];
     [evaluateView setScore:3.5f commentCount:88];
     [self addCustomViewToTopView:evaluateView];
     
-    UILabel* headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, kHeaderLabelHeight)];
+    UILabel* headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, evaluateView.frame.origin.y + evaluateView.frame.size.height, self.tableView.bounds.size.width, kHeaderLabelHeight)];
     [headerLabel setText:@"    最新动态"];
-    [self.tableView setTableHeaderView:headerLabel];
+    [self addCustomViewToTopView:headerLabel];
     
     return ;
 }
@@ -44,13 +41,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)evaluateView:(ZQEvaluateView *)evaluateView commentButtonPressed:(UIButton *)commentButton {
-    ZQEnterpriseCommentViewController* commentController = [[ZQEnterpriseCommentViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentController] animated:YES completion:^{
-        [commentController setPushViewController:self];
-    }];
 }
 
 @end

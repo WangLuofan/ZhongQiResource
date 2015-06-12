@@ -53,8 +53,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQPlatformNotificationTableViewCell* cell = (ZQPlatformNotificationTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     ZQNotificationEvaluateViewController* notificationController = [[ZQNotificationEvaluateViewController alloc] init];
     [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:notificationController] animated:YES completion:^{
+        [notificationController setEvaluateHeaderTitle:cell.titleLabel.text CommentContent:cell.contentLabel.text];
     }];
     return ;
 }

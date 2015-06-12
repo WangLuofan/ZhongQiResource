@@ -6,19 +6,9 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZQBaseCommentHeader.h"
 
-@class ZQEvaluateView;
-@protocol ZQEvaluateViewDelegate <NSObject>
-
-@optional
--(void)evaluateView:(ZQEvaluateView*)evaluateView commentButtonPressed:(UIButton*)commentButton;
-
-@end
-
-@interface ZQEvaluateView : UIView
-
-@property(nonatomic,assign) id<ZQEvaluateViewDelegate> delegate;
+@interface ZQEvaluateView : ZQBaseCommentHeader
 
 -(void)setScore:(CGFloat)score commentCount:(NSInteger)commentCount;
 

@@ -10,4 +10,6 @@
 
 @interface ZQNotificationEvaluateViewController : ZQBaseEvaluateViewController
 
+-(void)setEvaluateHeaderTitle:(NSString*)title CommentContent:(NSString*)content;
+
 @end

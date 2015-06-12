@@ -6,12 +6,14 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseCommentHeader.h"
 #import "ZQBaseExitViewController.h"
 
-@interface ZQBaseEvaluateViewController : ZQBaseExitViewController
+@interface ZQBaseEvaluateViewController : ZQBaseExitViewController <ZQBaseCommentHeaderDelegate>
 
 @property(nonatomic,strong) UITableView* tableView;
 -(void)commentWithUserInfoDict:(NSDictionary*)infoDict;
 -(void)addCustomViewToTopView:(UIView*)customView;
+-(CGRect)topViewBounds;
 
 @end

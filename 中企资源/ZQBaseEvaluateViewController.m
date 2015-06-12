@@ -8,9 +8,11 @@
 
 #import "ZQCommentBar.h"
 #import "ZQNewestTableViewCell.h"
+#import "ZQNavigationViewController.h"
+#import "ZQEnterpriseCommentViewController.h"
 #import "ZQBaseEvaluateViewController.h"
 
-#define kTopEvaluateViewHeight 80
+#define kTopEvaluateViewHeight 100
 #define kHeaderLabelHeight 30
 #define kBottomCommentBarHeight 40
 
@@ -29,10 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopEvaluateViewHeight)];
-    [self.view addSubview:topView];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topView.frame.origin.y + topView.frame.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kTopEvaluateViewHeight - kNavStatusHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStylePlain];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)]];
@@ -41,12 +40,19 @@
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
     
+    topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, kTopEvaluateViewHeight)];
+    [self.tableView setTableHeaderView:topView];
+    
     commentBar = [[ZQCommentBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kNavStatusHeight - kBottomCommentBarHeight, self.view.bounds.size.width, kBottomCommentBarHeight)];
     [commentBar setDelegate:self];
     
     commentCellArray = [[NSMutableArray alloc] init];
     
     return ;
+}
+
+-(CGRect)topViewBounds {
+    return topView.bounds;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,9 +64,15 @@
 }
 
 -(void)addCustomViewToTopView:(UIView *)customView {
-    [customView setFrame:topView.bounds];
     [topView addSubview:customView];
     return ;
+}
+
+-(void)evaluateHeader:(ZQBaseCommentHeader *)evaluateHeader commentButtonPressed:(UIButton *)commentButton {
+    ZQEnterpriseCommentViewController* commentController = [[ZQEnterpriseCommentViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentController] animated:YES completion:^{
+        [commentController setPushViewController:self];
+    }];
 }
 
 /*
