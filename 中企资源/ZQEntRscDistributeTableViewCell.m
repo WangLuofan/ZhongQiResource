@@ -48,6 +48,7 @@
         
         //关注按钮
         UIButton* attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [attentionButton setTag:0];
         [attentionButton setTitle:@"关注" forState:UIControlStateNormal];
         [attentionButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [attentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -55,10 +56,12 @@
         [attentionButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [attentionButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [attentionButton setFrame:CGRectMake(0, self.detailLabel.frame.origin.y + self.detailLabel.frame.size.height + kControlMargin, contentView.frame.size.width / 4, 20)];
+        [attentionButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:attentionButton];
         
         //回复按钮
         UIButton* replyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [replyButton setTag:1];
         [replyButton setTitle:@"回复" forState:UIControlStateNormal];
         [replyButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [replyButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -66,10 +69,12 @@
         [replyButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [replyButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [replyButton setFrame:CGRectMake(attentionButton.frame.origin.x + attentionButton.frame.size.width, attentionButton.frame.origin.y, attentionButton.frame.size.width,attentionButton.frame.size.height)];
+        [replyButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:replyButton];
         
         //一键呼叫
         UIButton* callButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [callButton setTag:2];
         [callButton setTitle:@"一键呼叫" forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -77,10 +82,12 @@
         [callButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [callButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [callButton setFrame:CGRectMake(replyButton.frame.origin.x + replyButton.frame.size.width, attentionButton.frame.origin.y, attentionButton.frame.size.width,attentionButton.frame.size.height)];
+        [callButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:callButton];
         
         //分享
         UIButton* shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [shareButton setTag:3];
         [shareButton setTitle:@"分享" forState:UIControlStateNormal];
         [shareButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -88,10 +95,21 @@
         [shareButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [shareButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [shareButton setFrame:CGRectMake(callButton.frame.origin.x + callButton.frame.size.width, attentionButton.frame.origin.y, attentionButton.frame.size.width,attentionButton.frame.size.height)];
+        [shareButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:shareButton];
     }
     
     return self;
+}
+
+-(void)buttonPressed:(UIButton*)sender {
+    if([self.delegate respondsToSelector:@selector(tableViewCell:buttonPressedAtIndex:)])
+        [self.delegate tableViewCell:self buttonPressedAtIndex:sender.tag];
+    return ;
+}
+
+-(NSString*)offerResourceTitle {
+    return offerRscLabel.text;
 }
 
 -(void)setOfferResourceTitle:(NSString *)title {

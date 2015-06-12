@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZQEntRscDistributeTableViewCell;
+@protocol ZQEntRscDistributeTableViewCellDelegate <NSObject>
+
+@optional
+-(void)tableViewCell:(ZQEntRscDistributeTableViewCell*)entRscDistCell buttonPressedAtIndex:(NSInteger)atIndex;
+
+@end
+
 @interface ZQEntRscDistributeTableViewCell : UITableViewCell
 
 @property(nonatomic,strong) UILabel* detailLabel;
+@property(nonatomic,assign) id<ZQEntRscDistributeTableViewCellDelegate> delegate;
 
 -(void)setOfferResourceTitle:(NSString*)title;
+-(NSString*)offerResourceTitle;
 
 @end
