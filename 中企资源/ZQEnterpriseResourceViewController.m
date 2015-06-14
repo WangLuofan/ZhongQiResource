@@ -85,12 +85,19 @@
     [bottomView addSubview:self.allCheckButton];
     
 //    //批量发送需求信息
-    UIImage* btnImage = [UIImage imageNamed:@"plfsxqxx"];
+    UIImage* btnImage = [UIImage imageNamed:@"fsxq"];
     UIButton* sendOfferBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [sendOfferBtn setImage:btnImage forState:UIControlStateNormal];
     [sendOfferBtn setFrame:CGRectMake(bottomView.frame.size.width - kBottomControlMargin - btnImage.size.width / 2, (bottomView.bounds.size.height - btnImage.size.height / 2) / 2, btnImage.size.width / 2, btnImage.size.height / 2)];
     [sendOfferBtn addTarget:self action:@selector(sendOfferBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:sendOfferBtn];
+    
+    //发起群聊
+    UIImage* chatImage = [UIImage imageNamed:@"ql"];
+    UIButton* chatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [chatBtn setImage:chatImage forState:UIControlStateNormal];
+    [chatBtn setFrame:CGRectMake(sendOfferBtn.frame.origin.x - kBottomControlMargin - chatImage.size.width / 2, sendOfferBtn.frame.origin.y, chatImage.size.width / 2, chatImage.size.height / 2)];
+    [bottomView addSubview:chatBtn];
     
     return bottomView.frame;
 }

@@ -18,6 +18,9 @@
     [super viewDidLoad];
     [self setTitle:@"我的聊天"];
     
+    self.tableView = [[UITableView alloc ]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStylePlain];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    
     return ;
 }
 

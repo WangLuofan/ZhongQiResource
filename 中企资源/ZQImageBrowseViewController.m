@@ -37,8 +37,8 @@
     [super viewDidLoad];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(void)imageViewTapped:(UIGestureRecognizer*)sender {

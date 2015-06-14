@@ -18,7 +18,6 @@
 #import "ZQPolicyInterpretViewController.h"
 #import "ZQDistrictPostViewController.h"
 #import "ZQNavigationViewController.h"
-#import "ZQImagePickerViewController.h"
 
 #define kTopScrollViewHeight 180
 #define kFunctionModuleHeight 200
@@ -135,18 +134,10 @@
     [moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [moreButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, moreButton.bounds.size.width * 4 / 5, 0, 0)];
-    [moreButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:moreButton];
     
     [_recommendTableView setTableHeaderView:headerView];
     
-    return ;
-}
-
--(void)moreButtonPressed:(UIButton*)sender {
-    ZQImagePickerViewController* imagePickerController = [[ZQImagePickerViewController alloc] init];
-    [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:imagePickerController] animated:YES completion:^{
-    }];
     return ;
 }
 

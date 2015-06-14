@@ -6,13 +6,17 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQDistrictRscRecommendTableViewCell.h"
 #import "ZQEnterpriseDetailInfoTableViewCell.h"
 #import "ZQEnterpriseEvaluateCommentTableViewCell.h"
+#import "ZQDistrictRscRecommendViewController.h"
 #import "ZQDistrictPostViewController.h"
 #import "ZQWantPostViewController.h"
 #import "ZQNavigationViewController.h"
 
 #define kTableViewCellHeight 105
+#define kTableViewHeaderHeight 30
+#define kDefaultTableViewCellHeight 50
 
 @interface ZQDistrictPostViewController ()<UITableViewDataSource,UITableViewDelegate,ZQEnterpriseEvaluateCommentTableViewCellDelegate>
 
@@ -33,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStyleGrouped];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setDelegate:self];
@@ -47,16 +51,23 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(section == 0)
+        return 1;
+    else if (section == 1)
+        return 2;
+    
     return 5;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == 0)
+    if(indexPath.section == 0)
         return kTableViewCellHeight;
+    else if(indexPath.section == 1)
+        return kDefaultTableViewCellHeight;
     return [ZQEnterpriseEvaluateCommentTableViewCell cellHeight];
 }
 
@@ -81,10 +92,71 @@
     return ;
 }
 
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(section == 1) {
+        UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, kTableViewHeaderHeight)];
+        
+        UIButton* recommendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [recommendButton setImage:[UIImage imageNamed:@"cnxh"] forState:UIControlStateNormal];
+        [recommendButton setTitle:@"商圈资源推荐" forState:UIControlStateNormal];
+        [recommendButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [recommendButton setFrame:CGRectMake(0, 0, headerView.bounds.size.width / 2, recommendButton.imageView.image.size.height / 2)];
+        [recommendButton setEnabled:NO];
+        [recommendButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [recommendButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [recommendButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [recommendButton setCenter:CGPointMake(recommendButton.center.x, headerView.bounds.size.height / 2)];
+        [headerView addSubview:recommendButton];
+        
+        UIButton* showMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [showMoreButton setImage:[UIImage imageNamed:@"ckgd"] forState:UIControlStateNormal];
+        [showMoreButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [showMoreButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [showMoreButton setTitle:@"查看更多" forState:UIControlStateNormal];
+        [showMoreButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [showMoreButton setFrame:CGRectMake(recommendButton.frame.origin.x + recommendButton.frame.size.width, recommendButton.frame.origin.y, recommendButton.frame.size.width, recommendButton.frame.size.height)];
+        [showMoreButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+//        [showMoreButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+        [showMoreButton setImageEdgeInsets:UIEdgeInsetsMake(0, showMoreButton.frame.size.width - showMoreButton.imageView.image.size.width, 0, 0)];
+        [showMoreButton setTitleEdgeInsets:UIEdgeInsetsMake(0, showMoreButton.imageView.image.size.width, 0, 0)];
+        [showMoreButton addTarget:self action:@selector(showMoreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:showMoreButton];
+        
+        return headerView ;
+    }
+    
+    return nil;
+}
+
+-(void)showMoreButtonPressed:(UIButton*)sender {
+    ZQDistrictRscRecommendViewController* recommandController = [[ZQDistrictRscRecommendViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:recommandController] animated:YES completion:^{
+    }];
+    return ;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0 || section == 2)
+        return 1;
+    return kTableViewHeaderHeight;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if(section == 0)
+        return 10;
+    return 1;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 1)
+       [self showMoreButtonPressed:nil];
+    return ;
+}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = nil;
     
-    if(indexPath.row == 0) {
+    if(indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseDetailInfoTableViewCellIdentifier"];
         if(cell == nil) {
             cell = [[ZQEnterpriseDetailInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseDetailInfoTableViewCellIdentifier"];
@@ -99,7 +171,13 @@
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).receiveLabel setText:@"回复:4890"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).districtLabel setText:@"萍乡电子商务创业园圈"];
         [((ZQEnterpriseDetailInfoTableViewCell*)cell).detailLabel setText:@"萍乡电子商务创业园，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"];
-    }else {
+    }else if(indexPath.section == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"DistrictRscRecommendTableViewCellIdentifier"];
+        if(cell == nil)
+            cell = [[ZQDistrictRscRecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DistrictRscRecommendTableViewCellIdentifier"];
+        [((ZQDistrictRscRecommendTableViewCell*)cell) setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优" Date:@"2015-06-14"];
+    }
+    else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];
         if(cell == nil) {
             cell = [[ZQEnterpriseEvaluateCommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];

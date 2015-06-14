@@ -10,9 +10,6 @@
 #import "ZQImagePickerViewController.h"
 #import "ZQImagePickerCollectionViewController.h"
 
-#define ZQImagePickerGroupEnumerateCompletionNotification @"ImagePickerGroupEnumerateCompletionNotification"
-#define ZQImagePickerAssetsEnumerateCompletionNotification @"ZQImagePickerAssetsEnumerateCompletionNotification"
-
 @interface ZQImagePickerViewController () {
     ALAssetsLibrary* assetsLibrary;
     __block NSMutableArray* assetsGroupArray;

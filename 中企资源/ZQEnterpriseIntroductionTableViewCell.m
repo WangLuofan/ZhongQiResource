@@ -14,18 +14,22 @@
 #define kRightMarginWidth 150
 #define kLogoImageWidth 75
 #define kLogoImageHeight 45
+#define kButtonWidth 100
 #define kButtonHeight 20
 #define kShadowRadius 0.5f
 
 
 static CGFloat textContentHeight;
 
-@interface ZQEnterpriseIntroductionTableViewCell () {
+@interface ZQEnterpriseIntroductionTableViewCell ()<UIAlertViewDelegate> {
     UIView* otherControlView;
     NSString* telephoneNumber;
     BOOL bAttentioned;
+    BOOL bExpand;
     ZQStarRatingView* starRatingView;
     UIView* contentView;
+    UIView* seperatorLine;
+    UIButton* expandButton;
 }
 
 @end
@@ -38,6 +42,7 @@ static CGFloat textContentHeight;
     if(self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         bAttentioned = NO;
+        bExpand = NO;
         
         contentView = [[UIView alloc] initWithFrame:CGRectZero];
         [contentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)242)/255 green:((CGFloat)242)/255 blue:((CGFloat)244)/255 alpha:1.0f]];
@@ -49,8 +54,19 @@ static CGFloat textContentHeight;
         [self.introductionLabel setTextColor:[UIColor grayColor]];
         [self addSubview:self.introductionLabel];
         
+        expandButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.introductionLabel.frame.origin.y + self.introductionLabel.bounds.size.height, 0, 0)];
+        [expandButton setBackgroundImage:[UIImage imageNamed:@"extend"] forState:UIControlStateNormal];
+        [expandButton setTitle:@"查看更多" forState:UIControlStateNormal];
+        [expandButton setFrame:CGRectMake(expandButton.frame.origin.x, expandButton.frame.origin.y, kButtonWidth, kButtonHeight)];
+        [expandButton setCenter:CGPointMake(self.bounds.size.width / 2, expandButton.bounds.size.height)];
+        [expandButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [expandButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+        [expandButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [expandButton addTarget:self action:@selector(expandButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:expandButton];
+        
         otherControlView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, kOtherControlViewHeight)];
-        [self addSubview:otherControlView];
+//        [self addSubview:otherControlView];
         
         //logo
         self.logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kControlMargin, 0, kLogoImageWidth, kLogoImageHeight)];
@@ -158,11 +174,18 @@ static CGFloat textContentHeight;
 
 -(void)setIntroductionLabelText:(NSString *)text {
     CGSize textSize = [text boundingRectWithSize:CGSizeMake(self.bounds.size.width - 2*kControlMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} context:nil].size;
-    textContentHeight = textSize.height;
+    if(textContentHeight < textSize.height)
+        textContentHeight = textSize.height;
     [self.introductionLabel setText:text];
     [self.introductionLabel setFrame:CGRectMake(2.0f, 1.0f, self.bounds.size.width - 4.0f, textSize.height)];
-    
-    [self adjustOtherControlViewPosition:(textSize.height)];
+    [expandButton setFrame:CGRectMake(expandButton.frame.origin.x, self.introductionLabel.frame.origin.y + self.introductionLabel.frame.size.height, expandButton.frame.size.width, expandButton.frame.size.height)];
+    //分隔线
+    [seperatorLine removeFromSuperview];
+    seperatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, expandButton.frame.origin.y + expandButton.frame.size.height - 0.5, self.bounds.size.width, 0.5)];
+    [seperatorLine setBackgroundColor:[UIColor lightGrayColor]];
+    [seperatorLine setCenter:CGPointMake(expandButton.center.x, seperatorLine.center.y)];
+    [self addSubview:seperatorLine];
+    [self adjustOtherControlViewPosition];
     
     return ;
 }
@@ -182,19 +205,22 @@ static CGFloat textContentHeight;
     return ;
 }
 
--(void)adjustOtherControlViewPosition:(CGFloat)textHeight {
+-(void)adjustOtherControlViewPosition {
     [contentView setFrame:CGRectMake(0, kShadowRadius, self.bounds.size.width, [ZQEnterpriseIntroductionTableViewCell cellHeight] - 2*kShadowRadius)];
-    [otherControlView setFrame:CGRectMake(0, textHeight, self.bounds.size.width, kOtherControlViewHeight)];
+    [otherControlView setFrame:CGRectMake(0, seperatorLine.frame.origin.y + seperatorLine.frame.size.height + 0.5, self.bounds.size.width, kOtherControlViewHeight)];
+    
     return ;
 }
 
 -(void)telephoneButtonPressed:(UIButton*)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",telephoneNumber]]];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:[NSString stringWithFormat:@"确定要拨打电话:%@",telephoneNumber] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拨打", nil];
+    [alertView show];
     return ;
 }
 
 +(CGFloat)cellHeight {
-    return textContentHeight + kOtherControlViewHeight + kControlMargin;
+//    return textContentHeight + kOtherControlViewHeight + kControlMargin;
+    return textContentHeight + kControlMargin + kButtonHeight;
 }
 
 -(void)attentionButtonPressed:(UIButton*)sender {
@@ -213,6 +239,34 @@ static CGFloat textContentHeight;
 -(void)commentButtonPressed:(UIButton*)sender {
     if([self.delegate respondsToSelector:@selector(ZQEnterpriseIntroductionButtonPressed:)])
         [self.delegate ZQEnterpriseIntroductionButtonPressed:sender.tag];
+    return ;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1)
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",telephoneNumber]]];
+    return ;
+}
+
+-(void)expandButtonPressed:(UIButton*)sender {
+    if(!bExpand) {
+        [self addSubview:otherControlView];
+        textContentHeight += kOtherControlViewHeight;
+        [sender setBackgroundImage:[UIImage imageNamed:@"shrink"] forState:UIControlStateNormal];
+        [sender setTitle:@"收起更多" forState:UIControlStateNormal];
+        bExpand = YES;
+    }else{
+        [otherControlView removeFromSuperview];
+        textContentHeight -= kOtherControlViewHeight;
+        [sender setBackgroundImage:[UIImage imageNamed:@"extend"] forState:UIControlStateNormal];
+        [sender setTitle:@"查看更多" forState:UIControlStateNormal];
+        bExpand = NO;
+    }
+    
+    if(self.superview.superview != nil) {
+        [self adjustOtherControlViewPosition];
+        [(UITableView*)self.superview.superview reloadData];
+    }
     return ;
 }
 
