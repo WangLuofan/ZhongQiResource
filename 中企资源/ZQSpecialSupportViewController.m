@@ -11,7 +11,12 @@
 #import "ZQSpecialSupportViewController.h"
 #import "ZQSpecialSupportTableViewCell.h"
 
-@interface ZQSpecialSupportViewController ()
+#define kControlMargin 5
+#define kShadowRadius 0.5f
+
+@interface ZQSpecialSupportViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
+    NSArray* imageSourceArray;
+}
 
 @end
 
@@ -21,6 +26,13 @@
     [super viewDidLoad];
     [self setTitle:@"专项扶持"];
     [self setTableViewNeedLoadMore:YES];
+    
+    imageSourceArray = @[
+                         [UIImage imageNamed:@"special_1"],
+                         [UIImage imageNamed:@"special_2"],
+                         [UIImage imageNamed:@"special_3"]
+                         ];
+    [self.tableView setTableHeaderView:[self createHeaderCollectionView]];
     
     return ;
 }
@@ -46,6 +58,48 @@
         }];
     });
     return ;
+}
+
+-(UIView*)createHeaderCollectionView {
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 60)];     //再调整
+    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kControlMargin, headerView.bounds.size.width - kControlMargin, headerView.bounds.size.height - kControlMargin) collectionViewLayout:flowLayout];
+    
+    [flowLayout setItemSize:CGSizeMake((collectionView.bounds.size.width - 4*kControlMargin) / 3, collectionView.bounds.size.height - 2*kControlMargin)];
+    [flowLayout setMinimumInteritemSpacing:kControlMargin];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(0, kControlMargin, 0, 0)];
+    
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"PolicyInterpretTableViewCellIdentifier"];
+    [collectionView setBackgroundColor:[UIColor clearColor]];
+    [headerView addSubview:collectionView];
+    [collectionView setDelegate:self];
+    [collectionView setDataSource:self];
+    
+    return headerView;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return imageSourceArray.count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PolicyInterpretTableViewCellIdentifier" forIndexPath:indexPath];
+    
+    UIView* shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (collectionView.frame.size.width - (imageSourceArray.count + 1)) / imageSourceArray.count, collectionView.frame.size.height - 2*kControlMargin)];
+    [shadowView setBackgroundColor:[UIColor colorWithRed:((CGFloat)226)/255 green:((CGFloat)227)/255 blue:((CGFloat)223)/255 alpha:1.0f]];
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kShadowRadius,kShadowRadius,shadowView.bounds.size.width - 2*kShadowRadius,shadowView.bounds.size.height - 2*kShadowRadius)];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [imageView setImage:(UIImage *)imageSourceArray[indexPath.row]];
+    [shadowView addSubview:imageView];
+    
+    [cell.contentView addSubview:shadowView];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

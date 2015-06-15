@@ -65,7 +65,6 @@
 		B3BB454A1B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45491B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m */; };
 		B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC251E1B17F2E8008693E5 /* ZQDistrictResourceViewController.m */; };
 		B3CC252B1B17F53F008693E5 /* ZQSpecialSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC252A1B17F53F008693E5 /* ZQSpecialSupportViewController.m */; };
-		B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC252D1B17F578008693E5 /* ZQPolicyInterpretViewController.m */; };
 		B3CC25491B17FDAC008693E5 /* ZQMyChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC25481B17FDAC008693E5 /* ZQMyChatViewController.m */; };
 		B3CC254C1B17FDB6008693E5 /* ZQMyAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC254B1B17FDB6008693E5 /* ZQMyAttentionViewController.m */; };
 		B3CC254F1B17FDDB008693E5 /* ZQMyDistributionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC254E1B17FDDB008693E5 /* ZQMyDistributionViewController.m */; };
@@ -86,6 +85,7 @@
 		B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */; };
 		B3E293BE1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293BD1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m */; };
 		B3E293C21B2EA5EF00822B00 /* ZQBaseRscReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293C11B2EA5EF00822B00 /* ZQBaseRscReplyViewController.m */; };
+		B3E293C51B2EB34800822B00 /* ZQPolicyInterpretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */; };
 		B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */; };
 		B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */; };
 		B3E67E281B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E271B1C573800CBF447 /* ZQEnterpriseIntroductionTableViewCell.m */; };
@@ -226,8 +226,6 @@
 		B3CC251E1B17F2E8008693E5 /* ZQDistrictResourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQDistrictResourceViewController.m; sourceTree = "<group>"; };
 		B3CC25291B17F53F008693E5 /* ZQSpecialSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSpecialSupportViewController.h; sourceTree = "<group>"; };
 		B3CC252A1B17F53F008693E5 /* ZQSpecialSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSpecialSupportViewController.m; sourceTree = "<group>"; };
-		B3CC252C1B17F578008693E5 /* ZQPolicyInterpretViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPolicyInterpretViewController.h; sourceTree = "<group>"; };
-		B3CC252D1B17F578008693E5 /* ZQPolicyInterpretViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPolicyInterpretViewController.m; sourceTree = "<group>"; };
 		B3CC25471B17FDAC008693E5 /* ZQMyChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMyChatViewController.h; sourceTree = "<group>"; };
 		B3CC25481B17FDAC008693E5 /* ZQMyChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQMyChatViewController.m; sourceTree = "<group>"; };
 		B3CC254A1B17FDB6008693E5 /* ZQMyAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMyAttentionViewController.h; sourceTree = "<group>"; };
@@ -268,6 +266,8 @@
 		B3E293BD1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQDistrictRscRecommendDetailViewController.m; sourceTree = "<group>"; };
 		B3E293C01B2EA5EF00822B00 /* ZQBaseRscReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseRscReplyViewController.h; sourceTree = "<group>"; };
 		B3E293C11B2EA5EF00822B00 /* ZQBaseRscReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseRscReplyViewController.m; sourceTree = "<group>"; };
+		B3E293C31B2EB34800822B00 /* ZQPolicyInterpretViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPolicyInterpretViewController.h; sourceTree = "<group>"; };
+		B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPolicyInterpretViewController.m; sourceTree = "<group>"; };
 		B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseAlertViewController.h; sourceTree = "<group>"; };
 		B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTypeChooseAlertViewController.m; sourceTree = "<group>"; };
 		B3E67E221B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseIntroductionViewController.h; sourceTree = "<group>"; };
@@ -1133,8 +1133,8 @@
 		B3CC25261B17F4E9008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC252C1B17F578008693E5 /* ZQPolicyInterpretViewController.h */,
-				B3CC252D1B17F578008693E5 /* ZQPolicyInterpretViewController.m */,
+				B3E293C31B2EB34800822B00 /* ZQPolicyInterpretViewController.h */,
+				B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1785,6 +1785,7 @@
 				B3F6C3D81B155670000313C7 /* ZQMainViewController.m in Sources */,
 				B31E664C1B1EAD8500E70720 /* ZQTypeChooseView.m in Sources */,
 				B34470C21B295E1400352D46 /* ZQWantEnrollViewController.m in Sources */,
+				B3E293C51B2EB34800822B00 /* ZQPolicyInterpretViewController.m in Sources */,
 				B31E66581B1EE8E300E70720 /* ZQEvaluateView.m in Sources */,
 				B341659C1B15C44D00F9A8ED /* ZQCollectionContentView.m in Sources */,
 				B3CC251F1B17F2E8008693E5 /* ZQDistrictResourceViewController.m in Sources */,
@@ -1820,7 +1821,6 @@
 				B3F9B8681B1D7C8900E1B215 /* ZQStarRatingView.m in Sources */,
 				B34F3DE11B2ACF2E00E93FE1 /* ZQImageBrowseViewController.m in Sources */,
 				B37235091B212B2400B42AA6 /* ZQFilterButton.m in Sources */,
-				B3CC252E1B17F578008693E5 /* ZQPolicyInterpretViewController.m in Sources */,
 				B3771E401B26D230000DD31D /* ZQUserInfoModifyTableViewCell.m in Sources */,
 				B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */,
 				B3FC3D7E1B2D4F0500DAB3F2 /* ZQMyChatTableViewCell.m in Sources */,

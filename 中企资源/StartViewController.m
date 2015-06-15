@@ -117,6 +117,7 @@
     UIButton* guessButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [guessButton setFrame:CGRectMake(-30, 5, headerView.frame.size.width / 2, kLoginButtonHeight - 10)];
     [guessButton setTitle:@"猜你喜欢" forState:UIControlStateNormal];
+    [guessButton setEnabled:NO];
     [guessButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [guessButton setImage:[UIImage imageNamed:@"cnxh"] forState:UIControlStateNormal];
     [guessButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];

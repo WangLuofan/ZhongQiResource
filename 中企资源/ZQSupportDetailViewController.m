@@ -50,6 +50,14 @@
     [attentionCountButton setEnabled:NO];
     [self.view addSubview:attentionCountButton];
     
+    //关注
+    
+    
+    return ;
+}
+
+-(void)setAttentionCount:(NSInteger)attentionCount {
+    [attentionCountButton setTitle:[NSString stringWithFormat:@"已有%d人关注"] forState:UIControlStateNormal];
     return ;
 }
 

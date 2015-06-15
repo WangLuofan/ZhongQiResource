@@ -11,5 +11,6 @@
 @interface ZQSupportDetailViewController : ZQBaseExitViewController
 
 -(instancetype)initWithTitle:(NSString*)title;
+-(void)setAttentionCount:(NSInteger)attentionCount;
 
 @end
