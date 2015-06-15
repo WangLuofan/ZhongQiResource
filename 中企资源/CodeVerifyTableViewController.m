@@ -62,6 +62,14 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:YES];
     [codeButton setTitle:[NSString stringWithFormat:@"%d秒后可重新获取验证码",timeCount] forState:UIControlStateNormal];
     
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
+    return ;
+}
+
+-(void)backgroundTapped:(UIGestureRecognizer*)sender {
+    for (UITableViewCell* cell in self.tableView.visibleCells) {
+        [((UITextField*)cell.contentView.subviews[0]) resignFirstResponder];
+    }
     return ;
 }
 

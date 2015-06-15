@@ -10,4 +10,6 @@
 
 @interface ZQDistrictRscRecommendDetailViewController : ZQBaseExitViewController
 
+-(void)setRscRecommendDetailWithTitle:(NSString*)title DetailContent:(NSString*)content;
+
 @end

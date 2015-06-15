@@ -70,6 +70,13 @@
     return ;
 }
 
+-(void)setRscRecommendDetailWithTitle:(NSString *)title DetailContent:(NSString *)content {
+    [titleLabel setText:title];
+    [detailLabel setText:content];
+    
+    return;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

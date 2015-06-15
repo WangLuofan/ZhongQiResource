@@ -2,17 +2,14 @@
 //  ZQBaseRscReplyViewController.h
 //  中企资源
 //
-//  Created by 王落凡 on 15/6/12.
+//  Created by 王落凡 on 15/6/15.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseImageReplyViewController.h"
 
-@interface ZQBaseRscReplyViewController : ZQBaseExitViewController
+@interface ZQBaseRscReplyViewController : ZQBaseImageReplyViewController
 
-@property(nonatomic,strong) UITextView* replyTextView;
-@property(nonatomic,strong) UICollectionView* collectionView;
-
--(void)setTitle:(NSString*)title CommentContent:(NSString*)commentContent;
+-(void)setTitle:(NSString *)title CommentContent:(NSString*)commentContent;
 
 @end

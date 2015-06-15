@@ -19,6 +19,13 @@
 
 @implementation ZQImagePickerViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:@"您最多可以选择10张图片，多余的选择将会被取消，长按删除选择的图片" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+    [alertView show];
+    return ;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"相簿"];

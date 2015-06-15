@@ -27,6 +27,8 @@
     [sendSMSBtn addTarget:self action:@selector(sendSMSButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:sendSMSBtn];
     [self.tableView setTableFooterView:headerView];
+    
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
 }
 
 -(void)sendSMSButtonPressed:(UIButton*)sender {
@@ -59,6 +61,13 @@
             [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:codeController] animated:YES completion:^{
             }];
         });
+    }
+    return ;
+}
+
+-(void)backgroundTapped:(UIGestureRecognizer*)sender {
+    for (UITableViewCell* cell in self.tableView.visibleCells) {
+        [((UITextField*)cell.contentView.subviews[0]) resignFirstResponder];
     }
     return ;
 }

@@ -11,49 +11,37 @@
 #define kControlMargin 5
 #define kDescLabelHeight 40
 
-@interface ZQUserFeedbackViewController ()<UITextViewDelegate> {
-    UILabel* placeHolderLabel;
-}
+@interface ZQUserFeedbackViewController ()
 
 @end
 
 @implementation ZQUserFeedbackViewController
 
+-(instancetype)init {
+    self = [super initWithHeaderMargin:kDescLabelHeight + kControlMargin];
+    
+    if(self) {
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"用户反馈"];
-    
     UILabel* descLabel = [[UILabel alloc] initWithFrame:CGRectMake(kControlMargin, kControlMargin, self.view.bounds.size.width - 2*kControlMargin, kDescLabelHeight)];
     [descLabel setTextAlignment:NSTextAlignmentJustified];
     [self.view addSubview:descLabel];
     [self setDescribeInfo:descLabel];
     
-    self.commentTextView = [[UITextView alloc] initWithFrame:CGRectMake(descLabel.frame.origin.x, descLabel.frame.origin.y + descLabel.frame.size.height, descLabel.frame.size.width, 5*kDescLabelHeight)];
-    [self.commentTextView setFont:[UIFont systemFontOfSize:14.0f]];
-    [self.commentTextView setDelegate:self];
-    [self.view addSubview:self.commentTextView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submitButtonPressed:)];
     
-    placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 0, 0)];
-    [placeHolderLabel setText:@"请输入您的反馈信息"];
-    [placeHolderLabel sizeToFit];
-    [placeHolderLabel setTextColor:[UIColor lightGrayColor]];
-    [placeHolderLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    [self.commentTextView addSubview:placeHolderLabel];
-    
-    UIButton* commitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [commitButton setImage:[UIImage imageNamed:@"submit"] forState:UIControlStateNormal];
-    [commitButton setFrame:CGRectMake(0, self.commentTextView.frame.origin.y + self.commentTextView.frame.size.height + 2*kControlMargin, commitButton.imageView.image.size.width / 2, commitButton.imageView.image.size.height / 2)];
-    [commitButton setCenter:CGPointMake(self.view.bounds.size.width / 4, commitButton.center.y)];
-    [self.view addSubview:commitButton];
-    
-    UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelButton setImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
-    [cancelButton setFrame:CGRectMake(0, commitButton.frame.origin.y, commitButton.frame.size.width, commitButton.frame.size.height)];
-    [cancelButton setCenter:CGPointMake(self.view.bounds.size.width * 3 / 4, cancelButton.center.y)];
-    [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:cancelButton];
-    
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
+    return ;
+}
+
+-(void)submitButtonPressed:(UIBarButtonItem*)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
     
     return ;
 }
@@ -61,11 +49,6 @@
 -(void)cancelButtonPressed:(UIButton*)sender {
     [self dismissViewControllerAnimated:YES completion:^{
     }];
-    return ;
-}
-
--(void)backgroundTapped:(UIGestureRecognizer*)sender {
-    [self.commentTextView resignFirstResponder];
     return ;
 }
 
@@ -81,15 +64,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)textViewDidChange:(UITextView *)textView {
-    if(textView.text.length == 0)
-        [placeHolderLabel setHidden:NO];
-    else
-        [placeHolderLabel setHidden:YES];
-    
-    return ;
 }
 
 @end
