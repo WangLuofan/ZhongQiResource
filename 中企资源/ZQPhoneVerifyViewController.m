@@ -54,9 +54,11 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1) {
-        CodeVerifyTableViewController* codeController = [[CodeVerifyTableViewController alloc] initWithStyle:UITableViewStyleGrouped phoneNumber:((UITextField*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].contentView.subviews[0]).text];
-        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:codeController] animated:YES completion:^{
-        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CodeVerifyTableViewController* codeController = [[CodeVerifyTableViewController alloc] initWithStyle:   UITableViewStyleGrouped phoneNumber:((UITextField*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].contentView.subviews[0]).text];
+            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:codeController] animated:YES completion:^{
+            }];
+        });
     }
     return ;
 }

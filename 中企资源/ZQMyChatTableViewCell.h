@@ -10,4 +10,11 @@
 
 @interface ZQMyChatTableViewCell : UITableViewCell
 
+@property(nonatomic,strong) UIImageView* headerImageView;
+@property(nonatomic,strong) UILabel* enterpriseNameLabel;
+@property(nonatomic,strong) UILabel* timeLabel;
+@property(nonatomic,strong) UILabel* messageLabel;
+
+-(void)setBradgeNumber:(NSInteger)bradgeNumber;
+
 @end

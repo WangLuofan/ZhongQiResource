@@ -141,16 +141,18 @@
     switch (buttonIndex) {
         case 0:
         {
-            ZQEnterpriseEvaluateViewController* commentViewController = [[ZQEnterpriseEvaluateViewController alloc] init];
-            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentViewController] animated:YES completion:^{
-                [commentViewController commentWithUserInfoDict:@{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ZQEnterpriseEvaluateViewController* commentViewController = [[ZQEnterpriseEvaluateViewController alloc] init];
+                [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentViewController] animated:YES completion:^{
+                    [commentViewController commentWithUserInfoDict:@{
                                                                 @"header":[UIImage imageNamed:@"tx2"],
                                                                 @"enterprise":@"湖南讯德彩利科技有限公司",
                                                                 @"userName":@"帅帅",
                                                                 @"commentContent":@"不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!不错的资源管理平台!!!",
                                                                 @"dateTime":@"2015-05-25    18:03:29"
                                                                  }];
-            }];
+                }];
+            });
         }
             break;
         case 1:
@@ -169,12 +171,14 @@
             break;
         case 1:
         {
-            ZQBaseRscReplyViewController* replyController = [[ZQBaseRscReplyViewController alloc] init];
-            [replyController setTitle:[entRscDistCell offerResourceTitle] CommentContent:entRscDistCell.detailLabel.text];
-            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:replyController] animated:YES completion:^{
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:@"您最多可以选择10张图片，多余的选择将会被取消，长按删除选择的图片" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
-                [alertView show];
-            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ZQBaseRscReplyViewController* replyController = [[ZQBaseRscReplyViewController alloc] init];
+                [replyController setTitle:[entRscDistCell offerResourceTitle] CommentContent:entRscDistCell.detailLabel.text];
+                [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController: replyController] animated:YES completion:^{
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:@"您最多可以选择10张图片，多余的选择将会被取消，长按删除选择的图片" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                    [alertView show];
+                }];
+            });
         }
             break;
         case 2:

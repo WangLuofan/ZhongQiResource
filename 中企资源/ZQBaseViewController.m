@@ -97,10 +97,12 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZQNavigationViewController* nav = (ZQNavigationViewController*)[self getChildViewController:indexPath.row];
-    [self.tabBarViewController presentViewController:nav animated:YES completion:^{
-        return ;
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQNavigationViewController* nav = (ZQNavigationViewController*)[self getChildViewController:indexPath.row];
+        [self.tabBarViewController presentViewController:nav animated:YES completion:^{
+        }];
+    });
+    
     return ;
 }
 

@@ -90,9 +90,11 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    ZQWantEnrollViewController* enrollController = [[ZQWantEnrollViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:enrollController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQWantEnrollViewController* enrollController = [[ZQWantEnrollViewController alloc] init];
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:enrollController] animated:YES completion:^{
+        }];
+    });
     return ;
 }
 

@@ -242,9 +242,13 @@
     ZQRecommendTableViewCell* cell = (ZQRecommendTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell setCellBackgroundColor:[UIColor lightGrayColor]];
     
-    ZQDistrictPostViewController* postController = [[ZQDistrictPostViewController alloc] initWithTitle:tableViewContentArray[indexPath.row][1]];
-    [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQDistrictPostViewController* postController = [[ZQDistrictPostViewController alloc] initWithTitle:tableViewContentArray[indexPath.row][1]];
+        [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
+        }];
+    });
+    
+    
     return ;
 }
 

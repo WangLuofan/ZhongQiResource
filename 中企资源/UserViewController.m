@@ -108,9 +108,13 @@
 }
 
 -(void)closureButtonPressed:(UIButton*)sender {
-    ZQUserInfoModifyViewController* userViewController = [[ZQUserInfoModifyViewController alloc] initWithHeaderImage:loginCompleteView.headerImageView.image userName:loginCompleteView.userName];
-    [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:userViewController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQUserInfoModifyViewController* userViewController = [[ZQUserInfoModifyViewController alloc] initWithHeaderImage:loginCompleteView.headerImageView.image userName:loginCompleteView.userName];
+        [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:userViewController] animated:YES completion:^{
+        }];
+    });
+    
+    return ;
 }
 
 #pragma mark - 打印系统所有字体(辅助方法)

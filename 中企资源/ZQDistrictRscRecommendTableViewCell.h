@@ -12,9 +12,8 @@
 
 @property(nonatomic,strong) UILabel* titleLabel;
 @property(nonatomic,strong) UILabel* detailLabel;
-@property(nonatomic,strong) UILabel* dateLabel;
+//@property(nonatomic,strong) UILabel* dateLabel;
 
--(void)setTitle:(NSString*)title Detail:(NSString*)detail Date:(NSString*)date;
 -(void)setTitle:(NSString*)title Detail:(NSString*)detail;
 
 @end

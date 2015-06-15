@@ -137,9 +137,12 @@
 }
 
 -(void)imageAddButtonPressed:(UIButton*)sender {
-    ZQImagePickerViewController* imagePickerController = [[ZQImagePickerViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:imagePickerController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQImagePickerViewController* imagePickerController = [[ZQImagePickerViewController alloc] init];
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:imagePickerController] animated:YES completion:^{
+        }];
+    });
+                   
     return ;
 }
 

@@ -44,7 +44,7 @@
     
     if(cell == nil)
         cell = [[ZQDistrictRscRecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DistrictRscRecommendTableViewCellIdentifier"];
-    [cell setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优" Date:@"2015-06-14"];
+    [cell setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优"];
     return cell;
 }
 

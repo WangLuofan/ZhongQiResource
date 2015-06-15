@@ -103,9 +103,11 @@
 }
 
 -(void)sendOfferBtnPressed:(UIButton*)sender {
-    ZQBatchSndReqInfoViewController* batchViewController = [[ZQBatchSndReqInfoViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:batchViewController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQBatchSndReqInfoViewController* batchViewController = [[ZQBatchSndReqInfoViewController alloc] init];
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:batchViewController] animated:YES completion:^{
+        }];
+    });
     return ;
 }
 
@@ -147,9 +149,12 @@
     ZQEnterpriseTableViewCell* cell = (ZQEnterpriseTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     ZQEnterpriseIntroductionViewController* introductionController = [[ZQEnterpriseIntroductionViewController alloc] init];
     [introductionController setTitle:cell.companyNameLabel.text];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:introductionController] animated:YES completion:^{
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:introductionController] animated:YES completion:^{
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }];
+    });
     return ;
 }
 

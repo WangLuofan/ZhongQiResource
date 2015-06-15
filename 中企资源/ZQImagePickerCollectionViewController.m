@@ -109,10 +109,12 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if(!isEnterSelectMode) {
-        ALAssetRepresentation* representation = [((ALAsset*)assetsArray[indexPath.row]) defaultRepresentation];
-        ZQImageBrowseViewController* browseController = [[ZQImageBrowseViewController alloc] initWithImage:[UIImage imageWithCGImage:[representation fullScreenImage]]];
-        [self presentViewController:browseController animated:YES completion:^{
-        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            ALAssetRepresentation* representation = [((ALAsset*)assetsArray[indexPath.row]) defaultRepresentation];
+            ZQImageBrowseViewController* browseController = [[ZQImageBrowseViewController alloc] initWithImage:[UIImage imageWithCGImage:[representation fullScreenImage]]];
+            [self presentViewController:browseController animated:YES completion:^{
+            }];
+        });
     }else {
         UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
         for (UIView* subView in cell.contentView.subviews) {

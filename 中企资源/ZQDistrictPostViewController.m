@@ -10,6 +10,7 @@
 #import "ZQEnterpriseDetailInfoTableViewCell.h"
 #import "ZQEnterpriseEvaluateCommentTableViewCell.h"
 #import "ZQDistrictRscRecommendViewController.h"
+#import "ZQDistrictRscRecommendDetailViewController.h"
 #import "ZQDistrictPostViewController.h"
 #import "ZQWantPostViewController.h"
 #import "ZQNavigationViewController.h"
@@ -77,9 +78,11 @@
             break;
         case 1:
         {
-            ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] initWithTitle:self.title];
-            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
-            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] initWithTitle:self.title];
+                [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
+                }];
+            });
         }
             break;
         case 2:
@@ -129,9 +132,13 @@
 }
 
 -(void)showMoreButtonPressed:(UIButton*)sender {
-    ZQDistrictRscRecommendViewController* recommandController = [[ZQDistrictRscRecommendViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:recommandController] animated:YES completion:^{
-    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQDistrictRscRecommendViewController* recommandController = [[ZQDistrictRscRecommendViewController alloc] init];
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:recommandController] animated:YES completion:^{
+        }];
+    });
+    
     return ;
 }
 
@@ -148,8 +155,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 1)
-       [self showMoreButtonPressed:nil];
+    if(indexPath.section == 1) {
+       dispatch_async(dispatch_get_main_queue(), ^{
+           ZQDistrictRscRecommendDetailViewController* detailController = [[ZQDistrictRscRecommendDetailViewController alloc] init];
+           [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:detailController] animated:YES completion:^{
+           }];
+       });
+    }
     return ;
 }
 
@@ -175,7 +187,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"DistrictRscRecommendTableViewCellIdentifier"];
         if(cell == nil)
             cell = [[ZQDistrictRscRecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DistrictRscRecommendTableViewCellIdentifier"];
-        [((ZQDistrictRscRecommendTableViewCell*)cell) setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优" Date:@"2015-06-14"];
+        [((ZQDistrictRscRecommendTableViewCell*)cell) setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优"];
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];

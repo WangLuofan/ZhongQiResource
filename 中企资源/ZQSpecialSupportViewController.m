@@ -41,8 +41,10 @@
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZQSpecialSupportTableViewCell* cell = (ZQSpecialSupportTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     ZQSupportDetailViewController* detailController = [[ZQSupportDetailViewController alloc] initWithTitle:cell.methodLabel.text];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:detailController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:detailController ] animated:YES completion:^{
+        }];
+    });
     return ;
 }
 

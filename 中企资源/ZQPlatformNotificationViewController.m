@@ -56,8 +56,10 @@
     ZQPlatformNotificationTableViewCell* cell = (ZQPlatformNotificationTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     ZQNotificationEvaluateViewController* notificationController = [[ZQNotificationEvaluateViewController alloc] init];
     [notificationController setEvaluateHeaderTitle:cell.titleLabel.text CommentContent:cell.contentLabel.text];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:notificationController] animated:YES completion:^{
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:notificationController] animated:YES completion:^{
+        }];
+    });
     return ;
 }
 

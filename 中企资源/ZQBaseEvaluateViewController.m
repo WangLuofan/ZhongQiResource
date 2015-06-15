@@ -69,10 +69,14 @@
 }
 
 -(void)evaluateHeader:(ZQBaseCommentHeader *)evaluateHeader commentButtonPressed:(UIButton *)commentButton {
-    ZQEnterpriseCommentViewController* commentController = [[ZQEnterpriseCommentViewController alloc] init];
-    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentController] animated:YES completion:^{
-        [commentController setPushViewController:self];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ZQEnterpriseCommentViewController* commentController = [[ZQEnterpriseCommentViewController alloc] init];
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:commentController] animated:YES completion:^{
+            [commentController setPushViewController:self];
+        }];
+    });
+    
+    return ;
 }
 
 /*
