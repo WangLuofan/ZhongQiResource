@@ -135,6 +135,7 @@
     [moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [moreButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, moreButton.bounds.size.width * 4 / 5, 0, 0)];
+    [moreButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:moreButton];
     
     [_recommendTableView setTableHeaderView:headerView];
@@ -184,6 +185,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)moreButtonPressed:(UIButton*)sender {
+    ZQDistrictResourceViewController* distController = [[ZQDistrictResourceViewController alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:distController] animated:YES completion:^{
+        }];
+    });
+    return ;
 }
 
 #pragma mark - 增加顶部导航图片

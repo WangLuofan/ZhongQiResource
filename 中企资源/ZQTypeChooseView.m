@@ -10,6 +10,12 @@
 
 #define kItemHeight 40
 
+@interface ZQTypeChooseView () {
+    UILabel* titleLabel;
+}
+
+@end
+
 @implementation ZQTypeChooseView
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -17,12 +23,12 @@
     
     if(self) {
         [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)240)/255 green:((CGFloat)241)/255 blue:((CGFloat)242)/255 alpha:1.0f]];
+        [self setShowsHorizontalScrollIndicator:NO];
         
-        UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, kItemHeight)];
-        [title setBackgroundColor:[UIColor colorWithRed:((CGFloat)35)/255 green:((CGFloat)131)/255 blue:((CGFloat)240)/255 alpha:1.0f]];
-        [title setTextColor:[UIColor whiteColor]];
-        [title setText:@"    选择类型"];
-        [self addSubview:title];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, kItemHeight)];
+        [titleLabel setBackgroundColor:[UIColor colorWithRed:((CGFloat)35)/255 green:((CGFloat)131)/255 blue:((CGFloat)240)/255 alpha:1.0f]];
+        [titleLabel setTextColor:[UIColor whiteColor]];
+        [self addSubview:titleLabel];
     }
     
     return self;
@@ -38,6 +44,7 @@
     
     for (int i = 0; i != contents.count; ++i) {
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [button setFrame:CGRectMake(0, i*kItemHeight + kItemHeight, self.bounds.size.width, kItemHeight)];
         [button setTitle:contents[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -54,12 +61,17 @@
     return ;
 }
 
+-(void)setTitle:(NSString *)title {
+    [titleLabel setText:[NSString stringWithFormat:@"    %@",title]];
+    return ;
+}
+
 -(void)itemClicked:(UIButton*)sender {
     [UIView animateWithDuration:0.3f animations:^{
         [self setAlpha:0.0f];
     } completion:^(BOOL finished) {
-        if([self.delegate respondsToSelector:@selector(chooseViewType:content:)])
-            [self.delegate chooseViewType:self.chooseViewType content:sender.titleLabel.text];
+        if([self.chooseViewDelegate respondsToSelector:@selector(chooseViewType:content:)])
+            [self.chooseViewDelegate chooseViewType:self.chooseViewType content:sender.titleLabel.text];
     }];
     return ;
 }

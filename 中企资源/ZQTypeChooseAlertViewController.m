@@ -43,14 +43,21 @@
         
         typeChooseView = [[ZQTypeChooseView alloc] initWithFrame:CGRectMake(0, 0, kControlViewFrameWidth, 2*kControlViewFrameHeight)];
         [typeChooseView setAlpha:0];
-        [typeChooseView setDelegate:self];
+        [typeChooseView setChooseViewDelegate:self];
         [typeChooseView setCenter:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2 - kNavStatusHeight)];
         [self.view addSubview:typeChooseView];
         
         [self addControls];
+        
+        [coverView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerHandler:)]];
     }
     
     return self;
+}
+
+-(void)tapGestureRecognizerHandler:(UIGestureRecognizer*)sender {
+    [self dismissAlertView];
+    return ;
 }
 
 - (void)viewDidLoad {
@@ -76,6 +83,7 @@
     [typeButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [typeButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [typeButton setBackgroundColor:[UIColor colorWithRed:((CGFloat)229)/255 green:((CGFloat)230)/255 blue:((CGFloat)231)/255 alpha:1.0f]];
+    [typeButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [typeButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -kControlViewMargin-kButtonImageEdge, 0, 0)];
     [typeButton setImage:[UIImage imageNamed:@"arrow_d_h"] forState:UIControlStateNormal];
     [typeButton setImageEdgeInsets:UIEdgeInsetsMake(0, typeButton.bounds.size.width - kButtonImageEdge - typeButton.imageView.image.size.width / 2, 0, 0)];
@@ -91,6 +99,7 @@
     
     categoryButton = [[UIButton alloc] initWithFrame:CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + kControlViewMargin, categoryLabel.frame.origin.y, 0, categoryLabel.bounds.size.height)];
     [categoryButton setFrame:CGRectMake(categoryButton.frame.origin.x, categoryButton.frame.origin.y, controlView.bounds.size.width - categoryButton.frame.origin.x - kControlViewMargin / 2, categoryButton.frame.size.height)];
+    [categoryButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [categoryButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [categoryButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [categoryButton setBackgroundColor:[UIColor colorWithRed:((CGFloat)229)/255 green:((CGFloat)230)/255 blue:((CGFloat)231)/255 alpha:1.0f]];
@@ -125,8 +134,13 @@
 
 -(void)dismissAlertView {
     [UIView animateWithDuration:0.5f animations:^{
-        [controlView setCenter:CGPointMake(self.view.bounds.size.width / 2, 0)];
+        if(controlView.alpha == 1.0f)
+            [controlView setCenter:CGPointMake(self.view.bounds.size.width / 2, 0)];
+        else {
+            [typeChooseView setAlpha:0.0f];
+        }
     } completion:^(BOOL finished) {
+        [typeChooseView removeFromSuperview];
         [self.view removeFromSuperview];
     }];
     return ;
@@ -154,6 +168,7 @@
 
 -(void)typeButtonPressed:(UIButton*)sender {
     [UIView animateWithDuration:0.3f animations:^{
+        [typeChooseView setTitle:@"选择类型"];
         [controlView setAlpha:0.0f];
     }completion:^(BOOL finished) {
         [typeChooseView setContentsWithArray:@[@"商务合作资源"] type:ZQTypeChooseViewType_Type];
@@ -166,6 +181,7 @@
 
 -(void)categoryButtonPressed:(UIButton*)sender {
     [UIView animateWithDuration:0.3f animations:^{
+        [typeChooseView setTitle:@"选择类别"];
         [controlView setAlpha:0.0f];
     }completion:^(BOOL finished) {
         [typeChooseView setContentsWithArray:@[@"销售渠道合作",@"供货渠道合作",@"客户服务合作",@"法律风险合作",@"账务及税务合作",@"众筹合作",@"项目合作",@"投融资合作"] type:ZQTypeChooseViewType_Category];

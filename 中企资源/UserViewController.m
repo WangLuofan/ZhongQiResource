@@ -12,7 +12,7 @@
 #import "LoginCompleteView.h"
 
 #import "ZQPlatformGuideViewController.h"
-#import "ZQResourceInfoViewController.h"
+#import "ZQBatchSndReqInfoViewController.h"
 #import "ZQMyNotificationViewController.h"
 #import "ZQMyDistributionViewController.h"
 #import "ZQMyAttentionViewController.h"
@@ -60,7 +60,7 @@
 -(void)addAllChildViewControllers {
     
     ZQNavigationViewController* nav1 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQPlatformGuideViewController alloc] init]];
-    ZQNavigationViewController* nav2 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQResourceInfoViewController alloc] init]];
+    ZQNavigationViewController* nav2 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQBatchSndReqInfoViewController alloc] init]];
     ZQNavigationViewController* nav3 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyNotificationViewController alloc] init]];
     ZQNavigationViewController* nav4 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyDistributionViewController alloc] init]];
     ZQNavigationViewController* nav5 = [[ZQNavigationViewController alloc] initWithRootViewController:[[ZQMyAttentionViewController alloc] init]];

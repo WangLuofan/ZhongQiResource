@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseSplitTableViewController.h"
 
-@interface ZQMyDistributionViewController : ZQBaseExitViewController
+@interface ZQMyDistributionViewController : ZQBaseSplitTableViewController
 
 @end

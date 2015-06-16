@@ -19,11 +19,12 @@ typedef NS_ENUM(NSInteger, ZQTypeChooseViewType) {
 
 @end
 
-@interface ZQTypeChooseView : UIView
+@interface ZQTypeChooseView : UIScrollView
 
 @property(nonatomic,assign) ZQTypeChooseViewType chooseViewType;
-@property(nonatomic,assign) id<ZQTypeChooseViewDelegate> delegate;
+@property(nonatomic,assign) id<ZQTypeChooseViewDelegate> chooseViewDelegate;
 
 -(void)setContentsWithArray:(NSArray*)contents type:(ZQTypeChooseViewType)type;
+-(void)setTitle:(NSString*)title;
 
 @end

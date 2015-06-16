@@ -57,7 +57,7 @@
 }
 
 -(void)setAttentionCount:(NSInteger)attentionCount {
-    [attentionCountButton setTitle:[NSString stringWithFormat:@"已有%d人关注"] forState:UIControlStateNormal];
+    [attentionCountButton setTitle:[NSString stringWithFormat:@"已有%ld人关注",(long)attentionCount] forState:UIControlStateNormal];
     return ;
 }
 
