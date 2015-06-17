@@ -35,7 +35,7 @@
 
 -(void)initTableViewWithTableViewStyle:(UITableViewStyle)tableViewStyle {
     [self.tableView removeFromSuperview];
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight -kNavStatusHeight) style:tableViewStyle];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height + 0.5, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight - kNavStatusHeight) style:tableViewStyle];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setDelegate:self];

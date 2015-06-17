@@ -8,6 +8,10 @@
 
 #import "CommAlgorithm.h"
 
+@interface CommAlgorithm ()
+
+@end
+
 @implementation CommAlgorithm
 
 +(UIImage*)createImageWithRed:(CGFloat)red Green:(CGFloat)green Blue:(CGFloat) blue Alpha:(CGFloat)alpha {

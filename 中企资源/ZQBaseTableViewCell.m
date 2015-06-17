@@ -51,9 +51,13 @@
         [self.detailLabel setNumberOfLines:0];
         [contentView addSubview:self.detailLabel];
         
-        self.contractButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.contractButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [contentView addSubview:self.contractButton];
+        if(style != ZQTableViewCellStyleNOButton) {
+            self.contractButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.contractButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [contentView addSubview:self.contractButton];
+        }else {
+            [self.detailLabel setFrame:CGRectMake(self.detailLabel.frame.origin.x, self.detailLabel.frame.origin.y, self.detailLabel.frame.size.width, contentView.bounds.size.height - self.methodLabel.frame.origin.y - self.methodLabel.frame.size.height - kControlMargin)];
+        }
     }
     
     return self;

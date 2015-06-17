@@ -10,4 +10,6 @@
 
 @interface ZQServiceAgencyViewController : ZQBaseTableViewController
 
+-(void)setTopCollectionViewImageArray:(NSArray*)imageArray;
+
 @end

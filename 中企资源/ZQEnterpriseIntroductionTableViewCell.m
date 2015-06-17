@@ -18,7 +18,6 @@
 #define kButtonHeight 20
 #define kShadowRadius 0.5f
 
-
 static CGFloat textContentHeight;
 
 @interface ZQEnterpriseIntroductionTableViewCell ()<UIAlertViewDelegate> {
@@ -98,7 +97,6 @@ static CGFloat textContentHeight;
         starRatingView = [[ZQStarRatingView alloc] initWithFrame:CGRectMake(ratingLabel.frame.origin.x + ratingLabel.frame.size.width, ratingLabel.frame.origin.y, self.addressLabel.frame.size.width / 2, ratingLabel.bounds.size.height + kControlMargin) numberOfStars:5];
         [starRatingView setCenter:CGPointMake(starRatingView.center.x, ratingLabel.center.y)];
         [starRatingView setUserInteractionEnabled:NO];
-//        [starRatingView sizeToFit];
         [otherControlView addSubview:starRatingView];
         
         //分数

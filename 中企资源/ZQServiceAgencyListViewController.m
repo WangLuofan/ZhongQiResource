@@ -7,6 +7,8 @@
 //
 
 #import "ZQMediaReportTableViewCell.h"
+#import "ZQNavigationViewController.h"
+#import "ZQServiceAgencySuccessExampleViewController.h"
 #import "ZQEntRscDistributeTableViewCell.h"
 #import "ZQServiceAgencyListViewController.h"
 
@@ -116,6 +118,7 @@
         [((ZQMediaReportTableViewCell*)cell).titleLabel setText:@"羽凌贸易合作商一"];
         [((ZQMediaReportTableViewCell*)cell).detailLabel setText:@"羽凌贸易，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"];
         [((ZQMediaReportTableViewCell*)cell) setRatingScore:4.8];
+        [((ZQMediaReportTableViewCell*)cell) setAttentionCount:889];
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseResourceInfoDistributionCellIdentifier"];
         if(cell == nil) {
@@ -224,6 +227,11 @@
             break;
         case 1:
         {
+            ZQServiceAgencySuccessExampleViewController* serviceSuccessExampleController = [[ZQServiceAgencySuccessExampleViewController alloc] init];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:serviceSuccessExampleController] animated:YES completion:^{
+                }];
+            });
         }
             break;
         default:

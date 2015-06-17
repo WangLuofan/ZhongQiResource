@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ZQBaseSocialShare.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import "ZQMainViewController.h"
 
@@ -21,10 +22,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     
-    [SMS_SDK registerApp:kShareSDKAppKey withSecret:kShareSDKAppSecret];
+    [SMS_SDK registerApp:kShareSDKSMSAppKey withSecret:kShareSDKSMSAppSecret];
+    [ZQBaseSocialShare registApp];
+    [ZQBaseSocialShare connectToSharePlatform];
     
     [self.window setRootViewController:[[ZQMainViewController alloc] init]];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -48,6 +52,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [ZQBaseSocialShare application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [ZQBaseSocialShare application:application handleOpenURL:url];
 }
 
 @end

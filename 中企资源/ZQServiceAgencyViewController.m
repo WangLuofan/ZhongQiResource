@@ -28,10 +28,16 @@
     [self setTitle:@"服务机构"];
     [self setTableViewNeedLoadMore:NO];
     
-    imageSourceArray = @[
+    [self setTopCollectionViewImageArray: @[
                          [UIImage imageNamed:@"img_special"],[UIImage imageNamed:@"img_special"],[UIImage imageNamed:@"img_special"]
-                         ];
+                         ]];
+    
     [self.tableView setTableHeaderView:[self createHeaderCollectionView]];
+    return ;
+}
+
+-(void)setTopCollectionViewImageArray:(NSArray *)imageArray {
+    imageSourceArray = [NSArray arrayWithArray:imageArray];
     return ;
 }
 

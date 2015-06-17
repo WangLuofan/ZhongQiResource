@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseSocialShare.h"
 #import "ZQLoadMoreView.h"
 #import "ZQNavigationViewController.h"
 #import "ZQBaseRscReplyViewController.h"
@@ -182,6 +183,9 @@
         case 2:
             break;
         case 3:
+        {
+            [ZQBaseSocialShare consturctPublishContentWithContent:@"This is a test" image:nil title:@"test" url:nil description:@"test"];
+        }
             break;
         default:
             break;

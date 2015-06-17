@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ZQTableViewCellStyle) {
+    ZQTableViewCellStyleDefault,ZQTableViewCellStyleNOButton
+};
+
 @interface ZQBaseTableViewCell : UITableViewCell
 
 @property(nonatomic,strong) UIImageView* logoImageView;

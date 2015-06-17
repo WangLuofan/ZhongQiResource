@@ -22,8 +22,31 @@
 #define ZQPhoneNumberVerifyFailureNotification @"ZQPhoneNumberVerifyFailureNotification"
 
 
-//AppKey\AppSecret
-#define kShareSDKAppKey @""
-#define kShareSDKAppSecret @""
+//短信验证码 AppKey\AppSecret
+#define kShareSDKSMSAppKey @"831073b6ef9d"
+#define kShareSDKSMSAppSecret @"nil 87e8736284ffd8d053d015070a2ffd18"
+
+//社会化分享平台 AppKey\AppSecret
+#define kShareSDKSocialShareAppKey @"830e1b8b1cc4"
+#define kShareSDKSocialShareAppSecret @"6fe8177fee811068be627cbfe315ce09"
+
+//新浪微博 AppKey\AppSecret
+#define kSinaWeiboAppKey @""
+#define kSinaWeiboAppSecret @""
+
+//腾讯微博 AppKey\AppSecret
+#define kTencentWeiboAppkey @""
+#define kTencentWeiboAppSecret @""
+
+//QQ AppKey
+#define kQZoneAppKey @""
+#define kQZoneAppSecret @""
+
+//微信 AppKey\AppSecret
+#define kWeChatAppKey @""
+#define kWeChatAppSecret @""
+
+//重定向网站
+#define kRedirectUrl @"http://www.sharesdk.cn"
 
 #endif

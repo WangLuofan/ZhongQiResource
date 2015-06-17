@@ -17,6 +17,8 @@
     UILabel* scoreLabel;
     UILabel* reportContentLabel;
     ZQStarRatingView* ratingView;
+    
+    UIButton* attentionButton;
 }
 
 @end
@@ -67,11 +69,11 @@
         [commentButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [subContentView addSubview:commentButton];
         
-        UIButton* attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [attentionButton setImage:[UIImage imageNamed:@"ygz"] forState:UIControlStateNormal];
         [attentionButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [attentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [attentionButton setTitle:@"899" forState:UIControlStateNormal];
+        
         [attentionButton.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [attentionButton setFrame:CGRectMake(commentButton.frame.origin.x + commentButton.frame.size.width, commentButton.frame.origin.y, commentButton.frame.size.width, commentButton.frame.size.height)];
         [attentionButton setCenter:CGPointMake(attentionButton.center.x, commentButton.center.y)];
@@ -91,6 +93,11 @@
     }
     
     return self;
+}
+
+-(void)setAttentionCount:(NSInteger)attentionCount {
+    [attentionButton setTitle:[NSString stringWithFormat:@"%ld",(long)attentionCount] forState:UIControlStateNormal];
+    return ;
 }
 
 -(void)setRatingScore:(CGFloat)ratingScore {
