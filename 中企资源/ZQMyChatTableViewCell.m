@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBradgeNumber.h"
 #import "ZQMyChatTableViewCell.h"
 
 #define kControlMargin 5
-#define kBradgeNumberButtonSize 14
 
 @interface ZQMyChatTableViewCell () {
-    UIButton* bradgeNumberButton;
+    ZQBradgeNumber* bradgeNumberButton;
     UIView* selectionView;
 }
 
@@ -48,13 +48,8 @@
         [self.contentView addSubview:self.messageLabel];
         
         //bradgeNumber
-        bradgeNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bradgeNumberButton setEnabled:NO];
-        [bradgeNumberButton setFrame:CGRectMake(0, self.messageLabel.frame.origin.y, kBradgeNumberButtonSize, kBradgeNumberButtonSize)];
-        [bradgeNumberButton.titleLabel setFont:[UIFont systemFontOfSize:10.0f]];
-        [bradgeNumberButton.layer setCornerRadius:kBradgeNumberButtonSize / 2];
+        bradgeNumberButton = [ZQBradgeNumber newInstance];
         [bradgeNumberButton setCenter:CGPointMake(self.timeLabel.center.x, self.messageLabel.center.y)];
-        [bradgeNumberButton setBackgroundColor:[UIColor redColor]];
         [self.contentView addSubview:bradgeNumberButton];
         
         selectionView = [[UIView alloc] initWithFrame:self.contentView.bounds];
@@ -65,24 +60,18 @@
     return self;
 }
 
+-(void)setBradgeNumber:(NSInteger)bradgeNumber {
+    [bradgeNumberButton setBradgeNumber:bradgeNumber];
+    return ;
+}
+
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if(selected) {
         [self setBackgroundView:selectionView];
-        [self bringSubviewToFront:bradgeNumberButton];
     }else {
         [self setBackgroundView:nil];
     }
-    return ;
-}
-
--(void)setBradgeNumber:(NSInteger)bradgeNumber {
-    if(bradgeNumber == 0) {
-        [bradgeNumberButton setHidden:YES];
-        return ;
-    }
-    [bradgeNumberButton setHidden:NO];
-    [bradgeNumberButton setTitle:[NSString stringWithFormat:@"%ld",(long)bradgeNumber] forState:UIControlStateNormal];
     return ;
 }
 

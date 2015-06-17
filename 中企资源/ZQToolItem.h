@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQFilterView.h"
 #import <UIKit/UIKit.h>
 
-@class ZQFilterView;
 @interface ZQToolItem : UIButton
 
 @property(nonatomic,strong) ZQFilterView* filterView;

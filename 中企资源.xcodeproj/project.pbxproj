@@ -54,7 +54,18 @@
 		B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCBA1B146C97003B0D53 /* AppDelegate.m */; };
 		B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B380DCC21B146C97003B0D53 /* Images.xcassets */; };
 		B380DCD21B146C97003B0D53 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B380DCD11B146C97003B0D53 /* ____Tests.m */; };
+		B384675D1B2FB28E00E5438C /* ZQBradgeNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = B384675C1B2FB28E00E5438C /* ZQBradgeNumber.m */; };
+		B38467631B2FD33000E5438C /* ZQPolicyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38467621B2FD33000E5438C /* ZQPolicyDetailViewController.m */; };
+		B38467651B2FD6E700E5438C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38467641B2FD6E700E5438C /* Security.framework */; };
+		B38467711B2FD70A00E5438C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38467701B2FD70A00E5438C /* CoreGraphics.framework */; };
+		B38467781B2FD74600E5438C /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B38467741B2FD74600E5438C /* SMS_SDKLocalizable.strings */; };
+		B38467791B2FD74600E5438C /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38467761B2FD74600E5438C /* SMS_SDK.framework */; };
+		B384677A1B2FF71000E5438C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676C1B2FD70000E5438C /* libicucore.dylib */; };
+		B384677B1B2FF71A00E5438C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676E1B2FD70500E5438C /* libz.dylib */; };
+		B384677F1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B384677E1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m */; };
 		B3856BC11B267F5D009B3FAE /* ZQToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B3856BC01B267F5D009B3FAE /* ZQToolItem.m */; };
+		B38FD4BD1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FD4BC1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m */; };
+		B38FD4C11B3020B20096DDAE /* ZQMediaReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FD4C01B3020B20096DDAE /* ZQMediaReportTableViewCell.m */; };
 		B395C2971B1FDCEA00DAE944 /* ZQEnterpriseEvaluateCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B395C2961B1FDCEA00DAE944 /* ZQEnterpriseEvaluateCommentTableViewCell.m */; };
 		B399F5E91B27CE8300B763CB /* ZQPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5E81B27CE8300B763CB /* ZQPasswordViewController.m */; };
 		B399F5ED1B2810ED00B763CB /* ZQPhoneVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5EC1B2810ED00B763CB /* ZQPhoneVerifyViewController.m */; };
@@ -209,8 +220,25 @@
 		B380DCD01B146C97003B0D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B380DCD11B146C97003B0D53 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
 		B380DCED1B146E4C003B0D53 /* 中企资源-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "中企资源-prefix.pch"; sourceTree = "<group>"; };
+		B384675B1B2FB28E00E5438C /* ZQBradgeNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBradgeNumber.h; sourceTree = "<group>"; };
+		B384675C1B2FB28E00E5438C /* ZQBradgeNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBradgeNumber.m; sourceTree = "<group>"; };
+		B38467611B2FD33000E5438C /* ZQPolicyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPolicyDetailViewController.h; sourceTree = "<group>"; };
+		B38467621B2FD33000E5438C /* ZQPolicyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPolicyDetailViewController.m; sourceTree = "<group>"; };
+		B38467641B2FD6E700E5438C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B384676C1B2FD70000E5438C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B384676E1B2FD70500E5438C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B38467701B2FD70A00E5438C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B38467751B2FD74600E5438C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		B38467761B2FD74600E5438C /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		B38467771B2FD74600E5438C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		B384677D1B2FF7D100E5438C /* ZQServiceAgencyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQServiceAgencyListViewController.h; sourceTree = "<group>"; };
+		B384677E1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQServiceAgencyListViewController.m; sourceTree = "<group>"; };
 		B3856BBF1B267F5D009B3FAE /* ZQToolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolItem.h; sourceTree = "<group>"; };
 		B3856BC01B267F5D009B3FAE /* ZQToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolItem.m; sourceTree = "<group>"; };
+		B38FD4BB1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQServiceAgencySuccessExampleTableViewCell.h; sourceTree = "<group>"; };
+		B38FD4BC1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQServiceAgencySuccessExampleTableViewCell.m; sourceTree = "<group>"; };
+		B38FD4BF1B3020B20096DDAE /* ZQMediaReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQMediaReportTableViewCell.h; sourceTree = "<group>"; };
+		B38FD4C01B3020B20096DDAE /* ZQMediaReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQMediaReportTableViewCell.m; sourceTree = "<group>"; };
 		B395C2951B1FDCEA00DAE944 /* ZQEnterpriseEvaluateCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQEnterpriseEvaluateCommentTableViewCell.h; sourceTree = "<group>"; };
 		B395C2961B1FDCEA00DAE944 /* ZQEnterpriseEvaluateCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQEnterpriseEvaluateCommentTableViewCell.m; sourceTree = "<group>"; };
 		B399F5E71B27CE8300B763CB /* ZQPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPasswordViewController.h; sourceTree = "<group>"; };
@@ -312,6 +340,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B384677A1B2FF71000E5438C /* libicucore.dylib in Frameworks */,
+				B384677B1B2FF71A00E5438C /* libz.dylib in Frameworks */,
+				B38467711B2FD70A00E5438C /* CoreGraphics.framework in Frameworks */,
+				B38467791B2FD74600E5438C /* SMS_SDK.framework in Frameworks */,
+				B38467651B2FD6E700E5438C /* Security.framework in Frameworks */,
 				B34F3DD31B2A8A6C00E93FE1 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +507,8 @@
 		B34105631B171CA400C3A079 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B38FD4BE1B3020990096DDAE /* 媒体报道表格 */,
+				B38FD4BA1B3017470096DDAE /* 成功案例表格 */,
 				B31E663C1B1E985000E70720 /* 服务机构表格 */,
 			);
 			name = Views;
@@ -482,6 +517,7 @@
 		B34105641B171CA800C3A079 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B384677C1B2FF7A000E5438C /* 服务机构列表页 */,
 				B3493D341B2C898E002F6BFA /* 成功案例 */,
 				B34470BF1B295DF200352D46 /* 我要报名 */,
 				B34470BE1B295DE600352D46 /* 服务机构主页面 */,
@@ -540,6 +576,7 @@
 		B341658B1B15969400F9A8ED /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				B384675A1B2FB27800E5438C /* BradgeNumber */,
 				B3F9B8651B1D7C7900E1B215 /* 星级评分控件 */,
 				B3CC25851B185511008693E5 /* 复选框按钮 */,
 				B3CC257D1B183B92008693E5 /* 顶部工具栏 */,
@@ -874,6 +911,7 @@
 		B380DCB41B146C97003B0D53 /* 中企资源 */ = {
 			isa = PBXGroup;
 			children = (
+				B38467721B2FD72D00E5438C /* 第三方库 */,
 				B3E293BA1B2E622B00822B00 /* 库文件 */,
 				B341658B1B15969400F9A8ED /* 公共 */,
 				B380DCDC1B146CDF003B0D53 /* 界面相关 */,
@@ -965,6 +1003,59 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		B384675A1B2FB27800E5438C /* BradgeNumber */ = {
+			isa = PBXGroup;
+			children = (
+				B384675B1B2FB28E00E5438C /* ZQBradgeNumber.h */,
+				B384675C1B2FB28E00E5438C /* ZQBradgeNumber.m */,
+			);
+			name = BradgeNumber;
+			sourceTree = "<group>";
+		};
+		B384675E1B2FD1E300E5438C /* 主控制页 */ = {
+			isa = PBXGroup;
+			children = (
+				B3E293C31B2EB34800822B00 /* ZQPolicyInterpretViewController.h */,
+				B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */,
+			);
+			name = "主控制页";
+			sourceTree = "<group>";
+		};
+		B38467601B2FD2E800E5438C /* 解读详情 */ = {
+			isa = PBXGroup;
+			children = (
+				B38467611B2FD33000E5438C /* ZQPolicyDetailViewController.h */,
+				B38467621B2FD33000E5438C /* ZQPolicyDetailViewController.m */,
+			);
+			name = "解读详情";
+			sourceTree = "<group>";
+		};
+		B38467721B2FD72D00E5438C /* 第三方库 */ = {
+			isa = PBXGroup;
+			children = (
+				B38467731B2FD74600E5438C /* SMS_SDK */,
+			);
+			name = "第三方库";
+			sourceTree = "<group>";
+		};
+		B38467731B2FD74600E5438C /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				B38467741B2FD74600E5438C /* SMS_SDKLocalizable.strings */,
+				B38467761B2FD74600E5438C /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		B384677C1B2FF7A000E5438C /* 服务机构列表页 */ = {
+			isa = PBXGroup;
+			children = (
+				B384677D1B2FF7D100E5438C /* ZQServiceAgencyListViewController.h */,
+				B384677E1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m */,
+			);
+			name = "服务机构列表页";
+			sourceTree = "<group>";
+		};
 		B3856BBE1B267F45009B3FAE /* 工具项 */ = {
 			isa = PBXGroup;
 			children = (
@@ -972,6 +1063,24 @@
 				B3856BC01B267F5D009B3FAE /* ZQToolItem.m */,
 			);
 			name = "工具项";
+			sourceTree = "<group>";
+		};
+		B38FD4BA1B3017470096DDAE /* 成功案例表格 */ = {
+			isa = PBXGroup;
+			children = (
+				B38FD4BB1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.h */,
+				B38FD4BC1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m */,
+			);
+			name = "成功案例表格";
+			sourceTree = "<group>";
+		};
+		B38FD4BE1B3020990096DDAE /* 媒体报道表格 */ = {
+			isa = PBXGroup;
+			children = (
+				B38FD4BF1B3020B20096DDAE /* ZQMediaReportTableViewCell.h */,
+				B38FD4C01B3020B20096DDAE /* ZQMediaReportTableViewCell.m */,
+			);
+			name = "媒体报道表格";
 			sourceTree = "<group>";
 		};
 		B395C2941B1FDC8600DAE944 /* 企业评价内容视图 */ = {
@@ -1149,8 +1258,8 @@
 		B3CC25261B17F4E9008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293C31B2EB34800822B00 /* ZQPolicyInterpretViewController.h */,
-				B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */,
+				B38467601B2FD2E800E5438C /* 解读详情 */,
+				B384675E1B2FD1E300E5438C /* 主控制页 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1524,6 +1633,10 @@
 		B3E293BA1B2E622B00822B00 /* 库文件 */ = {
 			isa = PBXGroup;
 			children = (
+				B38467701B2FD70A00E5438C /* CoreGraphics.framework */,
+				B384676E1B2FD70500E5438C /* libz.dylib */,
+				B384676C1B2FD70000E5438C /* libicucore.dylib */,
+				B38467641B2FD6E700E5438C /* Security.framework */,
 				B34F3DD21B2A8A6C00E93FE1 /* AssetsLibrary.framework */,
 			);
 			name = "库文件";
@@ -1825,6 +1938,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = B380DCA91B146C97003B0D53;
 			productRefGroup = B380DCB31B146C97003B0D53 /* Products */;
@@ -1843,6 +1957,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B380DCC31B146C97003B0D53 /* Images.xcassets in Resources */,
+				B38467781B2FD74600E5438C /* SMS_SDKLocalizable.strings in Resources */,
 				B34105591B16E71400C3A079 /* YuppySC-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1862,6 +1977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3CC25801B183C43008693E5 /* ZQToolBar.m in Sources */,
+				B38FD4C11B3020B20096DDAE /* ZQMediaReportTableViewCell.m in Sources */,
 				B3CC25491B17FDAC008693E5 /* ZQMyChatViewController.m in Sources */,
 				B34105711B17208F00C3A079 /* ZQBaseExitViewController.m in Sources */,
 				B395C2971B1FDCEA00DAE944 /* ZQEnterpriseEvaluateCommentTableViewCell.m in Sources */,
@@ -1881,6 +1997,7 @@
 				B380DCBB1B146C97003B0D53 /* AppDelegate.m in Sources */,
 				B34470CC1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m in Sources */,
 				B31E66551B1EDEB700E70720 /* ZQDistrictPostViewController.m in Sources */,
+				B384675D1B2FB28E00E5438C /* ZQBradgeNumber.m in Sources */,
 				B3493D2F1B2C8553002F6BFA /* ZQDistrictRscRecommendViewController.m in Sources */,
 				B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */,
 				B399F5ED1B2810ED00B763CB /* ZQPhoneVerifyViewController.m in Sources */,
@@ -1896,6 +2013,7 @@
 				B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */,
 				B3493D331B2C8594002F6BFA /* ZQDistrictRscRecommendTableViewCell.m in Sources */,
 				B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */,
+				B384677F1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m in Sources */,
 				B3CC25521B17FDE9008693E5 /* ZQMyNotificationViewController.m in Sources */,
 				B34F3DD11B2A8A3C00E93FE1 /* ZQImagePickerViewController.m in Sources */,
 				B399F5F61B28208E00B763CB /* CodeVerifyTableViewController.m in Sources */,
@@ -1922,6 +2040,7 @@
 				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,
 				B35AD50A1B2043B000AFC6BB /* ZQFilterView.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,
+				B38FD4BD1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m in Sources */,
 				B3BB454A1B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m in Sources */,
 				B34105671B171CD500C3A079 /* ZQServiceAgencyViewController.m in Sources */,
 				B3F9B86F1B1DA57A00E1B215 /* ZQLoadMoreView.m in Sources */,
@@ -1931,6 +2050,7 @@
 				B3F9B8751B1DB57C00E1B215 /* ZQSpecialSupportTableViewCell.m in Sources */,
 				B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
+				B38467631B2FD33000E5438C /* ZQPolicyDetailViewController.m in Sources */,
 				B3E293D21B2EBA4A00822B00 /* ZQSplitToolView.m in Sources */,
 				B34165941B15A39700F9A8ED /* ZQPageControl.m in Sources */,
 				B3CC25581B17FE07008693E5 /* ZQPlatformGuideViewController.m in Sources */,
@@ -1972,6 +2092,18 @@
 			targetProxy = B380DCCC1B146C97003B0D53 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B38467741B2FD74600E5438C /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B38467751B2FD74600E5438C /* en */,
+				B38467771B2FD74600E5438C /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B380DCD31B146C97003B0D53 /* Debug */ = {
@@ -2060,6 +2192,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Yuxiang (N9825STN63)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/中企资源/SMS_SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
@@ -2075,6 +2211,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Yuxiang (N9825STN63)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/中企资源/SMS_SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";

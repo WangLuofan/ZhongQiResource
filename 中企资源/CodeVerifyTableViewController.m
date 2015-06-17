@@ -8,11 +8,13 @@
 
 #import "ZQPhoneVerifyButton.h"
 #import "CodeVerifyTableViewController.h"
+#import <SMS_SDK/SMS_SDK.h>
 
 #define kTimerCount 59
 
 @interface CodeVerifyTableViewController ()<UIAlertViewDelegate> {
     NSString* cellPhoneNumber;
+    UITextField* codeTextField;
     ZQPhoneVerifyButton* codeButton;
     NSTimer* timer;
     int timeCount;
@@ -100,7 +102,29 @@
 }
 
 -(void)rightButtonClicked:(UIBarButtonItem*)sender {
-    
+    if(codeTextField.text.length == 0 || codeTextField.text.length != 4) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"短信验证码应为4位数字" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alertView show];
+    }else {
+        [SMS_SDK commitVerifyCode:codeTextField.text result:^(enum SMS_ResponseState state) {
+            if (1==state)
+            {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:@"手机号码验证成功" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alertView show];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ZQPhoneNumberVerifySuccessfulNotification object:nil];
+            }
+            else if(0==state)
+            {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"手机验证失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alertView show];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ZQPhoneNumberVerifyFailureNotification object:nil];
+            }
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }];
+    }
+    return ;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -114,12 +138,12 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"CodeVerifyTableViewCellIdentifier"];
     
-    UITextField* textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, cell.bounds.size.width , cell.bounds.size.height)];
-    [textField setPlaceholder:@"请输入验证码"];
-    [textField setTextAlignment:NSTextAlignmentCenter];
-    [textField setKeyboardType:UIKeyboardTypeNumberPad];
-    [textField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
-    [cell.contentView addSubview:textField];
+    codeTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, cell.bounds.size.width , cell.bounds.size.height)];
+    [codeTextField setPlaceholder:@"请输入验证码"];
+    [codeTextField setTextAlignment:NSTextAlignmentCenter];
+    [codeTextField setKeyboardType:UIKeyboardTypeNumberPad];
+    [codeTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+    [cell.contentView addSubview:codeTextField];
     
     return cell;
 }

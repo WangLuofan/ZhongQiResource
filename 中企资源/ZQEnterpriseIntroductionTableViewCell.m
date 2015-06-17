@@ -174,8 +174,11 @@ static CGFloat textContentHeight;
 
 -(void)setIntroductionLabelText:(NSString *)text {
     CGSize textSize = [text boundingRectWithSize:CGSizeMake(self.bounds.size.width - 2*kControlMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} context:nil].size;
-    if(textContentHeight < textSize.height)
-        textContentHeight = textSize.height;
+    textContentHeight = textSize.height;
+    
+    if(bExpand)
+        textContentHeight += kOtherControlViewHeight;
+    
     [self.introductionLabel setText:text];
     [self.introductionLabel setFrame:CGRectMake(2.0f, 1.0f, self.bounds.size.width - 4.0f, textSize.height)];
     [expandButton setFrame:CGRectMake(expandButton.frame.origin.x, self.introductionLabel.frame.origin.y + self.introductionLabel.frame.size.height, expandButton.frame.size.width, expandButton.frame.size.height)];
@@ -192,6 +195,7 @@ static CGFloat textContentHeight;
 
 -(void)setContractLabelText:(NSString *)text {
     [self.contractLabel setText:[NSString stringWithFormat:@"联系方式：%@",text]];
+    
     return ;
 }
 
@@ -202,6 +206,7 @@ static CGFloat textContentHeight;
     [self.scoreLabel setText:[NSString stringWithFormat:@"%0.1f分",score]];
     [self.scoreLabel sizeToFit];
     [starRatingView setRating:score];
+    
     return ;
 }
 
@@ -215,6 +220,7 @@ static CGFloat textContentHeight;
 -(void)telephoneButtonPressed:(UIButton*)sender {
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:[NSString stringWithFormat:@"确定要拨打电话:%@",telephoneNumber] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拨打", nil];
     [alertView show];
+    
     return ;
 }
 
@@ -233,31 +239,33 @@ static CGFloat textContentHeight;
         [sender setTitle:@"关注" forState:UIControlStateNormal];
         bAttentioned = NO;
     }
+    
     return ;
 }
 
 -(void)commentButtonPressed:(UIButton*)sender {
     if([self.delegate respondsToSelector:@selector(ZQEnterpriseIntroductionButtonPressed:)])
         [self.delegate ZQEnterpriseIntroductionButtonPressed:sender.tag];
+    
     return ;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1)
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",telephoneNumber]]];
+    
     return ;
 }
 
 -(void)expandButtonPressed:(UIButton*)sender {
+    
     if(!bExpand) {
         [self addSubview:otherControlView];
-        textContentHeight += kOtherControlViewHeight;
         [sender setBackgroundImage:[UIImage imageNamed:@"shrink"] forState:UIControlStateNormal];
         [sender setTitle:@"收起更多" forState:UIControlStateNormal];
         bExpand = YES;
     }else{
         [otherControlView removeFromSuperview];
-        textContentHeight -= kOtherControlViewHeight;
         [sender setBackgroundImage:[UIImage imageNamed:@"extend"] forState:UIControlStateNormal];
         [sender setTitle:@"查看更多" forState:UIControlStateNormal];
         bExpand = NO;
@@ -267,6 +275,7 @@ static CGFloat textContentHeight;
         [self adjustOtherControlViewPosition];
         [(UITableView*)self.superview.superview reloadData];
     }
+    
     return ;
 }
 

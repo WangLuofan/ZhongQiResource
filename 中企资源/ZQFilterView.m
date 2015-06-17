@@ -52,8 +52,9 @@
     return self;
 }
 
--(void)showFilterContentView {
+-(void)showFilterContentViewWithControlButton:(UIButton *)controlButton {
     [UIView animateWithDuration:0.5f animations:^{
+        [controlButton setEnabled:NO];
         [contentView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y + kScreenHeight / 2, contentView.frame.size.width, contentView.frame.size.height)];
         [contentView setAlpha:1.0f];
         
@@ -63,20 +64,24 @@
             [selectedRightButton setSelected:YES];
         }
     } completion:^(BOOL finished) {
-        if(finished)
+        if(finished) {
             self.filterViewShown = YES;
+            [controlButton setEnabled:YES];
+        }
     }];
     return ;
 }
 
--(void)dismissFilterContentView {
+-(void)dismissFilterContentViewWithControlButton:(UIButton *)controlButton {
     [UIView animateWithDuration:0.5f animations:^{
+        [controlButton setEnabled:NO];
         [contentView setFrame:CGRectMake(contentView.frame.origin.x, -kScreenHeight / 2 - 0.5, contentView.frame.size.width, contentView.frame.size.height)];
         [contentView setAlpha:0.0f];
     } completion:^(BOOL finished) {
         if(finished) {
             [self removeFromSuperview];
             self.filterViewShown = NO;
+            [controlButton setEnabled:YES];
         }
     }];
 }
@@ -87,7 +92,7 @@
 
 -(void)addLeftSrouceWithArray:(NSArray *)leftSrcArray RightSourceArray:(NSArray *)rightSrcArray {
     
-    NSAssert(leftSrcArray.count == rightSrcArray.count, @"left source array count must equal to right source array count.");
+    NSAssert(leftSrcArray.count == rightSrcArray.count || rightSrcArray == nil, @"left source array count must equal to right source array count OR NIL.");
     
     if(rightSrcArray != nil)
         rightSourceArray = [NSArray arrayWithArray:rightSrcArray];
@@ -159,7 +164,7 @@
             [subView removeFromSuperview];
         }
         
-        [self dismissFilterContentView];
+//        [self dismissFilterContentViewWithControlButton:sender];
         if([self.delegate respondsToSelector:@selector(filterView:itemTextSelected:)])
             [self.delegate filterView:self itemTextSelected:sender.titleLabel.text];
     }
@@ -178,7 +183,7 @@
     }];
     
     if(sender != nil) {
-        [self dismissFilterContentView];
+        [self dismissFilterContentViewWithControlButton:sender];
         if([self.delegate respondsToSelector:@selector(filterView:itemTextSelected:)])
             [self.delegate filterView:self itemTextSelected:sender.titleLabel.text];
     }

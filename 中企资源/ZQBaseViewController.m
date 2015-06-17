@@ -97,6 +97,15 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    [((ZQCollectionContentView*)[collectionView cellForItemAtIndexPath:indexPath].subviews[0]).bradgeNumber setBradgeNumber:0];
+    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+    for (UIView* subView in cell.contentView.subviews) {
+        if([subView isKindOfClass:[ZQCollectionContentView class]]) {
+           [((ZQCollectionContentView*)subView).bradgeNumber setBradgeNumber:0];
+            break;
+        }
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         ZQNavigationViewController* nav = (ZQNavigationViewController*)[self getChildViewController:indexPath.row];
         [self.tabBarViewController presentViewController:nav animated:YES completion:^{

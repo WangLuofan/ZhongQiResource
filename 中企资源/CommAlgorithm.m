@@ -42,4 +42,25 @@
     return [UIImage imageWithData:data];
 }
 
+#pragma mark - 打印系统所有字体(辅助方法)
++(void) printAllFonts
+{
+    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+    NSArray *fontNames;
+    
+    NSInteger indFamily, indFont;
+    
+    for(indFamily=0; indFamily<[familyNames count]; ++indFamily)
+    {
+        NSLog(@"Family name:%@", [familyNames objectAtIndex:indFamily]);
+        
+        fontNames = [[NSArray alloc] initWithArray:[UIFont fontNamesForFamilyName:[familyNames objectAtIndex:indFamily]]];
+        
+        for(indFont=0; indFont<[fontNames count]; ++indFont)
+        {
+            NSLog(@"\tFont name:%@",[fontNames objectAtIndex:indFont]);
+        }
+    }
+}
+
 @end

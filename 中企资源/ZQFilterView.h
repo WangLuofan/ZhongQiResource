@@ -22,8 +22,8 @@
 @property(nonatomic,assign) BOOL filterViewShown;
 
 -(BOOL)needsUpdateDataSource;
--(void)showFilterContentView;
--(void)dismissFilterContentView;
+-(void)showFilterContentViewWithControlButton:(UIButton*)controlButton;
+-(void)dismissFilterContentViewWithControlButton:(UIButton*)controlButton;
 -(void)addLeftSrouceWithArray:(NSArray*)leftSrcArray RightSourceArray:(NSArray*)rightSrcArray;;
 
 @end

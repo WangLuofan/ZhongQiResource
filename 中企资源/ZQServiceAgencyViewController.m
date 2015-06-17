@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQServiceAgencyListViewController.h"
 #import "ZQWantEnrollViewController.h"
 #import "ZQServiceAgencyTableViewCell.h"
 #import "ZQServiceAgencyViewController.h"
@@ -104,6 +105,38 @@
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(kControlMargin, kControlMargin, kControlMargin, 0);
+}
+
+-(void)toolBar:(ZQToolBar *)toolBar dataSourceForItem:(ZQToolItem *)toolItem itemIndex:(NSInteger)itemIndex {
+    
+    NSArray* leftSrc;
+    switch (itemIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            leftSrc = @[@"投融资服务",@"管理咨询",@"营销突破",@"供应链优化",@"人力资源及猎头规划",@"财务及税务筹划",
+                        @"劳务派遣",@"企业战略及目标设计",@"研发创新",@"采购管理",@"上市辅导",@"项目资料申报",
+                        @"法律服务",@"项目规划"];
+        }
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+    [toolItem.filterView addLeftSrouceWithArray:leftSrc RightSourceArray:nil];
+    
+    return ;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZQServiceAgencyListViewController* listController = [[ZQServiceAgencyListViewController alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:listController] animated:YES completion:^{
+        }];
+    });
+    return ;
 }
 
 @end

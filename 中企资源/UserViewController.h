@@ -11,4 +11,7 @@
 
 @interface UserViewController : ZQBaseViewController
 
+-(void)setMyNotificationBradgeNumber:(NSInteger)bradgeNumber;
+-(void)setMyChatBradgeNumber:(NSInteger)bradgeNumbe;
+
 @end

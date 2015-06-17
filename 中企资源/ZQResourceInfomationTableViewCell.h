@@ -16,4 +16,6 @@
 @property(nonatomic,strong) UILabel* offerLabel;
 @property(nonatomic,strong) UILabel* detailLabel;
 
+-(void)setBrowseCount:(NSInteger)browseCount AttentionCount:(NSInteger)attentionCount ReplyCount:(NSInteger)replyCount;
+
 @end

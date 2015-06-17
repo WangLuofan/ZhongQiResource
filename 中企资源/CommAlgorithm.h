@@ -15,5 +15,6 @@
 +(UIImage*)createImageWithUIColor:(UIColor*)color;
 +(NSData*)encodingImageWithUIImage:(UIImage*)image;
 +(UIImage*)decodingImageWithData:(NSData*)imgData;
++(void)printAllFonts;
 
 @end

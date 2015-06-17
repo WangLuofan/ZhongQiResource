@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <SMS_SDK/SMS_SDK.h>
 #import "ZQMainViewController.h"
 
 @interface AppDelegate ()
@@ -19,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
+    
+    [SMS_SDK registerApp:kShareSDKAppKey withSecret:kShareSDKAppSecret];
     
     [self.window setRootViewController:[[ZQMainViewController alloc] init]];
     [self.window makeKeyAndVisible];

@@ -11,6 +11,14 @@
 #import "CodeVerifyTableViewController.h"
 #import "ZQPhoneVerifyViewController.h"
 
+#import <SMS_SDK/SMS_SDK.h>
+
+@interface ZQPhoneVerifyViewController () {
+    NSString* mobileTextString;
+}
+
+@end
+
 @implementation ZQPhoneVerifyViewController
 
 - (void)viewDidLoad {
@@ -34,6 +42,7 @@
 -(void)sendSMSButtonPressed:(UIButton*)sender {
     UITextField* mobileTextField = (UITextField*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].contentView.subviews[0];
     [mobileTextField resignFirstResponder];
+    mobileTextString = mobileTextField.text;
     
     if(mobileTextField.text.length == 0) {
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"手机号码不能为空，请输入您的手机号码" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
@@ -56,11 +65,18 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            CodeVerifyTableViewController* codeController = [[CodeVerifyTableViewController alloc] initWithStyle:   UITableViewStyleGrouped phoneNumber:((UITextField*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].contentView.subviews[0]).text];
-            [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:codeController] animated:YES completion:^{
-            }];
-        });
+        [SMS_SDK getVerificationCodeBySMSWithPhone:mobileTextString zone:@"86" result:^(SMS_SDKError *error) {
+            if(!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    CodeVerifyTableViewController* codeController = [[CodeVerifyTableViewController alloc] initWithStyle:   UITableViewStyleGrouped phoneNumber:((UITextField*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].contentView.subviews[0]).text];
+                    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:codeController] animated:YES completion:^{
+                    }];
+                });
+            }else{
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"验证码发送失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alertView show];
+            }
+        }];
     }
     return ;
 }

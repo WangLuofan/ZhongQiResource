@@ -18,6 +18,8 @@
 #import "ZQMyAttentionViewController.h"
 #import "ZQMyChatViewController.h"
 
+#import "ZQCollectionContentView.h"
+
 #import "ZQUserInfoModifyViewController.h"
 
 #import "ZQNavigationViewController.h"
@@ -97,6 +99,7 @@
     [loginCompleteView.closureButton addTarget:self action:@selector(closureButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [loginCompleteView setCenter:CGPointMake(loginCompleteView.center.x, _contentImageView.center.y)];
     [_contentImageView addSubview:loginCompleteView];
+    
     return ;
 }
 
@@ -104,6 +107,7 @@
     [welcomeLabel setHidden:YES];
     [loginButton setHidden:YES];
     [loginCompleteView showLoginCompleteViewWithImageName:@"touxiang" userName:@"帅帅" companyName:@"萍乡电子商务创业园圈"];
+    
     return ;
 }
 
@@ -117,25 +121,27 @@
     return ;
 }
 
-#pragma mark - 打印系统所有字体(辅助方法)
--(void) printAllFonts
-{
-    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
-    NSArray *fontNames;
+-(void)setMyNotificationBradgeNumber:(NSInteger)bradgeNumber {
+    UICollectionViewCell* cell = [self._collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     
-    NSInteger indFamily, indFont;
-    
-    for(indFamily=0; indFamily<[familyNames count]; ++indFamily)
-    {
-        NSLog(@"Family name:%@", [familyNames objectAtIndex:indFamily]);
-        
-        fontNames = [[NSArray alloc] initWithArray:[UIFont fontNamesForFamilyName:[familyNames objectAtIndex:indFamily]]];
-        
-        for(indFont=0; indFont<[fontNames count]; ++indFont)
-        {
-            NSLog(@"\tFont name:%@",[fontNames objectAtIndex:indFont]);
+    for (UIView* subView in cell.contentView.subviews) {
+        if([subView isKindOfClass:[ZQCollectionContentView class]]) {
+            [((ZQCollectionContentView*)subView).bradgeNumber setBradgeNumber:bradgeNumber];
         }
     }
+    
+    return ;
+}
+
+-(void)setMyChatBradgeNumber:(NSInteger)bradgeNumber {
+    UICollectionViewCell* cell = [self._collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+    for (UIView* subView in cell.contentView.subviews) {
+        if([subView isKindOfClass:[ZQCollectionContentView class]]) {
+            [((ZQCollectionContentView*)subView).bradgeNumber setBradgeNumber:bradgeNumber];
+        }
+    }
+    
+    return ;
 }
 
 - (void)didReceiveMemoryWarning {

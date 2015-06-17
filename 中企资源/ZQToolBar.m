@@ -121,10 +121,10 @@
     }
 }
 
--(void)showFilterView:(ZQFilterView*)filterView {
+-(void)showFilterView:(ZQFilterView*)filterView ControlButton:(UIButton*)controlButton{
     [self.superView addSubview:filterView];
     [self.superView bringSubviewToFront:self];
-    [filterView showFilterContentView];
+    [filterView showFilterContentViewWithControlButton:controlButton];
     
     return ;
 }
@@ -136,17 +136,17 @@
 
 -(void)toolItemPressed:(ZQToolItem*)sender {
     if(![sender isEqual:selectedToolItem]) {
-        [selectedToolItem.filterView dismissFilterContentView];
+        [selectedToolItem.filterView dismissFilterContentViewWithControlButton:sender];
         selectedToolItem = sender;
         if([selectedToolItem.filterView needsUpdateDataSource])
             if([self.delegate respondsToSelector:@selector(toolBar:dataSourceForItem:itemIndex:)])
                 [self.delegate toolBar:self dataSourceForItem:selectedToolItem itemIndex:selectedToolItem.tag];
-        [self showFilterView:selectedToolItem.filterView];
+        [self showFilterView:selectedToolItem.filterView ControlButton:sender];
     }else {
         if([selectedToolItem.filterView filterViewShown])
-           [selectedToolItem.filterView dismissFilterContentView];
+           [selectedToolItem.filterView dismissFilterContentViewWithControlButton:sender];
         else
-            [self showFilterView:selectedToolItem.filterView];
+            [self showFilterView:selectedToolItem.filterView ControlButton:sender];
     }
     
     return ;

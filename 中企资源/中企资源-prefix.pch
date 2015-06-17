@@ -18,5 +18,12 @@
 #define ZQImagePickerGroupEnumerateCompletionNotification @"ImagePickerGroupEnumerateCompletionNotification"
 #define ZQImagePickerAssetsEnumerateCompletionNotification @"ZQImagePickerAssetsEnumerateCompletionNotification"
 #define ZQImagePickerChoosenCompletionNotification @"ZQImagePickerChoosenCompletionNotification"
+#define ZQPhoneNumberVerifySuccessfulNotification @"ZQPhoneNumberVerifySuccessfulNotification"
+#define ZQPhoneNumberVerifyFailureNotification @"ZQPhoneNumberVerifyFailureNotification"
+
+
+//AppKey\AppSecret
+#define kShareSDKAppKey @""
+#define kShareSDKAppSecret @""
 
 #endif

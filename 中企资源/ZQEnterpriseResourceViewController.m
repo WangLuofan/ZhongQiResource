@@ -207,6 +207,7 @@
             break;
     }
     [toolItem.filterView addLeftSrouceWithArray:leftSrc RightSourceArray:rightSrc];
+    
     return ;
 }
 

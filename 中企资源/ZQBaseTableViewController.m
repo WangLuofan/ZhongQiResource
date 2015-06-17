@@ -13,7 +13,7 @@
 #define kLoadMoreHeight 30
 #define kTableViewCellHeight 100
 
-@interface ZQBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource> {
+@interface ZQBaseTableViewController () {
     ZQToolBar* filterView;
 }
 
@@ -25,14 +25,24 @@
     [super viewDidLoad];
     
     filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
+    [filterView setDelegate:self];
     [self.view addSubview:filterView];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight -kNavStatusHeight) style:UITableViewStylePlain];
+    [self initTableViewWithTableViewStyle:UITableViewStylePlain];
+    
+    return ;
+}
+
+-(void)initTableViewWithTableViewStyle:(UITableViewStyle)tableViewStyle {
+    [self.tableView removeFromSuperview];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight -kNavStatusHeight) style:tableViewStyle];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
+    
+    return ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +65,13 @@
 
 -(void)setFilterViewStyles:(NSArray *)styles Text:(NSArray *)text {
     [filterView setStyles:styles Text:text];
+    return ;
+}
+
+-(void)setViewControllerNeedFilterView:(BOOL)bNeeds {
+    if(!bNeeds)
+        [filterView removeFromSuperview];
+    [self.tableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight)];
     return ;
 }
 
