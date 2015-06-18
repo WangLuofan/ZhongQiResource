@@ -67,7 +67,7 @@
 }
 
 -(void)itemClicked:(UIButton*)sender {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [self setAlpha:0.0f];
     } completion:^(BOOL finished) {
         if([self.chooseViewDelegate respondsToSelector:@selector(chooseViewType:content:)])

@@ -30,18 +30,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
     
-//    ZQFilterView* filterView = [[ZQFilterView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kFilterViewHeight)];
-//    [self.view addSubview:filterView];
-    ZQToolBar* filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按商圈类型",@"输入搜索内容",@"按地域选择"]];
-    [self.view addSubview:filterView];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + kFilterViewHeight + kTableViewGapWithFilterView, self.view.frame.size.width, self.view.bounds.size.height - kFilterViewHeight) style:UITableViewStylePlain];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.view addSubview:self.tableView];
-    
+    [self setTableViewNeedLoadMore:NO];
+
     tableViewContentArray = @[
                               @[@"img",@"萍乡电子商务创业园圈",@"萍乡电子商务创业园，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"],
                               @[@"img02",@"重工业行业商圈:中联重科",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"],
@@ -54,10 +44,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

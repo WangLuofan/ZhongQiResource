@@ -14,7 +14,6 @@
 #define kTableViewCellHeight 100
 
 @interface ZQBaseTableViewController () {
-    ZQToolBar* filterView;
 }
 
 @end
@@ -23,10 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    filterView = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按业务范围选择",@"2015"]];
-    [filterView setDelegate:self];
-    [self.view addSubview:filterView];
+   
+    self.toolBarView = [[ZQToolBar alloc] initWithStyles:@[ZQToolBarButtonItem,ZQToolBarButtonItem,ZQToolBarButtonItem] TextArray:@[@"按区域选择",@"按业务范围选择",@"2015"] SuperView:self.view Delegate:self];
+    [self.view addSubview:self.toolBarView];
     
     [self initTableViewWithTableViewStyle:UITableViewStylePlain];
     
@@ -35,7 +33,7 @@
 
 -(void)initTableViewWithTableViewStyle:(UITableViewStyle)tableViewStyle {
     [self.tableView removeFromSuperview];
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, filterView.frame.origin.y + filterView.bounds.size.height + 0.5, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight - kNavStatusHeight) style:tableViewStyle];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.toolBarView.frame.origin.y + self.toolBarView.bounds.size.height + 0.5, self.view.bounds.size.width, self.view.bounds.size.height - kFilterViewHeight - kNavStatusHeight) style:tableViewStyle];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setDelegate:self];
@@ -64,14 +62,14 @@
 }
 
 -(void)setFilterViewStyles:(NSArray *)styles Text:(NSArray *)text {
-    [filterView setStyles:styles Text:text];
+//    [filterView setStyles:styles Text:text];
     return ;
 }
 
 -(void)setViewControllerNeedFilterView:(BOOL)bNeeds {
-    if(!bNeeds)
-        [filterView removeFromSuperview];
-    [self.tableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight)];
+//    if(!bNeeds)
+//        [filterView removeFromSuperview];
+//    [self.tableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight)];
     return ;
 }
 
@@ -95,6 +93,10 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
+}
+
+-(void)loadMenuItemsForToolBarButtonItem:(ZQToolBarItem *)toolBarItem {
+    return ;
 }
 
 @end

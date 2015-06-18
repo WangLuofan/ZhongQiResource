@@ -2,23 +2,24 @@
 //  ZQFilterView.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/6/4.
+//  Created by 王落凡 on 15/6/18.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQFilterButton.h"
+#import "ZQFilterContentItem.h"
 #import "ZQFilterView.h"
 
-#define kItemHeight 20
+#define kFilterContentItemHeight 20
 
 @interface ZQFilterView () {
-    UIView* contentView;
-    UIView* leftSrcContentView;
-    UIView* rightSrcContentView;
-    ZQFilterButton* selectedLeftButton;
-    ZQFilterButton* selectedRightButton;
+    NSArray* leftContentSrcArray;
+    NSArray* rightContentSrcArray;
+    ZQFilterContentItem* selectedLeftContentItem;
+    ZQFilterContentItem* selectedRightContentItem;
+    NSMutableArray* selectedLeftContentItemArray;
+    NSMutableArray* selectedRightContentItemArray;
     
-    NSArray* rightSourceArray;
+    BOOL canSelectMultiItem;
 }
 
 @end
@@ -29,166 +30,184 @@
     self = [super initWithFrame:frame];
     
     if(self) {
-        UIView* coverView = [[UIView alloc] initWithFrame:self.bounds];
-        [coverView setBackgroundColor:[UIColor blackColor]];
-        [coverView setAlpha:0.5f];
-        [self addSubview:coverView];
+        canSelectMultiItem = NO;
         
-        contentView = [[UIView alloc] initWithFrame:CGRectMake(0, -kScreenHeight / 2 - 0.5, self.bounds.size.width, kScreenHeight / 2)];
-        [contentView setAlpha:0.0f];
-        [self addSubview:contentView];
+        self.rightFilterScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.frame.size.width / 2, 0, self.frame.size.width / 2, self.frame.size.height)];
+        [self.rightFilterScrollView setShowsHorizontalScrollIndicator:NO];
+        [self.rightFilterScrollView setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
+        [self addSubview:self.rightFilterScrollView];
         
-        rightSrcContentView = [[UIView alloc] initWithFrame:CGRectMake(contentView.bounds.size.width / 2, 0, contentView.bounds.size.width / 2, contentView.bounds.size.height)];
-        [rightSrcContentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)231)/255 green:((CGFloat)232)/255 blue:((CGFloat)234)/255 alpha:1.0f]];
-        [rightSrcContentView setClipsToBounds:YES];
-        [contentView addSubview:rightSrcContentView];
-        
-        leftSrcContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, contentView.bounds.size.width / 2, contentView.bounds.size.height)];
-        [leftSrcContentView setBackgroundColor:[UIColor colorWithRed:((CGFloat)249)/255 green:((CGFloat)246)/255 blue:((CGFloat)246)/255 alpha:1.0f]];
-        [leftSrcContentView setClipsToBounds:YES];
-        [contentView addSubview:leftSrcContentView];
+        self.leftFilterScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height)];
+        [self.leftFilterScrollView setBackgroundColor:[UIColor colorWithRed:((CGFloat)249)/255 green:((CGFloat)246)/255 blue:((CGFloat)246)/255 alpha:1.0f]];
+        [self.leftFilterScrollView setShowsHorizontalScrollIndicator:NO];
+        [self addSubview:self.leftFilterScrollView];
     }
     
     return self;
 }
 
--(void)showFilterContentViewWithControlButton:(UIButton *)controlButton {
-    [UIView animateWithDuration:0.5f animations:^{
-        [controlButton setEnabled:NO];
-        [contentView setFrame:CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y + kScreenHeight / 2, contentView.frame.size.width, contentView.frame.size.height)];
-        [contentView setAlpha:1.0f];
+-(void)setleftFilterContentWithArray:(NSArray *)leftSrcArray RightFilterContentArray:(NSArray *)rightSrcArray {
+    for (UIView* subView in self.leftFilterScrollView.subviews) {
+        [subView removeFromSuperview];
+    }
+    [self.leftFilterScrollView setContentSize:CGSizeZero];
+    
+    leftContentSrcArray = [NSArray arrayWithArray:leftSrcArray];
+    rightContentSrcArray = [NSArray arrayWithArray:rightSrcArray];
+    
+    for (int i = 0; i != leftSrcArray.count; ++i) {
+        ZQFilterContentItem* contentItem = [[ZQFilterContentItem alloc] initWithFrame:CGRectMake(0, i*kFilterContentItemHeight, self.leftFilterScrollView.frame.size.width, kFilterContentItemHeight)];
+        [contentItem setTag:i];
+        [contentItem setTitle:(NSString *)leftSrcArray[i] forState:UIControlStateNormal];
+        [contentItem addTarget:self action:@selector(contentItemSelected:) forControlEvents:UIControlEventTouchDown];
         
-        if(selectedLeftButton != nil)
-            [selectedLeftButton setSelected:YES];
-        if(selectedRightButton != nil) {
-            [selectedRightButton setSelected:YES];
+        if(rightContentSrcArray.count ==0  || rightContentSrcArray.count < i+1 ||((NSArray*)rightContentSrcArray[i]).count == 0 ) {
+            [contentItem setIsLeftFilterContentItem:NO];
         }
-    } completion:^(BOOL finished) {
-        if(finished) {
-            self.filterViewShown = YES;
-            [controlButton setEnabled:YES];
+        else {
+            [contentItem setIsLeftFilterContentItem:YES];
+            [contentItem setHasSubMenu];
         }
-    }];
+        
+        [self.leftFilterScrollView addSubview:contentItem];
+    }
+//    [self contentItemSelected:nil];
+    [self.leftFilterScrollView setContentSize:CGSizeMake(0, leftSrcArray.count*kFilterContentItemHeight)];
     return ;
 }
 
--(void)dismissFilterContentViewWithControlButton:(UIButton *)controlButton {
-    [UIView animateWithDuration:0.5f animations:^{
-        [controlButton setEnabled:NO];
-        [contentView setFrame:CGRectMake(contentView.frame.origin.x, -kScreenHeight / 2 - 0.5, contentView.frame.size.width, contentView.frame.size.height)];
-        [contentView setAlpha:0.0f];
-    } completion:^(BOOL finished) {
-        if(finished) {
-            [self removeFromSuperview];
-            self.filterViewShown = NO;
-            [controlButton setEnabled:YES];
-        }
-    }];
+-(void)setFilterViewEnableMultiSelect:(BOOL)bMulti {
+    canSelectMultiItem = bMulti;
+    return ;
 }
 
--(BOOL)needsUpdateDataSource {
-    return (leftSrcContentView.subviews.count == 0);
-}
-
--(void)addLeftSrouceWithArray:(NSArray *)leftSrcArray RightSourceArray:(NSArray *)rightSrcArray {
+-(void)contentItemSelected:(ZQFilterContentItem*)sender {
+    if(selectedLeftContentItemArray == nil)
+        selectedLeftContentItemArray = [[NSMutableArray alloc] init];
     
-    NSAssert(leftSrcArray.count == rightSrcArray.count || rightSrcArray == nil, @"left source array count must equal to right source array count OR NIL.");
-    
-    if(rightSrcArray != nil)
-        rightSourceArray = [NSArray arrayWithArray:rightSrcArray];
-    
-    for (UIView* subview in leftSrcContentView.subviews) {
-        [subview removeFromSuperview];
-    }
-    
-    for (int i = 0; i!= leftSrcArray.count; ++i) {
-        ZQFilterButton* filterButton = [[ZQFilterButton alloc] initWithFrame:CGRectMake(0, i*kItemHeight, leftSrcContentView.frame.size.width, kItemHeight) isLeftFilterItemStyle:YES];
-        [filterButton setTag:i];
-        [filterButton setTitle:leftSrcArray[i] forState:UIControlStateNormal];
-        [filterButton addTarget:self action:@selector(filterItemSelected:) forControlEvents:UIControlEventTouchDown];
-        
-        if([rightSrcArray[i] count] != 0) {
-            UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"closure"]];
-            [imageView setFrame:CGRectMake(filterButton.frame.size.width - imageView.image.size.width, 0, imageView.image.size.width / 2, imageView.image.size.height / 2)];
-            [imageView setCenter:CGPointMake(imageView.center.x, filterButton.frame.size.height / 2)];
-            [filterButton addSubview:imageView];
-        }
+    //多选
+    if(canSelectMultiItem) {
+        //如果有子菜单，单选，加载子菜单
+        if([sender isFilterContentItemHasSubMenu]) {
+            //清空之前的所有选择
+            for (ZQFilterContentItem* item in selectedLeftContentItemArray) {
+                [item setSelected:NO];
+            }
             
-        [filterButton setTag:i];
-        [leftSrcContentView addSubview:filterButton];
+            [selectedLeftContentItem setSelected:NO];
+            selectedLeftContentItem = sender;
+            [selectedLeftContentItem setSelected:YES];
+            
+            NSArray* rightSrcArray = (NSArray*)rightContentSrcArray[sender.tag];
+            [self reloadRightContentSrcWithArray:rightSrcArray];
+        }else{
+            //如果当前选择项有子菜单，则取消选择，清空右侧菜单项
+            if([selectedLeftContentItem isFilterContentItemHasSubMenu])
+                [selectedLeftContentItem setSelected:NO];
+            
+            for (ZQFilterContentItem* item in self.rightFilterScrollView.subviews) {
+                [item removeFromSuperview];
+            }
+            
+            selectedLeftContentItem = sender;
+            if(selectedLeftContentItem.selected) {
+                [selectedLeftContentItemArray removeObject:selectedLeftContentItem];
+                [selectedLeftContentItem setSelected:NO];
+            }else {
+                [selectedLeftContentItemArray addObject:selectedLeftContentItem];
+                [selectedLeftContentItem setSelected:YES];
+            }
+        }
+    }else{
+        //有子菜单,加载子菜单
+        [selectedLeftContentItem setSelected:NO];
+        selectedLeftContentItem = sender;
+        [selectedLeftContentItem setSelected:YES];
         
-        if(i == 0) {
-            UIImageView* allImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"all"]];
-            [allImage setFrame:CGRectMake(allImage.image.size.width / 2, 0, allImage.image.size.width / 2, allImage.image.size.height / 2)];
-            [allImage setCenter:CGPointMake(allImage.center.x, filterButton.frame.size.height / 2)];
-            [filterButton addSubview:allImage];
-            [self filterItemSelected:filterButton];
+        if(sender.isFilterContentItemHasSubMenu) {
+            NSArray* rightSrcArray = (NSArray*)rightContentSrcArray[sender.tag];
+            [self reloadRightContentSrcWithArray:rightSrcArray];
+        }else{
+            for (ZQFilterContentItem* item in self.rightFilterScrollView.subviews) {
+                [item removeFromSuperview];
+            }
+            //单选直接传输
+            if([self.delegate respondsToSelector:@selector(filterView:singleSelectedItemText:)])
+                [self.delegate filterView:self singleSelectedItemText:[selectedLeftContentItem titleForState:UIControlStateNormal]];
         }
     }
     
+    [selectedRightContentItemArray removeAllObjects];
     return ;
 }
 
--(void)addRightSrcContentWithIndex:(NSInteger)index {
+-(void)reloadRightContentSrcWithArray:(NSArray*)contentArray {
+    if(selectedRightContentItemArray == nil)
+        selectedRightContentItemArray = [[NSMutableArray alloc] init];
     
-    for (UIView* subview in rightSrcContentView.subviews) {
-        [subview removeFromSuperview];
+    for (UIView* subView in self.rightFilterScrollView.subviews) {
+        [subView removeFromSuperview];
     }
+    [self.rightFilterScrollView setContentSize:CGSizeZero];
+    if(contentArray == nil)
+        return ;
     
-    for (int i = 0; i!= ((NSArray*)rightSourceArray[index]).count; ++i) {
-        ZQFilterButton* filterButton = [[ZQFilterButton alloc] initWithFrame:CGRectMake(0, i*kItemHeight, rightSrcContentView.frame.size.width, kItemHeight) isLeftFilterItemStyle:NO];
-        [filterButton setTitle:((NSArray*)rightSourceArray[index])[i] forState:UIControlStateNormal];
-        [filterButton addTarget:self action:@selector(rightFilterItemSelected:) forControlEvents:UIControlEventTouchDown];
-        [filterButton setTag:i];
-        [rightSrcContentView addSubview:filterButton];
-        
-        if(i == 0)
-            [self rightFilterItemSelected:nil];
+    for (int i = 0; i != contentArray.count; ++i) {
+        ZQFilterContentItem* contentItem = [[ZQFilterContentItem alloc] initWithFrame:CGRectMake(0, i*kFilterContentItemHeight, self.rightFilterScrollView.frame.size.width, kFilterContentItemHeight)];
+        [contentItem setTag:i];
+        [contentItem setIsLeftFilterContentItem:NO];
+        [contentItem setTitle:(NSString *)contentArray[i] forState:UIControlStateNormal];
+        [contentItem addTarget:self action:@selector(rightContentItemSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [self.rightFilterScrollView addSubview:contentItem];
     }
+    [self.rightFilterScrollView setContentSize:CGSizeMake(0, contentArray.count*kFilterContentItemHeight)];
     
     return ;
 }
 
--(void)filterItemSelected:(ZQFilterButton*)sender {
-
-    [UIView animateWithDuration:0.5f animations:^{
-        [selectedLeftButton setSelected:NO];
-        selectedLeftButton = sender;
-        [selectedLeftButton setSelected:YES];
-    }];
-    if([rightSourceArray[sender.tag] count] != 0)
-        [self addRightSrcContentWithIndex:sender.tag];
-    else {
-        
-        for (UIView* subView in rightSrcContentView.subviews) {
-            [subView removeFromSuperview];
+-(void)rightContentItemSelected:(ZQFilterContentItem*)sender {
+    [selectedLeftContentItemArray removeAllObjects];
+    
+    if(canSelectMultiItem) {
+        selectedRightContentItem = sender;
+        if(selectedRightContentItem.selected) {
+            [selectedRightContentItem setSelected:NO];
+            [selectedRightContentItemArray removeObject:selectedRightContentItem];
+        }else {
+            [selectedRightContentItem setSelected:YES];
+            [selectedRightContentItemArray addObject:selectedRightContentItem];
         }
+    }else{
+        [selectedRightContentItemArray removeAllObjects];
+        [selectedRightContentItem setSelected:NO];
+        selectedRightContentItem = sender;
+        [selectedRightContentItem setSelected:YES];
         
-//        [self dismissFilterContentViewWithControlButton:sender];
-        if([self.delegate respondsToSelector:@selector(filterView:itemTextSelected:)])
-            [self.delegate filterView:self itemTextSelected:sender.titleLabel.text];
+        //单选直接传输
+        if([self.delegate respondsToSelector:@selector(filterView:singleSelectedItemText:)])
+            [self.delegate filterView:self singleSelectedItemText:[selectedRightContentItem titleForState:UIControlStateNormal]];
     }
     
     return ;
 }
 
--(void)rightFilterItemSelected:(ZQFilterButton*)sender {
-    [UIView animateWithDuration:0.5f animations:^{
-        [selectedRightButton setSelected:NO];
-        if(sender == nil)
-            selectedRightButton = rightSrcContentView.subviews[0];
-        else
-            selectedRightButton = sender;
-        [selectedRightButton setSelected:YES];
-    }];
+-(NSArray *)getMultiSelectedItemsTextCollection {
+    if(!canSelectMultiItem)
+        return nil;
     
-    if(sender != nil) {
-        [self dismissFilterContentViewWithControlButton:sender];
-        if([self.delegate respondsToSelector:@selector(filterView:itemTextSelected:)])
-            [self.delegate filterView:self itemTextSelected:sender.titleLabel.text];
+    NSMutableArray* textCollection = [[NSMutableArray alloc] init];
+    
+    if(selectedLeftContentItemArray.count != 0) {
+        for (ZQFilterContentItem* item in selectedLeftContentItemArray) {
+            [textCollection addObject:[item titleForState:UIControlStateNormal]];
+        }
+    }else {
+        for (ZQFilterContentItem* item in selectedRightContentItemArray) {
+            [textCollection addObject:[item titleForState:UIControlStateNormal]];
+        }
     }
     
-    return ;
+    return [textCollection copy];
 }
 
 @end

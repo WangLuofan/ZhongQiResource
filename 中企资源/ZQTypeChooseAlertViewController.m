@@ -167,12 +167,12 @@
 }
 
 -(void)typeButtonPressed:(UIButton*)sender {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [typeChooseView setTitle:@"选择类型"];
         [controlView setAlpha:0.0f];
     }completion:^(BOOL finished) {
         [typeChooseView setContentsWithArray:@[@"商务合作资源"] type:ZQTypeChooseViewType_Type];
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.2f animations:^{
             [typeChooseView setAlpha:1.0f];
         }];
     }];
@@ -180,12 +180,12 @@
 }
 
 -(void)categoryButtonPressed:(UIButton*)sender {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [typeChooseView setTitle:@"选择类别"];
         [controlView setAlpha:0.0f];
     }completion:^(BOOL finished) {
         [typeChooseView setContentsWithArray:@[@"销售渠道合作",@"供货渠道合作",@"客户服务合作",@"法律风险合作",@"账务及税务合作",@"众筹合作",@"项目合作",@"投融资合作"] type:ZQTypeChooseViewType_Category];
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.2f animations:^{
             [typeChooseView setAlpha:1.0f];
         }];
     }];
@@ -197,7 +197,7 @@
         case ZQTypeChooseViewType_Type:
         {
             [typeButton setTitle:content forState:UIControlStateNormal];
-            [UIView animateWithDuration:0.3f animations:^{
+            [UIView animateWithDuration:0.2f animations:^{
                 [controlView setAlpha:1.0f];
             }];
         }
@@ -205,7 +205,7 @@
         case ZQTypeChooseViewType_Category:
         {
             [categoryButton setTitle:content forState:UIControlStateNormal];
-            [UIView animateWithDuration:0.3f animations:^{
+            [UIView animateWithDuration:0.2f animations:^{
                 [controlView setAlpha:1.0f];
             }];
         }

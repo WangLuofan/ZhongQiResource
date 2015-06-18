@@ -113,17 +113,19 @@
     return UIEdgeInsetsMake(kControlMargin, kControlMargin, kControlMargin, 0);
 }
 
--(void)toolBar:(ZQToolBar *)toolBar dataSourceForItem:(ZQToolItem *)toolItem itemIndex:(NSInteger)itemIndex {
-    
-    NSArray* leftSrc;
-    switch (itemIndex) {
+-(void)loadMenuItemsForToolBarButtonItem:(ZQToolBarItem *)toolBarItem {
+    NSArray* leftSrc,*rightSrc;
+    switch (toolBarItem.tag) {
         case 0:
             break;
         case 1:
         {
             leftSrc = @[@"投融资服务",@"管理咨询",@"营销突破",@"供应链优化",@"人力资源及猎头规划",@"财务及税务筹划",
                         @"劳务派遣",@"企业战略及目标设计",@"研发创新",@"采购管理",@"上市辅导",@"项目资料申报",
+                        @"法律服务",@"项目规划",@"投融资服务",@"管理咨询",@"营销突破",@"供应链优化",@"人力资源及猎头规划",@"财务及税务筹划",
+                        @"劳务派遣",@"企业战略及目标设计",@"研发创新",@"采购管理",@"上市辅导",@"项目资料申报",
                         @"法律服务",@"项目规划"];
+            [toolBarItem.filterView setFilterViewEnableMultiSelect:YES];
         }
             break;
         case 2:
@@ -131,8 +133,8 @@
         default:
             break;
     }
-    [toolItem.filterView addLeftSrouceWithArray:leftSrc RightSourceArray:nil];
     
+    [toolBarItem.filterView setleftFilterContentWithArray:leftSrc RightFilterContentArray:rightSrc];
     return ;
 }
 

@@ -6,11 +6,9 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseTableViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface ZQDistrictResourceViewController : ZQBaseExitViewController
-
-@property(nonatomic,strong) UITableView* tableView;
+@interface ZQDistrictResourceViewController : ZQBaseTableViewController
 
 @end

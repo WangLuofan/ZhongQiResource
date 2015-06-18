@@ -2,152 +2,173 @@
 //  ZQToolBar.m
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/29.
+//  Created by 王落凡 on 15/6/18.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQFilterView.h"
 #import "ZQToolBar.h"
-#import "ZQToolItem.h"
 
-#define kCenterItemRatio 0.5
+#define kToolBarHeight 44
 #define kSeperatorLineWidth 0.5
-#define kFilterViewHeight 40
+#define kCenterItemRatio 0.5
 
 @interface ZQToolBar ()<ZQFilterViewDelegate> {
-    ZQToolItem* selectedToolItem;
+    UIView* coverView;
+    UIView* _superView;
+    
+    ZQToolBarItem* currentSelectedToolBarItem;
+    
+    BOOL hasFilterViewShown;
 }
 
 @end
 
 @implementation ZQToolBar
 
--(instancetype)initWithSuperView:(UIView *)superView {
+-(instancetype)initWithStyles:(NSArray *)styleArray TextArray:(NSArray *)textArray SuperView:(UIView *)superView Delegate:(id<ZQToolBarDelegate>)delegate{
     self = [super init];
     
     if(self) {
-        self.superView = superView;
-        [self setBackgroundColor:[UIColor whiteColor]];
-        [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
-        [self.layer setShadowOffset:CGSizeMake(0.5, 0.5)];
-        [self.layer setShadowOpacity:0.5f];
-        [self.layer setShadowRadius:0.1f];
-        [self.layer setMasksToBounds:NO];
-        [self setFrame:CGRectMake(superView.frame.origin.x, superView.frame.origin.y, superView.bounds.size.width,kFilterViewHeight)];
-    }
-    
-    return self;
-}
-
--(instancetype)initWithSuperView:(UIView *)superView Styles:(NSArray *)styles Text:(NSArray *)text {
-    self = [super init];
-    
-    if(self) {
-        self.superView = superView;
-        [self setBackgroundColor:[UIColor whiteColor]];
-        [self.layer setShadowColor:[[UIColor lightGrayColor] CGColor]];
-        [self.layer setShadowOffset:CGSizeMake(0.5, 0.5)];
-        [self.layer setShadowOpacity:0.5f];
-        [self.layer setShadowRadius:0.1f];
-        [self.layer setMasksToBounds:NO];
-        [self setFrame:CGRectMake(superView.frame.origin.x, superView.frame.origin.y, superView.bounds.size.width,kFilterViewHeight)];
+        _superView = superView;
         
-        [self setStyles:styles Text:text];
+        hasFilterViewShown = NO;
+        
+        [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)245)/255 green:((CGFloat)246)/255 blue:((CGFloat)247)/255 alpha:1.0f]];
+        [self setFrame:CGRectMake(0, 0, superView.bounds.size.width, kToolBarHeight)];
+       
+        coverView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, superView.bounds.size.width, superView.bounds.size.height)];
+        [coverView setBackgroundColor:[UIColor blackColor]];
+        [coverView setAlpha:0.5f];
+        [coverView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coverViewTapped:)]];
+        
+        [self setDelegate:delegate];
+        
+        [self setToolBarItemStyle:styleArray TextArray:textArray];
     }
     
     return self;
 }
 
--(void)setFilterCategory:(NSString *)filterCategory index:(NSInteger)index {
-    if([filterCategory isEqualToString:ZQToolBarStyleButton]) {
-        UIButton* filterButton = (UIButton*)[self.subviews objectAtIndex:index];
-        [filterButton setTitle:filterCategory forState:UIControlStateNormal];
-    }
-    return ;
-}
-
-
--(void)setStyles:(NSArray*)styles Text:(NSArray*)text {
+-(void)setToolBarItemStyle:(NSArray *)styleArray TextArray:(NSArray*)textArray{
     
-    NSAssert(styles.count == text.count, @"Styles count must be equal to Text count");
     for (UIView* subView in self.subviews) {
         [subView removeFromSuperview];
     }
     
-    NSInteger itemCount = styles.count;
     CGFloat xPosition = 0.0f;
-    CGFloat kItemsWidth = self.frame.size.width*(1-kCenterItemRatio) / (itemCount - 1);
+    CGFloat itemWidth = (self.frame.size.width * (1-kCenterItemRatio)) / (styleArray.count - 1);
     
-    for (int i = 0; i != itemCount; ++i) {
-        if([((NSString*)styles[i]) isEqualToString:ZQToolBarStyleButton]) {
-            
-            ZQToolItem* toolItem = nil;
-            if(i == itemCount / 2)
-                toolItem = [[ZQToolItem alloc] initWithFrame:CGRectMake(xPosition, 0, self.frame.size.width*kCenterItemRatio, self.frame.size.height) Title:(NSString*)text[i] superView:self.superView];
+    for (int i = 0; i != styleArray.count; ++i) {
+        if([styleArray[i] isEqualToString:ZQToolBarButtonItem]) {
+            ZQToolBarItem* toolItem = nil;
+            if(i == styleArray.count / 2)
+                toolItem = [[ZQToolBarItem alloc] initWithFrame:CGRectMake(xPosition, 0, self.frame.size.width*kCenterItemRatio, self.frame.size.height)];
             else
-                toolItem = [[ZQToolItem alloc] initWithFrame:CGRectMake(xPosition, 0, kItemsWidth, self.frame.size.height) Title:(NSString*)text[i] superView:self.superView];
-            [toolItem setTag:i];
+                toolItem = [[ZQToolBarItem alloc] initWithFrame:CGRectMake(xPosition, 0, itemWidth, self.frame.size.height)];
+            
+            toolItem.filterView = [[ZQFilterView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - kScreenHeight / 2, _superView.bounds.size.width, kScreenHeight / 2)];
             [toolItem.filterView setDelegate:self];
-            [toolItem addTarget:self action:@selector(toolItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [toolItem setTag:i];
+            [toolItem setTitle:textArray[i] forState:UIControlStateNormal];
+            [toolItem addTarget:self action:@selector(toolBarItemSelected:) forControlEvents:UIControlEventTouchDown];
+            
+            if([self.delegate respondsToSelector:@selector(loadMenuItemsForToolBarButtonItem:)])
+                [self.delegate loadMenuItemsForToolBarButtonItem:toolItem];
+            
             xPosition += toolItem.frame.size.width ;
             [self addSubview:toolItem];
-            
         }else {
-            
             UISearchBar* searchBar = nil;
-            if( i == itemCount / 2)
+            if( i == styleArray.count / 2)
                 searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(xPosition, 0, self.frame.size.width*kCenterItemRatio, self.bounds.size.height)];
             else
-                searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(xPosition, 0, kItemsWidth, self.bounds.size.height)];
-            [searchBar setPlaceholder:(NSString *)text[i]];
-            [searchBar setTranslucent:YES];
+                searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(xPosition, 0, itemWidth, self.bounds.size.height)];
             [searchBar setTag:i];
+            [searchBar setPlaceholder:textArray[i]];
             xPosition += searchBar.frame.size.width;
             [self addSubview:searchBar];
-            
         }
         
         //分隔线
-        if(i < itemCount - 2) {
+        if(i < styleArray.count - 2) {
             UIView* seperatorLineRight = [[UIView alloc] initWithFrame:CGRectMake(((UIView*)self.subviews[i]).bounds.size.width - kSeperatorLineWidth, 0, kSeperatorLineWidth, self.frame.size.height)];
             [seperatorLineRight setBackgroundColor:[UIColor lightGrayColor]];
             [((UIView*)self.subviews[i]) addSubview:seperatorLineRight];
-        }else if (i == itemCount - 1) {
+        }else if (i == styleArray.count - 1) {
             UIView* seperatorLineLeft = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kSeperatorLineWidth, self.frame.size.height)];
             [seperatorLineLeft setBackgroundColor:[UIColor lightGrayColor]];
             [((UIView*)self.subviews[i]) addSubview:seperatorLineLeft];
         }
-        
     }
-}
-
--(void)showFilterView:(ZQFilterView*)filterView ControlButton:(UIButton*)controlButton{
-    [self.superView addSubview:filterView];
-    [self.superView bringSubviewToFront:self];
-    [filterView showFilterContentViewWithControlButton:controlButton];
     
     return ;
 }
 
--(void)filterView:(ZQFilterView *)filterView itemTextSelected:(NSString *)itemText {
-    [selectedToolItem setTitle:itemText forState:UIControlStateNormal];
+-(void)presentFilterView:(ZQFilterView *)filterView {
+    [_superView addSubview:coverView];
+    [_superView addSubview:filterView];
+    [_superView bringSubviewToFront:self];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [filterView setFrame:CGRectMake(filterView.frame.origin.x, self.frame.size.height, filterView.frame.size.width, filterView.frame.size.height)];
+    } completion:^(BOOL finished) {
+    }];
     return ;
 }
 
--(void)toolItemPressed:(ZQToolItem*)sender {
-    if(![sender isEqual:selectedToolItem]) {
-        [selectedToolItem.filterView dismissFilterContentViewWithControlButton:sender];
-        selectedToolItem = sender;
-        if([selectedToolItem.filterView needsUpdateDataSource])
-            if([self.delegate respondsToSelector:@selector(toolBar:dataSourceForItem:itemIndex:)])
-                [self.delegate toolBar:self dataSourceForItem:selectedToolItem itemIndex:selectedToolItem.tag];
-        [self showFilterView:selectedToolItem.filterView ControlButton:sender];
+-(void)dismissFilterView:(ZQFilterView *)filterView {
+    
+    [self dismissFilterView:filterView complete:^{
+        hasFilterViewShown = NO;
+        [filterView removeFromSuperview];
+        [coverView removeFromSuperview];
+    }];
+    
+    return ;
+}
+
+-(void)dismissFilterView:(ZQFilterView *)filterView complete:(CompletitionBlock)complete {
+    [UIView animateWithDuration:0.3f animations:^{
+        [filterView setFrame:CGRectMake(filterView.frame.origin.x, self.frame.size.height - filterView.frame.size.height, filterView.frame.size.width, filterView.frame.size.height)];
+    } completion:^(BOOL finished) {
+        complete();
+        NSArray* textCollection = [filterView getMultiSelectedItemsTextCollection];
+        if(textCollection != nil)
+            NSLog(@"%@",textCollection);
+    }];
+    
+    return ;
+}
+
+-(void)toolBarItemSelected:(ZQToolBarItem*)sender {
+    if(![sender isEqual:currentSelectedToolBarItem]) {
+        [self dismissFilterView:currentSelectedToolBarItem.filterView complete:^{
+            currentSelectedToolBarItem = sender;
+            [self presentFilterView:currentSelectedToolBarItem.filterView];
+            hasFilterViewShown = YES;
+        }];
     }else {
-        if([selectedToolItem.filterView filterViewShown])
-           [selectedToolItem.filterView dismissFilterContentViewWithControlButton:sender];
-        else
-            [self showFilterView:selectedToolItem.filterView ControlButton:sender];
+        if(hasFilterViewShown) {
+            [self dismissFilterView:sender.filterView];
+            hasFilterViewShown = NO;
+        }
+        else {
+            [self presentFilterView:sender.filterView];
+            hasFilterViewShown = YES;
+        }
     }
+    return ;
+}
+
+-(void)coverViewTapped:(UIGestureRecognizer*)sender {
+    [self dismissFilterView:currentSelectedToolBarItem.filterView];
+    return ;
+}
+
+-(void)filterView:(ZQFilterView *)filterView singleSelectedItemText:(NSString *)singleSelectedItemText {
+    NSLog(@"%@",singleSelectedItemText);
+    [self dismissFilterView:filterView];
     
     return ;
 }

@@ -6,12 +6,11 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQBaseExitViewController.h"
+#import "ZQBaseTableViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface ZQEnterpriseResourceViewController : ZQBaseExitViewController
+@interface ZQEnterpriseResourceViewController : ZQBaseTableViewController
 
-@property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) UIButton* allCheckButton;
 
 @end

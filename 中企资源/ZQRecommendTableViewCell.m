@@ -9,7 +9,7 @@
 #import "ZQRecommendTableViewCell.h"
 
 #define kImageWidth 80.0f
-#define kTextLabelHeightRatio 0.3f
+#define kTextLabelHeightRatio 0.2f
 #define kContentGapSize 5
 #define kTableViewCellHeight 60
 

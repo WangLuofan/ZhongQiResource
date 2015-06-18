@@ -7,9 +7,9 @@
 //
 
 #import "ZQToolBar.h"
-#import "ZQToolItem.h"
+//#import "ZQToolItem.h"
 #import "ZQCheckBox.h"
-#import "ZQFilterView.h"
+//#import "ZQFilterView.h"
 #import "ZQEnterpriseTableViewCell.h"
 #import "ZQNavigationViewController.h"
 #import "ZQEnterpriseResourceViewController.h"
@@ -21,9 +21,8 @@
 #define kBottomControlMargin 10
 #define kTableViewCellHeight 90
 
-@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate,ZQToolBarDelegate> {
+@interface ZQEnterpriseResourceViewController ()<UITableViewDataSource,UITableViewDelegate,ZQCheckBoxDelegate> {
     NSArray* _tableContentArray;
-    ZQToolBar* toolBar;
 }
 
 @end
@@ -34,29 +33,18 @@
     [super viewDidLoad];
     [self setTitle:@"企业资源"];
     
-    //顶部工具栏
-    toolBar = [[ZQToolBar alloc] initWithSuperView:self.view Styles:@[ZQToolBarStyleButton,ZQToolBarStyleSearchBar,ZQToolBarStyleButton] Text:@[@"按行业搜索",@"输入产品或服务",@"按地域搜索"]];
-    [toolBar setDelegate:self];
-    [self.view addSubview:toolBar];
-    CGRect bottomViewFrame = [self addBottomToolBar];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kFilterViewHeight, self.view.frame.size.width, bottomViewFrame.origin.y - kFilterViewHeight) style:UITableViewStylePlain];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.view addSubview:self.tableView];
-    
     _tableContentArray = @[
                            @[@"img",@"湖南长沙卡X电子商务有限公司",@"供求资源",@"诚招各区域代理"],
                            @[@"img",@"广州方丈网络科技有限公司",@"商务合作资源",@"标题"],
                            @[@"img",@"湖南长沙卡X电子商务有限公司",@"供求资源",@"诚招各区域代理"],
                            @[@"img",@"湖南长沙卡X电子商务有限公司",@"供求资源",@"诚招各区域代理"],
                            ];
+    
+    [self addBottomToolBar];
     return ;
 }
 
--(CGRect)addBottomToolBar {
+-(void)addBottomToolBar {
 
     //底部工具栏
     UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kBottomViewHeight - self.navigationController.navigationBar.bounds.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, kBottomViewHeight)];
@@ -99,7 +87,9 @@
     [chatBtn setFrame:CGRectMake(sendOfferBtn.frame.origin.x - kBottomControlMargin - chatImage.size.width / 2, sendOfferBtn.frame.origin.y, chatImage.size.width / 2, chatImage.size.height / 2)];
     [bottomView addSubview:chatBtn];
     
-    return bottomView.frame;
+    [self.tableView setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height - kBottomViewHeight)];
+    
+    return ;
 }
 
 -(void)sendOfferBtnPressed:(UIButton*)sender {
@@ -122,10 +112,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -175,39 +161,31 @@
     return ;
 }
 
--(void)toolBar:(ZQToolBar *)toolBar dataSourceForItem:(ZQToolItem *)toolItem itemIndex:(NSInteger)itemIndex {
+-(void)loadMenuItemsForToolBarButtonItem:(ZQToolBarItem *)toolBarItem {
     NSArray* leftSrc,*rightSrc;
-    switch (itemIndex) {
+    switch (toolBarItem.tag) {
         case 0:
         {
-            leftSrc = @[@"全部",@"女装/男装/内衣"];
+            leftSrc = @[@"全部",@"女装/男装/内衣",@"其他",@"测试"];
             rightSrc = @[
                          @[@"全部",@"春季流行",@"潮流外套"],
-                         @[@"全部",@"春季流行",@"潮流外套"]
+                         @[@"全部",@"春季流行",@"潮流外套"],
+                         @[]
                          ];
         }
             break;
         case 1:
-        {
-            
-        }
             break;
-            
         case 2:
         {
-            leftSrc = @[@"全部",@"湖南",@"广东",@"深圳"];
-            rightSrc = @[
-                         @[@"全部",@"长沙",@"衡阳",@"广州",@"深圳"],
-                         @[@"全部",@"长沙",@"衡阳"],@[@"全部",@"广州",@"深圳"],@[]
-                         ];
+            leftSrc = @[@"全部",@"深圳",@"广州"];
         }
             break;
-            
         default:
             break;
     }
-    [toolItem.filterView addLeftSrouceWithArray:leftSrc RightSourceArray:rightSrc];
     
+    [toolBarItem.filterView setleftFilterContentWithArray:leftSrc RightFilterContentArray:rightSrc];
     return ;
 }
 

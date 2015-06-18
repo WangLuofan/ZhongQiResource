@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"服务机构成功案例"];
-    [self setFilterViewStyles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按行业选择",@"系统推荐"]];
+//    [self setFilterViewStyles:@[ZQToolBarStyleButton,ZQToolBarStyleButton,ZQToolBarStyleButton] Text:@[@"按区域选择",@"按行业选择",@"系统推荐"]];
     
     return ;
 }

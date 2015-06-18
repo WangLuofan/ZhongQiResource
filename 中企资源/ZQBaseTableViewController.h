@@ -7,12 +7,13 @@
 //
 
 #import "ZQToolBar.h"
-#import "ZQToolItem.h"
+//#import "ZQToolItem.h"
 #import "ZQBaseExitViewController.h"
 
 @interface ZQBaseTableViewController : ZQBaseExitViewController <UITableViewDelegate,UITableViewDataSource,ZQToolBarDelegate>
 
 @property(nonatomic,strong) UITableView* tableView;
+@property(nonatomic,strong) ZQToolBar* toolBarView;
 
 -(void)initTableViewWithTableViewStyle:(UITableViewStyle)tableViewStyle;
 -(void)setTableViewNeedLoadMore:(BOOL)bNeeds;

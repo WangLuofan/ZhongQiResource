@@ -2,31 +2,35 @@
 //  ZQToolBar.h
 //  中企资源
 //
-//  Created by 王落凡 on 15/5/29.
+//  Created by 王落凡 on 15/6/18.
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQToolBarItem.h"
+#import "ZQFilterView.h"
 #import <UIKit/UIKit.h>
 
-#define ZQToolBarStyleButton @"ZQToolBarStyleButton"
-#define ZQToolBarStyleSearchBar @"ZQToolBarStylesearchBar"
+#define ZQToolBarButtonItem @"ZQToolBarButtonItem"
+#define ZQToolBarSearchBarItem @"ZQToolBarSearchBarItem"
 
 @class ZQToolBar;
-@class ZQToolItem;
 @protocol ZQToolBarDelegate <NSObject>
 
 @optional
--(void)toolBar:(ZQToolBar*)toolBar dataSourceForItem:(ZQToolItem*)toolItem itemIndex:(NSInteger)itemIndex;
+-(void)loadMenuItemsForToolBarButtonItem:(ZQToolBarItem*)toolBarItem;
 
 @end
+
+typedef void(^CompletitionBlock)(void);
 
 @interface ZQToolBar : UIView
 
 @property(nonatomic,assign) id<ZQToolBarDelegate> delegate;
-@property(nonatomic,strong) UIView* superView;
 
--(instancetype)initWithSuperView:(UIView*)superView Styles:(NSArray*)styles Text:(NSArray*)text;
--(void)setFilterCategory:(NSString*)filterCategory index:(NSInteger)index;
--(void)setStyles:(NSArray*)styles Text:(NSArray*)text;
+-(instancetype)initWithStyles:(NSArray *)styleArray TextArray:(NSArray *)textArray SuperView:(UIView *)superView Delegate:(id<ZQToolBarDelegate>)delegate;
+-(void)setToolBarItemStyle:(NSArray *)styleArray TextArray:(NSArray*)textArray;
+-(void)presentFilterView:(ZQFilterView*)filterView;
+-(void)dismissFilterView:(ZQFilterView*)filterView;
+-(void)dismissFilterView:(ZQFilterView *)filterView complete:(CompletitionBlock)complete;
 
 @end

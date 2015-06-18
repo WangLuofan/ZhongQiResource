@@ -32,7 +32,7 @@
     [super setHighlighted:highlighted];
     
     if(highlighted)
-       [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)13)/255 green:((CGFloat)184)/255 blue:0.0f alpha:0.3f]];
+       [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)13)/255 green:((CGFloat)184)/255 blue:0.0f alpha:0.2f]];
     else
         [self setBackgroundColor:[UIColor colorWithRed:((CGFloat)13)/255 green:((CGFloat)184)/255 blue:0.0f alpha:1.0f]];
     

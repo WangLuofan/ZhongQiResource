@@ -74,7 +74,7 @@
 }
 
 -(void)splitItemChanged:(UIButton*)sender {
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [indicatorView setFrame:CGRectMake(sender.frame.origin.x, indicatorView.frame.origin.y, sender.frame.size.width, indicatorView.frame.size.height)];
         if(sender.center.x - self.center.x < 0)
             [self setContentOffset:CGPointMake(0, 0) animated:YES];
