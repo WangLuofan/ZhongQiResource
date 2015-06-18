@@ -52,6 +52,8 @@
     [self setTitle:@"资源回复"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"回复" style:UIBarButtonItemStylePlain target:self action:@selector(replyButtonPressed:)];
+    [self setPreviousRightBarButtonItem:self.navigationItem.rightBarButtonItem];
+    
     return ;
 }
 

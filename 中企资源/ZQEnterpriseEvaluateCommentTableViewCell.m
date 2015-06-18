@@ -20,9 +20,12 @@
 static CGFloat commentHeight = 0;
 
 @interface ZQEnterpriseEvaluateCommentTableViewCell ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
+    
     UIView* grayShadowView;
     UIView* whiteShadowView;
     UIView* contentView;
+    
+    UIView* seperatorLine;
     
     UIButton* browseButton;
     UIButton* attentionButton;
@@ -104,8 +107,19 @@ static CGFloat commentHeight = 0;
         [messageButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [contentView addSubview:messageButton];
         
+        //标题
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kControlMargin + self.headerImageView.frame.size.width / 2, self.headerImageView.frame.origin.y + self.headerImageView.frame.size.height + kControlMargin / 2, contentView.bounds.size.width - 2*kControlMargin, 2*kLabelHeight)];
+        [self.titleLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, contentView.frame.size.width - 2*self.titleLabel.frame.origin.x, self.titleLabel.frame.size.height)];
+        [self.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [contentView addSubview:self.titleLabel];
+        
+        //分隔线
+        seperatorLine = [[UIView alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x - kControlMargin / 2, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height, self.titleLabel.frame.size.width + kControlMargin, 0.5f)];
+        [seperatorLine setBackgroundColor:[UIColor colorWithRed:((CGFloat)228/255) green:((CGFloat)225/255) blue:((CGFloat)226/255) alpha:1.0f]];
+        [contentView addSubview:seperatorLine];
+        
         //评论内容
-        self.commentContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(kControlMargin + self.headerImageView.frame.size.width / 2, self.headerImageView.frame.origin.y + self.headerImageView.frame.size.height + kControlMargin, 0, 0)];
+        self.commentContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(kControlMargin + self.headerImageView.frame.size.width / 2, seperatorLine.frame.origin.y + seperatorLine.frame.size.height + kControlMargin, 0, 0)];
         [self.commentContentLabel setFrame:CGRectMake(self.commentContentLabel.frame.origin.x, self.commentContentLabel.frame.origin.y, contentView.frame.size.width - 2*self.commentContentLabel.frame.origin.x, 0)];
         [self.commentContentLabel setNumberOfLines:0];
         [self.commentContentLabel setFont:[UIFont systemFontOfSize:12.0f]];
@@ -130,9 +144,20 @@ static CGFloat commentHeight = 0;
     CGSize textsize = [text boundingRectWithSize:CGSizeMake(self.commentContentLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]} context:nil].size;
     [self.commentContentLabel setFrame:CGRectMake(self.commentContentLabel.frame.origin.x, self.commentContentLabel.frame.origin.y, self.commentContentLabel.frame.size.width, textsize.height)];
     
-    commentHeight = textsize.height + self.headerImageView.frame.origin.y + self.headerImageView.frame.size.height + kControlMargin;
+    commentHeight = textsize.height + seperatorLine.frame.origin.y + seperatorLine.frame.size.height + kControlMargin;
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [self.dateTimeLabel setText:[formatter stringFromDate:[NSDate date]]];
     
     [self adjustControlFrame];
+    return ;
+}
+
+-(void)setCommentContentText:(NSString *)text DateTime:(NSString *)dateTime {
+    [self setCommentContentText:text];
+    [self.dateTimeLabel setText:dateTime];
+    
     return ;
 }
 

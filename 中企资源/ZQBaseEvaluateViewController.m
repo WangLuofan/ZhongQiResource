@@ -28,26 +28,32 @@
 
 @implementation ZQBaseEvaluateViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStylePlain];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self.tableView setBackgroundColor:[UIColor clearColor]];
+        [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)]];
+        [self.tableView setDelaysContentTouches:NO];
+        [self.tableView setDelegate:self];
+        [self.tableView setDataSource:self];
+        [self.view addSubview:self.tableView];
+        
+        topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, kTopEvaluateViewHeight)];
+        [self.tableView setTableHeaderView:topView];
+        
+        commentBar = [[ZQCommentBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kNavStatusHeight - kBottomCommentBarHeight, self.view.bounds.size.width, kBottomCommentBarHeight)];
+        [commentBar setDelegate:self];
+        
+        commentCellArray = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight) style:UITableViewStylePlain];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)]];
-    [self.tableView setDelaysContentTouches:NO];
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
-    [self.view addSubview:self.tableView];
-    
-    topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, kTopEvaluateViewHeight)];
-    [self.tableView setTableHeaderView:topView];
-    
-    commentBar = [[ZQCommentBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - kNavStatusHeight - kBottomCommentBarHeight, self.view.bounds.size.width, kBottomCommentBarHeight)];
-    [commentBar setDelegate:self];
-    
-    commentCellArray = [[NSMutableArray alloc] init];
-    
     return ;
 }
 

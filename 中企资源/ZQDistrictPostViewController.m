@@ -79,7 +79,7 @@
         case 1:
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] initWithTitle:self.title];
+                ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] init];
                 [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
                 }];
             });
@@ -197,7 +197,7 @@
         [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setDelegate:self];
         [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).headerImageView setImage:[UIImage imageNamed:@"tx1"]];
         [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).nameLabel setText:@"帅帅"];
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).dateTimeLabel setText:@"2015-05-25  18:03:29"];
+        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).titleLabel setText:@"入园企业的一些心得分享"];
         [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentContentText:@"不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！！"];
         if(indexPath.row == 1)
             [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentImageContent:@[[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"]]];

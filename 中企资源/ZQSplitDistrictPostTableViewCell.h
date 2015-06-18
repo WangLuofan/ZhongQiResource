@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZQResourceInfomationTableViewCell : UITableViewCell
+@interface ZQSplitDistrictPostTableViewCell : UITableViewCell
 
 @property(nonatomic,strong) UIImageView* logoImageView;
 @property(nonatomic,strong) UILabel* enterpriseLabel;

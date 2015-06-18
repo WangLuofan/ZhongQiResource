@@ -1,5 +1,5 @@
 //
-//  ZQSplitDistrictPostViewController.h
+//  ZQResourceInfomationViewController.h
 //  中企资源
 //
 //  Created by 王落凡 on 15/6/15.
@@ -10,5 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ZQSplitDistrictPostViewController : ZQBaseSplitViewController
+
+@property(nonatomic,strong) UITableView* tableView;
 
 @end

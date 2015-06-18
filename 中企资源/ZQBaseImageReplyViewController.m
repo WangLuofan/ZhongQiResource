@@ -11,16 +11,19 @@
 #import "ZQNavigationViewController.h"
 #import "ZQBaseImageReplyViewController.h"
 
+#define kDeleteButtonSize 15
 #define kImagePickerMaxmunCount 10
 #define kControlMargin 5
 #define kCollectionViewCellSize 49
 #define kReplyTextViewHeight 100
-#define kReplyContentHeight 250
+#define kReplyContentHeight 300
 #define kShadowRadius 0.5f
 
 @interface ZQBaseImageReplyViewController ()<UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate> {
     UIView* replyContentView;
     UIButton* imageAddButton;
+    
+    UIBarButtonItem* previousRightBarButtonItem;
     
     NSMutableArray* selectedImageArray;
 }
@@ -37,6 +40,11 @@
     }
     
     return self;
+}
+
+-(void)setPreviousRightBarButtonItem:(UIBarButtonItem *)buttonItem {
+    previousRightBarButtonItem = buttonItem;
+    return ;
 }
 
 - (void)viewDidLoad {
@@ -86,7 +94,7 @@
     if(imageAddButton == nil) {
         imageAddButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [imageAddButton setImage:[UIImage imageNamed:@"dd"] forState:UIControlStateNormal];
-        [imageAddButton setFrame:CGRectMake(0,0,kCollectionViewCellSize,kCollectionViewCellSize)];
+        [imageAddButton setFrame:CGRectMake(kDeleteButtonSize / 2,kDeleteButtonSize / 2,kCollectionViewCellSize - kDeleteButtonSize / 2,kCollectionViewCellSize - kDeleteButtonSize / 2)];
         [imageAddButton addTarget:self action:@selector(imageAddButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [selectedImageArray addObject:imageAddButton];
     }
@@ -110,6 +118,7 @@
 
 -(void)imagePickerChoosenCompletionNotification:(NSNotification*)notification {
     [selectedImageArray removeObject:imageAddButton];
+    [imageAddButton removeFromSuperview];
     
     for (UIImage* img in (NSArray*)notification.userInfo[@"assets"]) {
         if(selectedImageArray.count != kImagePickerMaxmunCount)
@@ -180,20 +189,69 @@
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RscReplyCollectionViewCellIdentifier" forIndexPath:indexPath];
     [cell addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressedGestureHandler:)]];
     
+    for (UIView* subView in cell.contentView.subviews) {
+        [subView removeFromSuperview];
+    }
+    
     if([selectedImageArray[indexPath.row] isKindOfClass:[UIImage class]]) {
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kDeleteButtonSize / 2, kDeleteButtonSize / 2, cell.contentView.bounds.size.width - kDeleteButtonSize / 2, cell.contentView.bounds.size.height - kDeleteButtonSize / 2)];
         [imageView setImage:(UIImage*)selectedImageArray[indexPath.row]];
         [cell.contentView addSubview:imageView];
-    }else
+    }else {
         [cell.contentView addSubview:(UIView *)selectedImageArray[indexPath.row]];
+    }
     return cell;
 }
 
 -(void)longPressedGestureHandler:(UIGestureRecognizer*)sender {
-    UICollectionViewCell* cell = (UICollectionViewCell*)sender.view;
-    NSIndexPath* indexPath = [self.collectionView indexPathForCell:cell];
-    [selectedImageArray removeObjectAtIndex:indexPath.row];
+    if([((UICollectionViewCell*)sender.view).contentView.subviews[0] isKindOfClass:[UIButton class]])
+        return ;
+    
+    for (UICollectionViewCell* cell in self.collectionView.visibleCells) {
+        if(![cell.contentView.subviews[0] isKindOfClass:[UIButton class]]){
+            UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+            [button setFrame:CGRectMake(0, 0, kDeleteButtonSize, kDeleteButtonSize)];
+            [button addTarget:self action:@selector(deleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:button];
+        }else
+            [imageAddButton setEnabled:NO];
+    }
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(completeDeletePressed:)];
+    return ;
+}
+
+-(void)deleteButtonPressed:(UIButton*)sender {
+    NSIndexPath* indexPath = [self.collectionView indexPathForCell:(UICollectionViewCell *)sender.superview.superview];
+    
+    [selectedImageArray removeObjectAtIndex:indexPath.item];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    return ;
+}
+
+-(void)completeDeletePressed:(UIBarButtonItem*)sender {
+    self.navigationItem.rightBarButtonItem = previousRightBarButtonItem;
+    
+    BOOL bImageAddButtonDeleted = YES;
+    for (UIView* subView in selectedImageArray) {
+        if([subView isEqual:imageAddButton]){
+            bImageAddButtonDeleted = NO;
+            break;
+        }
+    }
+    [imageAddButton setEnabled:YES];
+    if(bImageAddButtonDeleted)
+        [selectedImageArray addObject:imageAddButton];
+    
+    for (UICollectionViewCell* cell in self.collectionView.visibleCells) {
+        for (UIView* subView in cell.contentView.subviews) {
+            if([subView isKindOfClass:[UIButton class]] && ![subView isEqual:imageAddButton])
+                [subView removeFromSuperview];
+        }
+    }
     [self.collectionView reloadData];
+
     return ;
 }
 

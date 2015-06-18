@@ -99,9 +99,9 @@
 		B3E293C51B2EB34800822B00 /* ZQPolicyInterpretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */; };
 		B3E293CB1B2EB99100822B00 /* ZQBaseSplitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293CA1B2EB99100822B00 /* ZQBaseSplitTableViewController.m */; };
 		B3E293D21B2EBA4A00822B00 /* ZQSplitToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293D11B2EBA4A00822B00 /* ZQSplitToolView.m */; };
-		B3E293D81B2ECDB600822B00 /* ZQResourceInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293D71B2ECDB600822B00 /* ZQResourceInfomationViewController.m */; };
-		B3E293DC1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.m */; };
-		B3E293E31B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293E21B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.m */; };
+		B3E293D81B2ECDB600822B00 /* ZQSplitDistrictPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293D71B2ECDB600822B00 /* ZQSplitDistrictPostViewController.m */; };
+		B3E293DC1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m */; };
+		B3E293E31B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293E21B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m */; };
 		B3E293E71B2ED49300822B00 /* ZQBaseSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293E61B2ED49300822B00 /* ZQBaseSplitViewController.m */; };
 		B3E67E1B1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E1A1B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.m */; };
 		B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E67E231B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m */; };
@@ -338,12 +338,12 @@
 		B3E293CA1B2EB99100822B00 /* ZQBaseSplitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseSplitTableViewController.m; sourceTree = "<group>"; };
 		B3E293D01B2EBA4A00822B00 /* ZQSplitToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitToolView.h; sourceTree = "<group>"; };
 		B3E293D11B2EBA4A00822B00 /* ZQSplitToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitToolView.m; sourceTree = "<group>"; };
-		B3E293D61B2ECDB600822B00 /* ZQResourceInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQResourceInfomationViewController.h; sourceTree = "<group>"; };
-		B3E293D71B2ECDB600822B00 /* ZQResourceInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQResourceInfomationViewController.m; sourceTree = "<group>"; };
-		B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitDistrictPostViewController.h; sourceTree = "<group>"; };
-		B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitDistrictPostViewController.m; sourceTree = "<group>"; };
-		B3E293E11B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQResourceInfomationTableViewCell.h; sourceTree = "<group>"; };
-		B3E293E21B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQResourceInfomationTableViewCell.m; sourceTree = "<group>"; };
+		B3E293D61B2ECDB600822B00 /* ZQSplitDistrictPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitDistrictPostViewController.h; sourceTree = "<group>"; };
+		B3E293D71B2ECDB600822B00 /* ZQSplitDistrictPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitDistrictPostViewController.m; sourceTree = "<group>"; };
+		B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitDistrictResourceInfomationViewController.h; sourceTree = "<group>"; };
+		B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitDistrictResourceInfomationViewController.m; sourceTree = "<group>"; };
+		B3E293E11B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitDistrictPostTableViewCell.h; sourceTree = "<group>"; };
+		B3E293E21B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitDistrictPostTableViewCell.m; sourceTree = "<group>"; };
 		B3E293E51B2ED49300822B00 /* ZQBaseSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseSplitViewController.h; sourceTree = "<group>"; };
 		B3E293E61B2ED49300822B00 /* ZQBaseSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseSplitViewController.m; sourceTree = "<group>"; };
 		B3E67E191B1C0DF800CBF447 /* ZQTypeChooseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTypeChooseAlertViewController.h; sourceTree = "<group>"; };
@@ -1838,8 +1838,8 @@
 		B3E293D51B2ECD9900822B00 /* 资源信息控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293E01B2ED08F00822B00 /* View */,
-				B3E293DF1B2ED08900822B00 /* Controller */,
+				B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.h */,
+				B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m */,
 			);
 			name = "资源信息控制器";
 			sourceTree = "<group>";
@@ -1847,8 +1847,8 @@
 		B3E293D91B2ECDC800822B00 /* 商圈帖子控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.h */,
-				B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.m */,
+				B3E293DF1B2ED08900822B00 /* Controller */,
+				B3E293E01B2ED08F00822B00 /* View */,
 			);
 			name = "商圈帖子控制器";
 			sourceTree = "<group>";
@@ -1856,8 +1856,8 @@
 		B3E293DF1B2ED08900822B00 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293D61B2ECDB600822B00 /* ZQResourceInfomationViewController.h */,
-				B3E293D71B2ECDB600822B00 /* ZQResourceInfomationViewController.m */,
+				B3E293D61B2ECDB600822B00 /* ZQSplitDistrictPostViewController.h */,
+				B3E293D71B2ECDB600822B00 /* ZQSplitDistrictPostViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1865,8 +1865,8 @@
 		B3E293E01B2ED08F00822B00 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293E11B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.h */,
-				B3E293E21B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.m */,
+				B3E293E11B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.h */,
+				B3E293E21B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2266,7 +2266,7 @@
 				B3771E401B26D230000DD31D /* ZQUserInfoModifyTableViewCell.m in Sources */,
 				B3E67E241B1C545700CBF447 /* ZQEnterpriseIntroductionViewController.m in Sources */,
 				B3FC3D7E1B2D4F0500DAB3F2 /* ZQMyChatTableViewCell.m in Sources */,
-				B3E293E31B2ED0A400822B00 /* ZQResourceInfomationTableViewCell.m in Sources */,
+				B3E293E31B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m in Sources */,
 				B31E66481B1EA13200E70720 /* ZQEnterpriseCommentViewController.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B3F3ABCC1B31202200590822 /* ZQBaseSocialShare.m in Sources */,
@@ -2281,7 +2281,7 @@
 				B3F9B86F1B1DA57A00E1B215 /* ZQLoadMoreView.m in Sources */,
 				B32603531B21761E001142D5 /* ZQNewestTableViewCell.m in Sources */,
 				B34F3DD81B2AB6C600E93FE1 /* ZQImagePickerCollectionViewController.m in Sources */,
-				B3E293D81B2ECDB600822B00 /* ZQResourceInfomationViewController.m in Sources */,
+				B3E293D81B2ECDB600822B00 /* ZQSplitDistrictPostViewController.m in Sources */,
 				B3F9B8751B1DB57C00E1B215 /* ZQSpecialSupportTableViewCell.m in Sources */,
 				B3CC25731B1806E9008693E5 /* ZQPlatformNotificationViewController.m in Sources */,
 				B380DCB81B146C97003B0D53 /* main.m in Sources */,
@@ -2305,7 +2305,7 @@
 				B3BB45461B2A6BED00DCD4BC /* ZQBaseCommentHeader.m in Sources */,
 				B3BB45421B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m in Sources */,
 				B3F6C3D51B155357000313C7 /* ZQTabBarItem.m in Sources */,
-				B3E293DC1B2ECDEA00822B00 /* ZQSplitDistrictPostViewController.m in Sources */,
+				B3E293DC1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m in Sources */,
 				B3CC256F1B1806D8008693E5 /* ZQDistrictAwardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

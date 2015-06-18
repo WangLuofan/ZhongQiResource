@@ -48,7 +48,10 @@
     [currentShownViewController.view removeFromSuperview];
     ZQBaseSplitViewController* viewController = (ZQBaseSplitViewController*)componentsControllerArray[toIndex];
     currentShownViewController = viewController;
-    [currentShownViewController setFrame:CGRectMake(0, kSplitToolViewHeight, self.view.bounds.size.width, self.view.bounds.size.height - kSplitToolViewHeight - kNavStatusHeight)];
+    if(splitToolView == nil)
+        [currentShownViewController setFrame:CGRectMake(0, kSplitToolViewHeight, self.view.bounds.size.width, self.view.bounds.size.height - kNavStatusHeight - kSplitToolViewHeight)];
+    else
+        [currentShownViewController setFrame:CGRectMake(0, kSplitToolViewHeight, self.view.bounds.size.width, self.view.bounds.size.height - kSplitToolViewHeight)];
     [self.view addSubview:currentShownViewController.view];
     return ;
 }

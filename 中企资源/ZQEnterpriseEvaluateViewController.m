@@ -22,14 +22,22 @@
 
 @implementation ZQEnterpriseEvaluateViewController
 
+-(instancetype)init {
+    self = [super init];
+    
+    if(self) {
+        evaluateView = [[ZQEvaluateView alloc] initWithFrame:CGRectMake(0, 0, [self topViewBounds].size.width, [self topViewBounds].size.height - kHeaderLabelHeight)];
+        [evaluateView setDelegate:self];
+        [evaluateView setScore:3.5f commentCount:88];
+        [self addCustomViewToTopView:evaluateView];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"企业评价"];
-    
-    evaluateView = [[ZQEvaluateView alloc] initWithFrame:CGRectMake(0, 0, [self topViewBounds].size.width, [self topViewBounds].size.height - kHeaderLabelHeight)];
-    [evaluateView setDelegate:self];
-    [evaluateView setScore:3.5f commentCount:88];
-    [self addCustomViewToTopView:evaluateView];
     
     UILabel* headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, evaluateView.frame.origin.y + evaluateView.frame.size.height, self.tableView.bounds.size.width, kHeaderLabelHeight)];
     [headerLabel setText:@"    最新动态"];

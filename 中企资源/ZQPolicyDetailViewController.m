@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseSocialShare.h"
 #import "ZQPolicyDetailViewController.h"
 
 @interface ZQPolicyDetailViewController () {
@@ -20,7 +21,7 @@
     self = [super init];
     
     if(self) {
-        [self setTitle:title];
+        [self setTitle:@"解读详情"];
     }
     
     return self;
@@ -39,6 +40,7 @@
 }
 
 -(void)shareButtonPressed:(UIBarButtonItem*)sender {
+    [ZQBaseSocialShare consturctPublishContentWithContent:detailContentLabel.text image:nil title:self.title url:nil description:nil];
     return ;
 }
 

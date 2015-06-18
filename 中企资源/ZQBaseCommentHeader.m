@@ -42,7 +42,7 @@
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"pinlub"] forState:UIControlStateNormal];
         [button.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [button setFrame:CGRectMake(contentView.bounds.size.width / 2 - kControlMargin, contentView.bounds.size.height - kControlMargin - button.imageView.image.size.height / 2,contentView.bounds.size.width / 2, button.imageView.image.size.height / 2)];
+        [button setFrame:CGRectMake(contentView.bounds.size.width / 2 + 3*kControlMargin, contentView.bounds.size.height - kControlMargin - button.imageView.image.size.height / 2,contentView.bounds.size.width / 2, button.imageView.image.size.height / 2)];
         [button setTitle:@"发表评论" forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [button setTitleColor:[UIColor colorWithRed:((CGFloat)51)/255 green:((CGFloat)130)/255 blue:((CGFloat)240)/255 alpha:1.0f] forState:UIControlStateNormal];

@@ -16,5 +16,7 @@
 @property(nonatomic,strong) UICollectionView* collectionView;
 
 -(UIView*)generateShadowViewWithHeight:(CGFloat)height yPosition:(CGFloat)yPosition;
+-(void)backgroundTapped:(UIGestureRecognizer*)sender;
+-(void)setPreviousRightBarButtonItem:(UIBarButtonItem*)buttonItem;
 
 @end

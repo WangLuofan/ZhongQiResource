@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQResourceInfomationTableViewCell.h"
+#import "ZQSplitDistrictPostTableViewCell.h"
 
 #define kShadowRadius 0.5
 #define kControlMargin 5
 #define kLabelHeight 20
 #define kTableViewCellHeight 250
 
-@interface ZQResourceInfomationTableViewCell () {
+@interface ZQSplitDistrictPostTableViewCell () {
     UIButton* browseButton;
     UIButton* attentionButton;
     UIButton* replyButton;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ZQResourceInfomationTableViewCell
+@implementation ZQSplitDistrictPostTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

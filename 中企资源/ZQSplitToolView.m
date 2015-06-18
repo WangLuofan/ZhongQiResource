@@ -67,15 +67,13 @@
     [self setContentSize:CGSizeMake(componments.count*maxWidth, 0)];
     
     indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 1, maxWidth, 1)];
-    [indicatorView setBackgroundColor:[UIColor redColor]];
+    [indicatorView setBackgroundColor:[UIColor colorWithRed:((CGFloat)157/255) green:((CGFloat)194/255) blue:((CGFloat)230)/255 alpha:1.0f]];
     [self addSubview:indicatorView];
     
     return ;
 }
 
 -(void)splitItemChanged:(UIButton*)sender {
-    if([self.splitToolViewDelegate respondsToSelector:@selector(splitToolView:itemSelectionChangedToIndex:)])
-        [self.splitToolViewDelegate splitToolView:self itemSelectionChangedToIndex:sender.tag];
     [UIView animateWithDuration:0.5f animations:^{
         [indicatorView setFrame:CGRectMake(sender.frame.origin.x, indicatorView.frame.origin.y, sender.frame.size.width, indicatorView.frame.size.height)];
         if(sender.center.x - self.center.x < 0)
@@ -84,6 +82,9 @@
             [self setContentOffset:CGPointMake(self.contentSize.width - self.bounds.size.width, 0) animated:YES];
         else
             [self setContentOffset:CGPointMake(sender.center.x - self.center.x, 0) animated:YES];
+    } completion:^(BOOL finished) {
+        if([self.splitToolViewDelegate respondsToSelector:@selector(splitToolView:itemSelectionChangedToIndex:)])
+            [self.splitToolViewDelegate splitToolView:self itemSelectionChangedToIndex:sender.tag];
     }];
     
     return ;

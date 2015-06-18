@@ -18,6 +18,7 @@
 @interface ZQEnterpriseEvaluateCommentTableViewCell : UITableViewCell
 
 @property(nonatomic,strong) UIImageView* headerImageView;       //头像
+@property(nonatomic,strong) UILabel* titleLabel;                //标题
 @property(nonatomic,strong) UILabel* nameLabel;                 //名称
 @property(nonatomic,strong) UILabel* dateTimeLabel;             //日期
 @property(nonatomic,strong) UILabel* commentContentLabel;       //评论内容
@@ -27,6 +28,7 @@
 
 -(void)setNumberOfBrowseCount:(NSInteger)browseCount AttentionCount:(NSInteger)attentionCount MessageCount:(NSInteger)messageCount;
 -(void)setCommentContentText:(NSString*)text;
+-(void)setCommentContentText:(NSString *)text DateTime:(NSString*)dateTime;
 -(void)setCommentImageContent:(NSArray*)imageArray;
 +(CGFloat)cellHeight;
 
