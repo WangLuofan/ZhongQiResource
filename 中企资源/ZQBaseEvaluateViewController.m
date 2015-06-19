@@ -54,6 +54,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     return ;
 }
 
@@ -133,7 +134,6 @@
     commentUserDict = commentInfo;
     
     [commentBar setTextViewPlaceHolder:[NSString stringWithFormat:@"回复:%@",commentInfo[@"userName"]]];
-    
     commentTableViewCell = tableViewCell;
     [self.view addSubview:commentBar];
     [commentBar becomeFirstResponder];

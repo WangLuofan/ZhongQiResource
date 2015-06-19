@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kNavStatusHeight ([[UIApplication sharedApplication] statusBarFrame].size.height + self.navigationController.navigationBar.frame.size.height)
+#define kNavStatusHeight 64
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -24,7 +24,7 @@
 
 //短信验证码 AppKey\AppSecret
 #define kShareSDKSMSAppKey @"831073b6ef9d"
-#define kShareSDKSMSAppSecret @"nil 87e8736284ffd8d053d015070a2ffd18"
+#define kShareSDKSMSAppSecret @"87e8736284ffd8d053d015070a2ffd18"
 
 //社会化分享平台 AppKey\AppSecret
 #define kShareSDKSocialShareAppKey @"830e1b8b1cc4"

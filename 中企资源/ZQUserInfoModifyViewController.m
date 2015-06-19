@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQNavigationViewController.h"
 #import "ZQUserInfoModifyViewController.h"
 #import "ZQUserInfoModifyTableViewCell.h"
 #import "ZQPasswordViewController.h"
@@ -153,8 +154,12 @@
         case 1:
         {
             if(indexPath.row == 1) {
-                ZQPhoneVerifyViewController* phoneController = [[ZQPhoneVerifyViewController alloc] initWithStyle:UITableViewStyleGrouped];
-                [self.navigationController pushViewController:phoneController animated:YES];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    ZQPhoneVerifyViewController* phoneController = [[ZQPhoneVerifyViewController alloc] init];
+                    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:phoneController] animated:YES completion:^{
+                    }];
+                });
+                
             }
         }
             break;

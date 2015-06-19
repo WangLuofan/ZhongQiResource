@@ -9,7 +9,7 @@
 #import "ZQRecommendTableViewCell.h"
 
 #define kImageWidth 80.0f
-#define kTextLabelHeightRatio 0.2f
+#define kTitleLabelHeight 15
 #define kContentGapSize 5
 #define kTableViewCellHeight 60
 
@@ -49,10 +49,10 @@
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kContentGapSize, kContentGapSize, kImageWidth, kTableViewCellHeight - 2* kContentGapSize)];
         [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
         
-        self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x + self.imageView.frame.size.width + kContentGapSize, kContentGapSize, bottomView.frame.size.width - self.imageView.frame.origin.x - self.imageView.frame.size.width - kContentGapSize, kTableViewCellHeight * kTextLabelHeightRatio - kContentGapSize)];
+        self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x + self.imageView.frame.size.width + kContentGapSize, 0, bottomView.frame.size.width - self.imageView.frame.origin.x - self.imageView.frame.size.width - kContentGapSize, kTitleLabelHeight)];
         [self.textLabel setFont:[UIFont systemFontOfSize:12.0f]];
         
-        self.detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y + self.textLabel.frame.size.height + kContentGapSize, self.textLabel.frame.size.width, kTableViewCellHeight * (1 - kTextLabelHeightRatio) - kContentGapSize)];
+        self.detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y + self.textLabel.frame.size.height, self.textLabel.frame.size.width, kTableViewCellHeight - self.textLabel.frame.origin.y - self.textLabel.frame.size.height - kContentGapSize)];
         [self.detailTextLabel setFont:[UIFont systemFontOfSize:10.0f]];
         [self.detailTextLabel setTextColor:[UIColor lightGrayColor]];
         [self.detailTextLabel setNumberOfLines:0];

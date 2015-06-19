@@ -63,7 +63,6 @@
 		B38467711B2FD70A00E5438C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38467701B2FD70A00E5438C /* CoreGraphics.framework */; };
 		B38467781B2FD74600E5438C /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B38467741B2FD74600E5438C /* SMS_SDKLocalizable.strings */; };
 		B38467791B2FD74600E5438C /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38467761B2FD74600E5438C /* SMS_SDK.framework */; };
-		B384677A1B2FF71000E5438C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676C1B2FD70000E5438C /* libicucore.dylib */; };
 		B384677B1B2FF71A00E5438C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676E1B2FD70500E5438C /* libz.dylib */; };
 		B384677F1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B384677E1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m */; };
 		B38FD4BD1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FD4BC1B3017890096DDAE /* ZQServiceAgencySuccessExampleTableViewCell.m */; };
@@ -73,6 +72,7 @@
 		B399F5ED1B2810ED00B763CB /* ZQPhoneVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5EC1B2810ED00B763CB /* ZQPhoneVerifyViewController.m */; };
 		B399F5F11B2817C600B763CB /* ZQPhoneVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5F01B2817C600B763CB /* ZQPhoneVerifyButton.m */; };
 		B399F5F61B28208E00B763CB /* CodeVerifyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5F51B28208E00B763CB /* CodeVerifyTableViewController.m */; };
+		B3A5B4681B33A9FA00988B79 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676C1B2FD70000E5438C /* libicucore.dylib */; };
 		B3BB45421B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45411B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m */; };
 		B3BB45461B2A6BED00DCD4BC /* ZQBaseCommentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45451B2A6BED00DCD4BC /* ZQBaseCommentHeader.m */; };
 		B3BB454A1B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45491B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m */; };
@@ -131,7 +131,6 @@
 		B3F3ABCE1B31205000590822 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABCD1B31205000590822 /* SystemConfiguration.framework */; };
 		B3F3ABD01B31205700590822 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABCF1B31205700590822 /* QuartzCore.framework */; };
 		B3F3ABD21B31205E00590822 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABD11B31205E00590822 /* CoreTelephony.framework */; };
-		B3F3ABD41B31206E00590822 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABD31B31206E00590822 /* libz.1.2.5.dylib */; };
 		B3F3ABD61B31207C00590822 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABD51B31207C00590822 /* ImageIO.framework */; };
 		B3F3ABD81B31208200590822 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABD71B31208200590822 /* Social.framework */; };
 		B3F3ABDA1B31208A00590822 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F3ABD91B31208A00590822 /* MessageUI.framework */; };
@@ -414,6 +413,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A5B4681B33A9FA00988B79 /* libicucore.dylib in Frameworks */,
 				B3F3ABE01B31294D00590822 /* Accounts.framework in Frameworks */,
 				B3F3ABDE1B31209800590822 /* libsqlite3.dylib in Frameworks */,
 				B3F3ABDC1B31209100590822 /* libstdc++.dylib in Frameworks */,
@@ -421,8 +421,6 @@
 				B3F3ABD81B31208200590822 /* Social.framework in Frameworks */,
 				B3F3ABD61B31207C00590822 /* ImageIO.framework in Frameworks */,
 				B38467651B2FD6E700E5438C /* Security.framework in Frameworks */,
-				B3F3ABD41B31206E00590822 /* libz.1.2.5.dylib in Frameworks */,
-				B384677A1B2FF71000E5438C /* libicucore.dylib in Frameworks */,
 				B3F3ABD21B31205E00590822 /* CoreTelephony.framework in Frameworks */,
 				B3F3ABD01B31205700590822 /* QuartzCore.framework in Frameworks */,
 				B3F3ABCE1B31205000590822 /* SystemConfiguration.framework in Frameworks */,
@@ -2448,7 +2446,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2478,7 +2476,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/中企资源/中企资源-prefix.pch";
 				INFOPLIST_FILE = "中企资源/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

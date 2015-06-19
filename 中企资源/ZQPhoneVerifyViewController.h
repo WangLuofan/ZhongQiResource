@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZQPhoneVerifyViewController : UITableViewController
+@interface ZQPhoneVerifyViewController : UIViewController
+
+@property(nonatomic,strong) UITableView* tableView;
 
 @end
