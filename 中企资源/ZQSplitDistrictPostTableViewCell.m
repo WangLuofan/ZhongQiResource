@@ -116,4 +116,13 @@
     return ;
 }
 
+-(void)setWillShowBrowseButtons:(BOOL)bShown {
+    if(!bShown) {
+        [browseButton removeFromSuperview];
+        [attentionButton removeFromSuperview];
+        [replyButton removeFromSuperview];
+    }
+    return ;
+}
+
 @end

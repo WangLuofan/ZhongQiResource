@@ -17,5 +17,6 @@
 @property(nonatomic,strong) UILabel* detailLabel;
 
 -(void)setBrowseCount:(NSInteger)browseCount AttentionCount:(NSInteger)attentionCount ReplyCount:(NSInteger)replyCount;
+-(void)setWillShowBrowseButtons:(BOOL)bShown;
 
 @end

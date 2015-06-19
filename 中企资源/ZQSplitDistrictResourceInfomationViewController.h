@@ -11,4 +11,8 @@
 
 @interface ZQSplitDistrictResourceInfomationViewController : ZQBaseSplitViewController
 
+@property(nonatomic,strong) UITableView* tableView;
+
+-(void)setFrame:(CGRect)frame;
+
 @end

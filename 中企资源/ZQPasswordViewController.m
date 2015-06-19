@@ -123,7 +123,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if(textField.returnKeyType == UIReturnKeyNext) {
-        NSIndexPath* indexPath = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview.superview];
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview.superview.superview];
         if(indexPath.section == 0) {
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
             for (UIView* subView in cell.contentView.subviews) {

@@ -154,6 +154,7 @@
         case 1:
         {
             if(indexPath.row == 1) {
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(phoneNumberVerifySuccessfulNotification:) name:ZQPhoneNumberVerifySuccessfulNotification object:nil];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     ZQPhoneVerifyViewController* phoneController = [[ZQPhoneVerifyViewController alloc] init];
                     [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:phoneController] animated:YES completion:^{
@@ -172,6 +173,19 @@
         default:
             break;
     }
+    return ;
+}
+
+-(void)phoneNumberVerifySuccessfulNotification:(NSNotification*)notification {
+    ZQUserInfoModifyTableViewCell* cell = (ZQUserInfoModifyTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+    NSMutableString* phoneNumber = [NSMutableString stringWithString:(NSString *)notification.userInfo[@"phoneNumber"]];
+    [phoneNumber replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    
+    if(cell != nil) {
+        [cell setCellInfoWithImage:[UIImage imageNamed:@"已绑定手机"] text:phoneNumber];
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ZQPhoneNumberVerifySuccessfulNotification object:nil];
     return ;
 }
 

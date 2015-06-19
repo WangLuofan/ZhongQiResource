@@ -33,6 +33,7 @@
 		B34470C21B295E1400352D46 /* ZQWantEnrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470C11B295E1400352D46 /* ZQWantEnrollViewController.m */; };
 		B34470C71B296AD800352D46 /* ZQWantEnrollModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470C61B296AD800352D46 /* ZQWantEnrollModel.m */; };
 		B34470CC1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34470CB1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m */; };
+		B3471C651B34029400955A8D /* ZQSplitRscInfomationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3471C641B34029400955A8D /* ZQSplitRscInfomationTableViewCell.m */; };
 		B3485D1C1B3255BD00A7B7D0 /* ZQToolBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B3485D1B1B3255BD00A7B7D0 /* ZQToolBarItem.m */; };
 		B3485D1F1B32561500A7B7D0 /* ZQToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B3485D1E1B32561500A7B7D0 /* ZQToolBar.m */; };
 		B3485D221B32603D00A7B7D0 /* ZQFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3485D211B32603D00A7B7D0 /* ZQFilterView.m */; };
@@ -209,6 +210,8 @@
 		B34470C61B296AD800352D46 /* ZQWantEnrollModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQWantEnrollModel.m; sourceTree = "<group>"; };
 		B34470CA1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlatformNotificationTableViewCell.h; sourceTree = "<group>"; };
 		B34470CB1B29705E00352D46 /* ZQPlatformNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlatformNotificationTableViewCell.m; sourceTree = "<group>"; };
+		B3471C631B34029400955A8D /* ZQSplitRscInfomationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSplitRscInfomationTableViewCell.h; sourceTree = "<group>"; };
+		B3471C641B34029400955A8D /* ZQSplitRscInfomationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSplitRscInfomationTableViewCell.m; sourceTree = "<group>"; };
 		B3485D1A1B3255BD00A7B7D0 /* ZQToolBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBarItem.h; sourceTree = "<group>"; };
 		B3485D1B1B3255BD00A7B7D0 /* ZQToolBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQToolBarItem.m; sourceTree = "<group>"; };
 		B3485D1D1B32561500A7B7D0 /* ZQToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQToolBar.h; sourceTree = "<group>"; };
@@ -801,6 +804,24 @@
 				B36F60621B299477005AABAC /* ZQNotificationEvaluateViewController.m */,
 			);
 			name = "平台通告评论页面";
+			sourceTree = "<group>";
+		};
+		B3471C601B34025C00955A8D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.h */,
+				B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3471C611B34026600955A8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3471C631B34029400955A8D /* ZQSplitRscInfomationTableViewCell.h */,
+				B3471C641B34029400955A8D /* ZQSplitRscInfomationTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B3493D2C1B2C852E002F6BFA /* 商圈资源推荐 */ = {
@@ -1836,8 +1857,8 @@
 		B3E293D51B2ECD9900822B00 /* 资源信息控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				B3E293DA1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.h */,
-				B3E293DB1B2ECDEA00822B00 /* ZQSplitDistrictResourceInfomationViewController.m */,
+				B3471C611B34026600955A8D /* Views */,
+				B3471C601B34025C00955A8D /* Controllers */,
 			);
 			name = "资源信息控制器";
 			sourceTree = "<group>";
@@ -2269,6 +2290,7 @@
 				B3485D1C1B3255BD00A7B7D0 /* ZQToolBarItem.m in Sources */,
 				B3F3ABCC1B31202200590822 /* ZQBaseSocialShare.m in Sources */,
 				B3F9B86C1B1D944900E1B215 /* ZQEntRscDistributeTableViewCell.m in Sources */,
+				B3471C651B34029400955A8D /* ZQSplitRscInfomationTableViewCell.m in Sources */,
 				B34F3DEA1B2AE08C00E93FE1 /* ZQImageBrowseView.m in Sources */,
 				B341056D1B17206100C3A079 /* ZQEnterpriseResourceViewController.m in Sources */,
 				B34105521B16A32900C3A079 /* ZQRecommendTableViewCell.m in Sources */,

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseSocialShare.h"
 #import "ZQMediaReportTableViewCell.h"
 #import "ZQNavigationViewController.h"
 #import "ZQServiceAgencySuccessExampleViewController.h"
@@ -18,7 +19,7 @@
 #define kTableHeaderViewHeight 25
 #define kControlMargin 5
 
-@interface ZQServiceAgencyListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate> {
+@interface ZQServiceAgencyListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,ZQEntRscDistributeTableViewCellDelegate> {
     NSArray* agencyProductArray;
     UIImageView* headerImageView;
 }
@@ -123,6 +124,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseResourceInfoDistributionCellIdentifier"];
         if(cell == nil) {
             cell = [[ZQEntRscDistributeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseResourceInfoDistributionCellIdentifier"];
+            [((ZQEntRscDistributeTableViewCell*)cell) setDelegate:self];
         }
         [((ZQEntRscDistributeTableViewCell*)cell) setOfferResourceTitle:@"资源标题"];
         [((ZQEntRscDistributeTableViewCell*)cell).detailLabel setText:@"湖南卡X电子商务有限公司成立于2008年8月，公司秉持为客户创造价值这一核心理念，为各行业企业提供专业的移动整合营销方案。公司拥有全球领先的企业APP和微信APP的开发、推广、运营、发布、管理、统计技术，汇聚行业最丰富、最优秀且最具性价比的产品，同时兼有专业的移动营销运营团队，让客房以最低的成本切入移动互联网营销，以达到最佳的宣传、推评选、促销、快速提升品牌知名度效果，为企业构建全新的营销渠道与方式。"];
@@ -238,6 +240,24 @@
             break;
     }
     return ;
+}
+
+-(void)tableViewCell:(ZQEntRscDistributeTableViewCell *)entRscDistCell buttonPressedAtIndex:(NSInteger)atIndex {
+    switch (atIndex) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+        {
+            [ZQBaseSocialShare consturctPublishContentWithContent:nil image:nil title:nil url:nil description:nil];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

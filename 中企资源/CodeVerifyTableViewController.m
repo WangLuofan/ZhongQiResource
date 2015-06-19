@@ -109,9 +109,9 @@
         [SMS_SDK commitVerifyCode:codeTextField.text result:^(enum SMS_ResponseState state) {
             if (1==state)
             {
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"消息" message:@"手机号码验证成功" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
-                [alertView show];
-                [[NSNotificationCenter defaultCenter] postNotificationName:ZQPhoneNumberVerifySuccessfulNotification object:nil];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:ZQPhoneNumberVerifySuccessfulNotification object:nil userInfo:@{@"phoneNumber":cellPhoneNumber}];
+                }];
             }
             else if(0==state)
             {
@@ -119,9 +119,6 @@
                 [alertView show];
                 [[NSNotificationCenter defaultCenter] postNotificationName:ZQPhoneNumberVerifyFailureNotification object:nil];
             }
-            
-            [self dismissViewControllerAnimated:YES completion:^{
-            }];
         }];
     }
     return ;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQBaseSocialShare.h"
 #import "ZQEnterpriseDetailInfoTableViewCell.h"
 
 #define kControlMargin 10
@@ -113,6 +114,7 @@
         [self.shareButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [self.shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [self.shareButton.titleLabel setFont:[UIFont systemFontOfSize:8.0f]];
+        [self.shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [contentView addSubview:self.shareButton];
         
         //商圈企业名单
@@ -131,6 +133,11 @@
     }
     
     return self;
+}
+
+-(void)shareButtonPressed:(UIButton*)sender {
+    [ZQBaseSocialShare consturctPublishContentWithContent:nil image:nil title:nil url:nil description:nil];
+    return ;
 }
 
 @end

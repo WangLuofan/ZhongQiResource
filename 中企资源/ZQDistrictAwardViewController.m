@@ -36,9 +36,15 @@
     
     [self.tableView setTableHeaderView:headerView];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请" style:UIBarButtonItemStylePlain target:self action:@selector(applyButtonPressed:)];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
     
+    return ;
+}
+
+-(void)applyButtonPressed:(UIBarButtonItem*)sender {
     return ;
 }
 
