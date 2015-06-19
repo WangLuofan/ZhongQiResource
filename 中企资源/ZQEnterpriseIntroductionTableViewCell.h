@@ -29,6 +29,6 @@
 
 -(void)setIntroductionLabelText:(NSString*)text;
 -(void)setEnterpriseInfoWithPhone:(NSString*)phoneNumber Address:(NSString*)address Score:(CGFloat)score;
-+(CGFloat)cellHeight;
+-(CGFloat)cellHeight;
 
 @end

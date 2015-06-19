@@ -86,7 +86,7 @@
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:[NSString stringWithFormat:@"我们将向下面这个手机发送短信验证信息:+86 %@",mobileTextField.text] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"好的", nil];
         [alertView show];
     }
-    
+
     return ;
 }
 

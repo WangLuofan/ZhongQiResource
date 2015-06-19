@@ -19,6 +19,7 @@
 #define kEntRscDistributeTableViewCellHeight 150
 
 @interface ZQEnterpriseIntroductionViewController () <UITableViewDataSource,UITableViewDelegate,ZQEnterpriseIntroductionTableViewCellDelegate,ZQEntRscDistributeTableViewCellDelegate> {
+    ZQEnterpriseIntroductionTableViewCell* introductionTableViewCell;
 }
 
 @end
@@ -49,6 +50,21 @@
     return ;
 }
 
+-(void)setEnterpriseIntroductionWithString:(NSString*)introductionStr LogoImage:(UIImage*)image phoneNumber:(NSString*)phoneNumber AddressString:(NSString*)addressString fScore:(CGFloat)fScore {
+    if(introductionTableViewCell == nil) {
+        introductionTableViewCell = [[ZQEnterpriseIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseIntroductionCellIdentifier"];
+        [introductionTableViewCell setDelegate:self];
+    }
+//    [((ZQEnterpriseIntroductionTableViewCell*)cell) setIntroductionLabelText:@"湖南卡X电子商务有限公司成立于2008年8月，公司秉持为客户创造价值这一核心理念，为各行业企业提供专业的移动整合营销方案。公司拥有全球领先的企业APP和微信APP的开发、推广、运营、发布、管理、统计技术，汇聚行业最丰富、最优秀且最具性价比的产品，同时兼有专业的移动营销运营团队，让客房以最低的成本切入移动互联网营销，以达到最佳的宣传、推评选、促销、快速提升品牌知名度效果，为企业构建全新的营销渠道与方式。"];
+//    [((ZQEnterpriseIntroductionTableViewCell*)cell).logoImageView setImage:[UIImage imageNamed:@"img"]];
+//    [((ZQEnterpriseIntroductionTableViewCell*)cell) setEnterpriseInfoWithPhone:@"0731-88888889" Address:@"湖南省长沙市中电科技园" Score:4.8];
+    [introductionTableViewCell setIntroductionLabelText:introductionStr];
+    [introductionTableViewCell.logoImageView setImage:image];
+    [introductionTableViewCell setEnterpriseInfoWithPhone:phoneNumber Address:addressString Score:fScore];
+    
+    return ;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -67,14 +83,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = nil;
     if(indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseIntroductionCellIdentifier"];
-        if(cell == nil) {
-            cell = [[ZQEnterpriseIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseIntroductionCellIdentifier"];
-            [((ZQEnterpriseIntroductionTableViewCell*)cell) setDelegate:self];
-        }
-        [((ZQEnterpriseIntroductionTableViewCell*)cell) setIntroductionLabelText:@"湖南卡X电子商务有限公司成立于2008年8月，公司秉持为客户创造价值这一核心理念，为各行业企业提供专业的移动整合营销方案。公司拥有全球领先的企业APP和微信APP的开发、推广、运营、发布、管理、统计技术，汇聚行业最丰富、最优秀且最具性价比的产品，同时兼有专业的移动营销运营团队，让客房以最低的成本切入移动互联网营销，以达到最佳的宣传、推评选、促销、快速提升品牌知名度效果，为企业构建全新的营销渠道与方式。"];
-        [((ZQEnterpriseIntroductionTableViewCell*)cell).logoImageView setImage:[UIImage imageNamed:@"img"]];
-        [((ZQEnterpriseIntroductionTableViewCell*)cell) setEnterpriseInfoWithPhone:@"0731-88888889" Address:@"湖南省长沙市中电科技园" Score:4.8];
+        return introductionTableViewCell;
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseResourceInfoDistributionCellIdentifier"];
         if(cell == nil) {
@@ -123,12 +132,13 @@
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
+    return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 0)
-        return [ZQEnterpriseIntroductionTableViewCell cellHeight];
+    if(indexPath.section == 0) {
+        return [introductionTableViewCell cellHeight];
+    }
     return kEntRscDistributeTableViewCellHeight;
 }
 

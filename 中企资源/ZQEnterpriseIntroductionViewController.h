@@ -13,4 +13,6 @@
 
 @property(nonatomic,strong) UITableView* tableView;
 
+-(void)setEnterpriseIntroductionWithString:(NSString*)introductionStr LogoImage:(UIImage*)image phoneNumber:(NSString*)phoneNumber AddressString:(NSString*)addressString fScore:(CGFloat)fScore;
+
 @end

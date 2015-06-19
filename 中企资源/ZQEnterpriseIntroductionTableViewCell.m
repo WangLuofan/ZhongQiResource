@@ -18,8 +18,6 @@
 #define kButtonHeight 20
 #define kShadowRadius 0.5f
 
-static CGFloat textContentHeight;
-
 @interface ZQEnterpriseIntroductionTableViewCell ()<UIAlertViewDelegate> {
     UIView* otherControlView;
     NSString* telephoneNumber;
@@ -29,6 +27,8 @@ static CGFloat textContentHeight;
     UIView* contentView;
     UIView* seperatorLine;
     UIButton* expandButton;
+    
+    CGFloat fCellHeight;
 }
 
 @end
@@ -172,10 +172,10 @@ static CGFloat textContentHeight;
 
 -(void)setIntroductionLabelText:(NSString *)text {
     CGSize textSize = [text boundingRectWithSize:CGSizeMake(self.bounds.size.width - 2*kControlMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} context:nil].size;
-    textContentHeight = textSize.height;
+    fCellHeight = textSize.height;
     
     if(bExpand)
-        textContentHeight += kOtherControlViewHeight;
+        fCellHeight += kOtherControlViewHeight;
     
     [self.introductionLabel setText:text];
     [self.introductionLabel setFrame:CGRectMake(2.0f, 1.0f, self.bounds.size.width - 4.0f, textSize.height)];
@@ -209,7 +209,7 @@ static CGFloat textContentHeight;
 }
 
 -(void)adjustOtherControlViewPosition {
-    [contentView setFrame:CGRectMake(0, kShadowRadius, self.bounds.size.width, [ZQEnterpriseIntroductionTableViewCell cellHeight] - 2*kShadowRadius)];
+    [contentView setFrame:CGRectMake(0, kShadowRadius, self.bounds.size.width, [self cellHeight] - 2*kShadowRadius)];
     [otherControlView setFrame:CGRectMake(0, seperatorLine.frame.origin.y + seperatorLine.frame.size.height + 0.5, self.bounds.size.width, kOtherControlViewHeight)];
     
     return ;
@@ -222,9 +222,8 @@ static CGFloat textContentHeight;
     return ;
 }
 
-+(CGFloat)cellHeight {
-//    return textContentHeight + kOtherControlViewHeight + kControlMargin;
-    return textContentHeight + kControlMargin + kButtonHeight;
+-(CGFloat)cellHeight {
+    return fCellHeight + kControlMargin + kButtonHeight;
 }
 
 -(void)attentionButtonPressed:(UIButton*)sender {
@@ -259,19 +258,23 @@ static CGFloat textContentHeight;
     
     if(!bExpand) {
         [self addSubview:otherControlView];
+        fCellHeight += kOtherControlViewHeight;
         [sender setBackgroundImage:[UIImage imageNamed:@"shrink"] forState:UIControlStateNormal];
         [sender setTitle:@"收起更多" forState:UIControlStateNormal];
         bExpand = YES;
     }else{
         [otherControlView removeFromSuperview];
+        fCellHeight -= kOtherControlViewHeight;
         [sender setBackgroundImage:[UIImage imageNamed:@"extend"] forState:UIControlStateNormal];
         [sender setTitle:@"查看更多" forState:UIControlStateNormal];
         bExpand = NO;
     }
     
-    if(self.superview.superview != nil) {
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         [self adjustOtherControlViewPosition];
         [(UITableView*)self.superview.superview reloadData];
+    }else {
+        [(UITableView*)self.superview reloadData];
     }
     
     return ;
