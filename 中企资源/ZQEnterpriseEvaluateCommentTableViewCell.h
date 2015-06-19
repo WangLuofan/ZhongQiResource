@@ -30,6 +30,6 @@
 -(void)setCommentContentText:(NSString*)text;
 -(void)setCommentContentText:(NSString *)text DateTime:(NSString*)dateTime;
 -(void)setCommentImageContent:(NSArray*)imageArray;
-+(CGFloat)cellHeight;
+-(CGFloat)cellHeight;
 
 @end

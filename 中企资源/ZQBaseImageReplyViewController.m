@@ -42,6 +42,17 @@
     return self;
 }
 
+-(NSArray*)getSelectedImages {
+    NSMutableArray* imageArray = [[NSMutableArray alloc] init];
+    
+    for (id subItem in selectedImageArray) {
+        if([subItem isKindOfClass:[UIImage class]])
+            [imageArray addObject:subItem];
+    }
+    
+    return [imageArray copy];
+}
+
 -(void)setPreviousRightBarButtonItem:(UIBarButtonItem *)buttonItem {
     previousRightBarButtonItem = buttonItem;
     return ;
@@ -252,6 +263,11 @@
     }
     [self.collectionView reloadData];
 
+    return ;
+}
+
+-(void)setPreviousNavigationBarButtonItem:(UIBarButtonItem *)previousBarButtonItem {
+    previousRightBarButtonItem = previousBarButtonItem;
     return ;
 }
 

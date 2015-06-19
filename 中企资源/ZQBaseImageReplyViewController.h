@@ -15,8 +15,10 @@
 @property(nonatomic,strong) UITextView* replyTextView;
 @property(nonatomic,strong) UICollectionView* collectionView;
 
+-(void)setPreviousNavigationBarButtonItem:(UIBarButtonItem*)previousBarButtonItem;
 -(UIView*)generateShadowViewWithHeight:(CGFloat)height yPosition:(CGFloat)yPosition;
 -(void)backgroundTapped:(UIGestureRecognizer*)sender;
 -(void)setPreviousRightBarButtonItem:(UIBarButtonItem*)buttonItem;
+-(NSArray*)getSelectedImages;
 
 @end

@@ -19,7 +19,9 @@
 #define kTableViewHeaderHeight 30
 #define kDefaultTableViewCellHeight 50
 
-@interface ZQDistrictPostViewController ()<UITableViewDataSource,UITableViewDelegate,ZQEnterpriseEvaluateCommentTableViewCellDelegate>
+@interface ZQDistrictPostViewController ()<UITableViewDataSource,UITableViewDelegate,ZQEnterpriseEvaluateCommentTableViewCellDelegate,ZQWantPostViewControllerDelegate> {
+    NSMutableArray* EvaluateCommentTableViewCellArray;
+}
 
 @end
 
@@ -35,6 +37,31 @@
     return self;
 }
 
+-(void)addEnterpriseEvaluateCommentWithHeaderImage:(UIImage*)headerImage userName:(NSString*)userName commentTitle:(NSString*)commentTitle contentText:(NSString*)contentText commentImageContents:(NSArray*)commentImageContents {
+    ZQEnterpriseEvaluateCommentTableViewCell* cell = [[ZQEnterpriseEvaluateCommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];
+    [cell setDelegate:self];
+    
+//    [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setDelegate:self];
+//    [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).headerImageView setImage:[UIImage imageNamed:@"tx1"]];
+//    [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).nameLabel setText:@"帅帅"];
+//    [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).titleLabel setText:@"入园企业的一些心得分享"];
+//    [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentContentText:@"不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！！"];
+//    if(indexPath.row == 1)
+//        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentImageContent:@[[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"]]];
+    
+    [cell.headerImageView setImage:headerImage];
+    [cell.nameLabel setText:userName];
+    [cell.titleLabel setText:commentTitle];
+    [cell setCommentContentText:contentText];
+    
+    if(commentImageContents != nil)
+        [cell setCommentImageContent:commentImageContents];
+    
+    [EvaluateCommentTableViewCellArray insertObject:cell atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    return ;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -44,6 +71,9 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
+    
+    if(EvaluateCommentTableViewCellArray == nil)
+        EvaluateCommentTableViewCellArray = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +91,7 @@
     else if (section == 1)
         return 2;
     
-    return 5;
+    return EvaluateCommentTableViewCellArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,7 +99,7 @@
         return kTableViewCellHeight;
     else if(indexPath.section == 1)
         return kDefaultTableViewCellHeight;
-    return [ZQEnterpriseEvaluateCommentTableViewCell cellHeight];
+    return [((ZQEnterpriseEvaluateCommentTableViewCell*)EvaluateCommentTableViewCellArray[indexPath.row]) cellHeight];
 }
 
 -(void)cellButtonPressed:(UIButton*)sender {
@@ -80,6 +110,7 @@
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 ZQWantPostViewController* postController = [[ZQWantPostViewController alloc] init];
+                [postController setDelegate:self];
                 [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:postController] animated:YES completion:^{
                 }];
             });
@@ -190,17 +221,7 @@
         [((ZQDistrictRscRecommendTableViewCell*)cell) setTitle:@"供求资源:中企招人事，月薪1W元" Detail:@"中企招人事，月薪1W元，一年工作以上者从优"];
     }
     else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];
-        if(cell == nil) {
-            cell = [[ZQEnterpriseEvaluateCommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EnterpriseEvaluateCommentTableViewCellIdentifier"];
-        }
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setDelegate:self];
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).headerImageView setImage:[UIImage imageNamed:@"tx1"]];
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).nameLabel setText:@"帅帅"];
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell).titleLabel setText:@"入园企业的一些心得分享"];
-        [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentContentText:@"不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！不错的资源管理平台，不错哦！！！！"];
-        if(indexPath.row == 1)
-            [((ZQEnterpriseEvaluateCommentTableViewCell*)cell) setCommentImageContent:@[[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test2"],[UIImage imageNamed:@"test"],[UIImage imageNamed:@"test2"]]];
+        return (ZQEnterpriseEvaluateCommentTableViewCell*)EvaluateCommentTableViewCellArray[indexPath.row];
     }
     
     return cell;
@@ -226,6 +247,11 @@
 
 - (void)contentViewTapped:(UITapGestureRecognizer *)sender {
     [sender.view removeFromSuperview];
+}
+
+-(void)postWithTitle:(NSString *)title PostTextContent:(NSString *)postTextContent PostImageContent:(NSArray *)postImageContent {
+    [self addEnterpriseEvaluateCommentWithHeaderImage:[UIImage imageNamed:@"tx1"] userName:@"帅帅" commentTitle:title contentText:postTextContent commentImageContents:postImageContent];
+    return ;
 }
 
 @end

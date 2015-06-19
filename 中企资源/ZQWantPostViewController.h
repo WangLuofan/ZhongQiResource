@@ -8,8 +8,16 @@
 
 #import "ZQBaseImageReplyViewController.h"
 
+@protocol ZQWantPostViewControllerDelegate <NSObject>
+
+@optional
+-(void)postWithTitle:(NSString*)title PostTextContent:(NSString*)postTextContent PostImageContent:(NSArray*)postImageContent;
+
+@end
+
 @interface ZQWantPostViewController : ZQBaseImageReplyViewController
 
+@property(nonatomic,assign) id<ZQWantPostViewControllerDelegate> delegate;
 @property(nonatomic,strong) UITextField* titleTextField;
 
 @end

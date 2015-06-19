@@ -17,8 +17,6 @@
 #define kCollectionCellMargin 5
 #define kCollectionImageHeight 100
 
-static CGFloat commentHeight = 0;
-
 @interface ZQEnterpriseEvaluateCommentTableViewCell ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     
     UIView* grayShadowView;
@@ -32,6 +30,8 @@ static CGFloat commentHeight = 0;
     UIButton* messageButton;
     
     NSArray* imageSrcArray;
+    
+    CGFloat commentHeight;
 }
 
 @end
@@ -175,7 +175,8 @@ static CGFloat commentHeight = 0;
         CGFloat rows = (int)(imageArray.count / kImageCols) + ((imageArray.count % kImageCols)==0?0:1);
         
         UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.commentContentLabel.frame.origin.x, self.commentContentLabel.frame.origin.y + self.commentContentLabel.frame.size.height, self.commentContentLabel.frame.size.width, kCollectionImageHeight*rows + kImageCols*kControlMargin) collectionViewLayout:flowLayout];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.commentContentLabel.frame.origin.x, self.commentContentLabel.frame.origin.y + self.commentContentLabel.frame.size.height, self.commentContentLabel.frame.size.width, kCollectionImageHeight*rows + (kImageCols + 1)*kControlMargin) collectionViewLayout:flowLayout];
+        [self.collectionView setScrollEnabled:NO];
         [self.collectionView setDelegate:self];
         [self.collectionView setDataSource:self];
         [self.collectionView setBackgroundColor:[UIColor clearColor]];
@@ -226,7 +227,7 @@ static CGFloat commentHeight = 0;
     return ;
 }
 
-+(CGFloat)cellHeight {
+-(CGFloat)cellHeight {
     return commentHeight + 2*kControlMargin;
 }
 

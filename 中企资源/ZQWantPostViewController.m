@@ -48,12 +48,15 @@
 //    [self.contentTextView addSubview:placeHolderLabel];
 //    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发帖" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonPressed:)];
+    [self setPreviousNavigationBarButtonItem:self.navigationItem.rightBarButtonItem];
     
     return ;
 }
 
 -(void)postButtonPressed:(UIBarButtonItem*)sender {
     [self dismissViewControllerAnimated:YES completion:^{
+        if([self.delegate respondsToSelector:@selector(postWithTitle:PostTextContent:PostImageContent:)])
+            [self.delegate postWithTitle:self.titleTextField.text PostTextContent:self.replyTextView.text PostImageContent:[self getSelectedImages]];
     }];
     return ;
 }
