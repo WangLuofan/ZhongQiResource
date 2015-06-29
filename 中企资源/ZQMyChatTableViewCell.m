@@ -27,12 +27,12 @@
         [self setBackgroundColor:[UIColor clearColor]];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2*kControlMargin, kControlMargin, self.contentView.bounds.size.height - 2*kControlMargin, self.contentView.bounds.size.height - 2*kControlMargin)];
-        [self.headerImageView setContentMode:UIViewContentModeScaleAspectFit];
-        [self.headerImageView.layer setCornerRadius:self.headerImageView.bounds.size.height / 2];
-        [self.contentView addSubview:self.headerImageView];
+        self.headerImageButton = [[UIImageView alloc] initWithFrame:CGRectMake(2*kControlMargin, kControlMargin, self.contentView.bounds.size.height - 2*kControlMargin, self.contentView.bounds.size.height - 2*kControlMargin)];
+        [self.headerImageButton setContentMode:UIViewContentModeScaleAspectFit];
+        [self.headerImageButton.layer setCornerRadius:self.headerImageButton.bounds.size.height / 2];
+        [self.contentView addSubview:self.headerImageButton];
         
-        self.enterpriseNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.headerImageView.frame.origin.x + kControlMargin + self.headerImageView.bounds.size.width, self.headerImageView.frame.origin.y, (self.contentView.bounds.size.width - kControlMargin - self.headerImageView.frame.origin.x - self.headerImageView.frame.size.width) * 3 / 4, self.headerImageView.bounds.size.height / 2)];
+        self.enterpriseNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.headerImageButton.frame.origin.x + kControlMargin + self.headerImageButton.bounds.size.width, self.headerImageButton.frame.origin.y, (self.contentView.bounds.size.width - kControlMargin - self.headerImageButton.frame.origin.x - self.headerImageButton.frame.size.width) * 3 / 4, self.headerImageButton.bounds.size.height / 2)];
         [self.enterpriseNameLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [self.contentView addSubview:self.enterpriseNameLabel];
         
@@ -42,7 +42,7 @@
         [self.timeLabel setTextAlignment:NSTextAlignmentCenter];
         [self.contentView addSubview:self.timeLabel];
         
-        self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.enterpriseNameLabel.frame.origin.x, self.enterpriseNameLabel.frame.origin.y + self.enterpriseNameLabel.frame.size.height, self.contentView.frame.size.width - self.headerImageView.frame.origin.x - self.headerImageView.frame.size.width - kControlMargin, self.enterpriseNameLabel.frame.size.height)];
+        self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.enterpriseNameLabel.frame.origin.x, self.enterpriseNameLabel.frame.origin.y + self.enterpriseNameLabel.frame.size.height, self.contentView.frame.size.width - self.headerImageButton.frame.origin.x - self.headerImageButton.frame.size.width - kControlMargin, self.enterpriseNameLabel.frame.size.height)];
         [self.messageLabel setTextColor:[UIColor lightGrayColor]];
         [self.messageLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [self.contentView addSubview:self.messageLabel];

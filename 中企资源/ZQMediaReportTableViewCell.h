@@ -12,6 +12,7 @@
 @interface ZQMediaReportTableViewCell : ZQServiceAgencySuccessExampleTableViewCell
 
 -(void)setRatingScore:(CGFloat)ratingScore;
+-(void)setReportContent:(NSString*)reportContent;
 -(void)setAttentionCount:(NSInteger)attentionCount;
 
 @end

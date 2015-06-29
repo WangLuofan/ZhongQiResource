@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
+#import "ZQNewDistrictRscViewController.h"
 #import "ZQNavigationViewController.h"
 #import "ZQDistrictPostViewController.h"
 #import "ZQDistrictResourceViewController.h"
@@ -28,7 +29,7 @@
     [super viewDidLoad];
     [self setTitle:@"商圈资源"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newDistrictButtonPressed:)];
     
     [self setTableViewNeedLoadMore:NO];
 
@@ -37,6 +38,14 @@
                               @[@"img02",@"重工业行业商圈:中联重科",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"],
                               @[@"img03",@"高新技术成果转化财政专项资金扶持",@"阿里巴巴商业圈，为您找到766个中联重科商机、中联重科经验交流、中联重科干货分享。在这里您还可以发现专业的中联重科商友圈子。"]
                               ];
+    
+    return ;
+}
+
+-(void)newDistrictButtonPressed:(UIBarButtonItem*)sender {
+    ZQNewDistrictRscViewController* districtRscController = [[ZQNewDistrictRscViewController alloc] init];
+    [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:districtRscController] animated:YES completion:^{
+    }];
     
     return ;
 }
@@ -52,6 +61,7 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZQRecommendTableViewCell* cell = [[ZQRecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ZQDistrictResourceTableViewCellIdentifier"];
+    
     if(cell == nil)
         cell = [[ZQRecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ZQDistrictResourceTableViewCellIdentifier"];
     

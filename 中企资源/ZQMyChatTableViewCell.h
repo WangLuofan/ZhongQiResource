@@ -10,7 +10,7 @@
 
 @interface ZQMyChatTableViewCell : UITableViewCell
 
-@property(nonatomic,strong) UIImageView* headerImageView;
+@property(nonatomic,strong) UIImageView* headerImageButton;
 @property(nonatomic,strong) UILabel* enterpriseNameLabel;
 @property(nonatomic,strong) UILabel* timeLabel;
 @property(nonatomic,strong) UILabel* messageLabel;

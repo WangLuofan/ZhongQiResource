@@ -228,6 +228,9 @@
 }
 
 -(void)tableViewCell:(UITableViewCell *)tableViewCell browseImage:(UIImage *)image {
+    [super.navigationController setToolbarHidden:YES animated:YES];
+    [super.navigationController setNavigationBarHidden:YES animated:YES];
+    
     UIView* contentView = [[UIView alloc] initWithFrame:self.view.bounds];
     [contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewTapped:)]];
     [self.view addSubview:contentView];
@@ -247,6 +250,11 @@
 
 - (void)contentViewTapped:(UITapGestureRecognizer *)sender {
     [sender.view removeFromSuperview];
+    
+    [super.navigationController setToolbarHidden:NO animated:YES];
+    [super.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    return ;
 }
 
 -(void)postWithTitle:(NSString *)title PostTextContent:(NSString *)postTextContent PostImageContent:(NSArray *)postImageContent {

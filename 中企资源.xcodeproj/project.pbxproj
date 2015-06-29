@@ -74,6 +74,7 @@
 		B399F5F11B2817C600B763CB /* ZQPhoneVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5F01B2817C600B763CB /* ZQPhoneVerifyButton.m */; };
 		B399F5F61B28208E00B763CB /* CodeVerifyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B399F5F51B28208E00B763CB /* CodeVerifyTableViewController.m */; };
 		B3A5B4681B33A9FA00988B79 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B384676C1B2FD70000E5438C /* libicucore.dylib */; };
+		B3A606B31B3910980009FCCB /* ZQInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A606B21B3910980009FCCB /* ZQInfiniteScrollView.m */; };
 		B3BB45421B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45411B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m */; };
 		B3BB45461B2A6BED00DCD4BC /* ZQBaseCommentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45451B2A6BED00DCD4BC /* ZQBaseCommentHeader.m */; };
 		B3BB454A1B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45491B2A7B0300DCD4BC /* ZQBaseImageReplyViewController.m */; };
@@ -95,6 +96,7 @@
 		B3D1E71B1B14761C005C14D9 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71A1B14761C005C14D9 /* UserViewController.m */; };
 		B3D1E71E1B147623005C14D9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E71D1B147623005C14D9 /* MoreViewController.m */; };
 		B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */; };
+		B3DE02521B35659200C14DB9 /* ZQNewDistrictRscViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE02511B35659200C14DB9 /* ZQNewDistrictRscViewController.m */; };
 		B3E293BE1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293BD1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m */; };
 		B3E293C21B2EA5EF00822B00 /* ZQBaseRscReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293C11B2EA5EF00822B00 /* ZQBaseRscReplyViewController.m */; };
 		B3E293C51B2EB34800822B00 /* ZQPolicyInterpretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E293C41B2EB34800822B00 /* ZQPolicyInterpretViewController.m */; };
@@ -288,6 +290,8 @@
 		B399F5F01B2817C600B763CB /* ZQPhoneVerifyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPhoneVerifyButton.m; sourceTree = "<group>"; };
 		B399F5F41B28208E00B763CB /* CodeVerifyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeVerifyTableViewController.h; sourceTree = "<group>"; };
 		B399F5F51B28208E00B763CB /* CodeVerifyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeVerifyTableViewController.m; sourceTree = "<group>"; };
+		B3A606B11B3910980009FCCB /* ZQInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQInfiniteScrollView.h; sourceTree = "<group>"; };
+		B3A606B21B3910980009FCCB /* ZQInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQInfiniteScrollView.m; sourceTree = "<group>"; };
 		B3BB45401B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlatformNotificationEvaluateHeaderView.h; sourceTree = "<group>"; };
 		B3BB45411B2A65D800DCD4BC /* ZQPlatformNotificationEvaluateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlatformNotificationEvaluateHeaderView.m; sourceTree = "<group>"; };
 		B3BB45441B2A6BED00DCD4BC /* ZQBaseCommentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseCommentHeader.h; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 		B3D1E71D1B147623005C14D9 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		B3D1E7311B147DE9005C14D9 /* CommAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommAlgorithm.h; sourceTree = "<group>"; };
 		B3D1E7321B147DE9005C14D9 /* CommAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommAlgorithm.m; sourceTree = "<group>"; };
+		B3DE02501B35659200C14DB9 /* ZQNewDistrictRscViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNewDistrictRscViewController.h; sourceTree = "<group>"; };
+		B3DE02511B35659200C14DB9 /* ZQNewDistrictRscViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNewDistrictRscViewController.m; sourceTree = "<group>"; };
 		B3E293BC1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQDistrictRscRecommendDetailViewController.h; sourceTree = "<group>"; };
 		B3E293BD1B2E79BC00822B00 /* ZQDistrictRscRecommendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQDistrictRscRecommendDetailViewController.m; sourceTree = "<group>"; };
 		B3E293C01B2EA5EF00822B00 /* ZQBaseRscReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseRscReplyViewController.h; sourceTree = "<group>"; };
@@ -678,6 +684,7 @@
 		B341658B1B15969400F9A8ED /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				B3A606B01B39107C0009FCCB /* 无限滚动 */,
 				B3F3ABC91B311FE400590822 /* 社会化分享 */,
 				B384675A1B2FB27800E5438C /* BradgeNumber */,
 				B3F9B8651B1D7C7900E1B215 /* 星级评分控件 */,
@@ -1128,7 +1135,7 @@
 				B3D1E7151B14759B005C14D9 /* 更多 */,
 				B3D1E7141B147594005C14D9 /* 用户中心 */,
 				B3D1E7131B147578005C14D9 /* 首页 */,
-				B3D1E7121B14756E005C14D9 /* 主页 */,
+				B3D1E7121B14756E005C14D9 /* 底部标签页 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1278,6 +1285,15 @@
 			name = "验证码验证";
 			sourceTree = "<group>";
 		};
+		B3A606B01B39107C0009FCCB /* 无限滚动 */ = {
+			isa = PBXGroup;
+			children = (
+				B3A606B11B3910980009FCCB /* ZQInfiniteScrollView.h */,
+				B3A606B21B3910980009FCCB /* ZQInfiniteScrollView.m */,
+			);
+			name = "无限滚动";
+			sourceTree = "<group>";
+		};
 		B3BB453F1B2A65B100DCD4BC /* 平台通告评论头部 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1317,6 +1333,7 @@
 		B3CC251B1B17F2BC008693E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3DE024F1B35654200C14DB9 /* 新建商圈资源 */,
 				B3E293BB1B2E771100822B00 /* 商圈资源推荐详情 */,
 				B3493D2C1B2C852E002F6BFA /* 商圈资源推荐 */,
 				B34470BA1B291C0C00352D46 /* 我要发帖 */,
@@ -1723,7 +1740,7 @@
 			name = "复选框按钮";
 			sourceTree = "<group>";
 		};
-		B3D1E7121B14756E005C14D9 /* 主页 */ = {
+		B3D1E7121B14756E005C14D9 /* 底部标签页 */ = {
 			isa = PBXGroup;
 			children = (
 				B3F6C3D01B155285000313C7 /* ZQTabBarViewController.h */,
@@ -1731,7 +1748,7 @@
 				B3F6C3D61B155670000313C7 /* ZQMainViewController.h */,
 				B3F6C3D71B155670000313C7 /* ZQMainViewController.m */,
 			);
-			name = "主页";
+			name = "底部标签页";
 			sourceTree = "<group>";
 		};
 		B3D1E7131B147578005C14D9 /* 首页 */ = {
@@ -1759,6 +1776,15 @@
 				B3D1E71D1B147623005C14D9 /* MoreViewController.m */,
 			);
 			name = "更多";
+			sourceTree = "<group>";
+		};
+		B3DE024F1B35654200C14DB9 /* 新建商圈资源 */ = {
+			isa = PBXGroup;
+			children = (
+				B3DE02501B35659200C14DB9 /* ZQNewDistrictRscViewController.h */,
+				B3DE02511B35659200C14DB9 /* ZQNewDistrictRscViewController.m */,
+			);
+			name = "新建商圈资源";
 			sourceTree = "<group>";
 		};
 		B3E293BA1B2E622B00822B00 /* 库文件 */ = {
@@ -2262,6 +2288,7 @@
 				B3E293CB1B2EB99100822B00 /* ZQBaseSplitTableViewController.m in Sources */,
 				B3D1E7331B147DE9005C14D9 /* CommAlgorithm.m in Sources */,
 				B3CC258B1B185B12008693E5 /* ZQEnterpriseTableViewCell.m in Sources */,
+				B3DE02521B35659200C14DB9 /* ZQNewDistrictRscViewController.m in Sources */,
 				B3493D331B2C8594002F6BFA /* ZQDistrictRscRecommendTableViewCell.m in Sources */,
 				B367407C1B1BE71100E74338 /* ZQBatchSndReqInfoViewController.m in Sources */,
 				B384677F1B2FF7D100E5438C /* ZQServiceAgencyListViewController.m in Sources */,
@@ -2286,6 +2313,7 @@
 				B3FC3D7E1B2D4F0500DAB3F2 /* ZQMyChatTableViewCell.m in Sources */,
 				B3E293E31B2ED0A400822B00 /* ZQSplitDistrictPostTableViewCell.m in Sources */,
 				B31E66481B1EA13200E70720 /* ZQEnterpriseCommentViewController.m in Sources */,
+				B3A606B31B3910980009FCCB /* ZQInfiniteScrollView.m in Sources */,
 				B3F6C3D21B155285000313C7 /* ZQTabBarViewController.m in Sources */,
 				B3485D1C1B3255BD00A7B7D0 /* ZQToolBarItem.m in Sources */,
 				B3F3ABCC1B31202200590822 /* ZQBaseSocialShare.m in Sources */,

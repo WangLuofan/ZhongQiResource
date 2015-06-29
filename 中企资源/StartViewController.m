@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 王落凡. All rights reserved.
 //
 
-#import "ZQPageControl.h"
 #import "ZQCollectionContentView.h"
+#import "ZQInfiniteScrollView.h"
 #import "StartViewController.h"
 #import "ZQRecommendTableViewCell.h"
 #import "ZQServiceAgencyViewController.h"
@@ -27,8 +27,7 @@
 
 @interface StartViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate> {
     UIScrollView* _contentScrollView;
-    UIScrollView* _imageScrollView;
-    ZQPageControl* _imagePageControl;
+    ZQInfiniteScrollView* _imageScrollView;
     UITableView* _recommendTableView;
     NSArray* tableViewContentArray;
 }
@@ -68,7 +67,22 @@
     [self initLoginButton];
     [self initRecommendModule];
     
-    [_contentScrollView setContentSize:CGSizeMake(_contentScrollView.bounds.size.width, _recommendTableView.frame.origin.y + kRecommendTableViewHeight + self.navigationController.navigationBar.bounds.size.height + [UIApplication sharedApplication].statusBarFrame.size.height)];
+    [_contentScrollView setContentSize:CGSizeMake(0, _recommendTableView.frame.origin.y + _recommendTableView.frame.size.height + kNavStatusHeight)];
+    return ;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_imageScrollView resumeScrollViewAutoScroll];
+    
+    return ;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_imageScrollView setScrollViewNeedsAutoScrollWithTimeInterval:0.0f];
+    
+    return ;
 }
 
 #pragma mark - 添加全部的子控制器
@@ -166,18 +180,11 @@
     UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopScrollViewHeight)];
     [_contentScrollView addSubview:bottomView];
     
-    _imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopScrollViewHeight)];
-    [_imageScrollView setPagingEnabled:YES];    //设置分页
-    [_imageScrollView setShowsHorizontalScrollIndicator:NO];    //设置不显示水平滚动条
-    [_imageScrollView setShowsVerticalScrollIndicator:NO];      //设置不显示垂直滚动条
-    [_imageScrollView setBounces:NO];                           //设置滚动视图无弹性
-    [_imageScrollView setDelegate:self];                        //设置代理
+    _imageScrollView = [[ZQInfiniteScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kTopScrollViewHeight)];
+    [_imageScrollView setScrollViewNeedsAutoScrollWithTimeInterval:2.0f];
     [bottomView addSubview:_imageScrollView];
     
-    _imagePageControl = [[ZQPageControl alloc] initWithFrame:CGRectMake(0, bottomView.bounds.size.height - 20, bottomView.bounds.size.width, 10)];
-    [bottomView addSubview:_imagePageControl];
-    
-    [self addNavigationImageWithName:@[@"banner01",@"banner01",@"banner01",@"banner01",@"banner01"]];
+    [self addNavigationImageWithName:@[@"1",@"2",@"3",@"4",@"5"]];
     
     return ;
 }
@@ -198,28 +205,7 @@
 
 #pragma mark - 增加顶部导航图片
 -(void)addNavigationImageWithName:(NSArray *)imageNameArray {
-    //设置pageControl
-    [_imagePageControl setNumberOfPages:imageNameArray.count];
-    
-    //清空scrollView中的所有控件
-    for (UIView* subView in _imageScrollView.subviews) {
-        [subView removeFromSuperview];
-    }
-    
-    //添加图片
-    for (int i = 0; i != imageNameArray.count; ++i) {
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*_imageScrollView.bounds.size.width, 0, _imageScrollView.bounds.size.width, _imageScrollView.bounds.size.height)];
-        [imageView setImage:[UIImage imageNamed:imageNameArray[i]]];
-        [_imageScrollView addSubview:imageView];
-    }
-    [_imageScrollView setContentSize:CGSizeMake(imageNameArray.count*_imageScrollView.bounds.size.width, _imageScrollView.bounds.size.height)];
-    
-    return ;
-}
-
-#pragma mark - 滚动视图代理方法
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [_imagePageControl setCurrentPage:((int)scrollView.contentOffset.x/kScreenWidth+0.5)];
+    [_imageScrollView reloadImageForScrollViewWithImageNameArray:imageNameArray];
     return ;
 }
 

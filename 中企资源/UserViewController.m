@@ -31,7 +31,7 @@
 #define kCollectionCellMargin 5
 #define kLoginCompleteViewGap 10
 
-@interface UserViewController () {
+@interface UserViewController ()<UIActionSheetDelegate> {
     UIImageView* _contentImageView;
     UICollectionView* _contentCollectionView;
     LoginCompleteView* loginCompleteView;
@@ -97,8 +97,16 @@
     
     loginCompleteView = [[LoginCompleteView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, _contentImageView.frame.size.height - 2*kLoginCompleteViewGap)];
     [loginCompleteView.closureButton addTarget:self action:@selector(closureButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [loginCompleteView.headerImageView addTarget:self action:@selector(headerImageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [loginCompleteView setCenter:CGPointMake(loginCompleteView.center.x, _contentImageView.center.y)];
     [_contentImageView addSubview:loginCompleteView];
+    
+    return ;
+}
+
+-(void)headerImageButtonPressed:(UIButton*)sender {
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择您要进行的操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出登陆" otherButtonTitles:@"修改资料", nil];
+    [actionSheet showInView:self.tabBarViewController.view];
     
     return ;
 }
@@ -113,7 +121,7 @@
 
 -(void)closureButtonPressed:(UIButton*)sender {
     dispatch_async(dispatch_get_main_queue(), ^{
-        ZQUserInfoModifyViewController* userViewController = [[ZQUserInfoModifyViewController alloc] initWithHeaderImage:loginCompleteView.headerImageView.image userName:loginCompleteView.userName];
+        ZQUserInfoModifyViewController* userViewController = [[ZQUserInfoModifyViewController alloc] initWithHeaderImage:[loginCompleteView.headerImageView imageForState:UIControlStateNormal] userName:loginCompleteView.userName];
         [self.tabBarViewController presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:userViewController] animated:YES completion:^{
         }];
     });
@@ -141,6 +149,32 @@
         }
     }
     
+    return ;
+}
+
+-(void)logoff {
+    [loginCompleteView hideLoginCompleteView];
+    [welcomeLabel setHidden:NO];
+    [loginButton setHidden:NO];
+    return ;
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+        {
+            [self logoff];
+        }
+            break;
+        case 1:
+        {
+            [self closureButtonPressed:nil];
+            return ;
+        }
+            break;
+        default:
+            break;
+    }
     return ;
 }
 

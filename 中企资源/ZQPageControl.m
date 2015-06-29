@@ -14,6 +14,7 @@
 @interface ZQPageControl () {
     UIImage* activeImage;
     UIImage* inActiveImage;
+    CGSize pageControlFitSize;
 }
 
 @end
@@ -24,9 +25,10 @@
     self = [super initWithFrame:frame];
     
     if(self) {
+        [self setBackgroundColor:[UIColor clearColor]];
         activeImage = [UIImage imageNamed:@"ctrl"];
         inActiveImage = [UIImage imageNamed:@"ctrl1"];
-        [self setBackgroundColor:[UIColor clearColor]];
+        pageControlFitSize = CGSizeZero;
     }
     
     return self;
@@ -35,11 +37,11 @@
 -(void)drawRect:(CGRect)rect {
     // Drawing code
     NSUInteger count = [self.subviews count];
-    NSUInteger totalLenth = count * kPageControlSize + (count - 1) * kPageControlGapWidth ;
+    NSUInteger totalLength = count * kPageControlSize + (count - 1) * kPageControlGapWidth ;
     for (int i = 0; i < count; i++) {
         
         UIImageView* dot = [self.subviews objectAtIndex:i];
-        [dot setFrame:CGRectMake(i*(kPageControlSize+kPageControlGapWidth) + (self.center.x - totalLenth / 2), 0, kPageControlSize, kPageControlSize)];
+        [dot setFrame:CGRectMake(i*totalLength / count, 0, kPageControlSize, kPageControlSize)];
         
         if (i == 0) {
             [dot setImage:activeImage];
@@ -56,6 +58,7 @@
         UIImageView* imageView = [[UIImageView alloc] initWithImage:inActiveImage];
         [self addSubview:imageView];
     }
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.subviews.count * kPageControlSize + (self.subviews.count - 1) * kPageControlGapWidth, kPageControlSize)];
     return ;
 }
 

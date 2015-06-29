@@ -10,12 +10,13 @@
 
 @interface LoginCompleteView : UIView
 
-@property(nonatomic,strong) UIImageView* headerImageView;
+@property(nonatomic,strong) UIButton* headerImageView;
 @property(nonatomic,strong) UILabel* userNameLabel;
 @property(nonatomic,strong) UILabel* companyLabel;
 @property(nonatomic,strong) UIButton* closureButton;
 @property(nonatomic,copy) NSString* userName;
 
 -(void)showLoginCompleteViewWithImageName:(NSString*)imageName userName:(NSString*)userName companyName:(NSString*)companyName;
+-(void)hideLoginCompleteView;
 
 @end

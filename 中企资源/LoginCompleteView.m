@@ -39,7 +39,7 @@
         [self addSubview:centerShadowView];
         
         //头像
-        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, centerShadowView.bounds.size.width - 2*kImageViewGap, centerShadowView.bounds.size.height - 2*kImageViewGap)];
+        self.headerImageView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, centerShadowView.bounds.size.width - 2*kImageViewGap, centerShadowView.bounds.size.height - 2*kImageViewGap)];
         [self.headerImageView.layer setCornerRadius:self.headerImageView.bounds.size.width / 2];
         [self.headerImageView.layer setMasksToBounds:YES];
         [self.headerImageView setCenter:centerShadowView.center];
@@ -67,9 +67,20 @@
     return self;
 }
 
+-(void)hideLoginCompleteView {
+    [self setHidden:YES];
+    [self.headerImageView setImage:nil forState:UIControlStateNormal];
+    [self.companyLabel setText:@""];
+    [self setUserName:@""];
+    [self.userNameLabel setText:@""];
+    
+    return ;
+}
+
 -(void)showLoginCompleteViewWithImageName:(NSString *)imageName userName:(NSString *)userName companyName:(NSString *)companyName {
     [self setHidden:NO];
-    [self.headerImageView setImage:[UIImage imageNamed:imageName]];
+    [self.headerImageView setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+//    [self.headerImageView setImage:[UIImage imageNamed:imageName]];
     [self.companyLabel setText:companyName];
     self.userName = userName;
     

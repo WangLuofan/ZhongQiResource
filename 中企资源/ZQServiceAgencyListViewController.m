@@ -14,7 +14,7 @@
 #import "ZQServiceAgencyListViewController.h"
 
 #define kEntRscDistributeTableViewCellHeight 150
-#define kMediaReportTableViewCellHeight 400
+#define kMediaReportTableViewCellHeight 350
 #define kTableViewCellHeight 100
 #define kTableHeaderViewHeight 25
 #define kControlMargin 5
@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"效果咨询"];
     [self initTableViewWithTableViewStyle:UITableViewStyleGrouped];
     [self setViewControllerNeedFilterView:NO];
     [self setTableViewNeedLoadMore:YES];
@@ -118,6 +119,7 @@
         [((ZQMediaReportTableViewCell*)cell).headerImageView setImage:[UIImage imageNamed:@"img03"]];
         [((ZQMediaReportTableViewCell*)cell).titleLabel setText:@"羽凌贸易合作商一"];
         [((ZQMediaReportTableViewCell*)cell).detailLabel setText:@"羽凌贸易，做有萍乡烙印的电商品牌!...这里是一个任由你发挥创造的平台，这里所需要的仅仅是你的热忱写才智，诚邀加入萍乡电子商务创业园"];
+        [((ZQMediaReportTableViewCell*)cell) setReportContent:@"                                效果咨询\r\n效果咨询是谁?\r\n——以企业目标达成、行动实现、效果显着改善、利润突出放大为必达使命的中国专业咨询机构。效果咨询的切入点在哪里？\r\n    ——永远是：企业的目标！\r\n效果咨询的价值观：\r\n    ——用绩效衡量，对效果负责\r\n用绩效衡量释义：效果咨询存在的价值，不是向客户提供一大堆没有实际意义的改善建议或报告，而是通过简单有效的方法促进客户绩效改善和提升，并通过数字可以量化的绩效（销售收入、利润、现金流、QCD目标等）体现客户服务的效果，以为客户创造的价值体现效果咨询机构存在的意义。"];
         [((ZQMediaReportTableViewCell*)cell) setRatingScore:4.8];
         [((ZQMediaReportTableViewCell*)cell) setAttentionCount:889];
     }else {

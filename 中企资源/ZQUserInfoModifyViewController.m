@@ -79,7 +79,9 @@
 -(void)saveButtonPressed:(UIBarButtonItem*)sender {
     [self.tableView setUserInteractionEnabled:NO];
     [self.tableView selectRowAtIndexPath:nil animated:YES scrollPosition:UITableViewScrollPositionTop];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonPressed:)];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
     
     return ;
 }
@@ -160,7 +162,7 @@
                     [self presentViewController:[[ZQNavigationViewController alloc] initWithRootViewController:phoneController] animated:YES completion:^{
                     }];
                 });
-                
+                [tableView deselectRowAtIndexPath:indexPath animated:YES];
             }
         }
             break;
@@ -168,6 +170,7 @@
         {
             ZQPasswordViewController* passwordController = [[ZQPasswordViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [self.navigationController pushViewController:passwordController animated:YES];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
             break;
         default:

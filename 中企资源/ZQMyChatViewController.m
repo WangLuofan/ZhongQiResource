@@ -61,7 +61,7 @@
     if(cell == nil)
         cell = [[ZQMyChatTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyChatTableViewCell"];
     
-    [cell.headerImageView setImage:[UIImage imageNamed:@"tx"]];
+    [cell.headerImageButton setImage:[UIImage imageNamed:@"tx"]];
     [cell.enterpriseNameLabel setText:@"湖南力天汽车集团有限公司"];
     [cell.timeLabel setText:@"09:22"];
     [cell.messageLabel setText:@"可以留下您的联系方式吗?"];

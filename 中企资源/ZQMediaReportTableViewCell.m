@@ -100,6 +100,11 @@
     return ;
 }
 
+-(void)setReportContent:(NSString *)reportContent {
+    [reportContentLabel setText:reportContent];
+    return ;
+}
+
 -(void)setRatingScore:(CGFloat)ratingScore {
     [ratingView setRating:ratingScore];
     [scoreLabel setText:[NSString stringWithFormat:@"%0.1f 分",ratingScore]];
